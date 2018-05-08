@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7e8f13e48804b42bc035944d491044, type: 3}
+  m_Name: GridMaker
+  m_EditorClassIdentifier: 
+  RedBlock: {fileID: 1461892136106516, guid: 9c135fda3e64f374099144c024eab1ce, type: 2}
+  WhiteBlock: {fileID: 1445430583141206, guid: 6d6d084dff987194d93876ebc77c6028, type: 2}
+  RedSideBlock: {fileID: 1461892136106516, guid: bd20d76e37ea1bb48bbb520069e7459e,
+    type: 2}
+  WhiteSideBlock: {fileID: 1445430583141206, guid: ebea505c2eb31604f9b55a2496eac267,
+    type: 2}
+  BlueBlock: {fileID: 1574880553937912, guid: 49b2856d30c5f4c4cac7dda3de6c9d4a, type: 2}
+  Size: {x: 12, y: 12}

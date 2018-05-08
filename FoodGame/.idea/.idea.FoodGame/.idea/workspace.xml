@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="baa3866b-0a0e-41f2-abc4-166d2a9cbf73" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/AssetImportState" beforeDir="false" afterPath="$PROJECT_DIR$/Library/AssetImportState" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/Library/expandedItems" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/01/01e02995805eb483690380a911a657e2" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/01/01e02995805eb483690380a911a657e2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/01/01e02995805eb483690380a911a657e2.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/01/01e02995805eb483690380a911a657e2.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/26/26fe4b2e7b3b845a6b5668ad693669af" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/26/26fe4b2e7b3b845a6b5668ad693669af" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/26/26fe4b2e7b3b845a6b5668ad693669af.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/26/26fe4b2e7b3b845a6b5668ad693669af.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/27/27ce5eddbf1a34ea3a8182b5871c2806" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/27/27ce5eddbf1a34ea3a8182b5871c2806" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/27/27ce5eddbf1a34ea3a8182b5871c2806.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/27/27ce5eddbf1a34ea3a8182b5871c2806.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2f/2febd0c993e0741fa9bd119683ee8921" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/2f/2febd0c993e0741fa9bd119683ee8921" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/2f/2febd0c993e0741fa9bd119683ee8921.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/2f/2febd0c993e0741fa9bd119683ee8921.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3c/3cf132d4fa07f4f0cb2883499c5c7dd0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3c/3cf132d4fa07f4f0cb2883499c5c7dd0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3c/3cf132d4fa07f4f0cb2883499c5c7dd0.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3c/3cf132d4fa07f4f0cb2883499c5c7dd0.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3d/3d7380326a6e14e9688556154528086c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3d/3d7380326a6e14e9688556154528086c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/3d/3d7380326a6e14e9688556154528086c.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3d/3d7380326a6e14e9688556154528086c.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/46/460636d894925441ba1debe037d2e343" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/46/460636d894925441ba1debe037d2e343" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/46/460636d894925441ba1debe037d2e343.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/46/460636d894925441ba1debe037d2e343.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4d/4dfd3f5da88944ec6ac5977d676c30c6" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4d/4dfd3f5da88944ec6ac5977d676c30c6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/4d/4dfd3f5da88944ec6ac5977d676c30c6.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4d/4dfd3f5da88944ec6ac5977d676c30c6.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/54/54820846856014161a452f4eb38ab087" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/54/54820846856014161a452f4eb38ab087" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/54/54820846856014161a452f4eb38ab087.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/54/54820846856014161a452f4eb38ab087.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/5c/5c4f28f6254cd4e9fb5b1d7b51cb348c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/5c/5c4f28f6254cd4e9fb5b1d7b51cb348c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/5c/5c4f28f6254cd4e9fb5b1d7b51cb348c.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/5c/5c4f28f6254cd4e9fb5b1d7b51cb348c.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/7c/7c403f6b3529944498d913eafe2bee11" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/7c/7c403f6b3529944498d913eafe2bee11" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/7c/7c403f6b3529944498d913eafe2bee11.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/7c/7c403f6b3529944498d913eafe2bee11.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/a1/a1b06157fdd524f669d8355fbadd0889" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a1/a1b06157fdd524f669d8355fbadd0889" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/a1/a1b06157fdd524f669d8355fbadd0889.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a1/a1b06157fdd524f669d8355fbadd0889.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/a3/a372ce265d14840389df4dcbfb6a4570" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a3/a372ce265d14840389df4dcbfb6a4570" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/a3/a372ce265d14840389df4dcbfb6a4570.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a3/a372ce265d14840389df4dcbfb6a4570.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c4/c4c68c906ab1d428fbdcd9e1316e6600" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/c4/c4c68c906ab1d428fbdcd9e1316e6600" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c4/c4c68c906ab1d428fbdcd9e1316e6600.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/c4/c4c68c906ab1d428fbdcd9e1316e6600.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d5/d5d8461883c694c9189b74d5ab60c3a5" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d5/d5d8461883c694c9189b74d5ab60c3a5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d5/d5d8461883c694c9189b74d5ab60c3a5.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d5/d5d8461883c694c9189b74d5ab60c3a5.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d6/d67361a21907a4524b851a0b4ba35b83" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d6/d67361a21907a4524b851a0b4ba35b83" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d6/d67361a21907a4524b851a0b4ba35b83.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d6/d67361a21907a4524b851a0b4ba35b83.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ed/ed324159e95b04533968db171d71aac6" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ed/ed324159e95b04533968db171d71aac6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ed/ed324159e95b04533968db171d71aac6.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ed/ed324159e95b04533968db171d71aac6.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f8/f8eca3a711f4842eba0c52ea9885ef7f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f8/f8eca3a711f4842eba0c52ea9885ef7f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/f8/f8eca3a711f4842eba0c52ea9885ef7f.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f8/f8eca3a711f4842eba0c52ea9885ef7f.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GridMaker.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Grid/GridMaker.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+              <folding>
+                <marker date="1525789635516" expanded="true" signature="6:197" ph="..." />
+                <marker date="1525789635516" expanded="true" signature="213:2880" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="283:2877" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="784:2852" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="898:1171" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="1060:1152" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="1188:1282" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="1415:2842" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="1714:2777" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="1887:2082" ph="{...}" />
+                <marker date="1525789635516" expanded="true" signature="2107:2281" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridManager.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HighLight.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node/HighLight.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="18" selection-start-column="18" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NodeBehaviour.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeightMapSettings.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/HeightMapSettings.cs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateableData.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tools/UpdateableData.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tools/UpdateableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../SceneToNumpad/SceneToNumpad/SceneToNumpad/HotKeysEditor.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../SceneToNumpad/SceneToNumpad/SceneToNumpad/HotKeyWindow.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/ObjectSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/UpdateableDataEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Editor/UpdateableDataEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/GridMaker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Node/NodeManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/BaseSpawnSettings.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/TextureData.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/UpdateableData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Node/HighLight.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/HeightMapSettings.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/Door/Doors.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Node/HighLight.cs" />
+        <option value="C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/Resources/ScriptTemplates/81-C# Script-NewBehaviourScript.cs.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Node/NodeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tools/UpdateableData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/UpdateableDataEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/AutoSave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Grid/GridMaker.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
+    <option name="width" value="1950" />
+    <option name="height" value="2175" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+              <item name="" type="1045f7f1:UnityExplorerNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="13136">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="13136" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="baa3866b-0a0e-41f2-abc4-166d2a9cbf73" name="Default" comment="" />
+      <created>1525765691860</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1525765691860</updated>
+      <workItem from="1525765696554" duration="785000" />
+      <workItem from="1525766605117" duration="19896000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="20681000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="1549" height="877" extended-state="6" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" order="3" weight="0.32997987" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Unit Tests" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" weight="0.5304709" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="7" />
+      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4035326" />
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="NuGet" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Unity" order="9" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.5304709" />
+      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Unit Tests" order="11" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4035326" />
+      <window_info anchor="right" id="Errors In Solution" order="3" weight="0.32997987" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" isUnityUI="true" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Grid/GridMaker.cs</url>
+          <line>58</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/GridMaker.cs" initialLine="50">
+            <startOffsets>
+              <startOffset value="1428" />
+            </startOffsets>
+            <endOffsets>
+              <endOffset value="1429" />
+            </endOffsets>
+          </properties>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/Resources/ScriptTemplates/81-C# Script-NewBehaviourScript.cs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Unity/Hub/Editor/2018.1.0f2/Editor/Data/Resources/ScriptTemplates/81-C# Script-NewBehaviourScript.cs.txt" />
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node/NodeManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+          <folding>
+            <marker date="1525766732368" expanded="true" signature="28:134" ph="{...}" />
+            <marker date="1525766732368" expanded="true" signature="81:132" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../SceneToNumpad/SceneToNumpad/SceneToNumpad/HotKeysEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../SceneToNumpad/SceneToNumpad/SceneToNumpad/HotKeyWindow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/Door/Doors.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1170">
+          <folding>
+            <marker date="1524131302644" expanded="true" signature="6:126" ph="..." />
+            <marker date="1524131302644" expanded="true" signature="142:4917" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="199:1936" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="457:514" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="589:645" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="770:823" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="904:951" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="1111:1258" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="1288:1356" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="1384:1496" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="1525:1636" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="1661:1708" ph="{...}" />
+            <marker date="1524131302644" expanded="true" signature="1747:1927" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/BaseSpawnSettings.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/TextureData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-436" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Tools/UpdateableData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Editor/UpdateableDataEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+          <folding>
+            <marker date="1524131302070" expanded="true" signature="6:60" ph="..." />
+            <marker date="1524131302070" expanded="true" signature="151:398" ph="{...}" />
+            <marker date="1524131302070" expanded="true" signature="195:396" ph="{...}" />
+            <marker date="1524131302070" expanded="true" signature="328:390" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/UpdateableData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+          <folding>
+            <marker date="1524131302760" expanded="true" signature="6:37" ph="..." />
+            <marker date="1524131302760" expanded="true" signature="117:747" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Editor/UpdateableDataEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+          <folding>
+            <marker date="1525770896098" expanded="true" signature="8:64" ph="..." />
+            <marker date="1525770896098" expanded="true" signature="82:462" ph="{...}" />
+            <marker date="1525770896098" expanded="true" signature="186:460" ph="{...}" />
+            <marker date="1525770896098" expanded="true" signature="238:454" ph="{...}" />
+            <marker date="1525770896098" expanded="true" signature="376:444" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/ObjectSpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-182">
+          <folding>
+            <marker date="1524131302778" expanded="true" signature="6:60" ph="..." />
+            <marker date="1524131302778" expanded="true" signature="82:1743" ph="{...}" />
+            <marker date="1524131302778" expanded="true" signature="131:1741" ph="{...}" />
+            <marker date="1524131302778" expanded="true" signature="271:1732" ph="{...}" />
+            <marker date="1524131302778" expanded="true" signature="410:495" ph="{...}" />
+            <marker date="1524131302778" expanded="true" signature="617:1722" ph="{...}" />
+            <marker date="1524131302778" expanded="true" signature="756:1708" ph="{...}" />
+            <marker date="1524131302778" expanded="true" signature="1358:1689" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../PrisonBreak18/PrisonBreak18/Assets/Scripts/TerrainGen/Data/HeightMapSettings.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/AutoSave.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node/HighLight.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="18" selection-start-column="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Grid/GridMaker.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="75" column="21" lean-forward="true" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+          <folding>
+            <marker date="1525789635516" expanded="true" signature="6:197" ph="..." />
+            <marker date="1525789635516" expanded="true" signature="213:2880" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="283:2877" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="784:2852" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="898:1171" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="1060:1152" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="1188:1282" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="1415:2842" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="1714:2777" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="1887:2082" ph="{...}" />
+            <marker date="1525789635516" expanded="true" signature="2107:2281" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
