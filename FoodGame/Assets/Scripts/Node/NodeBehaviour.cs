@@ -8,15 +8,18 @@ namespace Node
 		[HideInInspector]
 		public HighLight HighLight;
 
-		private bool _selected;
+		private const float YBuildingOffset = 0.83f;
 
+		public Vector2Int GridLocation;
 
-		
-		
-		private void Awake()
+		public Vector3 BuildLocation
 		{
-
+			get
+			{
+				return new Vector3(transform.position.x, transform.position.y + YBuildingOffset, 0);
+			}
 		}
+
 
 		private void Start()
 		{
@@ -24,24 +27,12 @@ namespace Node
 			GridManager.Instance.AddNode(this);
 		}
 
-		public bool IsSelected()
-		{
-			return _selected;
-		}
 
 		private void OnMouseDown()
 		{
-			Debug.Log(GetComponent<SpriteRenderer>().sortingOrder);
+	
 			GridManager.Instance.SetSelectedNode(this);
 	
-		}
-
-
-
-
-		private void Update () 
-		{
-		
 		}
 	}
 }

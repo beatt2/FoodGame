@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters;
+using Node;
 using Tools;
 using UnityEditor;
 using UnityEngine;
@@ -19,11 +20,11 @@ namespace Grid
         public GameObject WhiteSideBlock;
 
         public GameObject BlueBlock;
-        
-        
-        
-       
 
+
+        public NodeBehaviour[,] NodeBehaviours;
+       
+        
         private const float XOffset = 0.743184f;
         private const float YOffset = 0.42f;
 
@@ -52,7 +53,9 @@ namespace Grid
             }
 
             bool white = false;  
-       
+            NodeBehaviours = new NodeBehaviour[Size.x, Size.y];
+            
+        
             int oldLayerCount = Size.x + 2;
 
             for (int x = 0; x < Size.x; x++)
@@ -79,7 +82,9 @@ namespace Grid
                         go = Instantiate(white ? WhiteBlock : RedBlock, currentPosition, Quaternion.identity, parent.transform); 
                     }
                     Vector3 goPlace = new Vector3(go.transform.position.x, go.transform.position.y + 0.83f, 0);
-                    
+
+                    NodeBehaviours[x, y] = go.GetComponent<NodeBehaviour>();
+                    go.GetComponent<NodeBehaviour>().GridLocation = new Vector2Int(x,y);
                     go.GetComponent<SpriteRenderer>().sortingOrder = currentLayerCount;
              
                     go.name = "Node "+ x + " " + y;
