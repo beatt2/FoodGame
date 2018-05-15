@@ -11,31 +11,11 @@ namespace Events
         public Text Headline;
         public Text Content;
         public GameObject Ui;
-        private int WhichEvent;
-        public bool inEventMenu;
-        private bool[] EventGoingOn = new bool[10];
+        public bool InEventMenu;
+        private readonly bool[] _eventGoingOn = new bool[10];
         private void Start()
         {
-            Ui.SetActive(inEventMenu);
-            //SetText(Headline.text,Content.text);
-
-            /*
-            for (int i = 0; i <  EventsArray.Length; i++)
-            {
-                
-                Debug.Log("EventsArray" + " " +i + EventsArray[i].Headline);
-            }
-            */
-
-        }
-
-        private void Update()
-        {
-            
-           /* if (SimpleTime.Instance.Month >= )
-            {
-                
-            }*/
+            Ui.SetActive(InEventMenu);
         }
 
         public void CheckDate(int month,int year)
@@ -44,36 +24,31 @@ namespace Events
             {
                 if (EventsArray[i].Starts == new Vector2Int(month,year))
                 {
-                    inEventMenu = true;
-                    EventGoingOn[i] = true;
-                    Ui.SetActive(inEventMenu);
-                    SetText(Headline.text, Content.text, i);
+                    InEventMenu = true;
+                    _eventGoingOn[i] = true;
+                    Ui.SetActive(InEventMenu);
+                    SetText(i);
                 }
 
                 if (EventsArray[i].Finishes == new Vector2Int(month, year))
                 {                   
-                    EventGoingOn[i] = false;
-                    inEventMenu = true;
-                    Ui.SetActive(inEventMenu);
-                    SetTextEnded(Headline.text, Content.text, i);
+                    _eventGoingOn[i] = false;
+                    InEventMenu = true;
+                    Ui.SetActive(InEventMenu);
+                    SetTextEnded(i);
                 }
             }
         }
-        public void SetText(string headline,string content,int whichevent)
+        public void SetText(int whichevent)
         {
-            headline = EventsArray[whichevent].Headline;
-            content = EventsArray[whichevent].Content;
-            Headline.text = headline;
-            Content.text = content;
-       
+            Headline.text = EventsArray[whichevent].Headline;
+            Content.text = EventsArray[whichevent].Content;      
         }
-        public void SetTextEnded(string headline, string content, int whichevent)
+
+        public void SetTextEnded(int whichevent)
         {
-            headline = EventsArray[whichevent].Headline;
-            content = EventsArray[whichevent].Content;
-            Headline.text = headline + " has ended";
-            Content.text = content;
-          
+            Headline.text = EventsArray[whichevent].Headline + " has ended";
+            Content.text = EventsArray[whichevent].Content;        
         }
 
     }

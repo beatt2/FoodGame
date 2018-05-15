@@ -7,40 +7,33 @@ namespace Money
     public class SimpleMoneyManager : Singleton<SimpleMoneyManager>
     {
         private int _currentMoney;
-        private int MonthlyIncome;
-        private int MonthlyExpenses;
+        private int _monthlyIncome;
+        private int _monthlyExpenses;
 
-        public Text moneyUI;
+        public Text MoneyUi;
 
         public Text Income;
 
         public Text Expense;
         // Use this for initialization
-        void Start ()
+        private void Start ()
         {
             _currentMoney = 100;
-            moneyUI.text = "€ " + _currentMoney;
+            MoneyUi.text = "€ " + _currentMoney;
             
 
-            MonthlyIncome = 5;//Random.Range(30,50);
-            MonthlyExpenses = 10; //Random.Range(15,25);
+            _monthlyIncome = 5;//Random.Range(30,50);
+            _monthlyExpenses = 10; //Random.Range(15,25);
 
-            Income.text = "€ " + MonthlyIncome;
-            Expense.text = "€ " + MonthlyExpenses;
-        }
-	
-        // Update is called once per frame
-        void Update ()
-        {
-            
-            
+            Income.text = "€ " + _monthlyIncome;
+            Expense.text = "€ " + _monthlyExpenses;
         }
 
         public void ChangeMonth()
         {
-            MonthlyIncome = Random.Range(5, 50);
-            MonthlyExpenses = Random.Range(15, 50);
-            if (MonthlyIncome < MonthlyExpenses)
+            _monthlyIncome = Random.Range(5, 50);
+            _monthlyExpenses = Random.Range(15, 50);
+            if (_monthlyIncome < _monthlyExpenses)
             {
                 Income.color = new Color(1, 0, 0);
             }
@@ -51,14 +44,14 @@ namespace Money
 
             if (_currentMoney <= 0)
             {
-                moneyUI.color = new Color(1, 0, 0);
+                MoneyUi.color = new Color(1, 0, 0);
             }
             else
             {
-                moneyUI.color = new Color(0, 0, 0);
+                MoneyUi.color = new Color(0, 0, 0);
             }
             
-            ChangeMoneyMonthly(MonthlyIncome,MonthlyExpenses);
+            ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
         }
 
         public void ChangeMoneyMonthly(int income, int expenses)
@@ -67,7 +60,7 @@ namespace Money
             Income.text = "+€ " + income;
             Expense.text = "-€ " + expenses;
 
-            moneyUI.text = "€ "+_currentMoney;
+            MoneyUi.text = "€ "+_currentMoney;
         }
 
         public void ChangeMoney(int amount)
