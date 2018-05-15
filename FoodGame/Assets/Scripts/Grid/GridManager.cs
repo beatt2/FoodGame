@@ -7,16 +7,19 @@ using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.XR.WSA.Input;
 
 namespace Grid
 {
     public class GridManager : Singleton<GridManager>
     {
-        private List<NodeBehaviour> _nodeBehaviours = new List<NodeBehaviour>();
+        private readonly List<GridList> _nodeList = new List<GridList>();
+        private List<SingleGridList>[] _singleGridLists = new List<SingleGridList> [5];
 
         private NodeBehaviour[,] _nodeBehavioursGrid;
-        private int _gSizeX;
-        private int _gSizeY;
+        
+        private int _gridSizeX;
+        private int _gridSizeY;
 
         public GridMaker MyGridMaker;
 
@@ -27,19 +30,54 @@ namespace Grid
         public GameObject BuildObject;
 
         private bool sort = false;
+        
+        
 
-        private void Start()
+        private int _totalEntries;
+
+        protected  override void Awake()
         {
-            _nodeBehavioursGrid = MyGridMaker.NodeBehaviours;
-            Debug.Log(MyGridMaker.Size);
-            _gSizeX = _nodeBehavioursGrid.GetLength(0);
-            _gSizeY = _nodeBehavioursGrid.GetLength(1);
+            base.Awake();
+            _gridSizeX = MyGridMaker.Size.x;
+            _gridSizeY = MyGridMaker.Size.y;
+            _totalEntries = _gridSizeX * _gridSizeY;
+               
+        }
+
+        
+        private void ConvertListToArray()
+        {
+ 
+            _nodeList.Sort();
+            _singleGridLists = new List<SingleGridList>[_gridSizeX];
+            _nodeBehavioursGrid = new NodeBehaviour[_gridSizeX, _gridSizeY];
+
+            for (int x = 0; x < _gridSizeX; x++)
+            {
+                _singleGridLists[x] = new List<SingleGridList>();
+                for (int y = 0; y < _gridSizeY; y++)
+                {
+                    _singleGridLists[x].Add(new SingleGridList(_nodeList[x * _gridSizeY + y].Node,_nodeList[x * _gridSizeY + y].GridLocations ));
+                }
+                _singleGridLists[x].Sort();
+                for (int y = 0; y < _gridSizeY; y++)
+                {
+                    
+                    _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;          
+                }
+            }
+            
         }
 
 
         public void AddNode(NodeBehaviour node)
         {
-            _nodeBehaviours.Add(node);
+            _nodeList.Add(new GridList(node, node.GridLocation));
+            if (_totalEntries == _nodeList.Count)
+            {
+                ConvertListToArray();
+            }
+            
         }
 
         public NodeBehaviour GetSelectedNode()
@@ -49,110 +87,100 @@ namespace Grid
 
         public void BuildButtonPressed()
         {
-            Instantiate(BuildObject,_selectedNode.BuildLocation, Quaternion.identity,_selectedNode.transform);
-            NeighBourCheck(1);
+            Instantiate(BuildObject, _selectedNode.BuildLocation, Quaternion.identity, _selectedNode.transform);
 
-      
+
         }
-
-        public void NeighBourCheck(int SquareSize)
-        {
-            bool xSmall = false;
-            bool xBig = false;
-            bool ySmall = false;
-            bool yBig = false;
-            if (_selectedNode.GridLocation.x - SquareSize > 0)
-            {
-                xSmall = true;             
-            }
-            if (_selectedNode.GridLocation.x + SquareSize < _gSizeX)
-            {
-                xBig = true;
-            }
-            if (_selectedNode.GridLocation.y - SquareSize > 0)
-            {
-                ySmall = true;
-            }
-            if (_selectedNode.GridLocation.y + SquareSize < _gSizeY)
-            {
-                yBig = true;
-            }
-
-            if (!xSmall && !xBig)
-            {
-                Debug.Log("No X location found");
-            }
-
-            if (!ySmall && !yBig)
-            {
-                Debug.Log("No Y location found");
-            }
-
-            _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
-                .ChangeColorGreen();
-                
-            _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight
-                .ChangeColorGreen();
-            _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
-                .ChangeColorGreen();
-            
-           // if (xBig && ySmall)
-//            {
-//
-//            }
-//            else if (xSmall && ySmall)
-//            {
-//                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
-//                    .ChangeColorGreen();
-//                
-//                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y - 1].HighLight
-//                    .ChangeColorGreen();
-//                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y].HighLight
-//                    .ChangeColorGreen();
-//            }
-//            else if (xBig && yBig)
-//            {
-//                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y + 1].HighLight
-//                    .ChangeColorGreen();
-//                
-//                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y + 1].HighLight
-//                    .ChangeColorGreen();
-//                
-//                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
-//                    .ChangeColorGreen();
-//            }
-//            else if(xBig)
-          
-            
-            
-            
-        }
-       
 
         public void SetSelectedNode(NodeBehaviour nodeBehaviour)
         {
             if (_selectedNode == null)
             {
                 _selectedNode = nodeBehaviour;
-              
-                _selectedNode.HighLight.ChangeColorBlue();
+                ChangeColorsToBlue();
             }
             else
             {
-                _selectedNode.HighLight.ChangeColorBlue();
+                ChangeColorsToOld();
                 _selectedNode = nodeBehaviour;
-                _selectedNode.HighLight .ChangeColorBlue();
+                ChangeColorsToBlue();
             }
             MyBuildButton.SetButtonInteractable(true);
+
         }
         public void SetNodeToNull()
         {
             if (_selectedNode == null) return;
-            _selectedNode.HighLight.ChangeColorBlue();
+            ChangeColorsToOld();
             _selectedNode = null;
             MyBuildButton.SetButtonInteractable(false);
 
+        }
 
+
+        private void ChangeColorsToBlue()
+        {
+            _selectedNode.HighLight.ChangeColorBlue();
+            if (CheckGridForNull(0, -1))
+            {
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
+            }
+            if (CheckGridForNull(1, -1))
+            {
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
+            }
+            if (CheckGridForNull(1, 0))
+            {
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y ].HighLight.ChangeColorBlue();
+            }
+        }
+
+        private void ChangeColorsToOld()
+        {
+            _selectedNode.HighLight.ChangeColorToOld();
+            if (CheckGridForNull(0, -1))
+            {
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorToOld();
+            }
+            if (CheckGridForNull(1, -1))
+            {
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorToOld();
+            }
+            if (CheckGridForNull(1, 0))
+            {
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y ].HighLight.ChangeColorToOld();
+            }
+     
+        }
+
+        public bool CheckGridForNull(int  xValue, int yValue)
+        {
+            //return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue] != null;
+
+            if (_nodeBehavioursGrid.GetLength(0) < _selectedNode.GridLocation.x + xValue)
+            {
+                return false;
+            }
+            if (_nodeBehavioursGrid.GetLength(1) < _selectedNode.GridLocation.y + yValue)
+            {
+                return false;
+            }
+            if (_selectedNode.GridLocation.x + xValue < 0)
+            {
+                return false;
+            }
+            if (_selectedNode.GridLocation.y + yValue < 0)
+            {
+                return false;
+            }
+
+            return true;
+
+        }
+
+        private void ChangeColorsToGreen()
+        {
+            
         }
 
         private void Update()
@@ -162,8 +190,6 @@ namespace Grid
             {
                 SetNodeToNull();
             }
-
-
         }
 
         

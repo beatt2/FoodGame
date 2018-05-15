@@ -22,7 +22,8 @@ namespace Grid
         public GameObject BlueBlock;
 
 
-        public NodeBehaviour[,] NodeBehaviours;
+        
+       
        
         
         private const float XOffset = 0.743184f;
@@ -35,7 +36,6 @@ namespace Grid
 
         public void OnButtonPressed()
         {
-    
             var parent = GameObject.FindGameObjectWithTag("Grid");
             if (parent != null)
             {
@@ -53,7 +53,6 @@ namespace Grid
             }
 
             bool white = false;  
-            NodeBehaviours = new NodeBehaviour[Size.x, Size.y];
             
         
             int oldLayerCount = Size.x + 2;
@@ -82,8 +81,7 @@ namespace Grid
                         go = Instantiate(white ? WhiteBlock : RedBlock, currentPosition, Quaternion.identity, parent.transform); 
                     }
                     Vector3 goPlace = new Vector3(go.transform.position.x, go.transform.position.y + 0.83f, 0);
-
-                    NodeBehaviours[x, y] = go.GetComponent<NodeBehaviour>();
+                    
                     go.GetComponent<NodeBehaviour>().GridLocation = new Vector2Int(x,y);
                     go.GetComponent<SpriteRenderer>().sortingOrder = currentLayerCount;
              
@@ -98,7 +96,6 @@ namespace Grid
               
             }
 
-            NodeBehaviours.GetLength(0);
         }
         
         

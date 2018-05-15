@@ -17,14 +17,19 @@ namespace Node
 
 		public void ChangeColorBlue()
 		{
-			_spriteRenderer.color = _spriteRenderer.color == Color.blue ? _startingColor : Color.blue;
+			_spriteRenderer.color = Color.blue;
 		}
 
 		public void ChangeColorGreen()
 		{
-			_spriteRenderer.color = _spriteRenderer.color == Color.green ? _startingColor : Color.blue;
-
+			_spriteRenderer.color = Color.green;
 		}
+
+		public void ChangeColorToOld()
+		{
+			_spriteRenderer.color = _startingColor;
+		}
+
 
 	}
 }

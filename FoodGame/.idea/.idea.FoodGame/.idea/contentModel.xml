@@ -23,8 +23,10 @@
             <e p="Events.cs" t="Include" />
           </e>
           <e p="Grid" t="Include">
+            <e p="GridList.cs" t="Include" />
             <e p="GridMaker.cs" t="Include" />
             <e p="GridManager.cs" t="Include" />
+            <e p="SingleGridList.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
             <e p="SceneButton.cs" t="Include" />
