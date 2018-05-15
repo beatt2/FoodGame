@@ -7,12 +7,12 @@ namespace UI
     public class OkayButton : UIButtonAbstract
     {
 
-        public GameObject ui;
+        public GameObject Ui;
         
         public override void OnButtonClick()
         {
-            EventManager.Instance.inEventMenu = false;
-            ui.SetActive(false);
+            EventManager.Instance.InEventMenu = false;
+            Ui.SetActive(false);
         }
     }
 }
