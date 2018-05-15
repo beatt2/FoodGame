@@ -14,29 +14,16 @@ namespace Events
         private int WhichEvent;
         public bool inEventMenu;
         private bool[] EventGoingOn = new bool[10];
+        
+        
+        
         private void Start()
         {
             Ui.SetActive(inEventMenu);
-            //SetText(Headline.text,Content.text);
-
-            /*
-            for (int i = 0; i <  EventsArray.Length; i++)
-            {
-                
-                Debug.Log("EventsArray" + " " +i + EventsArray[i].Headline);
-            }
-            */
 
         }
 
-        private void Update()
-        {
-            
-           /* if (SimpleTime.Instance.Month >= )
-            {
-                
-            }*/
-        }
+
 
         public void CheckDate(int month,int year)
         {

@@ -20,6 +20,7 @@
             <e p="PlantPrefab.cs" t="Include" />
           </e>
           <e p="Events" t="Include">
+            <e p="EventManager.cs" t="Include" />
             <e p="Events.cs" t="Include" />
           </e>
           <e p="Grid" t="Include">
@@ -31,11 +32,17 @@
           <e p="MainMenu" t="Include">
             <e p="SceneButton.cs" t="Include" />
           </e>
+          <e p="Money" t="Include">
+            <e p="SimpleMoneyManager.cs" t="Include" />
+          </e>
           <e p="Mouse.cs" t="Include" />
           <e p="Node" t="Include">
             <e p="HighLight.cs" t="Include" />
             <e p="NodeBehaviour.cs" t="Include" />
             <e p="NodeManager.cs" t="Include" />
+          </e>
+          <e p="TimeSystem" t="Include">
+            <e p="SimpleTime.cs" t="Include" />
           </e>
           <e p="Tools" t="Include">
             <e p="MathExt.cs" t="Include" />
@@ -45,6 +52,7 @@
           <e p="UI" t="Include">
             <e p="BuildButton.cs" t="Include" />
             <e p="IButtonInteractable.cs" t="Include" />
+            <e p="OkayButton.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />
             <e p="UIButtonAbstract.cs" t="Include" />
           </e>
