@@ -97,9 +97,11 @@ namespace Grid
                 white = x % 2 == 0;
               
             }
+
+            NodeBehaviours.GetLength(0);
         }
         
-
+        
         
     }
 

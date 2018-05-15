@@ -31,6 +31,7 @@ namespace Grid
         private void Start()
         {
             _nodeBehavioursGrid = MyGridMaker.NodeBehaviours;
+            Debug.Log(MyGridMaker.Size);
             _gSizeX = _nodeBehavioursGrid.GetLength(0);
             _gSizeY = _nodeBehavioursGrid.GetLength(1);
         }
@@ -49,13 +50,8 @@ namespace Grid
         public void BuildButtonPressed()
         {
             Instantiate(BuildObject,_selectedNode.BuildLocation, Quaternion.identity,_selectedNode.transform);
-//            for (int x = 0; x < _selectedNode.GridLocation.x; x++)
-//            {
-//                for (int y = 0; y < _selectedNode.BuildLocation.y; y++)
-//                {
-//                   
-//                }
-//            }
+            NeighBourCheck(1);
+
       
         }
 
@@ -92,37 +88,40 @@ namespace Grid
                 Debug.Log("No Y location found");
             }
 
-            if (xBig && ySmall)
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y + 1].HighLight
-                    .ChangeColorGreen();
+            _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
+                .ChangeColorGreen();
                 
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y + 1].HighLight
-                    .ChangeColorGreen();
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
-                    .ChangeColorGreen();
-            }
-            else if (xSmall && ySmall)
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
-                    .ChangeColorGreen();
-                
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y - 1].HighLight
-                    .ChangeColorGreen();
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y].HighLight
-                    .ChangeColorGreen();
-            }
-            else if (xBig && yBig)
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
-                    .ChangeColorGreen();
-                
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x -1, _selectedNode.GridLocation.y -1].HighLight
-                    .ChangeColorGreen();
-                
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y].HighLight
-                    .ChangeColorGreen();
-            }
+            _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight
+                .ChangeColorGreen();
+            _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
+                .ChangeColorGreen();
+            
+           // if (xBig && ySmall)
+//            {
+//
+//            }
+//            else if (xSmall && ySmall)
+//            {
+//                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
+//                    .ChangeColorGreen();
+//                
+//                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y - 1].HighLight
+//                    .ChangeColorGreen();
+//                _nodeBehavioursGrid[_selectedNode.GridLocation.x - 1, _selectedNode.GridLocation.y].HighLight
+//                    .ChangeColorGreen();
+//            }
+//            else if (xBig && yBig)
+//            {
+//                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y + 1].HighLight
+//                    .ChangeColorGreen();
+//                
+//                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y + 1].HighLight
+//                    .ChangeColorGreen();
+//                
+//                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
+//                    .ChangeColorGreen();
+//            }
+//            else if(xBig)
           
             
             
