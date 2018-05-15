@@ -27,8 +27,8 @@ namespace Grid
         public GameObject BuildObject;
 
         private bool sort = false;
-        
-        
+
+        private int _selectionSize = 1;
 
         private int _totalEntries;
 
@@ -77,6 +77,11 @@ namespace Grid
             
         }
 
+        public void SetSelectionSize()
+        {
+            _selectionSize = _selectionSize == 1 ? 4 : 1;
+        }
+
         public NodeBehaviour GetSelectedNode()
         {
             return _selectedNode != null ? _selectedNode : null;
@@ -93,7 +98,7 @@ namespace Grid
         {
             if (_selectedNode == null)
             {
-                _selectedNode = nodeBehaviour;
+                    _selectedNode = nodeBehaviour;
                 ChangeColorsToBlue();
             }
             else
@@ -102,7 +107,8 @@ namespace Grid
                 _selectedNode = nodeBehaviour;
                 ChangeColorsToBlue();
             }
-            MyBuildButton.SetButtonInteractable(true);
+            //TODO REMOVE
+            //MyBuildButton.SetButtonInteractable(true);
 
         }
         public void SetNodeToNull()
@@ -110,7 +116,8 @@ namespace Grid
             if (_selectedNode == null) return;
             ChangeColorsToOld();
             _selectedNode = null;
-            MyBuildButton.SetButtonInteractable(false);
+            //TODO REMOVE
+            //MyBuildButton.SetButtonInteractable(false);
 
         }
 
@@ -118,6 +125,7 @@ namespace Grid
         private void ChangeColorsToBlue()
         {
             _selectedNode.HighLight.ChangeColorBlue();
+            if (_selectionSize != 4) return;
             if (CheckGridForNull(0, -1))
             {
                 _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
@@ -130,11 +138,13 @@ namespace Grid
             {
                 _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y ].HighLight.ChangeColorBlue();
             }
+
         }
 
         private void ChangeColorsToOld()
         {
             _selectedNode.HighLight.ChangeColorToOld();
+            if (_selectionSize != 4) return;
             if (CheckGridForNull(0, -1))
             {
                 _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorToOld();
@@ -154,11 +164,11 @@ namespace Grid
         {
             //return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue] != null;
 
-            if (_nodeBehavioursGrid.GetLength(0) < _selectedNode.GridLocation.x + xValue)
+            if (_nodeBehavioursGrid.GetLength(0) <= _selectedNode.GridLocation.x + xValue)
             {
                 return false;
             }
-            if (_nodeBehavioursGrid.GetLength(1) < _selectedNode.GridLocation.y + yValue)
+            if (_nodeBehavioursGrid.GetLength(1) <= _selectedNode.GridLocation.y + yValue)
             {
                 return false;
             }

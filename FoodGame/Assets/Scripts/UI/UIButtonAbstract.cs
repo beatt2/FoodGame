@@ -20,6 +20,7 @@ namespace UI
             _childText = GetComponentInChildren<Text>();
             MyButton = GetComponent<Button>();
             MyButton.onClick.AddListener(OnButtonClick);
+            
         }
 
         public virtual void OnButtonClick()
