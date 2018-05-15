@@ -6,9 +6,9 @@ namespace Money
 {
     public class SimpleMoneyManager : Singleton<SimpleMoneyManager>
     {
-        private int _currentMoney;
-        private int _monthlyIncome;
-        private int _monthlyExpenses;
+        private float _currentMoney;
+        private float _monthlyIncome;
+        private float _monthlyExpenses;
 
         public Text MoneyUi;
 
@@ -54,7 +54,7 @@ namespace Money
             ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
         }
 
-        public void ChangeMoneyMonthly(int income, int expenses)
+        public void ChangeMoneyMonthly(float income, float expenses)
         {
             _currentMoney += income - expenses;
             Income.text = "+€ " + income;
