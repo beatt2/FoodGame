@@ -13,6 +13,7 @@
         <e p="Scripts" t="Include">
           <e p="Cultivations" t="Include">
             <e p="Building.cs" t="Include" />
+            <e p="BuildingPlacement.cs" t="Include" />
             <e p="BuildingPrefab.cs" t="Include" />
             <e p="Cultivation.cs" t="Include" />
             <e p="CultivationPrefab.cs" t="Include" />
