@@ -20,14 +20,41 @@ namespace Events
 
         public void CheckDate(int month,int year)
         {
+            
             for (int i = 0; i < EventsArray.Length; i++)
             {
                 if (EventsArray[i].Starts == new Vector2Int(month,year))
                 {
+                    
                     InEventMenu = true;
                     _eventGoingOn[i] = true;
                     Ui.SetActive(InEventMenu);
                     SetText(i);
+                    
+                    switch (i)
+                    {
+                        case 1:
+                            Debug.Log("Lower corn yield");
+                            break;
+                        case 2:
+                            Debug.Log("Increase overall income");
+                            break;
+                        case 3:
+                            Debug.Log("decrease overall income");
+                            break;
+                        case 4:
+                            Debug.Log("unhappy reviews");
+                            break;
+                        case 5:
+                            break;
+                        case 6:
+                            break;
+                        case 7:
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
 
                 if (EventsArray[i].Finishes == new Vector2Int(month, year))
