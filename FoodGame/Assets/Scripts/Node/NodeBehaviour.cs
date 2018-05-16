@@ -10,6 +10,8 @@ namespace Node
 
 		private const float YBuildingOffset = 0.83f;
 
+		private bool _isSelected;
+
 		public Vector2Int GridLocation;
 
 		public Vector3 BuildLocation
@@ -20,12 +22,20 @@ namespace Node
 			}
 		}
 
+	
+
 
 		private void Start()
 		{
 			HighLight = GetComponent<HighLight>();
 			GridManager.Instance.AddNode(this);
 		}
+
+		public bool IsSelected()
+		{
+			return HighLight.IsSelected();
+		}
+	
 
 
 		private void OnMouseDown()

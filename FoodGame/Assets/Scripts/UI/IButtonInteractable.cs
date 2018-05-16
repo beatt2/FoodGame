@@ -4,7 +4,7 @@ namespace UI
 {
     public interface IButtonInteractable
     {
-        void OnButtonClick();
+        void TaskOnClick();
 
     }
 }

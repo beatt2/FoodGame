@@ -9,7 +9,7 @@ namespace UI
 
         public GameObject Ui;
         
-        public override void OnButtonClick()
+        public override void TaskOnClick()
         {
             EventManager.Instance.InEventMenu = false;
             Ui.SetActive(false);
