@@ -12,25 +12,18 @@ namespace Grid
     {
         private readonly List<GridList> _nodeList = new List<GridList>();
         private List<SingleGridList>[] _singleGridLists = new List<SingleGridList> [5];
-
         private NodeBehaviour[,] _nodeBehavioursGrid;
-        
         private int _gridSizeX;
         private int _gridSizeY;
-
         public GridMaker MyGridMaker;
-
         private NodeBehaviour _selectedNode;
-
         public BuildButton MyBuildButton;
-
         public GameObject BuildObject;
-
         private bool sort = false;
-
         private int _selectionSize = 1;
-
         private int _totalEntries;
+        private bool _inSelectionState = false;
+        
 
         protected  override void Awake()
         {
@@ -59,7 +52,6 @@ namespace Grid
                 _singleGridLists[x].Sort();
                 for (int y = 0; y < _gridSizeY; y++)
                 {
-                    
                     _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;          
                 }
             }
@@ -74,13 +66,29 @@ namespace Grid
             {
                 ConvertListToArray();
             }
-            
         }
 
         public void SetSelectionSize()
         {
+            if (_selectedNode != null)
+            {
+                ChangeColorsToOld();
+                _selectedNode.HighLight.ChangeColorBlue();
+            }
+    
             _selectionSize = _selectionSize == 1 ? 4 : 1;
         }
+
+        public void ConfirmBuilding(bool value)
+        {
+            _inSelectionState = value;
+            Debug.Log(_inSelectionState ? "Selection state is true" : "Selection state is false");
+            if (!_inSelectionState)
+            {
+                ChangeColorsToOld();
+            }
+        }
+        
 
         public NodeBehaviour GetSelectedNode()
         {
@@ -90,22 +98,53 @@ namespace Grid
         public void BuildButtonPressed()
         {
             Instantiate(BuildObject, _selectedNode.BuildLocation, Quaternion.identity, _selectedNode.transform);
-
-
         }
 
         public void SetSelectedNode(NodeBehaviour nodeBehaviour)
         {
             if (_selectedNode == null)
             {
+                if (_inSelectionState)
+                {
+                    if (!nodeBehaviour.IsSelected())
+                    {
+                        Debug.Log("This tile is currently not selected");
+                        return;
+                    }
+                    ChangeColorsToGreen();
+                }
+                else
+                {
                     _selectedNode = nodeBehaviour;
-                ChangeColorsToBlue();
+                    ChangeColorsToBlue();
+                }
             }
             else
             {
-                ChangeColorsToOld();
+                if (_inSelectionState && nodeBehaviour.IsSelected())
+                {
+                    ChangeColorsToBlue();
+                }
+                else if (_inSelectionState && !nodeBehaviour.IsSelected())
+                {
+                    Debug.Log("no blue or green tile clicked");
+                    return;
+                }
+                else
+                {
+                    ChangeColorsToOld();
+                }
+             
                 _selectedNode = nodeBehaviour;
-                ChangeColorsToBlue();
+                
+                if (_inSelectionState)
+                {
+                    ChangeColorsToGreen();
+                }
+                else
+                {
+                    ChangeColorsToBlue();
+                }            
             }
             //TODO REMOVE
             //MyBuildButton.SetButtonInteractable(true);
@@ -125,7 +164,7 @@ namespace Grid
         private void ChangeColorsToBlue()
         {
             _selectedNode.HighLight.ChangeColorBlue();
-            if (_selectionSize != 4) return;
+            if (_selectionSize != 4 || _inSelectionState) return;
             if (CheckGridForNull(0, -1))
             {
                 _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
@@ -176,18 +215,13 @@ namespace Grid
             {
                 return false;
             }
-            if (_selectedNode.GridLocation.y + yValue < 0)
-            {
-                return false;
-            }
-
-            return true;
-
+            
+            return _selectedNode.GridLocation.y + yValue >= 0;
         }
 
         private void ChangeColorsToGreen()
         {
-            
+            _selectedNode.HighLight.ChangeColorGreen();
         }
 
         private void Update()
@@ -198,8 +232,6 @@ namespace Grid
                 SetNodeToNull();
             }
         }
-
-        
     }
 }
 

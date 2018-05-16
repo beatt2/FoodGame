@@ -10,7 +10,7 @@ namespace UI
             MyButton.interactable = false;
         }
 
-        public override void OnButtonClick()
+        public override void TaskOnClick()
         {
             GridManager.Instance.BuildButtonPressed();
         }

@@ -5,7 +5,7 @@ namespace MainMenu
 {
     public class SceneButton : UIButtonAbstract
     {
-        public override void OnButtonClick()
+        public override void TaskOnClick()
         {
             SceneManager.LoadScene("SampleScene");
         }

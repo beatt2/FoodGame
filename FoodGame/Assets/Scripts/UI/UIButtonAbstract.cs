@@ -19,11 +19,13 @@ namespace UI
         {
             _childText = GetComponentInChildren<Text>();
             MyButton = GetComponent<Button>();
-            MyButton.onClick.AddListener(OnButtonClick);
+            
+            //TODO EVENT GETS CALLED TWICE BECAUSE OF BUG
+            //MyButton.onClick.AddListener(TaskOnClick);
             
         }
 
-        public virtual void OnButtonClick()
+        public virtual void TaskOnClick()
         {
            
         }
