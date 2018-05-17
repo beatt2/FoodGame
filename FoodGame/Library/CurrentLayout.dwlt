@@ -23,6 +23,9 @@ MonoBehaviour:
   m_RootView: {fileID: 7}
 =======
   m_RootView: {fileID: 6}
+<<<<<<< HEAD
+>>>>>>> Jordan
+=======
 >>>>>>> Jordan
   m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -72,6 +75,7 @@ MonoBehaviour:
     width: 1536
     height: 771
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 887, y: 492}
   m_MaxSize: {x: 16012, y: 14042}
   vertical: 0
@@ -81,6 +85,11 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
+=======
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
+  vertical: 0
+>>>>>>> Jordan
   controlID: 9
 --- !u!114 &3
 >>>>>>> Jordan
@@ -129,8 +138,11 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_ActualView: {fileID: 16}
 =======
+=======
+>>>>>>> Jordan
   m_ActualView: {fileID: 15}
 >>>>>>> Jordan
   m_Panes:
@@ -158,6 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -166,6 +179,8 @@ MonoBehaviour:
   m_LastSelected: 1
 --- !u!114 &7
 =======
+=======
+>>>>>>> Jordan
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -258,6 +273,7 @@ MonoBehaviour:
     width: 1132
     height: 771
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 610, y: 492}
   m_MaxSize: {x: 12010, y: 14042}
   vertical: 1
@@ -267,6 +283,11 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
+=======
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
+  vertical: 1
+>>>>>>> Jordan
   controlID: 98
 --- !u!114 &10
 >>>>>>> Jordan
@@ -291,6 +312,7 @@ MonoBehaviour:
     width: 1132
     height: 467
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_MinSize: {x: 610, y: 221}
   m_MaxSize: {x: 12010, y: 4021}
   vertical: 0
@@ -300,6 +322,11 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
+=======
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
+  vertical: 0
+>>>>>>> Jordan
   controlID: 99
 --- !u!114 &11
 >>>>>>> Jordan
@@ -391,11 +418,19 @@ MonoBehaviour:
     m_SearchArea: 0
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/Prefabs
+=======
+    - Assets/Scripts/Events
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Scripts/Events
+>>>>>>> Jordan
 =======
     - Assets/Scripts/Events
   m_ViewMode: 1
@@ -409,15 +444,21 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
 <<<<<<< HEAD
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 166}
     m_SelectedIDs: 002c0000
     m_LastClickedID: 11264
     m_ExpandedIDs: 00000000902b0000222c0000082d0000462d0000c82d000000ca9a3bffffff7f
 =======
+=======
+>>>>>>> Jordan
     scrollPos: {x: 0, y: 90}
     m_SelectedIDs: 262f0000
     m_LastClickedID: 12070
     m_ExpandedIDs: 000000007e2c00000c2d0000ee2d00002a2e0000a62e000000ca9a3bffffff7f
+<<<<<<< HEAD
+>>>>>>> Jordan
+=======
 >>>>>>> Jordan
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -447,7 +488,11 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000902b0000222c0000082d0000462d0000c82d0000
+=======
+    m_ExpandedIDs: 000000007e2c00000c2d0000ee2d00002a2e0000a62e0000
+>>>>>>> Jordan
 =======
     m_ExpandedIDs: 000000007e2c00000c2d0000ee2d00002a2e0000a62e0000
 >>>>>>> Jordan
@@ -567,9 +612,15 @@ MonoBehaviour:
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: 60c3fdff
     m_LastClickedID: 0
     m_ExpandedIDs: 9a6bfffffa6bffff586cffff8c6dffffaa71ffff0a72ffff6872ffff9873ffff60b6ffffd2b6ffff42b7ffff72b8ffff40c5ffffb0c5ffff1ec6ffff4ec7fffffcf5ffff00000000dc4e0000566f0000ee720000
+=======
+    m_SelectedIDs: 223d0000
+    m_LastClickedID: 15650
+    m_ExpandedIDs: 1ee9ffff14f5ffff000000003c35000098350000b635000086370000
+>>>>>>> Jordan
 =======
     m_SelectedIDs: 223d0000
     m_LastClickedID: 15650
@@ -630,9 +681,15 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 743.3383, y: 605.21387, z: -8.037667}
     speed: 2
     m_Value: {x: 743.3383, y: 605.21387, z: -8.037667}
+=======
+    m_Target: {x: -1.6068677, y: 5.2679834, z: -0.08138333}
+    speed: 2
+    m_Value: {x: -1.6068677, y: 5.2679834, z: -0.08138333}
+>>>>>>> Jordan
 =======
     m_Target: {x: -1.6068677, y: 5.2679834, z: -0.08138333}
     speed: 2
@@ -670,9 +727,15 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: 1332.9991
     speed: 2
     m_Value: 1332.9991
+=======
+    m_Target: 14.763083
+    speed: 2
+    m_Value: 14.763083
+>>>>>>> Jordan
 =======
     m_Target: 14.763083
     speed: 2
@@ -684,7 +747,11 @@ MonoBehaviour:
     m_Value: 1
   m_ShowGlobalGrid: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastSceneViewRotation: {x: 0.0026897907, y: -0.019494273, z: -0.00005248566, w: -0.99980634}
+=======
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+>>>>>>> Jordan
 =======
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
 >>>>>>> Jordan
