@@ -4,13 +4,19 @@ using UnityEngine;
 
 namespace Money
 {
-    public class FinanceButton : UIButtonAbstract
+    public class FinanceButton : MonoBehaviour
     {
         public GameObject FinanceUi;
-//        public override void OnButtonClick()    
-//        {
-//            EventManager.Instance.InEventMenu = true;
-//            FinanceUi.SetActive(true);
-//        }
+        public void CloseFinanceMenu()
+        {
+            EventManager.Instance.InEventMenu = false;
+            FinanceUi.SetActive(false);
+        }
+
+        public void OpenFinanceMenu()
+        {
+            EventManager.Instance.InEventMenu = true;
+            FinanceUi.SetActive(true);
+        }
     }
 }
