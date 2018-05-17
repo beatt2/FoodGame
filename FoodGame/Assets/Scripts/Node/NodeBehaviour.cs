@@ -14,6 +14,10 @@ namespace Node
 
 		public Vector2Int GridLocation;
 
+		private SpriteRenderer _spriteRenderer;
+		
+		
+
 		public Vector3 BuildLocation
 		{
 			get
@@ -22,20 +26,31 @@ namespace Node
 			}
 		}
 
-	
+		private void Awake()
+		{
+			_spriteRenderer = GetComponent<SpriteRenderer>();
+		}
+		
 
+	
+		
 
 		private void Start()
 		{
 			HighLight = GetComponent<HighLight>();
 			GridManager.Instance.AddNode(this);
+			
 		}
 
 		public bool IsSelected()
 		{
 			return HighLight.IsSelected();
 		}
-	
+		
+		public void SetSprite(Sprite sprite)
+		{
+			_spriteRenderer.sprite = sprite;
+		}
 
 
 		private void OnMouseDown()

@@ -7,10 +7,10 @@ namespace Money
     public class FinanceButton : UIButtonAbstract
     {
         public GameObject FinanceUi;
-        public override void OnButtonClick()
-        {
-            EventManager.Instance.InEventMenu = true;
-            FinanceUi.SetActive(true);
-        }
+//        public override void OnButtonClick()    
+//        {
+//            EventManager.Instance.InEventMenu = true;
+//            FinanceUi.SetActive(true);
+//        }
     }
 }

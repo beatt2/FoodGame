@@ -11,6 +11,16 @@ namespace Cultivations
             MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank);
         }
 
+        public void ChangeValues(BuildingPrefab buildingPrefab)
+        {
+            Name = buildingPrefab.name;
+            Sustainability = buildingPrefab.Sustainability;
+            MoneyTick = buildingPrefab.MoneyTick;
+            TickDelay = buildingPrefab.TickDelay;
+            UpgradeRank = buildingPrefab.UpgradeRank;
+
+        }
+
         protected void Update()
         {
           Vector3 tempVect = Camera.main.ScreenToWorldPoint(Input.mousePosition);

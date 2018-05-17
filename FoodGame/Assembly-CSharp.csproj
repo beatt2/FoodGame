@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Cultivations\PlantPrefab.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
     <Compile Include="Assets\Scripts\Events\Events.cs" />
+    <Compile Include="Assets\Scripts\Grid\BuildingPlacement.cs" />
     <Compile Include="Assets\Scripts\Grid\GridList.cs" />
     <Compile Include="Assets\Scripts\Grid\GridMaker.cs" />
     <Compile Include="Assets\Scripts\Grid\GridManager.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
     <Compile Include="Assets\Scripts\UI\IButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\OkayButton.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectionButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonAbstract.cs" />
     <Reference Include="UnityEditor.StandardEvents">

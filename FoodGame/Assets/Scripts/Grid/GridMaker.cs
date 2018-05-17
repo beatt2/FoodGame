@@ -22,15 +22,15 @@ namespace Grid
         public GameObject BlueBlock;
 
 
-        
-       
-       
-        
-        private const float XOffset = 0.743184f;
-        private const float YOffset = 0.42f;
 
-        private const float XRowOffset = 0.82f;
-        private const float YRowOffset = 0.48f;
+
+
+
+        private const float XOffset = 1.463f;
+        private const float YOffset = 0.74f;
+
+        private const float XRowOffset = 1.463f;
+        private const float YRowOffset = 0.74f;
 
         public Vector2Int Size;
 

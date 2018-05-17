@@ -70,13 +70,11 @@ namespace Grid
 
         public void SetSelectionSize()
         {
-            if (_selectedNode != null)
-            {
-                ChangeColorsToOld();
-                _selectedNode.HighLight.ChangeColorBlue();
-            }
-    
+ 
             _selectionSize = _selectionSize == 1 ? 4 : 1;
+            if (_selectedNode == null) return;
+            ChangeColorsToOld();
+            ChangeColorsToBlue();
         }
 
         public void ConfirmBuilding(bool value)
@@ -86,6 +84,10 @@ namespace Grid
             if (!_inSelectionState)
             {
                 ChangeColorsToOld();
+            }
+            else if (_selectedNode == null)
+            {
+                Debug.Log("No node selected");
             }
         }
         

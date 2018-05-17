@@ -13,9 +13,9 @@
         <e p="Scripts" t="Include">
           <e p="Cultivations" t="Include">
             <e p="Building.cs" t="Include" />
-            <e p="BuildingPlacement.cs" t="Include" />
             <e p="BuildingPrefab.cs" t="Include" />
             <e p="Cultivation.cs" t="Include" />
+            <e p="CultivationManager.cs" t="Include" />
             <e p="CultivationPrefab.cs" t="Include" />
             <e p="Plant.cs" t="Include" />
             <e p="PlantPrefab.cs" t="Include" />
@@ -25,6 +25,7 @@
             <e p="Events.cs" t="Include" />
           </e>
           <e p="Grid" t="Include">
+            <e p="BuildingPlacement.cs" t="Include" />
             <e p="GridList.cs" t="Include" />
             <e p="GridMaker.cs" t="Include" />
             <e p="GridManager.cs" t="Include" />
@@ -34,6 +35,8 @@
             <e p="SceneButton.cs" t="Include" />
           </e>
           <e p="Money" t="Include">
+            <e p="Finance.cs" t="Include" />
+            <e p="FinanceButton.cs" t="Include" />
             <e p="SimpleMoneyManager.cs" t="Include" />
           </e>
           <e p="Mouse.cs" t="Include" />
