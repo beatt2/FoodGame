@@ -1,6 +1,9 @@
-﻿using Tools;
+﻿using System;
+using Cultivations;
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Money
 {
@@ -15,6 +18,12 @@ namespace Money
         public Text Income;
 
         public Text Expense;
+
+        private float fruitValue;
+        private float farmValue;
+        private float vegetablevalue;
+
+
         // Use this for initialization
         private void Start ()
         {
@@ -66,6 +75,32 @@ namespace Money
         public void ChangeMoney(int amount)
         {
 
+        }
+
+        public void AddFinance(CultivationManager.CultivationType cultivationType,float value)
+        {
+            Debug.Log("tick");
+            switch (cultivationType)
+                {
+                    case CultivationManager.CultivationType.Fruit:
+                        fruitValue += value;
+                        Debug.Log("Fruit " + fruitValue);
+                    break;
+                    case CultivationManager.CultivationType.Vegetable:
+                        vegetablevalue += value;
+                        Debug.Log("Vegetable " + vegetablevalue);
+                    break;
+                    case CultivationManager.CultivationType.Farm:
+                        farmValue += value;
+                        Debug.Log("Farm " + farmValue);
+                    break;
+                    default:
+                        break;
+                }
+
+            
+            
+            
         }
     }
 }

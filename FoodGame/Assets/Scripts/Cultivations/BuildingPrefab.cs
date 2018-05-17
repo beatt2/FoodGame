@@ -8,7 +8,7 @@ namespace Cultivations
         
         protected void Awake()
         {
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank);
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank, MyCultivationType);
         }
 
         public void ChangeValues(BuildingPrefab buildingPrefab)

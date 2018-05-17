@@ -294,6 +294,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Cultivations\Building.cs" />
     <Compile Include="Assets\Scripts\Cultivations\BuildingPrefab.cs" />
+    <Compile Include="Assets\Scripts\Cultivations\Carrot.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Cultivation.cs" />
     <Compile Include="Assets\Scripts\Cultivations\CultivationManager.cs" />
     <Compile Include="Assets\Scripts\Cultivations\CultivationPrefab.cs" />

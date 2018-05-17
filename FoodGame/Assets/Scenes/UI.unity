@@ -5903,6 +5903,7 @@ GameObject:
   - component: {fileID: 441639540}
   - component: {fileID: 441639542}
   - component: {fileID: 441639543}
+  - component: {fileID: 441639544}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -5975,6 +5976,17 @@ MonoBehaviour:
   MoneyUi: {fileID: 1476059246}
   Income: {fileID: 817035907}
   Expense: {fileID: 1679892003}
+--- !u!114 &441639544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441639539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60091a18ee07e9140b9ae3f84389702f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450849431
 GameObject:
   m_ObjectHideFlags: 0

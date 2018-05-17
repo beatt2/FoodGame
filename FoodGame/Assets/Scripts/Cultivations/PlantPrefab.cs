@@ -8,7 +8,7 @@ namespace Cultivations
     
         protected void Awake()
         {
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank);
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank,MyCultivationType);
         }
 
     }
