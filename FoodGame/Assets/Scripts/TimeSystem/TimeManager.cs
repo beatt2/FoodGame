@@ -1,4 +1,5 @@
-﻿using Events;
+﻿using Cultivations;
+using Events;
 using Money;
 using Tools;
 using UnityEngine;
@@ -95,6 +96,7 @@ namespace TimeSystem
 
                     EventManager.Instance.CheckDate(Month, Year);
                     SimpleMoneyManager.Instance.ChangeMonth();
+                    CultivationManager.Instance.TickPerMonth();
                     _timeStamp = 0;
                 }
             }

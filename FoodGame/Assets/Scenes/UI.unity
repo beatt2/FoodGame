@@ -5903,6 +5903,7 @@ GameObject:
   - component: {fileID: 441639540}
   - component: {fileID: 441639542}
   - component: {fileID: 441639543}
+  - component: {fileID: 441639544}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -5975,6 +5976,17 @@ MonoBehaviour:
   MoneyUi: {fileID: 1476059246}
   Income: {fileID: 817035907}
   Expense: {fileID: 1679892003}
+--- !u!114 &441639544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 441639539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60091a18ee07e9140b9ae3f84389702f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &450849431
 GameObject:
   m_ObjectHideFlags: 0
@@ -26146,12 +26158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1920099941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a164a222eb238469ed4144856910f2, type: 3}
+  m_Script: {fileID: 11500000, guid: ba9fc2dc3f927b9488e061f237567b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: Close
-  UseBestFit: 1
-  Ui: {fileID: 429330106}
+  FinanceUi: {fileID: 429330106}
 --- !u!114 &1920099944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26190,7 +26200,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1920099945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1920099943}
+        m_MethodName: CloseFinanceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1920099945
@@ -28386,12 +28407,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1986296710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06a164a222eb238469ed4144856910f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d14413394606c844b5eabf116531a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: Close
-  UseBestFit: 1
-  Ui: {fileID: 738791932}
+  EventsUi: {fileID: 738791932}
 --- !u!114 &1986296713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28430,7 +28449,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1986296714}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1986296712}
+        m_MethodName: CloseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1986296714
@@ -28980,7 +29010,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 426899310}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -29993,8 +30023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9fc2dc3f927b9488e061f237567b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: 
-  UseBestFit: 1
   FinanceUi: {fileID: 429330106}
 --- !u!114 &2113334414
 MonoBehaviour:
@@ -30034,7 +30062,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113334415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2113334413}
+        m_MethodName: OpenFinanceMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2113334415
