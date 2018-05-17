@@ -9,7 +9,17 @@ namespace Grid
         public GameObject [] CultivationPrefabs;
 
 
-        public void ChangeTile(GameObject go)
+        public void BuildFarm()
+        {
+            ChangeTile(CultivationPrefabs[0]);
+        }
+
+        public void BuildFiled()
+        {
+            ChangeTile(CultivationPrefabs[1]);
+        }
+
+        private void ChangeTile(GameObject go)
         {
             if (GridManager.Instance.GetSelectedNode() == null) return;
             var node = GridManager.Instance.GetSelectedNode();

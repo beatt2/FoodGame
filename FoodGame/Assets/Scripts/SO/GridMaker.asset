@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7e8f13e48804b42bc035944d491044, type: 3}
   m_Name: GridMaker
   m_EditorClassIdentifier: 
-  RedBlock: {fileID: 1145542654111258, guid: 3ffb14a4d7e1bf24b8e7dd9615097c18, type: 2}
-  WhiteBlock: {fileID: 1145542654111258, guid: 3ffb14a4d7e1bf24b8e7dd9615097c18, type: 2}
-  RedSideBlock: {fileID: 1145542654111258, guid: 3ffb14a4d7e1bf24b8e7dd9615097c18,
+  RedBlock: {fileID: 1452782895485590, guid: f1dc6c8c9d19cc24e9b0a2eba01825cd, type: 2}
+  WhiteBlock: {fileID: 1452782895485590, guid: f1dc6c8c9d19cc24e9b0a2eba01825cd, type: 2}
+  RedSideBlock: {fileID: 1452782895485590, guid: f1dc6c8c9d19cc24e9b0a2eba01825cd,
     type: 2}
-  WhiteSideBlock: {fileID: 1145542654111258, guid: 3ffb14a4d7e1bf24b8e7dd9615097c18,
+  WhiteSideBlock: {fileID: 1452782895485590, guid: f1dc6c8c9d19cc24e9b0a2eba01825cd,
     type: 2}
   BlueBlock: {fileID: 1574880553937912, guid: 49b2856d30c5f4c4cac7dda3de6c9d4a, type: 2}
   Size: {x: 9, y: 9}

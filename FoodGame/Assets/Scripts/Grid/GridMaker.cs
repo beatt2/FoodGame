@@ -23,14 +23,11 @@ namespace Grid
 
 
 
+        private const float XOffset = 2.94f;
+        private const float YOffset = 1.46f;
 
-
-
-        private const float XOffset = 1.463f;
-        private const float YOffset = 0.74f;
-
-        private const float XRowOffset = 1.463f;
-        private const float YRowOffset = 0.74f;
+        private const float XRowOffset = 2.94f;
+        private const float YRowOffset = 1.46f;
 
         public Vector2Int Size;
 

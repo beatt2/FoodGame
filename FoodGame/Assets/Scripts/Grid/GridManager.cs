@@ -23,6 +23,12 @@ namespace Grid
         private int _selectionSize = 1;
         private int _totalEntries;
         private bool _inSelectionState = false;
+
+        [SerializeField] private BuildingPlacement _buildingPlacement;
+
+        //TODO Should probably move to another script
+        [SerializeField] private SelectionButton _selectionButton;
+        
         
 
         protected  override void Awake()
@@ -77,7 +83,7 @@ namespace Grid
             ChangeColorsToBlue();
         }
 
-        public void ConfirmBuilding(bool value)
+        public void ConfirmLocation(bool value)
         {
             _inSelectionState = value;
             Debug.Log(_inSelectionState ? "Selection state is true" : "Selection state is false");
@@ -146,10 +152,15 @@ namespace Grid
                 else
                 {
                     ChangeColorsToBlue();
-                }            
+                }           
+                
+                
             }
             //TODO REMOVE
-            //MyBuildButton.SetButtonInteractable(true);
+            if (!_selectionButton.YesNoButtonActivated() && _selectionSize == 4)
+            {
+                _selectionButton.ToggleYesNoButtons();
+            }
 
         }
         public void SetNodeToNull()
@@ -224,15 +235,23 @@ namespace Grid
         private void ChangeColorsToGreen()
         {
             _selectedNode.HighLight.ChangeColorGreen();
+            _selectionButton.SetActiveConfirmButton();
+        }
+
+        public void ConfirmBuildButtonPressed()
+        {
+            _buildingPlacement.BuildFarm();
+            ChangeColorsToOld();
         }
 
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                SetNodeToNull();
-            }
+            //Rework this 
+//            if (!Input.GetMouseButtonDown(0)) return;
+//            if (!EventSystem.current.IsPointerOverGameObject())
+//            {
+//                SetNodeToNull();
+//            }
         }
     }
 }

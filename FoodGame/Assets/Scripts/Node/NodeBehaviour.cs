@@ -55,7 +55,7 @@ namespace Node
 
 		private void OnMouseDown()
 		{
-	
+			Debug.Log("piininggg"	);
 			GridManager.Instance.SetSelectedNode(this);
 	
 		}

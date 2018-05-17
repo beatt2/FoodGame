@@ -23,8 +23,9 @@ namespace Cultivations
 
         protected void Update()
         {
-          Vector3 tempVect = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = (new Vector3(tempVect.x, tempVect.y, 0));
+            //TODO DAFUQ?
+//          Vector3 tempVect = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+//            transform.position = (new Vector3(tempVect.x, tempVect.y, 0));
         }
     }
 }
