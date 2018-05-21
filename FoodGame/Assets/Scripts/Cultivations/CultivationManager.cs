@@ -10,15 +10,15 @@ namespace Cultivations
     {
         public enum CultivationType {Fruit, Vegetable , Farm };
 
-        public CultivationType CultType;
-        Dictionary<Enum,Cultivation > _cultivations = new Dictionary<Enum, Cultivation>();
+
+        private readonly Dictionary<Enum,Cultivation > _cultivations = new Dictionary<Enum, Cultivation>();
 
         private void Start()
         {
             
             
             //TickPerMonth();
-            AddValue();
+            //AddValue();
         }
 
         public void AddValue(Cultivation cultivation)

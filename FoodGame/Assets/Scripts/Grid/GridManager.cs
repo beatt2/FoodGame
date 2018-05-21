@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cultivations;
 using Node;
 using Tools;
 using UI;
@@ -28,22 +29,21 @@ namespace Grid
 
         //TODO Should probably move to another script
         [SerializeField] private SelectionButton _selectionButton;
-        
-        
 
-        protected  override void Awake()
+        private List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
+
+
+        protected override void Awake()
         {
             base.Awake();
             _gridSizeX = MyGridMaker.Size.x;
             _gridSizeY = MyGridMaker.Size.y;
             _totalEntries = _gridSizeX * _gridSizeY;
-               
         }
 
-        
+
         private void ConvertListToArray()
         {
- 
             _nodeList.Sort();
             _singleGridLists = new List<SingleGridList>[_gridSizeX];
             _nodeBehavioursGrid = new NodeBehaviour[_gridSizeX, _gridSizeY];
@@ -53,15 +53,16 @@ namespace Grid
                 _singleGridLists[x] = new List<SingleGridList>();
                 for (int y = 0; y < _gridSizeY; y++)
                 {
-                    _singleGridLists[x].Add(new SingleGridList(_nodeList[x * _gridSizeY + y].Node,_nodeList[x * _gridSizeY + y].GridLocations ));
+                    _singleGridLists[x].Add(new SingleGridList(_nodeList[x * _gridSizeY + y].Node,
+                        _nodeList[x * _gridSizeY + y].GridLocations));
                 }
+
                 _singleGridLists[x].Sort();
                 for (int y = 0; y < _gridSizeY; y++)
                 {
-                    _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;          
+                    _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;
                 }
             }
-            
         }
 
 
@@ -76,8 +77,8 @@ namespace Grid
 
         public void SetSelectionSize()
         {
- 
             _selectionSize = _selectionSize == 1 ? 4 : 1;
+            Debug.Log("SelectionNode = " + _selectionSize);
             if (_selectedNode == null) return;
             ChangeColorsToOld();
             ChangeColorsToBlue();
@@ -96,17 +97,13 @@ namespace Grid
                 Debug.Log("No node selected");
             }
         }
-        
+
 
         public NodeBehaviour GetSelectedNode()
         {
             return _selectedNode != null ? _selectedNode : null;
         }
 
-        public void BuildButtonPressed()
-        {
-            Instantiate(BuildObject, _selectedNode.BuildLocation, Quaternion.identity, _selectedNode.transform);
-        }
 
         public void SetSelectedNode(NodeBehaviour nodeBehaviour)
         {
@@ -119,6 +116,7 @@ namespace Grid
                         Debug.Log("This tile is currently not selected");
                         return;
                     }
+
                     ChangeColorsToGreen();
                 }
                 else
@@ -142,9 +140,9 @@ namespace Grid
                 {
                     ChangeColorsToOld();
                 }
-             
+
                 _selectedNode = nodeBehaviour;
-                
+
                 if (_inSelectionState)
                 {
                     ChangeColorsToGreen();
@@ -152,17 +150,29 @@ namespace Grid
                 else
                 {
                     ChangeColorsToBlue();
-                }           
-                
-                
+                }
             }
+
             //TODO REMOVE
             if (!_selectionButton.YesNoButtonActivated() && _selectionSize == 4)
             {
                 _selectionButton.ToggleYesNoButtons();
             }
 
+            if (_selectedNode.IsFarmField())
+            {
+                _selectionButton.SetCurrentState(SelectionButton.CurrentStateEnum.Field);
+            }
+            else if (_selectedNode.IsFarm())
+            {
+                _selectionButton.SetCurrentState(SelectionButton.CurrentStateEnum.Upgrade);
+            }
+            else
+            {
+                _selectionButton.SetCurrentState(SelectionButton.CurrentStateEnum.BuildFarm);
+            }
         }
+
         public void SetNodeToNull()
         {
             if (_selectedNode == null) return;
@@ -170,7 +180,6 @@ namespace Grid
             _selectedNode = null;
             //TODO REMOVE
             //MyBuildButton.SetButtonInteractable(false);
-
         }
 
 
@@ -180,39 +189,63 @@ namespace Grid
             if (_selectionSize != 4 || _inSelectionState) return;
             if (CheckGridForNull(0, -1))
             {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
-            }
-            if (CheckGridForNull(1, -1))
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
-            }
-            if (CheckGridForNull(1, 0))
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y ].HighLight.ChangeColorBlue();
+                if (CheckGridForBuildSpace(0, -1))
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
+                        .ChangeColorBlue();
+                }
+                else
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
+                        .ChangeColorRed();
+                }
             }
 
+            if (CheckGridForNull(1, -1))
+            {
+                if (CheckGridForBuildSpace(1, -1))
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight
+                        .ChangeColorBlue();
+                }
+                else
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight
+                        .ChangeColorRed();
+                }
+            }
+
+            if (CheckGridForNull(1, 0))
+            {
+                if (CheckGridForBuildSpace(1, 0))
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
+                        .ChangeColorBlue();
+                }
+                else
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
+                        .ChangeColorRed();
+                }
+            }
         }
 
         private void ChangeColorsToOld()
         {
             _selectedNode.HighLight.ChangeColorToOld();
+
+
             if (_selectionSize != 4) return;
-            if (CheckGridForNull(0, -1))
+            foreach (var node in _nodeBehavioursGrid)
             {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorToOld();
+                if (node.IsSelected())
+                {
+                    node.HighLight.ChangeColorToOld();
+                }
             }
-            if (CheckGridForNull(1, -1))
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorToOld();
-            }
-            if (CheckGridForNull(1, 0))
-            {
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y ].HighLight.ChangeColorToOld();
-            }
-     
         }
 
-        public bool CheckGridForNull(int  xValue, int yValue)
+        public bool CheckGridForNull(int xValue, int yValue)
         {
             //return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue] != null;
 
@@ -220,16 +253,24 @@ namespace Grid
             {
                 return false;
             }
+
             if (_nodeBehavioursGrid.GetLength(1) <= _selectedNode.GridLocation.y + yValue)
             {
                 return false;
             }
+
             if (_selectedNode.GridLocation.x + xValue < 0)
             {
                 return false;
             }
-            
+
             return _selectedNode.GridLocation.y + yValue >= 0;
+        }
+
+        public bool CheckGridForBuildSpace(int xValue, int yValue)
+        {
+            return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue]
+                       .GetListIndex() == -1;
         }
 
         private void ChangeColorsToGreen()
@@ -238,22 +279,47 @@ namespace Grid
             _selectionButton.SetActiveConfirmButton();
         }
 
-        public void ConfirmBuildButtonPressed()
+        public void ConfirmBuildFarmButtonPressed()
         {
+            int listCount = _cultivationLocationList.Count;
             _buildingPlacement.BuildFarm();
-            ChangeColorsToOld();
+            _cultivationLocationList.Add(new List<NodeBehaviour>());
+            _cultivationLocationList[listCount].Add(_selectedNode);
+            _cultivationLocationList[listCount][0].SetCultivationListIndex(listCount);
+            _selectedNode.HighLight.ChangeColorToOld();
+            foreach (var node in _nodeBehavioursGrid)
+            {
+                if (!node.HighLight.IsBlue()) continue;
+                node.SetCultivationListIndex(listCount);
+                node.SetEmptyCultivationField(true);
+            }
+
+            _selectionButton.SetAllActive(false);
+            _selectionSize = 1;
+            _inSelectionState = false;
+        }
+
+        public void ConfirmBuildFieldButtonPressed()
+        {
+            _buildingPlacement.BuildField();
         }
 
         private void Update()
         {
-            //Rework this 
-//            if (!Input.GetMouseButtonDown(0)) return;
-//            if (!EventSystem.current.IsPointerOverGameObject())
-//            {
-//                SetNodeToNull();
-//            }
+#if UNITY_EDITOR
+            if (!Input.GetMouseButtonDown(0)) return; 
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                SetNodeToNull();
+            }
+#endif
+#if UNITY_ANDROID && !UNITY_EDITOR
+
+            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            {
+                SetNodeToNull();
+            }
+#endif
         }
     }
 }
-
-

@@ -12,7 +12,7 @@ namespace UI
 
         public override void TaskOnClick()
         {
-            GridManager.Instance.BuildButtonPressed();
+           // GridManager.Instance.BuildFarmButtonPressed();
         }
 
         public void SetButtonInteractable(bool value)

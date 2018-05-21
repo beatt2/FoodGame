@@ -118,6 +118,7 @@ MonoBehaviour:
   MoneyTick: 10
   TickDelay: 1
   UpgradeRank: 0
+  MyCultivationType: 2
 --- !u!212 &212347748750855200
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -17,6 +17,7 @@
           <e p="Cultivations" t="Include">
             <e p="Building.cs" t="Include" />
             <e p="BuildingPrefab.cs" t="Include" />
+            <e p="Carrot.cs" t="Include" />
             <e p="Cultivation.cs" t="Include" />
             <e p="CultivationManager.cs" t="Include" />
             <e p="CultivationPrefab.cs" t="Include" />
@@ -24,6 +25,7 @@
             <e p="PlantPrefab.cs" t="Include" />
           </e>
           <e p="Events" t="Include">
+            <e p="EventButton.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
             <e p="Events.cs" t="Include" />
           </e>

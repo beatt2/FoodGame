@@ -1,4 +1,5 @@
-﻿using Grid;
+﻿using Cultivations;
+using Grid;
 using UnityEngine;
 
 namespace Node
@@ -15,7 +16,10 @@ namespace Node
 		public Vector2Int GridLocation;
 
 		private SpriteRenderer _spriteRenderer;
-		
+
+
+		private int _listIndex = -1;
+		private bool _emptyCultivationField;
 		
 
 		public Vector3 BuildLocation
@@ -30,9 +34,30 @@ namespace Node
 		{
 			_spriteRenderer = GetComponent<SpriteRenderer>();
 		}
-		
 
-	
+		public void SetCultivationListIndex(int index)
+		{
+			_listIndex = index;
+		}
+
+		public bool IsFarmField()
+		{
+			return _emptyCultivationField;
+		}
+
+		public void SetEmptyCultivationField(bool value)
+		{
+			_emptyCultivationField = value;
+			if (value)
+			{
+				HighLight.SetToActiveColor();
+			}
+		}
+
+		public bool IsFarm()
+		{
+			return gameObject.GetComponent<BuildingPrefab>() != null;
+		}
 		
 
 		private void Start()
@@ -46,7 +71,14 @@ namespace Node
 		{
 			return HighLight.IsSelected();
 		}
-		
+
+		public int GetListIndex()
+		{
+			return _listIndex;
+		}
+
+	
+
 		public void SetSprite(Sprite sprite)
 		{
 			_spriteRenderer.sprite = sprite;

@@ -56,11 +56,13 @@
     <Compile Include="Assets\Scripts\Camera Movement\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Building.cs" />
     <Compile Include="Assets\Scripts\Cultivations\BuildingPrefab.cs" />
+    <Compile Include="Assets\Scripts\Cultivations\Carrot.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Cultivation.cs" />
     <Compile Include="Assets\Scripts\Cultivations\CultivationManager.cs" />
     <Compile Include="Assets\Scripts\Cultivations\CultivationPrefab.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Plant.cs" />
     <Compile Include="Assets\Scripts\Cultivations\PlantPrefab.cs" />
+    <Compile Include="Assets\Scripts\Events\EventButton.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
     <Compile Include="Assets\Scripts\Events\Events.cs" />
     <Compile Include="Assets\Scripts\Grid\BuildingPlacement.cs" />

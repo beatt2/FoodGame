@@ -18,4 +18,4 @@ MonoBehaviour:
   WhiteSideBlock: {fileID: 1452782895485590, guid: f1dc6c8c9d19cc24e9b0a2eba01825cd,
     type: 2}
   BlueBlock: {fileID: 1574880553937912, guid: 49b2856d30c5f4c4cac7dda3de6c9d4a, type: 2}
-  Size: {x: 9, y: 9}
+  Size: {x: 7, y: 7}

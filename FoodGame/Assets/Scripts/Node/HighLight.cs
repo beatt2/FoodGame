@@ -5,19 +5,22 @@ namespace Node
 	public class HighLight : MonoBehaviour
 	{
 		private Color _startingColor;
+		private Color _originalColor;
 		private Color _blue = Color.blue;
+		private Color _activeColor = new Color(45,161,0,255);
 		private SpriteRenderer _spriteRenderer;
 
 		private void Awake()
 		{
 			_spriteRenderer = GetComponent<SpriteRenderer>();
 			_startingColor = _spriteRenderer.color;
+			_originalColor = _startingColor;
 		}
 
 		//TODO  turn this into some selection state
 		public bool IsSelected()
 		{
-			return _spriteRenderer.color == Color.blue || _spriteRenderer.color == Color.green ;
+			return _spriteRenderer.color == Color.blue || _spriteRenderer.color == Color.green || _spriteRenderer.color == Color.red;
 
 		}
 
@@ -31,9 +34,31 @@ namespace Node
 			_spriteRenderer.color = Color.green;
 		}
 
+		public void ChangeColorRed()
+		{
+			_spriteRenderer.color = Color.red;
+		}
+
+		public void SetToActiveColor()
+		{
+			_spriteRenderer.color = _activeColor;
+			_startingColor = _activeColor;
+		}
+
+		public bool IsBlue()
+		{
+			return _spriteRenderer.color == Color.blue;
+		}
+
+
+
+	
+
 		public void ChangeColorToOld()
 		{
+			
 			_spriteRenderer.color = _startingColor;
+			
 		}
 
 

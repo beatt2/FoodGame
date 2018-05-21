@@ -2749,6 +2749,8 @@ MonoBehaviour:
   MyBuildButton: {fileID: 2033813079}
   BuildObject: {fileID: 1574880553937912, guid: 49b2856d30c5f4c4cac7dda3de6c9d4a,
     type: 2}
+  _buildingPlacement: {fileID: 0}
+  _selectionButton: {fileID: 0}
 --- !u!1 &179123709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5987,6 +5989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60091a18ee07e9140b9ae3f84389702f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CultType: 0
 --- !u!1 &450849431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7736,6 +7739,7 @@ MonoBehaviour:
   MoneyTick: 0
   TickDelay: 0
   UpgradeRank: 0
+  MyCultivationType: 0
 --- !u!1 &535753798
 GameObject:
   m_ObjectHideFlags: 0
@@ -29010,7 +29014,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 426899310}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

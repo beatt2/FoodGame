@@ -14,7 +14,7 @@ namespace Grid
             ChangeTile(CultivationPrefabs[0]);
         }
 
-        public void BuildFiled()
+        public void BuildField()
         {
             ChangeTile(CultivationPrefabs[1]);
         }
@@ -26,6 +26,8 @@ namespace Grid
             node.SetSprite(go.GetComponent<SpriteRenderer>().sprite);
             node.gameObject.AddComponent<BuildingPrefab>();
             node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>());
+            if(go == CultivationPrefabs[0])
+            node.transform.position = new Vector3(node.transform.position.x,node.transform.position.y -0.09f,0);
 
         }
         
