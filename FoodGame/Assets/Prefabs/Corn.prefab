@@ -115,9 +115,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Corn
   Sustainability: 1
-  MoneyTick: 10
+  MoneyTick: 50
   TickDelay: 1
   UpgradeRank: 0
+  MyCultivationType: 1
+  BuildingPrice: 2000
 --- !u!212 &212108432101477528
 SpriteRenderer:
   m_ObjectHideFlags: 1

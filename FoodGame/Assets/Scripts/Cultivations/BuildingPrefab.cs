@@ -8,7 +8,7 @@ namespace Cultivations
         
         protected void Awake()
         {
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank, MyCultivationType);
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank, MyCultivationType,BuildingPrice);
         }
 
         public void ChangeValues(BuildingPrefab buildingPrefab)
@@ -18,7 +18,17 @@ namespace Cultivations
             MoneyTick = buildingPrefab.MoneyTick;
             TickDelay = buildingPrefab.TickDelay;
             UpgradeRank = buildingPrefab.UpgradeRank;
+            BuildingPrice = buildingPrefab.BuildingPrice;
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank, MyCultivationType,BuildingPrice);
+            AddCultivation();
+            
 
+        }
+
+        private void AddCultivation()
+        {
+            
+            CultivationManager.Instance.AddValue(MyBuilding);
         }
 
         protected void Update()

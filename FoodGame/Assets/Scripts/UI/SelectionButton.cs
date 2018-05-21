@@ -66,7 +66,7 @@ namespace UI
             switch (currentState)
             {
                     case CurrentStateEnum.BuildFarm:
-                        MyButton.GetComponentInChildren<Text>().text = "Build Farm";
+                        MyButton.GetComponentInChildren<Text>().text = "Build";
                         break;
                     case CurrentStateEnum.Field:
                         MyButton.GetComponentInChildren<Text>().text = "Build Field";
@@ -117,9 +117,7 @@ namespace UI
         public void ConfirmBuildButtonPressed()
         {
             GridManager.Instance.ConfirmBuildFarmButtonPressed();
-       
-            
-            
+      
         }
  
         private void ChangeColor() 

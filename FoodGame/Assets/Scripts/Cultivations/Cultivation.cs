@@ -10,11 +10,12 @@ namespace Cultivations
         public int MoneyTick;// = value
         public float TickDelay;
         public int UpgradeRank;
+        public int BuildPrice;
 
 
         public CultivationManager.CultivationType MyCultivationType;
 
-        protected Cultivation(string name, int sustainability, int moneyTick, float tickDelay, int upgradeRank,CultivationManager.CultivationType cultivationType)
+        protected Cultivation(string name, int sustainability, int moneyTick, float tickDelay, int upgradeRank,CultivationManager.CultivationType cultivationType,int buildPrice)
         {
             Name = name;
             Sustainability = sustainability;
@@ -22,6 +23,7 @@ namespace Cultivations
             TickDelay = tickDelay;
             UpgradeRank = upgradeRank;
             MyCultivationType = cultivationType;
+            BuildPrice = buildPrice;
         }
 
     }

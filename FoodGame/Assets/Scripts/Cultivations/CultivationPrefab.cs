@@ -10,6 +10,7 @@ namespace Cultivations
         public float TickDelay;
         public int UpgradeRank;
         public CultivationManager.CultivationType MyCultivationType;
+        public int BuildingPrice;
 
 
 

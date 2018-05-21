@@ -115,10 +115,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Barn
   Sustainability: 5
-  MoneyTick: 10
+  MoneyTick: 100
   TickDelay: 1
   UpgradeRank: 0
   MyCultivationType: 2
+  BuildingPrice: 4000
 --- !u!212 &212347748750855200
 SpriteRenderer:
   m_ObjectHideFlags: 1

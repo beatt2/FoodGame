@@ -24,6 +24,20 @@ namespace Node
 
 		}
 
+		public void SetAlpha(bool alpha)
+		{
+			// ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+			if (alpha)
+			{
+				_spriteRenderer.color = new Color(_spriteRenderer.color.r,_spriteRenderer.color.g,_spriteRenderer.color.b, 0.5f);
+			}
+			else
+			{
+				_spriteRenderer.color = new Color(_spriteRenderer.color.r,_spriteRenderer.color.g,_spriteRenderer.color.b, 1);
+			}
+			
+		}
+
 		public void ChangeColorBlue()
 		{
 			_spriteRenderer.color = Color.blue;

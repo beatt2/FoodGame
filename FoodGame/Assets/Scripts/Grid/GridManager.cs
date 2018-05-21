@@ -81,7 +81,9 @@ namespace Grid
             Debug.Log("SelectionNode = " + _selectionSize);
             if (_selectedNode == null) return;
             ChangeColorsToOld();
+            if(_selectionSize == 4)
             ChangeColorsToBlue();
+      
         }
 
         public void ConfirmLocation(bool value)
@@ -90,14 +92,19 @@ namespace Grid
             Debug.Log(_inSelectionState ? "Selection state is true" : "Selection state is false");
             if (!_inSelectionState)
             {
+                SetTilesToAlpha(false);
                 ChangeColorsToOld();
+                
             }
-            else if (_selectedNode == null)
+            else
+            {
+                SetTilesToAlpha(true);
+            }
+            if (_selectedNode == null)
             {
                 Debug.Log("No node selected");
             }
         }
-
 
         public NodeBehaviour GetSelectedNode()
         {
@@ -182,6 +189,17 @@ namespace Grid
             //MyBuildButton.SetButtonInteractable(false);
         }
 
+        public void SetTilesToAlpha(bool value)
+        {
+            foreach (var node in _nodeBehavioursGrid)
+            {
+                if (!node.IsSelected())
+                {
+                    node.HighLight.SetAlpha(value);
+                }
+            }
+        }
+
 
         private void ChangeColorsToBlue()
         {
@@ -235,7 +253,7 @@ namespace Grid
             _selectedNode.HighLight.ChangeColorToOld();
 
 
-            if (_selectionSize != 4) return;
+            //if (_selectionSize != 4) return;
             foreach (var node in _nodeBehavioursGrid)
             {
                 if (node.IsSelected())
@@ -281,8 +299,9 @@ namespace Grid
 
         public void ConfirmBuildFarmButtonPressed()
         {
+            if (!_buildingPlacement.BuildFarm()) return;
+            SetTilesToAlpha(false);
             int listCount = _cultivationLocationList.Count;
-            _buildingPlacement.BuildFarm();
             _cultivationLocationList.Add(new List<NodeBehaviour>());
             _cultivationLocationList[listCount].Add(_selectedNode);
             _cultivationLocationList[listCount][0].SetCultivationListIndex(listCount);
@@ -293,10 +312,12 @@ namespace Grid
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);
             }
-
+                
             _selectionButton.SetAllActive(false);
             _selectionSize = 1;
             _inSelectionState = false;
+
+
         }
 
         public void ConfirmBuildFieldButtonPressed()

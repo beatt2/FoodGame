@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Cultivations;
 using Tools;
 using UnityEngine;
@@ -15,19 +16,25 @@ namespace Money
 
         public Text MoneyUi;
 
+        
+        
         public Text Income;
 
         public Text Expense;
 
-        private float fruitValue;
-        private float farmValue;
-        private float vegetablevalue;
+        private float _fruitValue;
+        private float _farmValue;
+        private float _vegetablevalue;
+        
+        
+        //TODO THIS IS FOR PROTOTYPE
+        public bool ShowExpenses;
 
 
         // Use this for initialization
         private void Start ()
         {
-            _currentMoney = 100;
+            _currentMoney = 5000;
             MoneyUi.text = "€ " + _currentMoney;
             
 
@@ -40,25 +47,9 @@ namespace Money
 
         public void ChangeMonth()
         {
-            _monthlyIncome = Random.Range(5, 50);
-            _monthlyExpenses = Random.Range(15, 50);
-            if (_monthlyIncome < _monthlyExpenses)
-            {
-                Income.color = new Color(1, 0, 0);
-            }
-            else
-            {
-                Income.color = new Color(0, 0, 0);
-            }
-
-            if (_currentMoney <= 0)
-            {
-                MoneyUi.color = new Color(1, 0, 0);
-            }
-            else
-            {
-                MoneyUi.color = new Color(0, 0, 0);
-            }
+         
+            Income.color = _monthlyIncome < _monthlyExpenses ? Color.red : Color.black;
+            MoneyUi.color = _currentMoney < 0 ? Color.red : Color.black;
             
             ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
         }
@@ -66,15 +57,49 @@ namespace Money
         public void ChangeMoneyMonthly(float income, float expenses)
         {
             _currentMoney += income - expenses;
-            Income.text = "+€ " + income;
-            Expense.text = "-€ " + expenses;
 
-            MoneyUi.text = "€ "+_currentMoney;
+            if (ShowExpenses)
+            {
+                Income.text = "+€ " + income;
+                Expense.text = "-€ " + expenses;
+            }
+
+
+            MoneyUi.text = "€ "+ _currentMoney;
         }
 
-        public void ChangeMoney(int amount)
+        public bool EnoughMoney(int value)
         {
+            if (_currentMoney -value >= 0)
+            {
+                return true;
+            }
+            Debug.Log("Sorry not enough money");
+            return false;
+    
+ 
+        }
 
+        public void AddMonthlyIncome(int value)
+        {
+            _monthlyIncome += value;
+            Income.text = _monthlyIncome.ToString();
+        }
+
+        public void AddMonthlyExpenses(int value)
+        {
+            _monthlyExpenses += value;
+            Expense.text = _monthlyExpenses.ToString();
+        }
+
+        public void RemoveMoney(int value)
+        {
+            if (EnoughMoney(value))
+            {
+                _currentMoney -= value;
+                MoneyUi.text = _currentMoney.ToString();
+            }
+       
         }
 
         public void AddFinance(CultivationManager.CultivationType cultivationType,float value)
@@ -83,24 +108,26 @@ namespace Money
             switch (cultivationType)
                 {
                     case CultivationManager.CultivationType.Fruit:
-                        fruitValue += value;
-                        Debug.Log("Fruit " + fruitValue);
+                        _fruitValue += value;
+                        Debug.Log("Fruit " + _fruitValue);
                     break;
                     case CultivationManager.CultivationType.Vegetable:
-                        vegetablevalue += value;
-                        Debug.Log("Vegetable " + vegetablevalue);
+                        _vegetablevalue += value;
+                        Debug.Log("Vegetable " + _vegetablevalue);
                     break;
                     case CultivationManager.CultivationType.Farm:
-                        farmValue += value;
-                        Debug.Log("Farm " + farmValue);
+                        _farmValue += value;
+                        Debug.Log("Farm " + _farmValue);
                     break;
                     default:
                         break;
                 }
 
-            
-            
-            
+            _monthlyIncome += value;
+
+
+
+
         }
     }
 }

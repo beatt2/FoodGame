@@ -3,8 +3,8 @@
 namespace Cultivations
 {
     public class Carrot : Cultivation {
-        public Carrot(string name, int sustainability, int moneyTick, float tickDelay, int upgradeRank, CultivationManager.CultivationType cultivationType) : 
-            base(name, sustainability, moneyTick, tickDelay, upgradeRank, cultivationType)
+        public Carrot(string name, int sustainability, int moneyTick, float tickDelay, int upgradeRank, CultivationManager.CultivationType cultivationType,int buildingPrice) : 
+            base(name, sustainability, moneyTick, tickDelay, upgradeRank, cultivationType,buildingPrice )
         {
 
         }

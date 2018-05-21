@@ -23,11 +23,15 @@ namespace Cultivations
 
         public void AddValue(Cultivation cultivation)
         {
+            if (!SimpleMoneyManager.Instance.EnoughMoney(cultivation.BuildPrice)) return;
+            SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
+            SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
+            //TODO CHANGE THE WAY TO DO THIS
+            SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             _cultivations.Add(cultivation.MyCultivationType, cultivation);
-            
         }
 
-        public void RemoveValue(Cultivation cultivation)
+        public void RemoveEntry(Cultivation cultivation)
         {
             _cultivations.Remove(cultivation.MyCultivationType);
         }

@@ -23,7 +23,9 @@ namespace TimeSystem
             Year = 2018;
         }
 
-        private void Update ()
+        
+        //TODO REWORK THIS
+        private void FixedUpdate ()
         {
 
             
