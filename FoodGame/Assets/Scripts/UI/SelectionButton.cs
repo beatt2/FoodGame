@@ -1,4 +1,5 @@
 ﻿using System;
+using Cultivations;
 using Grid;     
 using UnityEngine; 
 using UnityEngine.UI;  
@@ -15,7 +16,8 @@ namespace UI
        
         public Button YesButton; 
         public Button NoButton;
-        public Button ConfirmButton;
+        public Button ConfirmCornButton;
+        public Button ConfirmCarrotButton;
         
         public enum CurrentStateEnum {Field, Upgrade, BuildFarm}
 
@@ -43,6 +45,7 @@ namespace UI
             else if (CurrentState == CurrentStateEnum.Field)
             {
                 if (GridManager.Instance.GetSelectedNode() == null) return;
+                if(GridManager.Instance.GetSelectedNode())
                 GridManager.Instance.ConfirmBuildFieldButtonPressed();
             }
             else if (CurrentState == CurrentStateEnum.Upgrade)
@@ -57,28 +60,57 @@ namespace UI
         {
             MyButton.GetComponentInChildren<Text>().text = text;
         }
-        
-        
-        //TODO refactor
-        public void SetCurrentState(CurrentStateEnum currentState)
+
+        public void SetButtonState()
         {
-            CurrentState = currentState;
-            switch (currentState)
+
+            string tempButtonText = "Build";
+            switch (GridManager.Instance.GetSelectedNode().GetCurrentState())
             {
-                    case CurrentStateEnum.BuildFarm:
-                        MyButton.GetComponentInChildren<Text>().text = "Build";
-                        break;
-                    case CurrentStateEnum.Field:
-                        MyButton.GetComponentInChildren<Text>().text = "Build Field";
-                        break;
-                    case CurrentStateEnum.Upgrade:
-                        MyButton.GetComponentInChildren<Text>().text = "Upgrade Farm";
-                        break;
-                default:
-                    throw new ArgumentOutOfRangeException("currentState", currentState, null);
+                case NodeState.CurrentStateEnum.Farm:
+                    switch (GridManager.Instance.GetSelectedNode().GetFieldType())
+                    {
+                        case NodeState.FieldTypeEnum.Carrot:
+                            tempButtonText = "Upgrade Carrot Farm";
+                            break;
+                        case NodeState.FieldTypeEnum.Corn:
+                            tempButtonText = "Upgrade Corn Farm";
+                            break;
+                        case NodeState.FieldTypeEnum.Nothing:
+                            Debug.LogError("Nothing");
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                    break;
                     
+                case NodeState.CurrentStateEnum.Field:
+                    Debug.Log("Nothing yet");
+                    break;
+       
+                case NodeState.CurrentStateEnum.EmptyField
+                    switch (GridManager.Instance.GetSelectedNode().GetVegetableType())
+                    {
+                            case Plant.VegetableType.Carrot:
+                                tempButtonText = "Build Carrot field";
+                                break;
+                            case Plant.VegetableType.Corn:
+                                tempButtonText = "Build Corn field";
+                                break;
+                    }
+                    break;
+                case CultivationManager.CultivationType.Nothing:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
+
+        
+
+            ButtonText = tempButtonText;
+            UpdateTextValue();
         }
+        
 
         public bool YesNoButtonActivated()
         {
@@ -101,12 +133,14 @@ namespace UI
 
         public void SetActiveConfirmButton()
         {
-            ConfirmButton.gameObject.SetActive(true);
+            ConfirmCornButton.gameObject.SetActive(true);
+            ConfirmCarrotButton.gameObject.SetActive(true);
         }
 
         public void SetAllActive(bool active)
         {
-            ConfirmButton.gameObject.SetActive(active);
+            ConfirmCornButton.gameObject.SetActive(active);
+            ConfirmCarrotButton.gameObject.SetActive(active);
             YesButton.gameObject.SetActive(active);
             NoButton.gameObject.SetActive(active);
             ChangeColor();
@@ -114,9 +148,9 @@ namespace UI
 
         
         //Set by button
-        public void ConfirmBuildButtonPressed()
+        public void ConfirmBuildButtonPressed(int index)
         {
-            GridManager.Instance.ConfirmBuildFarmButtonPressed();
+            GridManager.Instance.ConfirmBuildFarmButtonPressed(index);
       
         }
  

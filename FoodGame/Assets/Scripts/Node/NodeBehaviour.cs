@@ -20,6 +20,8 @@ namespace Node
 
 		private int _listIndex = -1;
 		private bool _emptyCultivationField;
+
+		private NodeState _nodeState;
 		
 
 		public Vector3 BuildLocation
@@ -33,6 +35,7 @@ namespace Node
 		private void Awake()
 		{
 			_spriteRenderer = GetComponent<SpriteRenderer>();
+			_nodeState = GetComponent<NodeState>();
 		}
 
 		public void SetCultivationListIndex(int index)
@@ -72,6 +75,17 @@ namespace Node
 			return HighLight.IsSelected();
 		}
 
+		public NodeState.CurrentStateEnum GetCurrentState()
+		{
+			return _nodeState.CurrentState;
+		}
+
+		public NodeState.FieldTypeEnum GetFieldType()
+		{
+			return _nodeState.FieldType;
+		}
+
+		
 		public int GetListIndex()
 		{
 			return _listIndex;
@@ -87,9 +101,7 @@ namespace Node
 
 		private void OnMouseDown()
 		{
-			Debug.Log("piininggg"	);
 			GridManager.Instance.SetSelectedNode(this);
-	
 		}
 	}
 }

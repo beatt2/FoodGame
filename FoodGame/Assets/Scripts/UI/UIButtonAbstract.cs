@@ -30,6 +30,11 @@ namespace UI
            
         }
 
+        protected void UpdateTextValue()
+        {
+            _childText.text = ButtonText;
+        }
+
         private void OnValidate()
         {
             //TODO IMPROVE THIS

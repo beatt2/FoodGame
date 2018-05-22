@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4657288632573488}
   - component: {fileID: 212108432101477528}
   - component: {fileID: 60969493507363898}
-  - component: {fileID: 114284852437017384}
+  - component: {fileID: 114018613051862646}
   m_Layer: 0
   m_Name: Corn
   m_TagString: Untagged
@@ -102,7 +102,7 @@ PolygonCollider2D:
       - {x: -0.21, y: -2.1599998}
       - {x: -0.08, y: -2.22}
       - {x: 0.08, y: -2.22}
---- !u!114 &114284852437017384
+--- !u!114 &114018613051862646
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -110,16 +110,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579378822104836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9536cba6cd388804684dd4fef7f40791, type: 3}
+  m_Script: {fileID: 11500000, guid: 53b1e956b2167df4a9bd596a3dbe67e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Corn
-  Sustainability: 1
-  MoneyTick: 50
-  TickDelay: 1
-  UpgradeRank: 0
+  Name: CornField
+  Sustainability: 0
+  MoneyTick: 40
+  TickDelay: 0
+  UpgradeRank: 1
   MyCultivationType: 1
   BuildingPrice: 2000
+  MyVegetableType: 1
 --- !u!212 &212108432101477528
 SpriteRenderer:
   m_ObjectHideFlags: 1

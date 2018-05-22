@@ -5,29 +5,34 @@ namespace Cultivations
     public class BuildingPrefab : CultivationPrefab
     {
         [HideInInspector] public Building MyBuilding;
+
+
         
         protected void Awake()
         {
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank, MyCultivationType,BuildingPrice);
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType);
         }
 
-        public void ChangeValues(BuildingPrefab buildingPrefab)
+        public void CustomAwake()
         {
-            Name = buildingPrefab.name;
-            Sustainability = buildingPrefab.Sustainability;
-            MoneyTick = buildingPrefab.MoneyTick;
-            TickDelay = buildingPrefab.TickDelay;
-            UpgradeRank = buildingPrefab.UpgradeRank;
-            BuildingPrice = buildingPrefab.BuildingPrice;
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,TickDelay,UpgradeRank, MyCultivationType,BuildingPrice);
-            AddCultivation();
-            
-
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType);
         }
+
+        public void ChangeValues(Building building)
+        {
+            MyBuilding = building;
+            AddCultivation();   
+        }
+
+        
+        //TODO moving this to nodestate class
+//        public Building.BuildingType GetBuildingType()
+//        {
+//            return MyBuildingType;
+//        }
 
         private void AddCultivation()
         {
-            
             CultivationManager.Instance.AddValue(MyBuilding);
         }
 

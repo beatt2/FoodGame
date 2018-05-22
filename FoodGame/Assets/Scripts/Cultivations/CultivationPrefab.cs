@@ -7,10 +7,10 @@ namespace Cultivations
         public string Name;
         public int Sustainability;
         public int MoneyTick;
-        public float TickDelay;
         public int UpgradeRank;
-        public CultivationManager.CultivationType MyCultivationType;
         public int BuildingPrice;
+        public NodeState.CurrentStateEnum MyCurrentState;
+        public NodeState.FieldTypeEnum MyFieldType;
 
 
 

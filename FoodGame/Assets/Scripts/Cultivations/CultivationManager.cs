@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using Money;
 using Tools;
+using UnityEngine;
 
 namespace Cultivations
 {
     public class CultivationManager : Singleton<CultivationManager>
     {
-        public enum CultivationType {Fruit, Vegetable , Farm };
+      
+        
+  
 
 
         private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
@@ -28,31 +32,34 @@ namespace Cultivations
             SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
             //TODO CHANGE THE WAY TO DO THIS
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
-            CheckForNull(cultivation.MyCultivationType);
-            _cultivations[cultivation.MyCultivationType].Add(cultivation);
+            CheckForNull(cultivation.MyCultivationState);
+            _cultivations[cultivation.MyCultivationState].Add(cultivation);
         }
 
-        private void CheckForNull(CultivationType cultivationType)
+        private void CheckForNull(NodeState.CurrentStateEnum currentState)
         {
-            if (_cultivations.ContainsKey(cultivationType)) return ;
-            _cultivations.Add(cultivationType, new List<Cultivation>());
+            if (_cultivations.ContainsKey(currentState)) return ;
+            _cultivations.Add(currentState, new List<Cultivation>());
 
         }
 
         public void RemoveEntry(Cultivation cultivation)
         {
-            _cultivations.Remove(cultivation.MyCultivationType);
+            _cultivations.Remove(cultivation.MyCultivationState);
         }
 
         public void TickPerMonth()
         {
             for (int i = 0; i < _cultivations.Keys.Count; i++)
             {
-                for (int j = 0; j < _cultivations[(CultivationType) i].Count; j++)
+                foreach (var tick in _cultivations.ElementAt(i).Value)
                 {
-                    SimpleMoneyManager.Instance.AddFinance((CultivationType) i,_cultivations[(CultivationType)i][j].MoneyTick);
+                    SimpleMoneyManager.Instance.AddFinance
+                    (
+                        (NodeState.FieldTypeEnum)_cultivations.ElementAt(i).Key,tick.MoneyTick
+                    );
                 }
             }
         }
     }
-}
+}    

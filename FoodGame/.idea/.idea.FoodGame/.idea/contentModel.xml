@@ -49,6 +49,7 @@
             <e p="HighLight.cs" t="Include" />
             <e p="NodeBehaviour.cs" t="Include" />
             <e p="NodeManager.cs" t="Include" />
+            <e p="NodeState.cs" t="Include" />
           </e>
           <e p="TimeSystem" t="Include">
             <e p="TimeManager.cs" t="Include" />

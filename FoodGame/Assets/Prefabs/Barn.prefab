@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212347748750855200}
   - component: {fileID: 60780882935972750}
   - component: {fileID: 114609380816340052}
+  - component: {fileID: 114374624588037400}
   m_Layer: 0
   m_Name: Barn
   m_TagString: Untagged
@@ -102,6 +103,19 @@ PolygonCollider2D:
       - {x: -0.21, y: -2.1599998}
       - {x: -0.08, y: -2.22}
       - {x: 0.08, y: -2.22}
+--- !u!114 &114374624588037400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367599474108558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0ac05c64af1d943885a8ce6e3d1d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  FieldType: 0
 --- !u!114 &114609380816340052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,6 +134,7 @@ MonoBehaviour:
   UpgradeRank: 0
   MyCultivationType: 2
   BuildingPrice: 4000
+  MyBuildingType: 0
 --- !u!212 &212347748750855200
 SpriteRenderer:
   m_ObjectHideFlags: 1

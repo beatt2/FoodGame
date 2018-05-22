@@ -8,22 +8,24 @@ namespace Cultivations
         public string Name;
         public int Sustainability;
         public int MoneyTick;// = value
-        public float TickDelay;
         public int UpgradeRank;
         public int BuildPrice;
+        
+        
 
+        
+        public NodeState.CurrentStateEnum MyCultivationState;
+        public NodeState.FieldTypeEnum FieldType;
 
-        public CultivationManager.CultivationType MyCultivationType;
-
-        protected Cultivation(string name, int sustainability, int moneyTick, float tickDelay, int upgradeRank,CultivationManager.CultivationType cultivationType,int buildPrice)
+        protected Cultivation(string name, int sustainability, int moneyTick,int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState, NodeState.FieldTypeEnum currentFieldType)
         {
             Name = name;
             Sustainability = sustainability;
             MoneyTick = moneyTick;
-            TickDelay = tickDelay;
             UpgradeRank = upgradeRank;
-            MyCultivationType = cultivationType;
+            MyCultivationState = currentState;
             BuildPrice = buildPrice;
+            FieldType = currentFieldType;
         }
 
     }

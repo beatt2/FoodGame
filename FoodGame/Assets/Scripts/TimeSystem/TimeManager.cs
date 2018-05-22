@@ -27,8 +27,7 @@ namespace TimeSystem
         //TODO REWORK THIS
         private void FixedUpdate ()
         {
-
-            
+ 
             if (!EventManager.Instance.InEventMenu)
             {
                 _timeStamp += TimeToIncrease * Time.deltaTime;
@@ -95,7 +94,6 @@ namespace TimeSystem
                             break;
 
                     }
-
                     EventManager.Instance.CheckDate(Month, Year);
                     SimpleMoneyManager.Instance.ChangeMonth();
                     CultivationManager.Instance.TickPerMonth();

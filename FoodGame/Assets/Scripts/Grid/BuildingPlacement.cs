@@ -10,12 +10,12 @@ namespace Grid
         public GameObject [] CultivationPrefabs;
 
 
-        public bool BuildFarm()
+        public bool BuildFarm(int index)
         {
-            if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[0].GetComponent<BuildingPrefab>()
+            if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[index].GetComponent<BuildingPrefab>()
                 .BuildingPrice))
             {
-                ChangeTile(CultivationPrefabs[0]);
+                ChangeTile(CultivationPrefabs[index]);
                 return true;
             }
             else
@@ -27,6 +27,7 @@ namespace Grid
          
         }
 
+ 
         public void BuildField()
         {
             if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[1].GetComponent<BuildingPrefab>()
@@ -46,7 +47,8 @@ namespace Grid
             var node = GridManager.Instance.GetSelectedNode();
             node.SetSprite(go.GetComponent<SpriteRenderer>().sprite);
             node.gameObject.AddComponent<BuildingPrefab>();
-            node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>());
+            go.GetComponent<BuildingPrefab>().CustomAwake();
+            node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
             //TODO prototype only
             if(go == CultivationPrefabs[0])
             node.transform.position = new Vector3(node.transform.position.x,node.transform.position.y -0.09f,0);

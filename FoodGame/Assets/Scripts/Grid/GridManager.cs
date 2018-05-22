@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Cultivations;
 using Node;
 using Tools;
@@ -35,6 +38,7 @@ namespace Grid
 
         protected override void Awake()
         {
+            Screen.SetResolution(1920,1080,true);
             base.Awake();
             _gridSizeX = MyGridMaker.Size.x;
             _gridSizeY = MyGridMaker.Size.y;
@@ -93,8 +97,7 @@ namespace Grid
             if (!_inSelectionState)
             {
                 SetTilesToAlpha(false);
-                ChangeColorsToOld();
-                
+                ChangeColorsToOld();  
             }
             else
             {
@@ -110,6 +113,7 @@ namespace Grid
         {
             return _selectedNode != null ? _selectedNode : null;
         }
+        
 
 
         public void SetSelectedNode(NodeBehaviour nodeBehaviour)
@@ -165,19 +169,9 @@ namespace Grid
             {
                 _selectionButton.ToggleYesNoButtons();
             }
+            SetButtonState();
 
-            if (_selectedNode.IsFarmField())
-            {
-                _selectionButton.SetCurrentState(SelectionButton.CurrentStateEnum.Field);
-            }
-            else if (_selectedNode.IsFarm())
-            {
-                _selectionButton.SetCurrentState(SelectionButton.CurrentStateEnum.Upgrade);
-            }
-            else
-            {
-                _selectionButton.SetCurrentState(SelectionButton.CurrentStateEnum.BuildFarm);
-            }
+
         }
 
         public void SetNodeToNull()
@@ -187,6 +181,11 @@ namespace Grid
             _selectedNode = null;
             //TODO REMOVE
             //MyBuildButton.SetButtonInteractable(false);
+        }
+
+        private void SetButtonState()
+        {
+            _selectionButton.SetButtonState();
         }
 
         public void SetTilesToAlpha(bool value)
@@ -297,9 +296,9 @@ namespace Grid
             _selectionButton.SetActiveConfirmButton();
         }
 
-        public void ConfirmBuildFarmButtonPressed()
+        public void ConfirmBuildFarmButtonPressed(int target)
         {
-            if (!_buildingPlacement.BuildFarm()) return;
+            if (!_buildingPlacement.BuildFarm(target)) return;
             SetTilesToAlpha(false);
             int listCount = _cultivationLocationList.Count;
             _cultivationLocationList.Add(new List<NodeBehaviour>());
@@ -334,13 +333,14 @@ namespace Grid
                 SetNodeToNull();
             }
 #endif
-#if UNITY_ANDROID && !UNITY_EDITOR
-
-            if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-            {
-                SetNodeToNull();
-            }
-#endif
+//#if UNITY_ANDROID && !UNITY_EDITOR
+//
+//            if(Input.GetTouch(0).fingerId)
+//            if (!EventSystem.current.IsPointerOverGameObject())
+//            {
+//                SetNodeToNull();
+//            }
+//#endif
         }
     }
 }

@@ -367,10 +367,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -851,6 +851,8 @@ MonoBehaviour:
   CultivationPrefabs:
   - {fileID: 1367599474108558, guid: 251167adfda7b604b909bf7ca3680d03, type: 2}
   - {fileID: 1579378822104836, guid: f5c8e3c0fa999484096ba9bad10bf009, type: 2}
+  - {fileID: 1092493309558686, guid: a7133dfbf19c7fd478b2ca03f16884a2, type: 2}
+  - {fileID: 1154304893380992, guid: d07281c870c69a74d967b9a9b79403b7, type: 2}
 --- !u!1 &160927047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1560,7 @@ GameObject:
   - component: {fileID: 257773122}
   - component: {fileID: 257773121}
   m_Layer: 5
-  m_Name: Confirm
+  m_Name: CornBarn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1581,7 +1583,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 692, y: 306}
-  m_SizeDelta: {x: 300, y: 100}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257773121
 MonoBehaviour:
@@ -1594,11 +1596,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0294c42a31c70dc41b65c8e2e495cb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: Confirm Build
+  ButtonText: Corn Barn 4000
   UseBestFit: 1
   YesButton: {fileID: 0}
   NoButton: {fileID: 0}
-  ConfirmButton: {fileID: 257773122}
+  ConfirmCornButton: {fileID: 0}
+  ConfirmCarrotButton: {fileID: 0}
   CurrentState: 2
 --- !u!114 &257773122
 MonoBehaviour:
@@ -1641,7 +1644,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 257773121}
         m_MethodName: ConfirmBuildButtonPressed
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1752,7 +1755,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Confirm Build
+  m_Text: Corn Barn 4000
 --- !u!222 &296889509
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2662,10 +2665,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2706,6 +2709,7 @@ RectTransform:
   - {fileID: 1066341650}
   - {fileID: 1726949824}
   - {fileID: 257773120}
+  - {fileID: 2065290089}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5815,7 +5819,8 @@ MonoBehaviour:
   UseBestFit: 1
   YesButton: {fileID: 0}
   NoButton: {fileID: 0}
-  ConfirmButton: {fileID: 0}
+  ConfirmCornButton: {fileID: 0}
+  ConfirmCarrotButton: {fileID: 0}
   CurrentState: 2
 --- !u!114 &1066341652
 MonoBehaviour:
@@ -9794,7 +9799,8 @@ MonoBehaviour:
   UseBestFit: 1
   YesButton: {fileID: 0}
   NoButton: {fileID: 0}
-  ConfirmButton: {fileID: 0}
+  ConfirmCornButton: {fileID: 0}
+  ConfirmCarrotButton: {fileID: 0}
   CurrentState: 2
 --- !u!114 &1726949826
 MonoBehaviour:
@@ -10987,6 +10993,80 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1997946335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1997946336}
+  - component: {fileID: 1997946338}
+  - component: {fileID: 1997946337}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1997946336
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997946335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2065290089}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1997946337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997946335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Carrot Barn 3000
+--- !u!222 &1997946338
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997946335}
 --- !u!1 &2000470342
 GameObject:
   m_ObjectHideFlags: 0
@@ -11201,7 +11281,8 @@ MonoBehaviour:
   UseBestFit: 1
   YesButton: {fileID: 1066341652}
   NoButton: {fileID: 1726949826}
-  ConfirmButton: {fileID: 257773122}
+  ConfirmCornButton: {fileID: 257773122}
+  ConfirmCarrotButton: {fileID: 2065290091}
   CurrentState: 2
 --- !u!114 &2033813080
 MonoBehaviour:
@@ -11771,6 +11852,147 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &2065290088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2065290089}
+  - component: {fileID: 2065290093}
+  - component: {fileID: 2065290092}
+  - component: {fileID: 2065290091}
+  - component: {fileID: 2065290090}
+  m_Layer: 5
+  m_Name: Carrot Barn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2065290089
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065290088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1997946336}
+  m_Father: {fileID: 404316297}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 692, y: 183}
+  m_SizeDelta: {x: 350, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2065290090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065290088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0294c42a31c70dc41b65c8e2e495cb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonText: Carrot Barn 3000
+  UseBestFit: 1
+  YesButton: {fileID: 0}
+  NoButton: {fileID: 0}
+  ConfirmCornButton: {fileID: 0}
+  ConfirmCarrotButton: {fileID: 0}
+  CurrentState: 2
+--- !u!114 &2065290091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065290088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2065290092}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2065290090}
+        m_MethodName: ConfirmBuildButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2065290092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065290088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2065290093
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065290088}
 --- !u!1 &2081745189
 GameObject:
   m_ObjectHideFlags: 0

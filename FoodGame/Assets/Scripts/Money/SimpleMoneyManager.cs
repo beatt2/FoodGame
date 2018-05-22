@@ -102,23 +102,21 @@ namespace Money
        
         }
 
-        public void AddFinance(CultivationManager.CultivationType cultivationType,float value)
+        public void AddFinance(NodeState.FieldTypeEnum fieldType,float value)
         {
-            Debug.Log("tick");
-            switch (cultivationType)
+            //Debug.Log("tick");
+            switch (fieldType)
                 {
-                    case CultivationManager.CultivationType.Fruit:
-                        _fruitValue += value;
-                        Debug.Log("Fruit " + _fruitValue);
-                    break;
-                    case CultivationManager.CultivationType.Vegetable:
+                    case NodeState.FieldTypeEnum.Carrot:
                         _vegetablevalue += value;
-                        Debug.Log("Vegetable " + _vegetablevalue);
+                        //Debug.Log("Fruit " + _fruitValue);
                     break;
-                    case CultivationManager.CultivationType.Farm:
-                        _farmValue += value;
-                        Debug.Log("Farm " + _farmValue);
+                    case NodeState.FieldTypeEnum.Corn:
+                        _vegetablevalue += value;
+                        //Debug.Log("Vegetable " + _vegetablevalue);
                     break;
+                    case NodeState.FieldTypeEnum.Nothing:
+                        break;
                     default:
                         break;
                 }
