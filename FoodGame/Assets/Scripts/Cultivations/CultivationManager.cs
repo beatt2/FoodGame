@@ -11,7 +11,7 @@ namespace Cultivations
         public enum CultivationType {Fruit, Vegetable , Farm };
 
 
-        private readonly Dictionary<Enum,Cultivation > _cultivations = new Dictionary<Enum, Cultivation>();
+        private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
 
         private void Start()
         {
@@ -28,7 +28,15 @@ namespace Cultivations
             SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
             //TODO CHANGE THE WAY TO DO THIS
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
-            _cultivations.Add(cultivation.MyCultivationType, cultivation);
+            CheckForNull(cultivation.MyCultivationType);
+            _cultivations[cultivation.MyCultivationType].Add(cultivation);
+        }
+
+        private void CheckForNull(CultivationType cultivationType)
+        {
+            if (_cultivations.ContainsKey(cultivationType)) return ;
+            _cultivations.Add(cultivationType, new List<Cultivation>());
+
         }
 
         public void RemoveEntry(Cultivation cultivation)
@@ -38,13 +46,12 @@ namespace Cultivations
 
         public void TickPerMonth()
         {
-            
-            foreach (var cultivation in _cultivations)
+            for (int i = 0; i < _cultivations.Keys.Count; i++)
             {
-                //CultType = (CultivationType) cultivation.Key;
-                //Debug.Log(cultivation.Key + " " + cultivation.Value);
-
-                SimpleMoneyManager.Instance.AddFinance((CultivationType) cultivation.Key, cultivation.Value.MoneyTick);
+                for (int j = 0; j < _cultivations[(CultivationType) i].Count; j++)
+                {
+                    SimpleMoneyManager.Instance.AddFinance((CultivationType) i,_cultivations[(CultivationType)i][j].MoneyTick);
+                }
             }
         }
     }
