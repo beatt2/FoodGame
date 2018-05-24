@@ -1,24 +1,24 @@
 ﻿using Grid;
+using UnityEngine;
 
 namespace UI
 {
     public class BuildButton : UIButtonAbstract
     {
+        public GameObject BuildLayer;
+        
         protected override void Awake()
         {
             base.Awake();
-            MyButton.interactable = false;
+            MyButton.interactable = true;
         }
 
         public override void TaskOnClick()
         {
-           // GridManager.Instance.BuildFarmButtonPressed();
+            BuildLayer.SetActive(true);
         }
 
-        public void SetButtonInteractable(bool value)
-        {
-            MyButton.interactable = value;
-        }
+     
         
 
     }

@@ -34,6 +34,7 @@
             <e p="GridList.cs" t="Include" />
             <e p="GridMaker.cs" t="Include" />
             <e p="GridManager.cs" t="Include" />
+            <e p="Selection.cs" t="Include" />
             <e p="SingleGridList.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
@@ -63,6 +64,7 @@
             <e p="BuildButton.cs" t="Include" />
             <e p="IButtonInteractable.cs" t="Include" />
             <e p="OkayButton.cs" t="Include" />
+            <e p="PanelLerp.cs" t="Include" />
             <e p="SelectionButton.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />
             <e p="UIButtonAbstract.cs" t="Include" />

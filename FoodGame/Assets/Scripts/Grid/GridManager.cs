@@ -100,7 +100,7 @@ namespace Grid
                 SetTilesToAlpha(false);
                 ChangeColorsToOld();  
             }
-            else
+            else if (_selectedNode != null) 
             {
                 SetTilesToAlpha(true);
             }
