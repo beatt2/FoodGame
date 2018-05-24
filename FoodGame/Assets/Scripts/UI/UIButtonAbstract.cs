@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI

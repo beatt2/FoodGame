@@ -8,4 +8,16 @@ public class NodeState : MonoBehaviour
     public CurrentStateEnum CurrentState;
     public FieldTypeEnum FieldType;
 
+    public void ChangeValues(NodeState nodeState)
+    {
+        CurrentState = nodeState.CurrentState;
+        FieldType = nodeState.FieldType;
+    }
+
+    public void ChangeValues(CurrentStateEnum currentStateEnum, FieldTypeEnum fieldTypeEnum)
+    {
+        CurrentState = currentStateEnum;
+        FieldType = fieldTypeEnum;
+    }
+
 }

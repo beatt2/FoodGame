@@ -13,13 +13,13 @@ namespace Grid
     public class GridMaker : ScriptableObject
     {
 
-        public GameObject RedBlock;
-        public GameObject WhiteBlock;
+        //public GameObject RedBlock;
+        //public GameObject WhiteBlock;
 
-        public GameObject RedSideBlock;
-        public GameObject WhiteSideBlock;
+        //public GameObject RedSideBlock;
+        public GameObject Block;
 
-        public GameObject BlueBlock;
+       // public GameObject BlueBlock;
 
 
 
@@ -70,19 +70,19 @@ namespace Grid
                   
                     if (x == 0 || y == 0)
                     {
-                        go = Instantiate(white ? WhiteSideBlock : RedSideBlock, currentPosition, Quaternion.identity, parent.transform);
+                        //go = Instantiate(white ? WhiteSideBlock : RedSideBlock, currentPosition, Quaternion.identity, parent.transform);
              
                     }
                     else
                     {
-                        go = Instantiate(white ? WhiteBlock : RedBlock, currentPosition, Quaternion.identity, parent.transform); 
+                        //o = Instantiate(white ? WhiteBlock : RedBlock, currentPosition, Quaternion.identity, parent.transform); 
                     }
-                    Vector3 goPlace = new Vector3(go.transform.position.x, go.transform.position.y + 0.83f, 0);
-                    
-                    go.GetComponent<NodeBehaviour>().GridLocation = new Vector2Int(x,y);
-                    go.GetComponent<SpriteRenderer>().sortingOrder = currentLayerCount;
-             
-                    go.name = "Node "+ x + " " + y;
+//                    Vector3 goPlace = new Vector3(go.transform.position.x, go.transform.position.y + 0.83f, 0);
+//                    
+//                    go.GetComponent<NodeBehaviour>().GridLocation = new Vector2Int(x,y);
+//                    go.GetComponent<SpriteRenderer>().sortingOrder = currentLayerCount;
+//             
+//                    go.name = "Node "+ x + " " + y;
              
                     white = !white;
                     currentPosition.x -= XOffset;

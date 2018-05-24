@@ -1,7 +1,6 @@
 ﻿using Cultivations;
 using Money;
 using UnityEngine;
-using UnityScript.Macros;
 
 namespace Grid
 {
@@ -49,6 +48,7 @@ namespace Grid
             node.gameObject.AddComponent<BuildingPrefab>();
             go.GetComponent<BuildingPrefab>().CustomAwake();
             node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+            node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
             //TODO prototype only
             if(go == CultivationPrefabs[0])
             node.transform.position = new Vector3(node.transform.position.x,node.transform.position.y -0.09f,0);

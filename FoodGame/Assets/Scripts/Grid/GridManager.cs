@@ -6,6 +6,7 @@ using Cultivations;
 using Node;
 using Tools;
 using UI;
+using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -305,11 +306,17 @@ namespace Grid
             _cultivationLocationList[listCount].Add(_selectedNode);
             _cultivationLocationList[listCount][0].SetCultivationListIndex(listCount);
             _selectedNode.HighLight.ChangeColorToOld();
+            var tempNodeState = _selectedNode.GetComponent<NodeState>();
             foreach (var node in _nodeBehavioursGrid)
             {
                 if (!node.HighLight.IsBlue()) continue;
+               
+                //TODO ARE THESE STILL Necessary??
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);
+                
+                node.GetComponent<NodeState>().ChangeValues(NodeState.CurrentStateEnum.EmptyField, tempNodeState.FieldType);
+
             }
                 
             _selectionButton.SetAllActive(false);

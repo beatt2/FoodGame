@@ -32,7 +32,6 @@ namespace UI
         } 
          
          
-         
         public override void TaskOnClick() 
         {
             if (CurrentState == CurrentStateEnum.BuildFarm)
@@ -42,15 +41,19 @@ namespace UI
                 if (GridManager.Instance.GetSelectedNode() == null) return;
                 ToggleYesNoButtons();
             } 
-            else if (CurrentState == CurrentStateEnum.Field)
+            else switch (CurrentState)
             {
-                if (GridManager.Instance.GetSelectedNode() == null) return;
-                if(GridManager.Instance.GetSelectedNode())
-                GridManager.Instance.ConfirmBuildFieldButtonPressed();
-            }
-            else if (CurrentState == CurrentStateEnum.Upgrade)
-            {
-                throw new NotImplementedException();
+                case CurrentStateEnum.Field:
+                    if (GridManager.Instance.GetSelectedNode() == null) return;
+                    if(GridManager.Instance.GetSelectedNode())
+                        GridManager.Instance.ConfirmBuildFieldButtonPressed();
+                    break;
+                case CurrentStateEnum.Upgrade:
+                    throw new NotImplementedException();
+                case CurrentStateEnum.BuildFarm:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         
 
@@ -68,7 +71,7 @@ namespace UI
             switch (GridManager.Instance.GetSelectedNode().GetCurrentState())
             {
                 case NodeState.CurrentStateEnum.Farm:
-                    switch (GridManager.Instance.GetSelectedNode().GetFieldType())
+                switch (GridManager.Instance.GetSelectedNode().GetFieldType())
                     {
                         case NodeState.FieldTypeEnum.Carrot:
                             tempButtonText = "Upgrade Carrot Farm";
@@ -88,19 +91,25 @@ namespace UI
                     Debug.Log("Nothing yet");
                     break;
        
-                case NodeState.CurrentStateEnum.EmptyField
-                    switch (GridManager.Instance.GetSelectedNode().GetVegetableType())
+                case NodeState.CurrentStateEnum.EmptyField:
+                    switch (GridManager.Instance.GetSelectedNode().GetFieldType())
                     {
-                            case Plant.VegetableType.Carrot:
+                            case NodeState.FieldTypeEnum.Carrot:
                                 tempButtonText = "Build Carrot field";
                                 break;
-                            case Plant.VegetableType.Corn:
+                            case NodeState.FieldTypeEnum.Corn:
                                 tempButtonText = "Build Corn field";
                                 break;
+                        case NodeState.FieldTypeEnum.Nothing:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
                     }
                     break;
-                case CultivationManager.CultivationType.Nothing:
+                case NodeState.CurrentStateEnum.Empty:
+                    tempButtonText = "Build Farm";
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
