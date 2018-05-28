@@ -2,6 +2,7 @@
 using System.Globalization;
 using Cultivations;
 using Tools;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -117,6 +118,9 @@ namespace Money
                     break;
                     case NodeState.FieldTypeEnum.Nothing:
                         break;
+                case NodeState.FieldTypeEnum.Apple:
+                    _fruitValue += value;
+                    break;
                     default:
                         break;
                 }
