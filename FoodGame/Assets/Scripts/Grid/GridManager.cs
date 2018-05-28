@@ -29,6 +29,8 @@ namespace Grid
         private int _totalEntries;
         private bool _inSelectionState = false;
 
+        private Selection _selection;
+
         [SerializeField] private BuildingPlacement _buildingPlacement;
 
         //TODO Should probably move to another script
@@ -41,6 +43,7 @@ namespace Grid
         {
             Screen.SetResolution(1920,1080,true);
             base.Awake();
+            _selection = GetComponent<Selection>();
             _gridSizeX = MyGridMaker.Size.x;
             _gridSizeY = MyGridMaker.Size.y;
             _totalEntries = _gridSizeX * _gridSizeY;
@@ -98,11 +101,13 @@ namespace Grid
             if (!_inSelectionState)
             {
                 SetTilesToAlpha(false);
+                _selectionSize = 1;
                 ChangeColorsToOld();  
             }
             else if (_selectedNode != null) 
             {
                 SetTilesToAlpha(true);
+                _selectedNode.HighLight.ChangeColorGreen();
             }
             if (_selectedNode == null)
             {
@@ -164,13 +169,19 @@ namespace Grid
                     ChangeColorsToBlue();
                 }
             }
-
-            //TODO REMOVE
-            if (!_selectionButton.YesNoButtonActivated() && _selectionSize == 4)
+            
+            _selection.SetYesNoLocation(Camera.main.WorldToScreenPoint(_selectedNode.transform.position));
+            if (_selectionSize != 4 || _inSelectionState) return;
+            if (!_selection.YesNoActive())
             {
-                _selectionButton.ToggleYesNoButtons();
+                _selection.ToggleYesNo(true);
             }
-            SetButtonState();
+            if (_selectedNode.GetComponent<CultivationPrefab>() != null)
+            {
+                
+            }
+
+            
 
 
         }
@@ -182,11 +193,6 @@ namespace Grid
             _selectedNode = null;
             //TODO REMOVE
             //MyBuildButton.SetButtonInteractable(false);
-        }
-
-        private void SetButtonState()
-        {
-            _selectionButton.SetButtonState();
         }
 
         public void SetTilesToAlpha(bool value)
@@ -294,7 +300,7 @@ namespace Grid
         private void ChangeColorsToGreen()
         {
             _selectedNode.HighLight.ChangeColorGreen();
-            _selectionButton.SetActiveConfirmButton();
+            //_selectionButton.SetActiveConfirmButton();
         }
 
         public void ConfirmBuildFarmButtonPressed(int target)
@@ -310,20 +316,25 @@ namespace Grid
             foreach (var node in _nodeBehavioursGrid)
             {
                 if (!node.HighLight.IsBlue()) continue;
-               
+
                 //TODO ARE THESE STILL Necessary??
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);
-                
                 node.GetComponent<NodeState>().ChangeValues(NodeState.CurrentStateEnum.EmptyField, tempNodeState.FieldType);
+                _buildingPlacement.SetEmptyField(node.gameObject);
 
             }
-                
-            _selectionButton.SetAllActive(false);
+            //_selectionButton.SetAllActive(false);
             _selectionSize = 1;
             _inSelectionState = false;
 
+        }
 
+        public void CancelBuildState()
+        {
+            SetTilesToAlpha(false);
+            _inSelectionState = false;
+            ChangeColorsToBlue();
         }
 
         public void ConfirmBuildFieldButtonPressed()

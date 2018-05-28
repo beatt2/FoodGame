@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Boo.Lang.Environments;
+using UnityEngine;
 
 namespace Cultivations
 {
@@ -6,17 +7,28 @@ namespace Cultivations
     {
         [HideInInspector] public Plant MyPlant;
         
-        public NodeState.CurrentStateEnum CurrentState;
-        public NodeState.FieldTypeEnum FieldType;
-    
+ 
         protected void Awake()
         {
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,CurrentState, FieldType);
+            var tempSprite = GetComponent<SpriteRenderer>().sprite;
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite);
+        }
+        public  void CustomAwake()
+        {
+            var tempSprite = GetComponent<SpriteRenderer>().sprite;
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite);
         }
         
         public void ChangeValues(Plant plant)
         {
             MyPlant = plant;
+            Name = MyPlant.Name;
+            Sustainability = MyPlant.Sustainability;
+            MoneyTick = MyPlant.MoneyTick;
+            BuildingPrice = MyPlant.BuildPrice;
+            UpgradeRank = MyPlant.UpgradeRank;
+            MyCurrentState = MyPlant.MyCultivationState;
+            MyFieldType = MyPlant.FieldType;
             AddCultivation();   
         }
 

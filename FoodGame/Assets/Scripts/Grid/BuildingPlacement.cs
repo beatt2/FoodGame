@@ -7,30 +7,40 @@ namespace Grid
     public class BuildingPlacement : MonoBehaviour
     {
         public GameObject [] CultivationPrefabs;
+        public GameObject EmptyField;
 
 
+        
+        
+        
         public bool BuildFarm(int index)
         {
-            if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[index].GetComponent<BuildingPrefab>()
-                .BuildingPrice))
+            if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[index].GetComponent<BuildingPrefab>().BuildingPrice))
             {
                 ChangeTile(CultivationPrefabs[index]);
                 return true;
             }
-            else
-            {
-                
-                Debug.Log("Sorry not enough money");
-                return false;
-            }
-         
+            Debug.Log("Sorry not enough money");
+            return false;
+        }
+
+        
+        /// <summary>
+        /// Sets and ads the empty field component
+        /// </summary>
+        /// <param name="node"></param>
+        public void SetEmptyField(GameObject node)
+        {
+            if (GridManager.Instance.GetSelectedNode() == null) return;
+            EmptyField.GetComponent<PlantPrefab>().CustomAwake();
+            node.AddComponent<PlantPrefab>();
+            node.GetComponent<PlantPrefab>().ChangeValues(EmptyField.GetComponent<PlantPrefab>().MyPlant);
         }
 
  
         public void BuildField()
         {
-            if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[1].GetComponent<BuildingPrefab>()
-                .BuildingPrice))
+            if (SimpleMoneyManager.Instance.EnoughMoney(CultivationPrefabs[1].GetComponent<BuildingPrefab>().BuildingPrice))
             {
                 ChangeTile(CultivationPrefabs[1]);
             }

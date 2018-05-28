@@ -62,6 +62,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="BuildButton.cs" t="Include" />
+            <e p="BuildPanel.cs" t="Include" />
             <e p="IButtonInteractable.cs" t="Include" />
             <e p="OkayButton.cs" t="Include" />
             <e p="PanelLerp.cs" t="Include" />

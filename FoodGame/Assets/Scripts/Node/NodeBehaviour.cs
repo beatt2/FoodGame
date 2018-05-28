@@ -1,10 +1,11 @@
 ﻿using Cultivations;
 using Grid;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Node
 {
-	public class NodeBehaviour : MonoBehaviour
+	public class NodeBehaviour : MonoBehaviour , IPointerDownHandler
 	{
 		[HideInInspector]
 		public HighLight HighLight;
@@ -36,6 +37,11 @@ namespace Node
 		{
 			_spriteRenderer = GetComponent<SpriteRenderer>();
 			_nodeState = GetComponent<NodeState>();
+		}
+
+		public void OnPointerDown(PointerEventData eventData)
+		{
+			GridManager.Instance.SetSelectedNode(this);
 		}
 
 		public void SetCultivationListIndex(int index)
@@ -101,7 +107,7 @@ namespace Node
 
 		private void OnMouseDown()
 		{
-			GridManager.Instance.SetSelectedNode(this);
+	
 		}
 	}
 }

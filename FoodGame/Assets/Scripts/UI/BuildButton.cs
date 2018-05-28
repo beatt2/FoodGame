@@ -6,6 +6,7 @@ namespace UI
     public class BuildButton : UIButtonAbstract
     {
         public GameObject BuildLayer;
+        public Selection MySelection;
         
         protected override void Awake()
         {
@@ -15,8 +16,9 @@ namespace UI
 
         public override void TaskOnClick()
         {
-            BuildLayer.SetActive(true);
+            MySelection.TogglePanel(true);
         }
+        
 
      
         

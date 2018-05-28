@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
     <Compile Include="Assets\Scripts\Tools\UpdateableData.cs" />
     <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
+    <Compile Include="Assets\Scripts\UI\BuildPanel.cs" />
     <Compile Include="Assets\Scripts\UI\IButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\OkayButton.cs" />
     <Compile Include="Assets\Scripts\UI\PanelLerp.cs" />
