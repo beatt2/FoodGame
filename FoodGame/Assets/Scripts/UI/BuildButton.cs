@@ -16,7 +16,7 @@ namespace UI
 
         public override void TaskOnClick()
         {
-            MySelection.TogglePanel(true);
+            MySelection.ToggleBuildPanel(true);
         }
         
 

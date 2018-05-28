@@ -10,7 +10,7 @@ namespace Cultivations
         public int Sustainability;
         public int MoneyTick;// = value
         public int UpgradeRank;
-        public int BuildPrice;
+        public int BuildPrice; 
         public Sprite Image;
         
         

@@ -171,24 +171,29 @@ namespace Grid
             }
             
             _selection.SetYesNoLocation(Camera.main.WorldToScreenPoint(_selectedNode.transform.position));
+            if (_selectedNode.GetComponent<BuildingPrefab>() != null)
+            {
+                _selection.SetSidePanel(_selectedNode.GetComponent<BuildingPrefab>().MyBuilding);
+            }
+            else if (_selectedNode.GetComponent<PlantPrefab>() != null)
+            {
+                _selection.SetSidePanel(_selectedNode.GetComponent<PlantPrefab>().MyPlant);
+            }
+            else if (_selection.SidePannelActive())
+            {
+                _selection.ToggleSidePanel();    
+            }
             if (_selectionSize != 4 || _inSelectionState) return;
             if (!_selection.YesNoActive())
             {
                 _selection.ToggleYesNo(true);
             }
-            if (_selectedNode.GetComponent<CultivationPrefab>() != null)
-            {
-                
-            }
-
-            
-
-
+   
         }
 
         public void SetNodeToNull()
         {
-            if (_selectedNode == null) return;
+            if (_selectedNode == null || _selectionSize == 4) return;
             ChangeColorsToOld();
             _selectedNode = null;
             //TODO REMOVE

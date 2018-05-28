@@ -85,11 +85,11 @@
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
     <Compile Include="Assets\Scripts\Tools\UpdateableData.cs" />
     <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
-    <Compile Include="Assets\Scripts\UI\BuildPanel.cs" />
     <Compile Include="Assets\Scripts\UI\IButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\OkayButton.cs" />
     <Compile Include="Assets\Scripts\UI\PanelLerp.cs" />
     <Compile Include="Assets\Scripts\UI\SelectionButton.cs" />
+    <Compile Include="Assets\Scripts\UI\SidePanel.cs" />
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonAbstract.cs" />
     <Reference Include="UnityEditor.StandardEvents">

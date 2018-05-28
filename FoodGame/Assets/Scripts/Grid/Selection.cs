@@ -6,25 +6,17 @@ using UnityEngine;
 
 public class Selection : MonoBehaviour
 {
-   public PanelLerp SidePanel;
+   public SidePanel MySidePanel;
    public GameObject BuildPanel;
-   public BuildPanel MyBuildPanel;
    public GameObject YesNoButtons;
    public GameObject YesNoBuildButton;
 
    private int _index;
 
-   public void LerpToTarget()
-   {
-      StartCoroutine(SidePanel.LerpToTarget());
-   }
 
-   public void LerpBackFromTarget()
-   {
-      StartCoroutine(SidePanel.LerpBackFromTarget());
-   }
 
-   public void TogglePanel(bool value)
+
+   public void ToggleBuildPanel(bool value)
    {
       BuildPanel.SetActive(value);
    }
@@ -65,7 +57,7 @@ public class Selection : MonoBehaviour
       {
          ToggleYesNo(true);
       }
-      TogglePanel(false);
+      ToggleBuildPanel(false);
    }
 
    public void ToggleYesNo(bool value)
@@ -94,9 +86,19 @@ public class Selection : MonoBehaviour
       return YesNoBuildButton.activeSelf;
    }
 
-   public void TogglePanel(Cultivation cultivation)
+   public void SetSidePanel(Cultivation cultivation)
    {
-      
+      MySidePanel.SetPanel(cultivation)  ;
+   }
+
+   public void ToggleSidePanel()
+   {
+      MySidePanel.TogglePannel();
+   }
+
+   public bool SidePannelActive()
+   {
+      return MySidePanel.SidePanelActive();
    }
 
    

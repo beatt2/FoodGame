@@ -18,7 +18,7 @@ public class PanelLerp : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(LerpToTarget());     
+ 
     }
 
     public bool IsActive()
@@ -39,7 +39,7 @@ public class PanelLerp : MonoBehaviour
         {
             
             _rectTransform.localPosition = Vector3.Lerp(_start, _end, Speed);
-            if (_rectTransform.localPosition.x < 811)
+            if (_rectTransform.localPosition.x < _end.x + 30)
             {
                 _active = true;
                 break;
@@ -54,7 +54,7 @@ public class PanelLerp : MonoBehaviour
         while (moving)
         {
             _rectTransform.localPosition = Vector3.Lerp(_end, _start, Speed);
-            if (_rectTransform.localPosition.x > 1110)
+            if (_rectTransform.localPosition.x > _start.x - 30)
             {
                 _active = false;
                 break;
