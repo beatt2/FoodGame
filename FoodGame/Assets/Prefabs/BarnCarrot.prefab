@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212846951375361958}
   - component: {fileID: 60869400422197394}
   - component: {fileID: 114924151969340304}
+  - component: {fileID: 114747734829769042}
   m_Layer: 0
   m_Name: BarnCarrot
   m_TagString: Untagged
@@ -102,6 +103,19 @@ PolygonCollider2D:
       - {x: -0.21, y: -2.1599998}
       - {x: -0.08, y: -2.22}
       - {x: 0.08, y: -2.22}
+--- !u!114 &114747734829769042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092493309558686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0ac05c64af1d943885a8ce6e3d1d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: 0
+  FieldType: 1
 --- !u!114 &114924151969340304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,11 +130,11 @@ MonoBehaviour:
   Name: BarnCarrot
   Sustainability: 5
   MoneyTick: 50
-  TickDelay: 1
   UpgradeRank: 0
-  MyCultivationType: 2
   BuildingPrice: 3000
-  MyBuildingType: 1
+  UpgradeValue: 0
+  MyCurrentState: 0
+  MyFieldType: 1
 --- !u!212 &212846951375361958
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ namespace Cultivations
         public int UpgradeRank;
         public int BuildPrice; 
         public Sprite Image;
+        public int UpgradeValue;
         
         
 
@@ -19,7 +20,7 @@ namespace Cultivations
         public NodeState.CurrentStateEnum MyCultivationState;
         public NodeState.FieldTypeEnum FieldType;
 
-        protected Cultivation(string name, int sustainability, int moneyTick,int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState, NodeState.FieldTypeEnum currentFieldType, Sprite image)
+        protected Cultivation(string name, int sustainability, int moneyTick,int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState, NodeState.FieldTypeEnum currentFieldType, Sprite image, int upgradeValue)
         {
             Name = name;
             Sustainability = sustainability;
@@ -29,6 +30,7 @@ namespace Cultivations
             BuildPrice = buildPrice;
             FieldType = currentFieldType;
             Image = image;
+            UpgradeValue = upgradeValue;
 
         }
 

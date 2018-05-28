@@ -11,17 +11,20 @@ namespace Cultivations
         protected void Awake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite);
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue);
         }
         public  void CustomAwake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite);
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue);
         }
         
         public void ChangeValues(Plant plant)
         {
+          
             MyPlant = plant;
+            MyPlant.FieldType = GetComponent<NodeState>().FieldType;
+            MyPlant.MyCultivationState = GetComponent<NodeState>().CurrentState;
             Name = MyPlant.Name;
             Sustainability = MyPlant.Sustainability;
             MoneyTick = MyPlant.MoneyTick;

@@ -899,7 +899,7 @@ MonoBehaviour:
   MyBuildButton: {fileID: 0}
   BuildObject: {fileID: 1574880553937912, guid: 49b2856d30c5f4c4cac7dda3de6c9d4a,
     type: 2}
-  _buildingPlacement: {fileID: 158667360}
+  BuildingPlacement: {fileID: 158667360}
   _selectionButton: {fileID: 0}
 --- !u!114 &158667360
 MonoBehaviour:
@@ -912,11 +912,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2f6bcb4c6d24546a38295b0d40db2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CultivationPrefabs:
-  - {fileID: 1367599474108558, guid: 251167adfda7b604b909bf7ca3680d03, type: 2}
-  - {fileID: 1579378822104836, guid: f5c8e3c0fa999484096ba9bad10bf009, type: 2}
+  Farms:
+  - {fileID: 1886381871961622, guid: 4dd20f5d3c5623e4e818bdc301d12201, type: 2}
   - {fileID: 1092493309558686, guid: a7133dfbf19c7fd478b2ca03f16884a2, type: 2}
+  Fields:
   - {fileID: 1154304893380992, guid: d07281c870c69a74d967b9a9b79403b7, type: 2}
+  - {fileID: 1579378822104836, guid: f5c8e3c0fa999484096ba9bad10bf009, type: 2}
   EmptyField: {fileID: 1338494046311358, guid: 2c4cf2a08fbb59d4198c5b66530e33d0, type: 2}
 --- !u!114 &158667361
 MonoBehaviour:
@@ -3859,7 +3860,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 398488795}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 381892895}
+        m_MethodName: OnUpgradeButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &398488795
@@ -10067,7 +10079,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13672,7 +13684,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

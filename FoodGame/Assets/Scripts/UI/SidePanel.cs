@@ -1,4 +1,6 @@
-﻿using Cultivations;
+﻿using System;
+using Cultivations;
+using Grid;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +16,8 @@ namespace UI
         private PanelLerp _panelLerp;
         private Sprite _defaultSprite;
         public Image MyImage;
+
+        private Cultivation _currentCultivation;
 
         private void Awake()
         {
@@ -39,13 +43,47 @@ namespace UI
                 _panelLerp.ToggleLerp();
             }
 
-            HeaderText.text = cultivation.Name;
+            _currentCultivation = cultivation;
+            HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
             MyImage.sprite = cultivation.Image;
  
             //TODO make a UpgradeCost variable in Cultivation
-            UpgradeText.text = cultivation.BuildPrice.ToString();
+            UpgradeText.text = cultivation.UpgradeValue.ToString();
             MoneyTickText.text = cultivation.MoneyTick.ToString();
 
+        }
+
+        public void OnUpgradeButtonPressed()
+        {
+            switch (_currentCultivation.MyCultivationState)
+            {
+                case NodeState.CurrentStateEnum.EmptyField:
+                    switch (_currentCultivation.FieldType)
+                    {
+                            case NodeState.FieldTypeEnum.Carrot:
+                                GridManager.Instance.BuildingPlacement.BuildField(0);
+                                break;
+                            case NodeState.FieldTypeEnum.Corn:
+                                GridManager.Instance.BuildingPlacement.BuildField(1);
+                                break;
+                        case NodeState.FieldTypeEnum.Nothing:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    break;
+                case NodeState.CurrentStateEnum.Farm:
+                    throw new NotImplementedException();
+                case NodeState.CurrentStateEnum.Field:
+                    throw new NotImplementedException();
+
+
+                case NodeState.CurrentStateEnum.Empty:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
         
        

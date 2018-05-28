@@ -31,7 +31,7 @@ namespace Grid
 
         private Selection _selection;
 
-        [SerializeField] private BuildingPlacement _buildingPlacement;
+        [SerializeField] public BuildingPlacement BuildingPlacement;
 
         //TODO Should probably move to another script
         [SerializeField] private SelectionButton _selectionButton;
@@ -310,7 +310,7 @@ namespace Grid
 
         public void ConfirmBuildFarmButtonPressed(int target)
         {
-            if (!_buildingPlacement.BuildFarm(target)) return;
+            if (!BuildingPlacement.BuildFarm(target)) return;
             SetTilesToAlpha(false);
             int listCount = _cultivationLocationList.Count;
             _cultivationLocationList.Add(new List<NodeBehaviour>());
@@ -326,7 +326,7 @@ namespace Grid
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);
                 node.GetComponent<NodeState>().ChangeValues(NodeState.CurrentStateEnum.EmptyField, tempNodeState.FieldType);
-                _buildingPlacement.SetEmptyField(node.gameObject);
+                BuildingPlacement.SetEmptyField(node.gameObject);
 
             }
             //_selectionButton.SetAllActive(false);
@@ -344,7 +344,7 @@ namespace Grid
 
         public void ConfirmBuildFieldButtonPressed()
         {
-            _buildingPlacement.BuildField();
+            //_buildingPlacement.BuildField();
         }
 
         private void Update()

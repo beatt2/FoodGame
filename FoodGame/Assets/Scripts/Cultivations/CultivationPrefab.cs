@@ -9,6 +9,7 @@ namespace Cultivations
         public int MoneyTick;
         public int UpgradeRank;
         public int BuildingPrice;
+        public int UpgradeValue;
         public NodeState.CurrentStateEnum MyCurrentState;
         public NodeState.FieldTypeEnum MyFieldType;
 

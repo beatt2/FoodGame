@@ -158,6 +158,7 @@ MonoBehaviour:
   MoneyTick: 0
   UpgradeRank: 0
   BuildingPrice: 0
+  UpgradeValue: 1500
   MyCurrentState: 2
   MyFieldType: 2
 --- !u!212 &212602781056753814

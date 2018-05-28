@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212970499603587954}
   - component: {fileID: 60229763567474018}
   - component: {fileID: 114954833356929824}
+  - component: {fileID: 114027793169283424}
   m_Layer: 0
   m_Name: CarrotField
   m_TagString: Untagged
@@ -102,6 +103,19 @@ PolygonCollider2D:
       - {x: -0.21, y: -2.1599998}
       - {x: -0.08, y: -2.22}
       - {x: 0.08, y: -2.22}
+--- !u!114 &114027793169283424
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1154304893380992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0ac05c64af1d943885a8ce6e3d1d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: 1
+  FieldType: 1
 --- !u!114 &114954833356929824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,11 +130,11 @@ MonoBehaviour:
   Name: Carrot
   Sustainability: 1
   MoneyTick: 50
-  TickDelay: 5
   UpgradeRank: 0
-  MyCultivationType: 1
   BuildingPrice: 2000
-  MyVegetableType: 0
+  UpgradeValue: 0
+  MyCurrentState: 1
+  MyFieldType: 1
 --- !u!212 &212970499603587954
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -156,7 +170,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8dfe5c716fa0b57449845cea939894e2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 427c14783837a0643b3ca308b8244cb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

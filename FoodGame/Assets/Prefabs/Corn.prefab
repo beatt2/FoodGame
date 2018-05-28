@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212108432101477528}
   - component: {fileID: 60969493507363898}
   - component: {fileID: 114018613051862646}
+  - component: {fileID: 114233103714901182}
   m_Layer: 0
   m_Name: Corn
   m_TagString: Untagged
@@ -116,11 +117,24 @@ MonoBehaviour:
   Name: CornField
   Sustainability: 0
   MoneyTick: 40
-  TickDelay: 0
   UpgradeRank: 1
-  MyCultivationType: 1
   BuildingPrice: 2000
-  MyVegetableType: 1
+  UpgradeValue: 0
+  MyCurrentState: 1
+  MyFieldType: 0
+--- !u!114 &114233103714901182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579378822104836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0ac05c64af1d943885a8ce6e3d1d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentState: 1
+  FieldType: 0
 --- !u!212 &212108432101477528
 SpriteRenderer:
   m_ObjectHideFlags: 1
