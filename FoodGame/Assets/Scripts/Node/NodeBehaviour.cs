@@ -97,11 +97,31 @@ namespace Node
 			return _listIndex;
 		}
 
+		public void RemoveCultivationTile()
+		{
+			if (GetComponent<CultivationPrefab>() != null)
+			{
+				
+				Destroy(GetComponent<CultivationPrefab>());
+			}
+		}
 	
 
 		public void SetSprite(Sprite sprite)
 		{
 			_spriteRenderer.sprite = sprite;
+		}
+
+		public void ResetNode()
+		{
+			_spriteRenderer.sprite = GridManager.Instance.BuildingPlacement.GetOriginalSprite();
+			GetComponent<NodeState>().ResetSate();
+			HighLight.ResetActiveColor();
+			HighLight.ChangeColorToOld();
+			_listIndex = -1;
+			RemoveCultivationTile();
+			
+			
 		}
 
 

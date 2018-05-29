@@ -69,6 +69,8 @@
             <e p="SidePanel.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />
             <e p="UIButtonAbstract.cs" t="Include" />
+            <e p="UpgradeEntry.cs" t="Include" />
+            <e p="UpgradeTab.cs" t="Include" />
           </e>
         </e>
       </e>

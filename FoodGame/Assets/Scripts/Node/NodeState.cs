@@ -20,4 +20,10 @@ public class NodeState : MonoBehaviour
         FieldType = fieldTypeEnum;
     }
 
+    public void ResetSate()
+    {
+        CurrentState = CurrentStateEnum.Empty;
+        FieldType = FieldTypeEnum.Nothing;
+    }
+
 }

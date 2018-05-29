@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Policy;
 using Cultivations;
 using Grid;
 using UnityEngine;
@@ -16,6 +17,12 @@ namespace UI
         private PanelLerp _panelLerp;
         private Sprite _defaultSprite;
         public Image MyImage;
+
+        public GameObject DestroyPanel;
+        public GameObject UpgradePanel;
+
+        public Button KillButton;
+        
 
         private Cultivation _currentCultivation;
 
@@ -49,7 +56,12 @@ namespace UI
  
             //TODO make a UpgradeCost variable in Cultivation
             UpgradeText.text = cultivation.UpgradeValue.ToString();
-            MoneyTickText.text = cultivation.MoneyTick.ToString();
+            MoneyTickText.text = "money per month" +cultivation.MoneyTick;
+
+            if (cultivation.MyCultivationState == NodeState.CurrentStateEnum.EmptyField)
+            {
+                KillButton.interactable = false;
+            }
 
         }
 
@@ -74,7 +86,10 @@ namespace UI
 
                     break;
                 case NodeState.CurrentStateEnum.Farm:
-                    throw new NotImplementedException();
+                    UpgradePanel.SetActive(true);
+                    UpgradePanel.GetComponent<UpgradeTab>().ActivateTab(GridManager.Instance.GetSelectedNode()
+                        .GetComponent<BuildingPrefab>().MyBuilding);
+                    break;
                 case NodeState.CurrentStateEnum.Field:
                     throw new NotImplementedException();
 
@@ -84,6 +99,22 @@ namespace UI
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void OnKillButtonPressed()
+        {
+            DestroyPanel.SetActive(true);
+        }
+
+        public void OnKillDeny()
+        {
+            DestroyPanel.SetActive(false);
+        }
+
+        public void OnKillConfirm()
+        {
+            GridManager.Instance.BuildingPlacement.RemoveTiles(GridManager.Instance.GetSelectedNode());
+            DestroyPanel.SetActive(false);
         }
         
        

@@ -11,12 +11,12 @@ namespace Cultivations
         protected void Awake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue);
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions );
         }
         public  void CustomAwake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue);
+            MyPlant = new Plant(Name,Sustainability,MoneyTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions);
         }
         
         public void ChangeValues(Plant plant)

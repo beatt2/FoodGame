@@ -45,7 +45,8 @@ namespace Cultivations
 
         public void RemoveEntry(Cultivation cultivation)
         {
-            _cultivations.Remove(cultivation.MyCultivationState);
+            //TODO STILL HAS TO LINK TO MONEYMANAGER
+            _cultivations[cultivation.MyCultivationState].Remove(cultivation);
         }
 
         public void TickPerMonth()

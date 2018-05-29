@@ -36,7 +36,7 @@ namespace Grid
         //TODO Should probably move to another script
         [SerializeField] private SelectionButton _selectionButton;
 
-        private List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
+        private readonly List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
 
 
         protected override void Awake()
@@ -71,6 +71,11 @@ namespace Grid
                     _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;
                 }
             }
+        }
+
+        public List<List<NodeBehaviour>> GetCultivationLocationList()
+        {
+            return _cultivationLocationList;
         }
 
 
@@ -169,8 +174,16 @@ namespace Grid
                     ChangeColorsToBlue();
                 }
             }
-            
-            _selection.SetYesNoLocation(Camera.main.WorldToScreenPoint(_selectedNode.transform.position));
+
+            if (!_inSelectionState)
+            {
+                _selection.SetYesNoLocation(Camera.main.WorldToScreenPoint(_selectedNode.transform.position));
+            }
+            else
+            {
+                _selection.SetYesNoBuildLocation(Camera.main.WorldToScreenPoint(_selectedNode.transform.position));
+            }
+
             if (_selectedNode.GetComponent<BuildingPrefab>() != null)
             {
                 _selection.SetSidePanel(_selectedNode.GetComponent<BuildingPrefab>().MyBuilding);
@@ -327,8 +340,10 @@ namespace Grid
                 node.SetEmptyCultivationField(true);
                 node.GetComponent<NodeState>().ChangeValues(NodeState.CurrentStateEnum.EmptyField, tempNodeState.FieldType);
                 BuildingPlacement.SetEmptyField(node.gameObject);
+                _cultivationLocationList[listCount].Add(node);
 
             }
+
             //_selectionButton.SetAllActive(false);
             _selectionSize = 1;
             _inSelectionState = false;
@@ -341,11 +356,9 @@ namespace Grid
             _inSelectionState = false;
             ChangeColorsToBlue();
         }
-
-        public void ConfirmBuildFieldButtonPressed()
-        {
-            //_buildingPlacement.BuildField();
-        }
+        
+        
+        
 
         private void Update()
         {

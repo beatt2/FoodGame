@@ -135,6 +135,9 @@ MonoBehaviour:
   UpgradeValue: 0
   MyCurrentState: 0
   MyFieldType: 1
+  UpgradeOptions:
+  - {fileID: 1663389968083526, guid: 461fe9396578bfa4c82f42bcca9dad08, type: 2}
+  - {fileID: 1816446448162904, guid: 53b4b1bd81582714db267e3503b7fe05, type: 2}
 --- !u!212 &212846951375361958
 SpriteRenderer:
   m_ObjectHideFlags: 1

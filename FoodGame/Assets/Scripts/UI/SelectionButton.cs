@@ -45,8 +45,7 @@ namespace UI
             {
                 case CurrentStateEnum.Field:
                     if (GridManager.Instance.GetSelectedNode() == null) return;
-                    if(GridManager.Instance.GetSelectedNode())
-                        GridManager.Instance.ConfirmBuildFieldButtonPressed();
+                    //if(GridManager.Instance.GetSelectedNode())
                     break;
                 case CurrentStateEnum.Upgrade:
                     throw new NotImplementedException();

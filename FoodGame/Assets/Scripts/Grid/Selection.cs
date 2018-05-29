@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using Cultivations;
 using Grid;
 using UI;
@@ -33,6 +34,8 @@ public class Selection : MonoBehaviour
       GridManager.Instance.ConfirmLocation(value);
       ToggleYesNo(false);
       ToggleYesNoBuildButton(value);
+      SetYesNoBuildLocation(Camera.main.WorldToScreenPoint(GridManager.Instance.GetSelectedNode().transform.position));
+      
    }
 
    public void ConfirmBuildLocationPressed(bool value)
@@ -75,6 +78,12 @@ public class Selection : MonoBehaviour
    {
       YesNoButtons.transform.position = position;
    }
+
+   public void SetYesNoBuildLocation(Vector3 position)
+   {
+      YesNoBuildButton.transform.position = position;
+   }
+   
    
    public void ToggleYesNoBuildButton(bool value)
    {

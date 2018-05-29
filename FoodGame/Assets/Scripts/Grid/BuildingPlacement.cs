@@ -1,5 +1,6 @@
 ﻿using Cultivations;
 using Money;
+using Node;
 using UnityEngine;
 
 namespace Grid
@@ -9,14 +10,16 @@ namespace Grid
         public GameObject [] Farms;
         public GameObject[] Fields;
         public GameObject EmptyField;
+        private Sprite _emptyFieldSprite;
 
 
-        
-        
-        
+        private void Awake()
+        {
+            _emptyFieldSprite = EmptyField.GetComponent<SpriteRenderer>().sprite;
+        }
 
 
-        
+       
         /// <summary>
         /// Sets and ads the empty field component
         /// </summary>
@@ -71,9 +74,34 @@ namespace Grid
             }
 
             node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
-            //TODO prototype only
-            if(go == Farms[0])
-            node.transform.position = new Vector3(node.transform.position.x,node.transform.position.y -0.09f,0);
+        }
+
+        public Sprite GetOriginalSprite()
+        {
+            return _emptyFieldSprite;
+        }
+
+        
+        public void RemoveTiles(NodeBehaviour node)
+        {
+            if (node.GetListIndex() == -1) return;
+
+            int nodeCount = GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Count;
+            int nodeIndex = node.GetListIndex();
+            for (int i = 0; i < nodeCount; i++)
+            {
+                var nodeBehaviour = GridManager.Instance.GetCultivationLocationList()[nodeIndex][i];
+                if (nodeBehaviour.gameObject.GetComponent<PlantPrefab>() != null)
+                {
+                    CultivationManager.Instance.RemoveEntry(nodeBehaviour.gameObject.GetComponent<PlantPrefab>().MyPlant);
+
+                }
+                else if (nodeBehaviour.gameObject.GetComponent<BuildingPrefab>() != null)
+                {
+                    CultivationManager.Instance.RemoveEntry(nodeBehaviour.gameObject.GetComponent<BuildingPrefab>().MyBuilding);
+                }
+                nodeBehaviour.ResetNode();
+            }
 
         }
         

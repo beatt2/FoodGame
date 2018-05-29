@@ -92,6 +92,8 @@
     <Compile Include="Assets\Scripts\UI\SidePanel.cs" />
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonAbstract.cs" />
+    <Compile Include="Assets\Scripts\UI\UpgradeEntry.cs" />
+    <Compile Include="Assets\Scripts\UI\UpgradeTab.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Documents/GitHub/FoodGame/FoodGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

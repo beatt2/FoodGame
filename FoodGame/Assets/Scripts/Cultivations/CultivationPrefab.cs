@@ -12,6 +12,7 @@ namespace Cultivations
         public int UpgradeValue;
         public NodeState.CurrentStateEnum MyCurrentState;
         public NodeState.FieldTypeEnum MyFieldType;
+        public GameObject [] UpgradeOptions;
 
 
 

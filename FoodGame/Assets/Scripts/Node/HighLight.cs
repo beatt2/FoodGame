@@ -59,6 +59,11 @@ namespace Node
 			_startingColor = _activeColor;
 		}
 
+		public void ResetActiveColor()
+		{
+			_startingColor = _originalColor;
+		}
+
 		public bool IsBlue()
 		{
 			return _spriteRenderer.color == Color.blue;
