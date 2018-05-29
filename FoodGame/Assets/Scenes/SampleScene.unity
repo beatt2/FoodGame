@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 126036465}
   m_Layer: 5
   m_Name: UpgradeTab
-  m_TagString: Untagged
+  m_TagString: UpgradeTab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16573,6 +16573,7 @@ MonoBehaviour:
   Year: 0
   TimeToIncrease: 5
   DateUi: {fileID: 1546894465}
+  FinanceScript: {fileID: 0}
 --- !u!114 &2083029979
 MonoBehaviour:
   m_ObjectHideFlags: 0

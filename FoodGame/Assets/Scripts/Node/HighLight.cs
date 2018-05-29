@@ -69,7 +69,10 @@ namespace Node
 			return _spriteRenderer.color == Color.blue;
 		}
 
-
+		public bool IsRed()
+		{
+			return _spriteRenderer.color == Color.red;
+		}
 
 	
 

@@ -31,11 +31,12 @@ public class Selection : MonoBehaviour
 
    public void ConfirmLocationPressed(bool value)
    {
-      GridManager.Instance.ConfirmLocation(value);
+      if (!GridManager.Instance.ConfirmLocation(value)) return;
       ToggleYesNo(false);
       ToggleYesNoBuildButton(value);
       SetYesNoBuildLocation(Camera.main.WorldToScreenPoint(GridManager.Instance.GetSelectedNode().transform.position));
-      
+
+
    }
 
    public void ConfirmBuildLocationPressed(bool value)

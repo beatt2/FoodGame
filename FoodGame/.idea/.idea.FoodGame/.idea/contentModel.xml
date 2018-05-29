@@ -43,6 +43,7 @@
           <e p="Money" t="Include">
             <e p="Finance.cs" t="Include" />
             <e p="FinanceButton.cs" t="Include" />
+            <e p="FinanceEntry.cs" t="Include" />
             <e p="SimpleMoneyManager.cs" t="Include" />
           </e>
           <e p="Mouse.cs" t="Include" />

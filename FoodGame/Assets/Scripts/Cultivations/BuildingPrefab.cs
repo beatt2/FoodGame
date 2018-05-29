@@ -19,19 +19,12 @@ namespace Cultivations
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
             MyBuilding = new Building(Name,Sustainability,MoneyTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions);
         }
- 
+
         public void ChangeValues(Building building)
         {
             MyBuilding = building;
-            AddCultivation();   
+            AddCultivation();
         }
-
-        
-        //TODO moving this to nodestate class
-//        public Building.BuildingType GetBuildingType()
-//        {
-//            return MyBuildingType;
-//        }
 
         private void AddCultivation()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using Cultivations;
 using Node;
@@ -99,8 +100,13 @@ namespace Grid
       
         }
 
-        public void ConfirmLocation(bool value)
+        public bool ConfirmLocation(bool value)
         {
+            if (_nodeBehavioursGrid.Cast<NodeBehaviour>().Any(node => node.HighLight.IsRed()))
+            {
+                Debug.Log("Cant build in the red");
+                return false;
+            }    
             _inSelectionState = value;
             Debug.Log(_inSelectionState ? "Selection state is true" : "Selection state is false");
             if (!_inSelectionState)
@@ -118,6 +124,8 @@ namespace Grid
             {
                 Debug.Log("No node selected");
             }
+
+            return true;
         }
 
         public NodeBehaviour GetSelectedNode()
@@ -209,8 +217,7 @@ namespace Grid
             if (_selectedNode == null || _selectionSize == 4) return;
             ChangeColorsToOld();
             _selectedNode = null;
-            //TODO REMOVE
-            //MyBuildButton.SetButtonInteractable(false);
+
         }
 
         public void SetTilesToAlpha(bool value)
@@ -227,19 +234,25 @@ namespace Grid
 
         private void ChangeColorsToBlue()
         {
-            _selectedNode.HighLight.ChangeColorBlue();
+            if (CheckGridForBuildSpace(0, 0))
+            {
+                _selectedNode.HighLight.ChangeColorBlue();
+            }
+            else
+            {
+                _selectedNode.HighLight.ChangeColorRed();
+            }
+
             if (_selectionSize != 4 || _inSelectionState) return;
             if (CheckGridForNull(0, -1))
             {
                 if (CheckGridForBuildSpace(0, -1))
                 {
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
-                        .ChangeColorBlue();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
                 }
                 else
                 {
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight
-                        .ChangeColorRed();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorRed();
                 }
             }
 
@@ -247,13 +260,11 @@ namespace Grid
             {
                 if (CheckGridForBuildSpace(1, -1))
                 {
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight
-                        .ChangeColorBlue();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
                 }
                 else
                 {
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight
-                        .ChangeColorRed();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorRed();
                 }
             }
 
@@ -266,8 +277,7 @@ namespace Grid
                 }
                 else
                 {
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
-                        .ChangeColorRed();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight.ChangeColorRed();
                 }
             }
         }
@@ -287,7 +297,7 @@ namespace Grid
             }
         }
 
-        public bool CheckGridForNull(int xValue, int yValue)
+        private bool CheckGridForNull(int xValue, int yValue)
         {
             //return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue] != null;
 
@@ -309,7 +319,7 @@ namespace Grid
             return _selectedNode.GridLocation.y + yValue >= 0;
         }
 
-        public bool CheckGridForBuildSpace(int xValue, int yValue)
+        private bool CheckGridForBuildSpace(int xValue, int yValue)
         {
             return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue]
                        .GetListIndex() == -1;
@@ -324,6 +334,7 @@ namespace Grid
         public void ConfirmBuildFarmButtonPressed(int target)
         {
             if (!BuildingPlacement.BuildFarm(target)) return;
+      
             SetTilesToAlpha(false);
             int listCount = _cultivationLocationList.Count;
             _cultivationLocationList.Add(new List<NodeBehaviour>());
@@ -344,7 +355,6 @@ namespace Grid
 
             }
 
-            //_selectionButton.SetAllActive(false);
             _selectionSize = 1;
             _inSelectionState = false;
 
