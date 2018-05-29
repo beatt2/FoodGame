@@ -17,6 +17,8 @@ namespace TimeSystem
         public float TimeToIncrease;
 
         public Text DateUi;
+
+        public Finance FinanceScript;
         // Update is called once per frame
         protected override void Awake()
         {
@@ -94,6 +96,7 @@ namespace TimeSystem
                             break;
 
                     }
+                   // FinanceScript.UpdateText();
                     EventManager.Instance.CheckDate(Month, Year);
                     SimpleMoneyManager.Instance.ChangeMonth();
                     CultivationManager.Instance.TickPerMonth();

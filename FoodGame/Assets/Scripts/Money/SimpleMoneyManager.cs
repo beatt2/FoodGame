@@ -2,6 +2,7 @@
 using System.Globalization;
 using Cultivations;
 using Tools;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -38,8 +39,8 @@ namespace Money
             MoneyUi.text = "€ " + _currentMoney;
             
 
-            _monthlyIncome = 5;//Random.Range(30,50);
-            _monthlyExpenses = 10; //Random.Range(15,25);
+            _monthlyIncome = 5;
+            _monthlyExpenses = 10;
 
             Income.text = "€ " + _monthlyIncome;
             Expense.text = "€ " + _monthlyExpenses;
@@ -117,6 +118,9 @@ namespace Money
                     break;
                     case NodeState.FieldTypeEnum.Nothing:
                         break;
+                case NodeState.FieldTypeEnum.Apple:
+                    _fruitValue += value;
+                    break;
                     default:
                         break;
                 }
