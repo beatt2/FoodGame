@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Events;
 using UnityEngine;
@@ -12,102 +13,158 @@ namespace Money
         //public Text[] FinanceTexts;
 
         public GameObject Parent;
+        public GameObject[] VerticalParents;
+        public GameObject Content;
         public Font FontType;
         public GameObject Test;
         private readonly List<FinanceEntry> _financeTexts = new List<FinanceEntry>();
+        private bool _changeContent;
+
+        private List<GameObject> _uiGoText = new List<GameObject>();
+
         //public Text[] Name;
         //public Text[] Income;
         //public Text[] Expense;
         //public Text[] Total;
-        
+
         private void Start()
         {
             _financeTexts.Add(new FinanceEntry("Corn",50,25));
             _financeTexts.Add(new FinanceEntry("Carrot",40,10));
+            _financeTexts.Add(new FinanceEntry("Apples", 50, 10));
+            _financeTexts.Add(new FinanceEntry("Strawberry", 20, 25));
+            _financeTexts.Add(new FinanceEntry("Wheat", 10, 2));
+
             //FinanceEntry data = new FinanceEntry("Corn", 50, 25);
             for (int i = 0; i < _financeTexts.Count; i++)
             {
-                Debug.Log(_financeTexts[i].Name + " " + _financeTexts[i].Income + " " + _financeTexts[i].Expense);
-                
-            }
-            AddTextToCanvas(_financeTexts[0].Name, Parent);
+                _changeContent = true;
+                AddTextvertical(_financeTexts[i].Name, VerticalParents[0],i);
+                AddTextvertical(_financeTexts[i].Income.ToString(), VerticalParents[1],i);
+                AddTextvertical(_financeTexts[i].Expense.ToString(), VerticalParents[2],i);
+                AddTextvertical("EVENT", VerticalParents[3],i);
 
+                float total = _financeTexts[i].Income - _financeTexts[i].Expense;
+                AddTotal(total.ToString(), VerticalParents[4],i);
+                //AddPanel(Parent, i);
+            }            
+        }
+        private void AddTextvertical(string textString, GameObject parent,int i)
+        {
+            _uiGoText.Add(new GameObject("newText"));
+
+           
+            
+                _uiGoText[i].transform.SetParent(parent.transform);
+                Text text = gameObject.AddComponent(typeof(Text)) as Text;
+
+
+                text.text = textString;
+
+
+                text.font = FontType;
+                text.fontSize = 30;
+                text.color = new Color(0.1f, .1f, .1f);
+                text.alignment = TextAnchor.UpperCenter;
+                if (_financeTexts.Count > 6 && _changeContent)
+                {
+                    _changeContent = false;
+                    RectTransform rectangle = Content.GetComponent<RectTransform>();
+                    rectangle.sizeDelta += new Vector2(0, 40);
+                } 
+
+            
+
+            
+            
 
         }
 
-        public void AddTextToCanvas(string textString, GameObject parent)
+        private void AddTotal(string textString, GameObject parent, int i)
         {
-            GameObject uiGo = new GameObject("newText"); //Instantiate(Test, Parent.transform) as GameObject; //
-            uiGo.transform.SetParent(Parent.transform);
+            _uiGoText[i] = new GameObject("newText");
+            _uiGoText[i].transform.SetParent(parent.transform);
 
-            //Text text = Test.GetComponent<Text>();
-            Text text = uiGo.AddComponent<Text>();
-            
-            //Debug.Log(text.text);
-            text.text = textString;
+            Text text = _uiGoText[i].AddComponent<Text>();
 
-            //Font arialFont = (Font) Resources.GetBuiltinResource(typeof(Font), "Ariel.ttf");
+
+            text.text = "€ " + textString;
+
+
             text.font = FontType;
             text.fontSize = 30;
-            text.color = new Color(0.1f,.1f,.1f);
+            text.color = new Color(0.1f, .1f, .1f);
             text.alignment = TextAnchor.UpperCenter;
-            //text.rectTransform
-            //text.material = arialFont.material;
-
+            if (_financeTexts[i].Income > _financeTexts[i].Expense)
+            {
+                text.color = new Color(0, 0.5f, 0);
+            }
+            else
+            {
+                text.color = new Color(1, 0, 0);
+            }
         }
 
-        public void AddFinance()
+        public void UpdateText()
         {
 
+            for (int i = 0; i < _financeTexts.Count; i++)
+            {
+
+                //_financeTexts.RemoveAt(i);
+
+                _changeContent = true;
+                AddTextvertical(_financeTexts[i].Name, VerticalParents[0],i);
+                AddTextvertical(_financeTexts[i].Income.ToString(), VerticalParents[1],i);
+                AddTextvertical(_financeTexts[i].Expense.ToString(), VerticalParents[2],i);
+                AddTextvertical("EVENT", VerticalParents[3],i);
+
+                float total = _financeTexts[i].Income - _financeTexts[i].Expense;
+                AddTotal(total.ToString(), VerticalParents[4], i);
+                //AddPanel(Parent, i);
+            }
         }
 
 
 
-        public void GetName()
-        {
-            //Name.Length + 1;
-        }
+        //public void AddPanel(GameObject parent, int number)
+        //{
+        //    GameObject uiGo = new GameObject("newPanel");        
+        //    uiGo.transform.SetParent(parent.transform);
+        //    uiGo.AddComponent<CanvasRenderer>();
+        //    HorizontalLayoutGroup horizon = uiGo.AddComponent<HorizontalLayoutGroup>();
+        //    horizon.spacing = -50;
 
-        public void GetIncome()
-        {
-            
-        }
+        //    AddTextToCanvas(_financeTexts[number].Name, uiGo);
+        //    AddTextToCanvas(_financeTexts[number].Income.ToString(), uiGo);
+        //    AddTextToCanvas(_financeTexts[number].Expense.ToString(), uiGo);
+        //    AddTextToCanvas("EVENT", uiGo);
 
-        public void GetExpense()
-        {
+        //    float total = _financeTexts[number].Income - _financeTexts[number].Expense;
+        //    AddTextToCanvas(total.ToString(), uiGo);
+        //}
 
-        }
 
-        public void GetTotal()
-        {
 
-        }
+        //private void AddTextToCanvas(string textString, GameObject parent)
+        //{
+        //    GameObject uiGoText = new GameObject("newText");
+        //    uiGoText.transform.SetParent(parent.transform);
 
-        public void UpdateText(Text[] texts)
-        {
-            
-            //for (int i = 0; i < FinanceTexts.Length; i++)
-            //{
-            //    FinanceTexts[i].text = "Finance";
-            //}
-            //for (int i = 0; i < Name.Length; i++)
-            //{
-            //    Name[i].text = "NameHere";
-            //}
-            //for (int i = 0; i < Income.Length; i++)
-            //{
-            //    Income[i].text = "IncomeHere";
-            //}
-            //for (int i = 0; i < Expense.Length; i++)
-            //{
-            //    Expense[i].text = "ExpenseHere";
-            //}
-            //for (int i = 0; i < Total.Length; i++)
-            //{
-            //    Total[i].text = "TotalAmount";
-            //}
-        }
 
-        
+        //    Text text = uiGoText.AddComponent<Text>();
+
+
+        //    text.text = textString;
+
+
+        //    text.font = FontType;
+        //    text.fontSize = 30;
+        //    text.color = new Color(0.1f,.1f,.1f);
+        //    text.alignment = TextAnchor.UpperCenter;
+
+
+        //}
+
     }
 }

@@ -39,8 +39,8 @@ namespace Money
             MoneyUi.text = "€ " + _currentMoney;
             
 
-            _monthlyIncome = 5;//Random.Range(30,50);
-            _monthlyExpenses = 10; //Random.Range(15,25);
+            _monthlyIncome = 5;
+            _monthlyExpenses = 10;
 
             Income.text = "€ " + _monthlyIncome;
             Expense.text = "€ " + _monthlyExpenses;
