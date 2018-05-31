@@ -18727,6 +18727,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224727606460763500, guid: a0514682588fa024787b009d865e010a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224727606460763500, guid: a0514682588fa024787b009d865e010a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0514682588fa024787b009d865e010a, type: 2}
   m_IsPrefabParent: 0
@@ -20801,9 +20811,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Total
-
-'
+  m_Text: "\u20AC 0\n"
 --- !u!222 &1492959398
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29768,7 +29776,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 426899310}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
