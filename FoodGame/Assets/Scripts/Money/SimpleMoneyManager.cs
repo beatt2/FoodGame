@@ -50,6 +50,7 @@ namespace Money
             ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
         }
 
+
         public void ChangeMoneyMonthly(float income, float expenses)
         {
             _currentMoney += income - expenses;

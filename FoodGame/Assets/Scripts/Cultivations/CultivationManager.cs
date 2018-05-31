@@ -17,6 +17,13 @@ namespace Cultivations
 
         private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
 
+
+        public Dictionary<Enum, List<Cultivation>> GetCultivations()
+        {
+            return _cultivations;
+        }
+
+
         private void Start()
         {
             

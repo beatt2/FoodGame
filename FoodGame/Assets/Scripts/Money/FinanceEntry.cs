@@ -10,7 +10,7 @@ namespace Money
         public float Expense;
         
 
-        public FinanceEntry(string name, int income, int expense)
+        public FinanceEntry(string name, float income, float expense)
         {
             Name = name;
             Income = income;
