@@ -3,7 +3,7 @@
 public class NodeState : MonoBehaviour 
 {
     public enum CurrentStateEnum {Farm,Field, EmptyField, Empty}
-    public enum FieldTypeEnum {Corn, Carrot, Nothing, Apple}
+    public enum FieldTypeEnum {Corn, Carrot, Nothing, Apple, Blackberries, Tomato, Tree, Grapes}
 
     public CurrentStateEnum CurrentState;
     public FieldTypeEnum FieldType;

@@ -11,5 +11,12 @@ namespace Events
         // happenAt month/year
         public Vector2Int Starts;
         public Vector2Int Finishes;
+
+
+        public NodeState.FieldTypeEnum FieldType;
+        public NodeState.CurrentStateEnum Type;
+        public float InfluencePercentage;
     }
+
+    
 }

@@ -6,7 +6,7 @@ namespace Money
 {
     public class SimpleMoneyManager : Singleton<SimpleMoneyManager>
     {
-        private float _currentMoney;
+        private float _currentMoney = 50000000;
         private float _monthlyIncome;
         private float _monthlyExpenses;
 

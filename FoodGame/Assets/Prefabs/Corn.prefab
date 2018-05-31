@@ -114,14 +114,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b1e956b2167df4a9bd596a3dbe67e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: CornField
-  Sustainability: 0
-  MoneyTick: 40
-  UpgradeRank: 1
-  BuildingPrice: 2000
+  Name: Carrot
+  Sustainability: 5
+  MoneyTick: 50
+  ExpenseTick: 10
+  UpgradeRank: 0
+  BuildingPrice: 500
   UpgradeValue: 0
   MyCurrentState: 1
   MyFieldType: 0
+  UpgradeOptions: []
 --- !u!114 &114233103714901182
 MonoBehaviour:
   m_ObjectHideFlags: 1

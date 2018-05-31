@@ -23,10 +23,9 @@ namespace Cultivations
             return _cultivations;
         }
 
-
         private void Start()
         {
-            
+            //
             
             //TickPerMonth();
             //AddValue();

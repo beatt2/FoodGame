@@ -127,11 +127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9536cba6cd388804684dd4fef7f40791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: BarnCarrot
+  Name: Carrot Barn
   Sustainability: 5
   MoneyTick: 50
+  ExpenseTick: 45
   UpgradeRank: 0
-  BuildingPrice: 3000
+  BuildingPrice: 1000
   UpgradeValue: 0
   MyCurrentState: 0
   MyFieldType: 1

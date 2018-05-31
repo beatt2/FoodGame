@@ -1,4 +1,5 @@
-﻿using Tools;
+﻿using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,8 @@ namespace Events
         public GameObject Ui;
         public bool InEventMenu;
         private readonly bool[] _eventGoingOn = new bool[10];
+
+        private float _percentageEvent;
         private void Start()
         {
             Ui.SetActive(InEventMenu);
@@ -34,7 +37,8 @@ namespace Events
                     switch (i)
                     {
                         case 1:
-                            Debug.Log("Lower corn yield");
+                            Debug.Log("Increase overall income");
+                            _percentageEvent = EventsArray[i].InfluencePercentage;
                             break;
                         case 2:
                             Debug.Log("Increase overall income");

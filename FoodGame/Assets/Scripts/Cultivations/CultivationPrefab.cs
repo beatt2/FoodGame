@@ -7,6 +7,7 @@ namespace Cultivations
         public string Name;
         public int Sustainability;
         public int MoneyTick;
+        public float ExpenseTick;
         public int UpgradeRank;
         public int BuildingPrice;
         public int UpgradeValue;

@@ -23,6 +23,7 @@ namespace TimeSystem
         protected override void Awake()
         {
             Year = 2018;
+            DateUi.text = "January " + Year;
         }
 
         

@@ -11,20 +11,14 @@ using Random = UnityEngine.Random;
 namespace Money
 {
     public class Finance : MonoBehaviour {
-	
-        // Update is called once per frame
-        //public Text[] FinanceTexts;
 
         public GameObject Parent;
-
         public GameObject Content;
-
         private readonly List<FinanceEntry> _financeTexts = new List<FinanceEntry>();
 
 
 
-        public GameObject RowPrefab;
-        
+        public GameObject RowPrefab;        
         private List<GameObject> _go = new List<GameObject>();
 
 
@@ -42,8 +36,8 @@ namespace Money
         {
             
             _currentpos = StartingPos;
-            
-            
+           
+
             for (int i = 0; i < CultivationManager.Instance.GetCultivations().Keys.Count; i++)
             {
                 foreach (var tick in CultivationManager.Instance.GetCultivations().ElementAt(i).Value)
@@ -52,11 +46,13 @@ namespace Money
                     switch (tick.FieldType)
                     {
                         case NodeState.FieldTypeEnum.Corn:
-                           // AddText(tick.Name,tick.MoneyTick,tick.);
+                            AddText("Corn",tick.MoneyTick,tick.ExpenseTick,5);
                             break;
                         case NodeState.FieldTypeEnum.Apple:
+                            AddText("Apple", tick.MoneyTick, tick.ExpenseTick, 5);
                             break;
                         case NodeState.FieldTypeEnum.Carrot:
+                            AddText("Carrot", tick.MoneyTick, tick.ExpenseTick, 5);
                             break;
                         case NodeState.FieldTypeEnum.Nothing:
                             break;
@@ -65,13 +61,8 @@ namespace Money
 
 
                     }
-
-
-
                 }
             }
-
-
         }
 
         private void ChangeText(GameObject go, int i)

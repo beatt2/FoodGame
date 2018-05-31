@@ -128,13 +128,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Carrot
-  Sustainability: 1
+  Sustainability: 5
   MoneyTick: 50
+  ExpenseTick: 10
   UpgradeRank: 0
-  BuildingPrice: 2000
+  BuildingPrice: 500
   UpgradeValue: 0
   MyCurrentState: 1
   MyFieldType: 1
+  UpgradeOptions: []
 --- !u!212 &212970499603587954
 SpriteRenderer:
   m_ObjectHideFlags: 1
