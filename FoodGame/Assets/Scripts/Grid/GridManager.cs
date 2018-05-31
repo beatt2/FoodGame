@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using Cultivations;
 using Node;
 using Tools;
 using UI;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
 
 namespace Grid
 {
@@ -373,11 +368,11 @@ namespace Grid
         private void Update()
         {
 #if UNITY_EDITOR
-            if (!Input.GetMouseButtonDown(0)) return; 
-            if (!EventSystem.current.IsPointerOverGameObject())
-            {
-                SetNodeToNull();
-            }
+//            if (!Input.GetMouseButtonDown(0)) return; 
+//            if (!EventSystem.current.IsPointerOverGameObject())
+//            {
+//                SetNodeToNull();
+//            }
 #endif
 //#if UNITY_ANDROID && !UNITY_EDITOR
 //

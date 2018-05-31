@@ -1,11 +1,6 @@
-﻿using System;
-using System.Globalization;
-using Cultivations;
-using Tools;
-using UnityEditorInternal;
+﻿using Tools;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 namespace Money
 {

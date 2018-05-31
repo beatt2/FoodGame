@@ -1,35 +1,37 @@
 Android
 PlayerPath?
-D:/Documents/GitHub/FoodGame/FoodGame/Builds/FoodGame_V0.005.apk
+D:/Documents/GitHub/FoodGame/FoodGame/Builds/FoodGame_V0.006.apk
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Node.HighLight
-343f3b934424e5101bf9b58da733f9f4 Assembly-CSharp.dll:Grid.GridManager
+c55d87dd02abeb0bfbea9049fb7eb91e Assembly-CSharp.dll:Grid.GridManager
 8eb8dbde0844639c69157c334c2e5946 Assembly-CSharp.dll:UI.OkayButton
 47ac214ba888092e69d3923695f38b07 Assembly-CSharp.dll:Grid.GridMaker
+b721c2aa7f2bd329f9941c7317e8a5c1 Assembly-CSharp.dll:Events.EventButton
 8d50706141dbf7e91cc204e3fa389f5f Assembly-CSharp.dll:Events.Events
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
-8d0debcfa9acc66529b915500b3fe35a Assembly-CSharp.dll:Cultivations.PlantPrefab
+884f64605009cd32cece14084b5231ea Assembly-CSharp.dll:Cultivations.PlantPrefab
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Node.NodeManager
-8d0debcfa9acc66529b915500b3fe35a Assembly-CSharp.dll:Cultivations.BuildingPrefab
+884f64605009cd32cece14084b5231ea Assembly-CSharp.dll:Cultivations.BuildingPrefab
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Cultivations.CultivationManager
 0edf85c70cdc20c753a14eedbb7af257 Assembly-CSharp.dll:Events.EventManager
-9e2ae7d6de2817027848fd3e577fdb7d Assembly-CSharp.dll:UI.SelectionButton
+60f79b8fce2ae8715b9ebf04cfb952b9 Assembly-CSharp.dll:UI.SelectionButton
 30bb52d79d3605aa030792aa9efabd4f Assembly-CSharp.dll:MainMenu.SceneButton
 80be55cd5a51053767e90412324fcc03 Assembly-CSharp.dll:Node.NodeBehaviour
 30bb52d79d3605aa030792aa9efabd4f Assembly-CSharp.dll:UI.UIButton
-092177d8a9b2c533ae5e7a861c60e780 Assembly-CSharp.dll:Money.Finance
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraMove
+f6efcd180838ba1ed9b9d19c29e1e7df Assembly-CSharp.dll:Money.Finance
+ee2b4f6fe7bf58bf74a1891ac9ca8e4c Assembly-CSharp.dll:Camera_Movement.CameraMove
 e6bbb46f32ee849afbb866d27b65d503 Assembly-CSharp.dll:Money.SimpleMoneyManager
-9e6ffe31cf118fd0c2c546bf642fd71d Assembly-CSharp.dll:Grid.BuildingPlacement
-30bb52d79d3605aa030792aa9efabd4f Assembly-CSharp.dll:UI.BuildButton
+e92ef5a93056e4ee62a5bae815a77d48 Assembly-CSharp.dll:Grid.BuildingPlacement
+d4fcde87d3e6474618128f8c3a68c19f Assembly-CSharp.dll:UI.BuildButton
+9162012b7fa37eee7af853353dae2c84 Assembly-CSharp.dll:.NodeState
 109a77d217a08fb82a17edb11a7d8587 Assembly-CSharp.dll:Money.FinanceButton
 9d1ce05dfabc08f5ad395cad4370fbb9 Assembly-CSharp.dll:Tools.UpdateableData
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Mouse
-662a6b8e066813562aabce38f1f0e3a8 Assembly-CSharp.dll:TimeSystem.TimeManager
+29856646ad3f147ba983478690c4532a Assembly-CSharp.dll:TimeSystem.TimeManager
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
@@ -169,4 +171,8 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
-b721c2aa7f2bd329f9941c7317e8a5c1 Assembly-CSharp.dll:Events.EventButton
+1bf76d3243ccf47baf3b7d19acb7da36 Assembly-CSharp.dll:.Selection
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UpgradeEntry
+ad24bec5f29c49068c5a782e66dceead Assembly-CSharp.dll:.PanelLerp
+1cf831023cf78962e56c1e23adad70c1 Assembly-CSharp.dll:UI.SidePanel
+6e2d5dbaec446dd364ffe9259a8bf965 Assembly-CSharp.dll:.UpgradeTab
