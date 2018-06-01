@@ -4,9 +4,9 @@ namespace Cultivations
 {
     public class Plant : Cultivation
     {
-        public Plant(string name, int sustainability, int moneyTick, int upgradeRank, int buildingPrice,
+        public Plant(string name, int sustainability, int moneyTick,float expenseTick, int upgradeRank, int buildingPrice,
             NodeState.CurrentStateEnum cultivationType, NodeState.FieldTypeEnum fieldType, Sprite image, int upgradeValue, GameObject[] upgradeOptions)
-            : base(name, sustainability, moneyTick, upgradeRank, buildingPrice, cultivationType, fieldType, image, upgradeValue, upgradeOptions)
+            : base(name, sustainability, moneyTick, expenseTick, upgradeRank, buildingPrice, cultivationType, fieldType, image, upgradeValue, upgradeOptions)
         {
         }    
         

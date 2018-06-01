@@ -5,9 +5,9 @@ namespace Cultivations
     public class Building : Cultivation
     {
 
-        public Building(string name, int sustainability, int moneyTick, int upgradeRank, int buildingPrice,
+        public Building(string name, int sustainability, int moneyTick,float expenseTick, int upgradeRank, int buildingPrice,
             NodeState.CurrentStateEnum cultivationType, NodeState.FieldTypeEnum fieldType, Sprite image, int upgradeValue, GameObject [] upgradeOptions)
-            : base(name, sustainability, moneyTick, upgradeRank, buildingPrice, cultivationType, fieldType, image, upgradeValue, upgradeOptions)
+            : base(name, sustainability, moneyTick, expenseTick, upgradeRank, buildingPrice, cultivationType, fieldType, image, upgradeValue, upgradeOptions)
         {
         }        
     }
