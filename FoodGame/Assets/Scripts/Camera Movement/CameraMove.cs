@@ -8,98 +8,33 @@ namespace Camera_Movement
     {
         public float OrthoZoomSpeed = 0.5f;
         public float Speed = 0.1f;
-  
-        public Transform Area;
 
-        private Sprite _sprite;
-        private float _pixelUnits;
-        private Vector2 _size;
-        private Vector2 _offset;
-        
-        
-        //Bounds
-        private float _left;
-        private float _right;
-        private float _top;
-        private float _bottom;
-        private float _maxZoom;
-        private float _minZoom;
+        public float MaxOrthoSize = 17;
+        public float MinOrthoSize = 5;
+
+        public float MinSizeX = 12.78f;
+        public float MinSizeY = 6.77f;
+
+        private BoxCollider2D _boxCollider2D;
+
+        private float _totalSize;
+
 
         private void Start()
         {
-            _sprite = Area.transform.GetComponent<SpriteRenderer>().sprite;
-
-            CalculatePixelUnit();
-            CalculateSize();
-            Refresh();
-            Center();
+            _boxCollider2D = GetComponent<BoxCollider2D>();
+            _totalSize = MaxOrthoSize - MinOrthoSize;
         }
 
-        private void CalculatePixelUnit()
-        {
-            _pixelUnits = _sprite.rect.width / _sprite.bounds.size.x;
-        }
 
-        private void CalculateSize()
-        {
-            _size = new Vector2(Area.transform.localScale.x * _sprite.texture.width / _pixelUnits,
-                    Area.transform.localScale.y * _sprite.texture.height / _pixelUnits);
-
-            _offset = Area.transform.position;
-        }
-
-        private void Refresh()
-        {
-            float w = Screen.width / _size.x;
-            float h = Screen.height / _size.y;
-            float ratio1 = w / h;
-            float ratio2 = h / w;
-            if (ratio2 > ratio1)
-            {
-                _maxZoom = (_size.y / 2);
-
-            }
-            else
-            {
-                _maxZoom = (_size.y / 2);
-                _maxZoom /= ratio1;
-                
-            }
-
-            _minZoom = 1;
-            //Camera.main.orthographicSize = _maxZoom;
-            RefreshBounds();
-
-        }
-
-        private void Center()
-        {
-            Vector2 position = Area.transform.position;
-            Vector3 camPosition = position;
-            Vector3 point = Camera.main.WorldToViewportPoint(camPosition);
-            Vector3 delta =  Camera.main.WorldToViewportPoint(new Vector3(.5f, .5f, point.z));
-            Vector3 destination = transform.position + delta;
-            transform.position = destination;
-        }
-
-        private void RefreshBounds()
-        {
-            var vertExtent = Camera.main.orthographicSize;
-            var horzExtent = vertExtent * Screen.width / Screen.height;
-
-            _left = horzExtent - _size.x / 2.0f / 2.0f + _offset.x;
-            _right = _size.x / 2.0f - vertExtent + _offset.y;
-            _bottom = vertExtent - _size.y / 2.0f + _offset.y;
-            _top = _size.y / 2.0f - vertExtent + _offset.y;
-        }
- 
      
 
 
         private void Update()
         {
-            
 
+      
+                
             if (Input.touchCount == 2)
             {
                 Touch touchZero = Input.GetTouch(0);
@@ -127,15 +62,25 @@ namespace Camera_Movement
                         
                         );
             }
-            Refresh();
+
+        }
+
+        private void CalculateBounds()
+        {
+            float localSize = Camera.main.orthographicSize  ;
+            float calcSize = _totalSize - localSize;
+            float percentage = calcSize / (_totalSize / 100);
+            float clampX = percentage * (MinSizeX / 100);
+            float clampY = percentage * (MinSizeY / 100);
+
         }
 
         private void LateUpdate()
         {
-            Vector3 v3 = transform.position;
-            v3.x = Mathf.Clamp(v3.x, _left, _right);
-            v3.y = Mathf.Clamp(v3.y, _bottom, _top);
-            transform.position = v3;
+//            Vector3 v3 = transform.position;
+//            v3.x = Mathf.Clamp(v3.x, _left, _right);
+//            v3.y = Mathf.Clamp(v3.y, _bottom, _top);
+//            transform.position = v3;
         }
     }
 }
