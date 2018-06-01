@@ -1,6 +1,4 @@
-﻿using UnityEditor.Experimental.UIElements;
-using UnityEngine;
-using UnityEngine.Experimental.PlayerLoop;
+﻿using UnityEngine;
 
 namespace Camera_Movement
 {
@@ -19,6 +17,8 @@ namespace Camera_Movement
 
         private float _totalSize;
 
+        public float MinMagnitudeSpeed;
+
 
         private void Start()
         {
@@ -27,14 +27,14 @@ namespace Camera_Movement
         }
 
 
-     
+
 
 
         private void Update()
         {
 
-      
-                
+
+
             if (Input.touchCount == 2)
             {
                 Touch touchZero = Input.GetTouch(0);
@@ -46,33 +46,29 @@ namespace Camera_Movement
                 float deltaMagnitudeDiff = prevTouchDeltaMag - touchDeltaMag;
                 Camera.main.orthographicSize += deltaMagnitudeDiff * OrthoZoomSpeed;
                 Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 5f, 17f);
-
             }
             else if (Input.touchCount == 1)
             {
                 Touch touchZero = Input.GetTouch(0);
                 if (touchZero.phase != TouchPhase.Moved) return;
+                if (touchZero.deltaPosition.magnitude < MinMagnitudeSpeed) return;
                 Vector2 touchDeltaPosition = touchZero.deltaPosition;
                 transform.Translate(-touchDeltaPosition.x * Speed, -touchDeltaPosition.y * Speed, 0);
-
-                transform.position = 
-                    new Vector3(Mathf.Clamp(transform.position.x, -5f, 5f),
-                        Mathf.Clamp(transform.position.y, -0.82f,3f),
-                        -10
-                        
-                        );
+                transform.position = GetBounds();
             }
 
         }
-
-        private void CalculateBounds()
+        private Vector3 GetBounds()
         {
             float localSize = Camera.main.orthographicSize  ;
-            float calcSize = _totalSize - localSize;
+            Vector3 localPosition = transform.position;
+            float calcSize = MaxOrthoSize - localSize;
             float percentage = calcSize / (_totalSize / 100);
-            float clampX = percentage * (MinSizeX / 100);
-            float clampY = percentage * (MinSizeY / 100);
-
+            float xValue = percentage * (MinSizeX / 100);
+            float yValue = percentage * (MinSizeY / 100);
+            localPosition.x = Mathf.Clamp(localPosition.x, -xValue, xValue);
+            localPosition.y = Mathf.Clamp(localPosition.y, -yValue, yValue);
+            return localPosition;
         }
 
         private void LateUpdate()
