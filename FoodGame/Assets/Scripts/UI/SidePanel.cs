@@ -22,7 +22,7 @@ namespace UI
         public GameObject UpgradePanel;
 
         public Button KillButton;
-        
+
 
         private Cultivation _currentCultivation;
 
@@ -53,16 +53,15 @@ namespace UI
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
             MyImage.sprite = cultivation.Image;
- 
+
             //TODO make a UpgradeCost variable in Cultivation
             UpgradeText.text = cultivation.UpgradeValue.ToString();
-            MoneyTickText.text = "money per month" +cultivation.MoneyTick;
+            MoneyTickText.text = "money per month" + cultivation.MoneyTick;
 
             if (cultivation.MyCultivationState == NodeState.CurrentStateEnum.EmptyField)
             {
                 KillButton.interactable = false;
             }
-
         }
 
         public void OnUpgradeButtonPressed()
@@ -72,13 +71,26 @@ namespace UI
                 case NodeState.CurrentStateEnum.EmptyField:
                     switch (_currentCultivation.FieldType)
                     {
-                            case NodeState.FieldTypeEnum.Carrot:
-                                GridManager.Instance.BuildingPlacement.BuildField(0);
-                                break;
-                            case NodeState.FieldTypeEnum.Corn:
-                                GridManager.Instance.BuildingPlacement.BuildField(1);
-                                break;
+                        case NodeState.FieldTypeEnum.Carrot:
+                            GridManager.Instance.BuildingPlacement.BuildField(0);
+                            break;
+                        case NodeState.FieldTypeEnum.Corn:
+                            GridManager.Instance.BuildingPlacement.BuildField(1);
+                            break;
+                        case NodeState.FieldTypeEnum.Blackberries:
+                            GridManager.Instance.BuildingPlacement.BuildField(2);
+                            break;
+                        case NodeState.FieldTypeEnum.Apple:
+                            GridManager.Instance.BuildingPlacement.BuildField(4);
+                            break;
+                        case NodeState.FieldTypeEnum.Tomato:
+                            GridManager.Instance.BuildingPlacement.BuildField(3);
+                            break;
+
                         case NodeState.FieldTypeEnum.Nothing:
+                            break;
+                        case NodeState.FieldTypeEnum.Tree:
+                            GridManager.Instance.BuildingPlacement.BuildField(4);
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -116,9 +128,5 @@ namespace UI
             GridManager.Instance.BuildingPlacement.RemoveTiles(GridManager.Instance.GetSelectedNode());
             DestroyPanel.SetActive(false);
         }
-        
-       
-
-
     }
 }

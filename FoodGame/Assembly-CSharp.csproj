@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Grid\GridList.cs" />
     <Compile Include="Assets\Scripts\Grid\GridMaker.cs" />
     <Compile Include="Assets\Scripts\Grid\GridManager.cs" />
+    <Compile Include="Assets\Scripts\Grid\NodeFence.cs" />
     <Compile Include="Assets\Scripts\Grid\Selection.cs" />
     <Compile Include="Assets\Scripts\Grid\SingleGridList.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SceneButton.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Money\Row.cs" />
     <Compile Include="Assets\Scripts\Money\SimpleMoneyManager.cs" />
     <Compile Include="Assets\Scripts\Mouse.cs" />
+    <Compile Include="Assets\Scripts\Node\Fences.cs" />
     <Compile Include="Assets\Scripts\Node\HighLight.cs" />
     <Compile Include="Assets\Scripts\Node\NodeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Node\NodeManager.cs" />
