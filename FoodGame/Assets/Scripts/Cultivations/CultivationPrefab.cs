@@ -11,6 +11,7 @@ namespace Cultivations
         public int UpgradeRank;
         public int BuildingPrice;
         public int UpgradeValue;
+        public int PlacementIndex;
         public NodeState.CurrentStateEnum MyCurrentState;
         public NodeState.FieldTypeEnum MyFieldType;
         public GameObject [] UpgradeOptions;

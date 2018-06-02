@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Security.Policy;
-using Cultivations;
+﻿using Cultivations;
 using Grid;
 using UI;
 using UnityEngine;
@@ -14,17 +12,21 @@ public class Selection : MonoBehaviour
 
    private int _index;
 
-
+   private void Start()
+   {
+      ToggleBuildPanel(false);
+   }
 
 
    public void ToggleBuildPanel(bool value)
    {
       BuildPanel.SetActive(value);
+      GridManager.Instance.BuildingPlacement.BuildingTabActive = value;
    }
 
    //Called from button
    public void BuildFarm(int index)
-   {   
+   {
       _index = index;
       SetManager();
    }
@@ -44,7 +46,7 @@ public class Selection : MonoBehaviour
       if (value)
       {
          GridManager.Instance.ConfirmBuildFarmButtonPressed(_index);
-        
+
       }
       else
       {
@@ -84,13 +86,13 @@ public class Selection : MonoBehaviour
    {
       YesNoBuildButton.transform.position = position;
    }
-   
-   
+
+
    public void ToggleYesNoBuildButton(bool value)
    {
       YesNoBuildButton.SetActive(value);
    }
-   
+
    public bool YesNoBuildActive()
    {
       return YesNoBuildButton.activeSelf;
@@ -111,6 +113,6 @@ public class Selection : MonoBehaviour
       return MySidePanel.SidePanelActive();
    }
 
-   
+
 
 }

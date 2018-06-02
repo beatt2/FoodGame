@@ -2,24 +2,46 @@
 using Money;
 using Node;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Grid
 {
     public class BuildingPlacement : MonoBehaviour
     {
         public GameObject [] Farms;
+        private BuildingPrefab [] _buildingPrefabs;
+
+        private FarmButtons[] _farmButtons;
+
+
         public GameObject[] Fields;
         public GameObject EmptyField;
         private Sprite _emptyFieldSprite;
 
+        public bool BuildingTabActive = true;
+
+
 
         private void Awake()
         {
+            GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(true);
             _emptyFieldSprite = EmptyField.GetComponent<SpriteRenderer>().sprite;
+            _buildingPrefabs = new BuildingPrefab[Farms.Length];
+            //TODO Probably can remove the others now
+            var tempGameObjects = GameObject.FindGameObjectsWithTag("FarmButton");
+            _farmButtons = new FarmButtons[Farms.Length];
+            for (int i = 0; i < _buildingPrefabs.Length; i++)
+            {
+                _buildingPrefabs[i] = Farms[i].GetComponent<BuildingPrefab>();
+                _buildingPrefabs[i].CustomAwake();
+                _farmButtons[i] = tempGameObjects[i].GetComponent<FarmButtons>();
+            }
+
+
         }
 
 
-       
+
         /// <summary>
         /// Sets and ads the empty field component
         /// </summary>
@@ -42,7 +64,7 @@ namespace Grid
             Debug.Log("Sorry not enough money");
             return false;
         }
- 
+
         public bool BuildField(int index)
         {
             if (SimpleMoneyManager.Instance.EnoughMoney(Fields[index].GetComponent<PlantPrefab>().BuildingPrice))
@@ -52,7 +74,7 @@ namespace Grid
             }
             Debug.Log("Sorry not enough money");
             return false;
- 
+
         }
 
         private void ChangeTile(GameObject go, bool field)
@@ -81,7 +103,7 @@ namespace Grid
             return _emptyFieldSprite;
         }
 
-        
+
         public void RemoveTiles(NodeBehaviour node)
         {
             if (node.GetListIndex() == -1) return;
@@ -104,7 +126,24 @@ namespace Grid
             }
 
         }
-        
-        
+
+        private void Update()
+        {
+            if (!BuildingTabActive) return;
+            foreach (var t in _farmButtons)
+            {
+                // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+                if (_buildingPrefabs[t.IndexNumber].BuildingPrice > SimpleMoneyManager.Instance.GetCurrentMoney())
+                {
+                    t.SetInteractable(false);
+                }
+                else
+                {
+                    t.SetInteractable(true);
+                }
+            }
+        }
+
+
     }
 }

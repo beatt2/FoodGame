@@ -8,6 +8,7 @@ TagManager:
   - UI
   - Node
   - UpgradeTab
+  - FarmButton
   layers:
   - Default
   - TransparentFX

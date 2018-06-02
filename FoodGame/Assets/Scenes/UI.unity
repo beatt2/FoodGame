@@ -29623,7 +29623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3156eb3c92e436d479fe5630382985ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonText: BuildFarm
   UseBestFit: 1
   BuildLayer: {fileID: 0}
   MySelection: {fileID: 0}

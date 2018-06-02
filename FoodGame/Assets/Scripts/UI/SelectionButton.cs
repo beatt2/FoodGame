@@ -1,46 +1,46 @@
 ﻿using System;
 using Cultivations;
-using Grid;     
-using UnityEngine; 
-using UnityEngine.UI;  
- 
- 
-namespace UI 
-{ 
-    public class SelectionButton : UIButtonAbstract 
-    { 
-        private UnityEngine.UI.Image _image; 
-        
-        
-        private Color _startColor; 
-       
-        public Button YesButton; 
+using Grid;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+namespace UI
+{
+    public class SelectionButton : UIButtonAbstract
+    {
+        private UnityEngine.UI.Image _image;
+
+
+        private Color _startColor;
+
+        public Button YesButton;
         public Button NoButton;
         public Button ConfirmCornButton;
         public Button ConfirmCarrotButton;
-        
+
         public enum CurrentStateEnum {Field, Upgrade, BuildFarm}
 
         public CurrentStateEnum CurrentState;
- 
-        protected override void Awake() 
-        { 
-            base.Awake(); 
-            _image = GetComponent<UnityEngine.UI.Image>(); 
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _image = GetComponent<UnityEngine.UI.Image>();
             _startColor = _image.color;
             CurrentState = CurrentStateEnum.BuildFarm;
-        } 
-         
-         
-        public override void TaskOnClick() 
+        }
+
+
+        public override void TaskOnClick()
         {
             if (CurrentState == CurrentStateEnum.BuildFarm)
             {
-                GridManager.Instance.SetSelectionSize(); 
+                GridManager.Instance.SetSelectionSize();
                 ChangeColor();
                 if (GridManager.Instance.GetSelectedNode() == null) return;
                 ToggleYesNoButtons();
-            } 
+            }
             else switch (CurrentState)
             {
                 case CurrentStateEnum.Field:
@@ -54,7 +54,7 @@ namespace UI
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-        
+
 
         }
 
@@ -85,11 +85,11 @@ namespace UI
                             throw new ArgumentOutOfRangeException();
                     }
                     break;
-                    
+
                 case NodeState.CurrentStateEnum.Field:
                     Debug.Log("Nothing yet");
                     break;
-       
+
                 case NodeState.CurrentStateEnum.EmptyField:
                     switch (GridManager.Instance.GetSelectedNode().GetFieldType())
                     {
@@ -113,12 +113,12 @@ namespace UI
                     throw new ArgumentOutOfRangeException();
             }
 
-        
 
-            ButtonText = tempButtonText;
+
+            //ButtonText = tempButtonText;
             UpdateTextValue();
         }
-        
+
 
         public bool YesNoButtonActivated()
         {
@@ -127,16 +127,16 @@ namespace UI
 
         public void ToggleYesNoButtons()
         {
-            YesButton.gameObject.SetActive(!YesButton.gameObject.activeSelf); 
+            YesButton.gameObject.SetActive(!YesButton.gameObject.activeSelf);
             NoButton.gameObject.SetActive(!NoButton.gameObject.activeSelf);
         }
- 
-        
+
+
         //Set by button
-        public void ConfirmLocation(bool value) 
-        { 
+        public void ConfirmLocation(bool value)
+        {
             GridManager.Instance.ConfirmLocation(value);
-            
+
         }
 
         public void SetActiveConfirmButton()
@@ -154,18 +154,18 @@ namespace UI
             ChangeColor();
         }
 
-        
+
         //Set by button
         public void ConfirmBuildButtonPressed(int index)
         {
             GridManager.Instance.ConfirmBuildFarmButtonPressed(index);
-      
+
         }
- 
-        private void ChangeColor() 
+
+        private void ChangeColor()
         {
-            _image.color = _image.color == _startColor ? Color.green : _startColor; 
-             
-        } 
-    } 
-} 
+            _image.color = _image.color == _startColor ? Color.green : _startColor;
+
+        }
+    }
+}

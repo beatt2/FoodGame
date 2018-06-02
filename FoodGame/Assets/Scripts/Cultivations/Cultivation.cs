@@ -11,21 +11,21 @@ namespace Cultivations
         public int MoneyTick;// = value
         public float ExpenseTick;
         public int UpgradeRank;
-        public int BuildPrice; 
+        public int BuildPrice;
         public Sprite Image;
         public int UpgradeValue;
-
+        public int PlacementIndex;
         public GameObject[] UpgradeOptions;
-        
-        
 
-        
+
+
+
         public NodeState.CurrentStateEnum MyCultivationState;
         public NodeState.FieldTypeEnum FieldType;
 
         protected Cultivation(string name, int sustainability, int moneyTick, float expenseTick,
-            int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState, 
-            NodeState.FieldTypeEnum currentFieldType, Sprite image, int upgradeValue, GameObject [] upgradeOptions)
+            int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState,
+            NodeState.FieldTypeEnum currentFieldType, Sprite image, int upgradeValue, GameObject [] upgradeOptions, int placementIndex)
         {
             Name = name;
             Sustainability = sustainability;
@@ -38,6 +38,7 @@ namespace Cultivations
             Image = image;
             UpgradeValue = upgradeValue;
             UpgradeOptions = upgradeOptions;
+            PlacementIndex = placementIndex;
 
         }
 

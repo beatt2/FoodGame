@@ -56,7 +56,6 @@
     <Compile Include="Assets\Scripts\Camera Movement\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Building.cs" />
     <Compile Include="Assets\Scripts\Cultivations\BuildingPrefab.cs" />
-    <Compile Include="Assets\Scripts\Cultivations\Carrot.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Cultivation.cs" />
     <Compile Include="Assets\Scripts\Cultivations\CultivationManager.cs" />
     <Compile Include="Assets\Scripts\Cultivations\CultivationPrefab.cs" />
@@ -87,11 +86,13 @@
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
     <Compile Include="Assets\Scripts\Tools\UpdateableData.cs" />
     <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
+    <Compile Include="Assets\Scripts\UI\FarmButtons.cs" />
     <Compile Include="Assets\Scripts\UI\IButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\OkayButton.cs" />
     <Compile Include="Assets\Scripts\UI\PanelLerp.cs" />
     <Compile Include="Assets\Scripts\UI\SelectionButton.cs" />
     <Compile Include="Assets\Scripts\UI\SidePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\TopBar.cs" />
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonAbstract.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeEntry.cs" />

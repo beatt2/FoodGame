@@ -132,8 +132,9 @@ MonoBehaviour:
   MoneyTick: 50
   ExpenseTick: 45
   UpgradeRank: 0
-  BuildingPrice: 1000
+  BuildingPrice: 4500
   UpgradeValue: 0
+  PlacementIndex: 0
   MyCurrentState: 0
   MyFieldType: 0
   UpgradeOptions: []

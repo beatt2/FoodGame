@@ -12,8 +12,8 @@ namespace Money
 
         public Text MoneyUi;
 
-        
-        
+
+
         public Text Income;
 
         public Text Expense;
@@ -21,8 +21,8 @@ namespace Money
         private float _fruitValue;
         private float _farmValue;
         private float _vegetablevalue;
-        
-        
+
+
         //TODO THIS IS FOR PROTOTYPE
         public bool ShowExpenses;
 
@@ -32,7 +32,7 @@ namespace Money
         {
             _currentMoney = 5000;
             MoneyUi.text = "€ " + _currentMoney;
-            
+
 
             _monthlyIncome = 5;
             _monthlyExpenses = 10;
@@ -43,10 +43,10 @@ namespace Money
 
         public void ChangeMonth()
         {
-         
+
             Income.color = _monthlyIncome < _monthlyExpenses ? Color.red : Color.black;
             MoneyUi.color = _currentMoney < 0 ? Color.red : Color.black;
-            
+
             ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
         }
 
@@ -73,8 +73,8 @@ namespace Money
             }
             Debug.Log("Sorry not enough money");
             return false;
-    
- 
+
+
         }
 
         public void AddMonthlyIncome(int value)
@@ -96,7 +96,7 @@ namespace Money
                 _currentMoney -= value;
                 MoneyUi.text = _currentMoney.ToString();
             }
-       
+
         }
 
         public void AddFinance(NodeState.FieldTypeEnum fieldType,float value)
@@ -126,6 +126,11 @@ namespace Money
 
 
 
+        }
+
+        public float GetCurrentMoney()
+        {
+            return _currentMoney;
         }
     }
 }
