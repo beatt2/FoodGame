@@ -1,4 +1,5 @@
-﻿using Tools;
+﻿using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,11 @@ namespace Money
         private float _vegetablevalue;
 
 
+        private float _cornValue;
+        //private float _
+
+
+        private readonly Dictionary<NodeState.FieldTypeEnum,MoneyValue> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, MoneyValue>();
         //TODO THIS IS FOR PROTOTYPE
         public bool ShowExpenses;
 
@@ -77,6 +83,8 @@ namespace Money
 
         }
 
+       
+
         public void AddMonthlyIncome(int value)
         {
             _monthlyIncome += value;
@@ -99,38 +107,35 @@ namespace Money
 
         }
 
+        public Dictionary<NodeState.FieldTypeEnum, MoneyValue> GetMoneyValueDict()
+        {
+            return _moneyValues;
+        }
+
         public void AddFinance(NodeState.FieldTypeEnum fieldType,float value)
         {
-            //Debug.Log("tick");
-            switch (fieldType)
-                {
-                    case NodeState.FieldTypeEnum.Carrot:
-                        _vegetablevalue += value;
-                        //Debug.Log("Fruit " + _fruitValue);
-                    break;
-                    case NodeState.FieldTypeEnum.Corn:
-                        _vegetablevalue += value;
-                        //Debug.Log("Vegetable " + _vegetablevalue);
-                    break;
-                    case NodeState.FieldTypeEnum.Nothing:
-                        break;
-                case NodeState.FieldTypeEnum.Apple:
-                    _fruitValue += value;
-                    break;
-                    default:
-                        break;
-                }
+            _moneyValues.Add(fieldType, new MoneyValue(value , 0));
+
+            _moneyValues[NodeState.FieldTypeEnum.Corn].Percentage = .5f;
 
             _monthlyIncome += value;
-
-
-
-
         }
 
         public float GetCurrentMoney()
         {
             return _currentMoney;
+        }
+
+
+        public void Add(NodeState.FieldTypeEnum fieldType, float value,float percentage)
+        {
+            
+            _moneyValues.Add(fieldType,new MoneyValue(value,percentage));
+        }
+
+        public void Remove(NodeState.FieldTypeEnum fieldType)
+        {
+            _moneyValues.Remove(fieldType);
         }
     }
 }

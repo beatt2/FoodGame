@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cultivations;
 using Events;
+using Grid;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -46,6 +47,8 @@ namespace Money
                     switch (tick.FieldType)
                     {
                         case NodeState.FieldTypeEnum.Corn:
+                         
+                            
                             AddText("Corn",tick.MoneyTick,tick.ExpenseTick,EventManager.Instance.GetInfluence());
                             break;
                         case NodeState.FieldTypeEnum.Apple:
