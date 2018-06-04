@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events1
   m_EditorClassIdentifier: 
-  Headline: Biologische Voedsel Aantrekkelijk!
-  Content: Uit onderzoek is gebleken dat vele mensen biologische voedsel willen en
-    hiervoor zelfs extra geld voor willen uitgeven
+  Headline: Biologische voeding aantrekkelijk!
+  Content: Uit onderzoek is gebleken dat veel mensen biologische voeding aantekkelijk
+    vinden,  en hiervoor zelfs extra geld voor willen uitgeven.
   Starts: {x: 3, y: 2020}
   Finishes: {x: 7, y: 2021}
   FieldType: 0

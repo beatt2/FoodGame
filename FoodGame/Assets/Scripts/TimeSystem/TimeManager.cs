@@ -16,7 +16,6 @@ namespace TimeSystem
 
         public float TimeToIncrease;
 
-        public Text DateUi;
 
         public Finance FinanceScript;
         // Update is called once per frame
@@ -24,7 +23,6 @@ namespace TimeSystem
         {
             base.Awake();
             Year = 2018;
-            DateUi.text = "January " + Year;
         }
 
         public int GetMonth()

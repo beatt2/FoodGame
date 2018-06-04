@@ -27,7 +27,7 @@ public class TopBar : MonoBehaviour
 
 	private void CalculateUITime()
 	{
-		Debug.Log(TimeManager.Instance.GetYear());
+
 		string currentYear = TimeManager.Instance.GetYear().ToString();
 		MyYear[3].text = currentYear[0].ToString();
 		MyYear[2].text = currentYear[1].ToString();
@@ -49,7 +49,6 @@ public class TopBar : MonoBehaviour
 
 	private void CalculateUiMoney()
 	{
-		Debug.Log(SimpleMoneyManager.Instance.GetCurrentMoney());
 		string currentMoney = SimpleMoneyManager.Instance.GetCurrentMoney().ToString();
 		int j = 0;
 		for (int i = currentMoney.Length - 1;  i > -1 ; i -- , j++)
