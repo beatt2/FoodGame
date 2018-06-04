@@ -5842,8 +5842,8 @@ MonoBehaviour:
   Month: 1
   Year: 0
   TimeToIncrease: 20
-  DateUi: {fileID: 130380333}
   FinanceScript: {fileID: 404316298}
+  WaitForSeconds: 1
 --- !u!114 &441639543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20384,7 +20384,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1310673242}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -29388,7 +29388,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 426899310}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -18,6 +18,12 @@ namespace Cultivations
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
             MyPlant = new Plant(Name,Sustainability,MoneyTick,ExpenseTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions,PlacementIndex);
+
+        }
+
+        private void Start()
+        {
+            AddCultivation();
         }
 
         public void ChangeValues(Plant plant)

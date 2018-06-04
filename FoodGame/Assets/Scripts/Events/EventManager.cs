@@ -8,17 +8,22 @@ namespace Events
     public class EventManager : Singleton<EventManager>
     {
         public Events[] EventsArray;
-
+        
         public Text Headline;
         public Text Content;
         public GameObject Ui;
         public bool InEventMenu;
         private readonly bool[] _eventGoingOn = new bool[10];
 
-        private float _percentageEvent;
+        private float _percentageEvent = 0;
         private void Start()
         {
             Ui.SetActive(InEventMenu);
+        }
+
+        public float GetInfluence()
+        {
+            return _percentageEvent;
         }
 
         public void CheckDate(int month,int year)

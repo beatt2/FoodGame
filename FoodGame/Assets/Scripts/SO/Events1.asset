@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Events1
   m_EditorClassIdentifier: 
   Headline: Biologische voeding aantrekkelijk!
-  Content: Uit onderzoek is gebleken dat veel mensen biologische voeding aantekkelijk
+  Content: Uit onderzoek is gebleken dat veel mensen biologische voeding aantrekkelijk
     vinden,  en hiervoor zelfs extra geld voor willen uitgeven.
   Starts: {x: 3, y: 2020}
   Finishes: {x: 7, y: 2021}

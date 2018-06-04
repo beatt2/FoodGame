@@ -46,13 +46,13 @@ namespace Money
                     switch (tick.FieldType)
                     {
                         case NodeState.FieldTypeEnum.Corn:
-                            AddText("Corn",tick.MoneyTick,tick.ExpenseTick,5);
+                            AddText("Corn",tick.MoneyTick,tick.ExpenseTick,EventManager.Instance.GetInfluence());
                             break;
                         case NodeState.FieldTypeEnum.Apple:
-                            AddText("Apple", tick.MoneyTick, tick.ExpenseTick, 5);
+                            AddText("Apple", tick.MoneyTick, tick.ExpenseTick, EventManager.Instance.GetInfluence());
                             break;
                         case NodeState.FieldTypeEnum.Carrot:
-                            AddText("Carrot", tick.MoneyTick, tick.ExpenseTick, 5);
+                            AddText("Carrot", tick.MoneyTick, tick.ExpenseTick, EventManager.Instance.GetInfluence());
                             break;
                         case NodeState.FieldTypeEnum.Nothing:
                             break;
@@ -167,6 +167,8 @@ namespace Money
                 _totalAmount = 0;
                 for (int i = 0; i < _financeTexts.Count; i++)
                 {
+
+
                     ChangeText(_go[i], i);
 
 

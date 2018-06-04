@@ -45,6 +45,10 @@ namespace Grid
             _totalEntries = _gridSizeX * _gridSizeY;
         }
 
+        public NodeBehaviour[,] getNodeGrid()
+        {
+            return _nodeBehavioursGrid;
+        }
 
         private void ConvertListToArray()
         {
