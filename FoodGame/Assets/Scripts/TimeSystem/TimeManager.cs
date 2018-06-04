@@ -1,4 +1,5 @@
-﻿using Cultivations;
+﻿using System.Collections;
+using Cultivations;
 using Events;
 using Money;
 using Tools;
@@ -13,16 +14,17 @@ namespace TimeSystem
 
         public int Month = 1;
         public int Year;
-
         public float TimeToIncrease;
-
-
         public Finance FinanceScript;
-        // Update is called once per frame
+
+        public int WaitForSeconds;
+
+
         protected override void Awake()
         {
             base.Awake();
             Year = 2018;
+            StartCoroutine("Timer");
         }
 
         public int GetMonth()
@@ -30,46 +32,30 @@ namespace TimeSystem
             return Month;
         }
 
-
-
         public int GetYear()
         {
             return Year;
         }
 
-        //TODO REWORK THIS
-        private void FixedUpdate ()
+        private IEnumerator Timer()
         {
-
-            if (!EventManager.Instance.InEventMenu)
+            bool myLock = true;
+            while (myLock)
             {
-                _timeStamp += TimeToIncrease * Time.deltaTime;
-                if (_timeStamp >= 10)
+                yield return new WaitForSeconds(WaitForSeconds);
+                if (Month >= 12)
                 {
-
-                    if (Month >= 12)
-                    {
-                        Month = 1;
-                        if (Year >= 2040)
-                        {
-                            Debug.Log("EndGame");
-                        }
-                        else
-                        {
-                            Year++;
-                        }
-
-                    }
-                    else
-                    {
-                        Month++;
-                    }
-                    FinanceScript.UpdateText();
-                    EventManager.Instance.CheckDate(Month, Year);
-                    SimpleMoneyManager.Instance.ChangeMonth();
-                    CultivationManager.Instance.TickPerMonth();
-                    _timeStamp = 0;
+                    Month = 1;
+                    Year++;
                 }
+                else
+                {
+                    Month++;
+                }
+                FinanceScript.UpdateText();
+                EventManager.Instance.CheckDate(Month, Year);
+                SimpleMoneyManager.Instance.ChangeMonth();
+                CultivationManager.Instance.TickPerMonth();
             }
         }
     }

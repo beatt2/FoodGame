@@ -53,12 +53,7 @@ public class TopBar : MonoBehaviour
 		int j = 0;
 		for (int i = currentMoney.Length - 1;  i > -1 ; i -- , j++)
 		{
-			Debug.Log(i + " i");
-			Debug.Log(j + " j");
 			MyMoney[i].text = currentMoney[j].ToString();
-
-
-
 		}
 	}
 }

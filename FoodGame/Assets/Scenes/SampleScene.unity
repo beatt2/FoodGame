@@ -24056,6 +24056,7 @@ MonoBehaviour:
   Year: 0
   TimeToIncrease: 5
   FinanceScript: {fileID: 1509750008}
+  WaitForSeconds: 10
 --- !u!114 &2083029979
 MonoBehaviour:
   m_ObjectHideFlags: 0
