@@ -84,7 +84,7 @@ namespace Grid
             node.SetSprite(go.GetComponent<SpriteRenderer>().sprite);
             if (field)
             {
-                node.gameObject.AddComponent<PlantPrefab>();
+               
                 go.GetComponent<PlantPrefab>().CustomAwake();
                 node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
             }

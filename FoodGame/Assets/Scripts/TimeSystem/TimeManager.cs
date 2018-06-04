@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Xml.Schema;
 using Cultivations;
 using Events;
 using Money;
+using Save;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,12 +22,43 @@ namespace TimeSystem
 
         public int WaitForSeconds;
 
+       
 
-        protected override void Awake()
+
+  
+
+        private void Start()
         {
-            base.Awake();
-            Year = 2018;
+            CalculateNewTime();
             StartCoroutine("Timer");
+        }
+
+        private void CalculateNewTime()
+        {
+            DateTime currentTime = DateTime.Now;
+            DateTime oldTime = SaveManager.Instance.GetStopTime();
+            Debug.Log(oldTime);
+            TimeSpan temp = currentTime.Subtract(oldTime);
+            Debug.Log(temp.TotalSeconds);    
+            int totalAddedMonths =(int)temp.TotalSeconds / WaitForSeconds;
+            Month = SaveManager.Instance.GetSaveMonth();
+            Year = SaveManager.Instance.GetSaveYear();
+            for (int i = 0; i < totalAddedMonths; i++)
+            {
+                if (Month >= 12)
+                {
+                    Month = 1;
+                    Year++;
+                }
+                else
+                {
+                    Month++;
+                }
+            }
+         
+
+
+
         }
 
         public int GetMonth()

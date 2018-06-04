@@ -55,6 +55,11 @@
             <e p="NodeManager.cs" t="Include" />
             <e p="NodeState.cs" t="Include" />
           </e>
+          <e p="Save" t="Include">
+            <e p="SaveInfo.cs" t="Include" />
+            <e p="SaveManager.cs" t="Include" />
+            <e p="SaveNodes.cs" t="Include" />
+          </e>
           <e p="TimeSystem" t="Include">
             <e p="TimeManager.cs" t="Include" />
           </e>
