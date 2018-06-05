@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,26 +50,24 @@ namespace Money
 
         public void ChangeMonth()
         {
-
-            Income.color = _monthlyIncome < _monthlyExpenses ? Color.red : Color.black;
-            MoneyUi.color = _currentMoney < 0 ? Color.red : Color.black;
-
             ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
         }
 
 
         public void ChangeMoneyMonthly(float income, float expenses)
         {
-            _currentMoney += income - expenses;
 
-            if (ShowExpenses)
+      
+            for (int i = 0; i < _moneyValues.Keys.Count; i++)
             {
-                Income.text = "+€ " + income;
-                Expense.text = "-€ " + expenses;
+
+                var percentage = _moneyValues[(NodeState.FieldTypeEnum) i].Value / 100 *
+                                 _moneyValues[(NodeState.FieldTypeEnum) i].Percentage;
+                _moneyValues[(NodeState.FieldTypeEnum) i].Value += _currentMoney + percentage;
+                
             }
 
 
-            MoneyUi.text = "€ "+ _currentMoney;
         }
 
         public bool EnoughMoney(int value)
@@ -82,6 +81,8 @@ namespace Money
 
 
         }
+        
+       
 
        
 
@@ -114,12 +115,30 @@ namespace Money
 
         public void AddFinance(NodeState.FieldTypeEnum fieldType,float value)
         {
-            _moneyValues.Add(fieldType, new MoneyValue(value , 0));
 
-            _moneyValues[NodeState.FieldTypeEnum.Corn].Percentage = .5f;
-
-            _monthlyIncome += value;
+            if (!_moneyValues.ContainsKey(fieldType))
+            {
+                _moneyValues.Add(fieldType, new MoneyValue(value , 0));
+            }
+            else
+            {
+                _moneyValues[fieldType].Value += value;
+            }
+         
         }
+        
+        
+
+        public void SetPercentage(NodeState.FieldTypeEnum fieldTypeEnum, float percentage)
+        {
+            _moneyValues[fieldTypeEnum].Percentage = percentage;
+        }
+
+        public float GetPercentage(NodeState.FieldTypeEnum fieldTypeEnum)
+        {
+            return _moneyValues[fieldTypeEnum].Percentage;
+        }
+        
 
         public float GetCurrentMoney()
         {

@@ -37,9 +37,11 @@ namespace Cultivations
             SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
             SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
             //TODO CHANGE THE WAY TO DO THIS
+            SimpleMoneyManager.Instance.AddFinance(cultivation.FieldType, cultivation.MoneyTick);
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             CheckForNull(cultivation.MyCultivationState);
             _cultivations[cultivation.MyCultivationState].Add(cultivation);
+            
         }
 
         private void CheckForNull(NodeState.CurrentStateEnum currentState)
@@ -55,18 +57,6 @@ namespace Cultivations
             _cultivations[cultivation.MyCultivationState].Remove(cultivation);
         }
 
-        public void TickPerMonth()
-        {
-            for (int i = 0; i < _cultivations.Keys.Count; i++)
-            {
-                foreach (var tick in _cultivations.ElementAt(i).Value)
-                {
-                    SimpleMoneyManager.Instance.AddFinance
-                    (
-                        (NodeState.FieldTypeEnum)_cultivations.ElementAt(i).Key,tick.MoneyTick
-                    );
-                }
-            }
-        }
+
     }
 }    
