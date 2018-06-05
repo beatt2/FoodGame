@@ -8,7 +8,9 @@ namespace Node
 		public GameObject FenceOne;
 		public GameObject FenceTwo;
 
-		private void Start(){}
+		
+		
+		
 
 
 	}

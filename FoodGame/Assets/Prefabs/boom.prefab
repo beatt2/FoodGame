@@ -121,9 +121,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 500
   UpgradeValue: 0
+  SpriteIndex: 12
   MyCurrentState: 1
   MyFieldType: 3
   UpgradeOptions: []
+  MyPlant:
+    Name: 
+    Sustainability: 0
+    MoneyTick: 0
+    ExpenseTick: 0
+    UpgradeRank: 0
+    BuildPrice: 0
+    Image: {fileID: 0}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 0
 --- !u!114 &114780951743152280
 MonoBehaviour:
   m_ObjectHideFlags: 1

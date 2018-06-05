@@ -121,10 +121,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
-  PlacementIndex: 0
+  SpriteIndex: 6
   MyCurrentState: 0
   MyFieldType: 1
   UpgradeOptions: []
+  MyBuilding:
+    Name: Big middle carrot
+    Sustainability: 1
+    MoneyTick: 80
+    ExpenseTick: 50
+    UpgradeRank: 0
+    BuildPrice: 3000
+    Image: {fileID: 21300000, guid: 2df7a319d93007e4cbb6580804c75592, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 1
 --- !u!114 &114975491198306082
 MonoBehaviour:
   m_ObjectHideFlags: 1

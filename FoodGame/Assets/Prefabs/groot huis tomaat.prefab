@@ -121,9 +121,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
+  SpriteIndex: 21
   MyCurrentState: 0
   MyFieldType: 5
   UpgradeOptions: []
+  MyBuilding:
+    Name: Big Tomato
+    Sustainability: 1
+    MoneyTick: 80
+    ExpenseTick: 50
+    UpgradeRank: 0
+    BuildPrice: 3000
+    Image: {fileID: 21300000, guid: c0bdaeca6e5f12b49b9783f6d1955163, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 5
 --- !u!114 &114633482916400634
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -41,8 +41,12 @@ namespace TimeSystem
             TimeSpan temp = currentTime.Subtract(oldTime);
             Debug.Log(temp.TotalSeconds);    
             int totalAddedMonths =(int)temp.TotalSeconds / WaitForSeconds;
-            Month = SaveManager.Instance.GetSaveMonth();
-            Year = SaveManager.Instance.GetSaveYear();
+
+            Month = SaveManager.Instance.GetSaveMonth() == 0 ? 1 : SaveManager.Instance.GetSaveMonth();
+            Year = SaveManager.Instance.GetSaveMonth() == 0 ? 2018 : SaveManager.Instance.GetSaveYear();
+
+            Year = 2018;
+            Month = 1;
             for (int i = 0; i < totalAddedMonths; i++)
             {
                 if (Month >= 12)

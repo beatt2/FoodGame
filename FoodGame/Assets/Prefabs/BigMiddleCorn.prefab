@@ -134,10 +134,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
-  PlacementIndex: 0
+  SpriteIndex: 4
   MyCurrentState: 0
   MyFieldType: 0
   UpgradeOptions: []
+  MyBuilding:
+    Name: Big middle tree
+    Sustainability: 1
+    MoneyTick: 80
+    ExpenseTick: 50
+    UpgradeRank: 0
+    BuildPrice: 3000
+    Image: {fileID: 21300000, guid: d97744f726e33714b90e6ed58befbf82, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 0
 --- !u!212 &212419294262002008
 SpriteRenderer:
   m_ObjectHideFlags: 1

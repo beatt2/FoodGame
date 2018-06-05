@@ -6,13 +6,13 @@ namespace Money
     public class MoneyValue
     {
 
-        public float Value;
+        public float Income;
         public float Percentage;
 
 
         public MoneyValue(float value, float percentage)
         {
-            Value = value;
+            Income = value;
             Percentage = percentage;
         }
 

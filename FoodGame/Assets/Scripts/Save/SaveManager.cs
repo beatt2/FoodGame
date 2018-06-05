@@ -1,10 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Resources;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography.X509Certificates;
 using Cultivations;
 using Grid;
 using Node;
@@ -16,7 +12,7 @@ namespace Save
 {
     public class SaveManager : Singleton<SaveManager>
     {
-        public System.DateTime StopTime;
+        public DateTime StopTime;
 
         private SaveInfo _saveInfo;
         private SaveNodes [,] _saveNodes;
@@ -26,13 +22,32 @@ namespace Save
 
         private string filenameTime = "time";
         private string extensionTime = "saveTime";
+
+        [SerializeField]
+       private Sprite[] _sprites;
         
 
         protected override void Awake()
         {
             base.Awake();
-            _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
-            
+            LoadTime();
+        
+        }
+        
+        
+
+        private void LoadTime()
+        {
+            _saveInfo = new SaveInfo(DateTime.Now, 1, 2018);
+//            if (File.Exists(GetPath(filenameTime, extensionTime)))
+//            {
+//                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
+//            }
+//            else
+//            {
+//                
+//            }
+  
         }
         
 
@@ -41,7 +56,7 @@ namespace Save
         {
            SaveNodes();
            _saveInfo  = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear());
-           SaveFiles(_saveInfo, filenameTime, filenameNode);
+           SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
 
 
@@ -78,7 +93,8 @@ namespace Save
                     }
                     else if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
-                        _saveNodes[i,j] = new SaveNodes(
+                        
+                             _saveNodes[i,j] = new SaveNodes(
                             tempGrid[i,j].GetListIndex(), 
                             tempGrid[i,j].GetComponent<NodeState>().CurrentState,
                             tempGrid[i,j].GetComponent<NodeState>().FieldType,
@@ -93,9 +109,11 @@ namespace Save
             SaveFiles(_saveNodes, filenameNode, extensionNode);
         }
 
+
         public NodeBehaviour[,] LoadNodes(NodeBehaviour[,] nodes)
         {
-            var loadedNodes = LoadFile<SaveNodes[,]>(filenameNode, extensionTime);
+            if (!File.Exists(GetPath(filenameNode, extensionNode))) return nodes;
+            var loadedNodes = LoadFile<SaveNodes[,]>(filenameNode, extensionNode);
             for (int i = 0; i < nodes.GetLength(0); i++)
             {
                 for (int j = 0; j < nodes.GetLength(1); j++)
@@ -110,16 +128,22 @@ namespace Save
                     {
                         nodes[i, j].gameObject.AddComponent<PlantPrefab>();
                         nodes[i,j].GetComponent<PlantPrefab>().ChangeValues((Plant)loadedNodes[i,j].MyCultivation);
+                        nodes[i, j].SetSprite(
+                            _sprites[nodes[i, j].GetComponent<PlantPrefab>().MyPlant.SpriteIndex]);
                     }
-                    else if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
+                    else if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
                         nodes[i, j].gameObject.AddComponent<BuildingPrefab>();
                         nodes[i,j].GetComponent<BuildingPrefab>().ChangeValues((Building)loadedNodes[i,j].MyCultivation);
+                        nodes[i, j].SetSprite(
+                            _sprites[nodes[i, j].GetComponent<BuildingPrefab>().MyBuilding.SpriteIndex]);
                     }
-                    nodes[i,j].SetSprite(loadedNodes[i,j].MyCultivation.Image);
+                    
+                       
+                    
+            
                 }
             }
-
             return nodes;
         }
 

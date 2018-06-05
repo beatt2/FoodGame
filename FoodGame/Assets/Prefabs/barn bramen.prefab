@@ -59,8 +59,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.84, y: 4.24}
-    newSize: {x: 5.84, y: 4.24}
+    oldSize: {x: 5.84, y: 4.44}
+    newSize: {x: 5.84, y: 4.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -134,9 +134,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 1000
   UpgradeValue: 0
+  SpriteIndex: 9
   MyCurrentState: 0
   MyFieldType: 4
   UpgradeOptions: []
+  MyBuilding:
+    Name: Blackberries Barn
+    Sustainability: 5
+    MoneyTick: 50
+    ExpenseTick: 45
+    UpgradeRank: 0
+    BuildPrice: 1000
+    Image: {fileID: 21300000, guid: 4cb516cebf7c9e0469eb273134a5a440, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 4
 --- !u!212 &212630516288518340
 SpriteRenderer:
   m_ObjectHideFlags: 1

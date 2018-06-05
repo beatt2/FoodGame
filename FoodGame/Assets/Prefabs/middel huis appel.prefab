@@ -59,8 +59,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.84, y: 4.24}
-    newSize: {x: 5.84, y: 4.24}
+    oldSize: {x: 5.84, y: 4.44}
+    newSize: {x: 5.84, y: 4.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -134,9 +134,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 2000
   UpgradeValue: 0
+  SpriteIndex: 17
   MyCurrentState: 0
   MyFieldType: 3
   UpgradeOptions: []
+  MyBuilding:
+    Name: Apple Middle
+    Sustainability: 3
+    MoneyTick: 70
+    ExpenseTick: 50
+    UpgradeRank: 0
+    BuildPrice: 2000
+    Image: {fileID: 21300000, guid: 505011ec2b561314683cac45fbecb1c2, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 3
 --- !u!212 &212843172398098088
 SpriteRenderer:
   m_ObjectHideFlags: 1

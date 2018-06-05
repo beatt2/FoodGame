@@ -28,8 +28,8 @@ public class UpgradeTab : MonoBehaviour
                 GameObject go = Instantiate(Entry, _currentPosition.position, Quaternion.identity, Content.transform);
                 go.GetComponent<UpgradeEntry>().Cultivation = cultivation;
                 t.GetComponent<BuildingPrefab>().CustomAwake();
-                var tempSprite = t.GetComponent<BuildingPrefab>().MyBuilding.Image;
-                go.GetComponent<UpgradeEntry>().SetSpriteImage(tempSprite);
+                //var tempSprite = t.GetComponent<BuildingPrefab>().MyBuilding.Image;
+                //go.GetComponent<UpgradeEntry>().SetSpriteImage(tempSprite);
                 _currentPosition.position = new Vector3(_currentPosition.position.x + Gap, _currentPosition.position.y, _currentPosition.position.z);
                
             }

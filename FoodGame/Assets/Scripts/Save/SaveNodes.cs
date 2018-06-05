@@ -37,6 +37,7 @@ namespace Save
             FieldType = fieldType;
             EmptyCultivationField = emptyCultivationField;
             EmptyCultivationField = emptyCultivationField;
+            CurrentState = currentState;
 
         }
 

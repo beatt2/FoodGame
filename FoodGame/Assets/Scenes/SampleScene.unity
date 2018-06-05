@@ -24105,9 +24105,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07dc79b403818b4d9ec4b8b33f73372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StopTime: 0
-  Filename: test
-  Extension: save
+  _sprites:
+  - {fileID: 21300000, guid: e92eb7a5fbdc43e40b37859642799be7, type: 3}
+  - {fileID: 21300000, guid: c39be02796836a540955d5d7867864ad, type: 3}
+  - {fileID: 21300000, guid: 0d8a21a446429884c857826b1fcdc25c, type: 3}
+  - {fileID: 21300000, guid: 19c571bdeef3a284cb8a8bd16b40a0a3, type: 3}
+  - {fileID: 21300000, guid: d97744f726e33714b90e6ed58befbf82, type: 3}
+  - {fileID: 21300000, guid: 461657c7158a6a14b98baa4df4a33870, type: 3}
+  - {fileID: 21300000, guid: 2df7a319d93007e4cbb6580804c75592, type: 3}
+  - {fileID: 21300000, guid: b322b5ce920b04542b002d894b549135, type: 3}
+  - {fileID: 21300000, guid: 74b39ade0da4b25429ad21bf404ee810, type: 3}
+  - {fileID: 21300000, guid: 4cb516cebf7c9e0469eb273134a5a440, type: 3}
+  - {fileID: 21300000, guid: cf1ddae88d8759c49a48f26895347ab8, type: 3}
+  - {fileID: 21300000, guid: cf0e20bbdb3cb9a4fb1e857d814d7a46, type: 3}
+  - {fileID: 21300000, guid: 84dd872bcde56d346a829a9b61bccdb1, type: 3}
+  - {fileID: 21300000, guid: 358e151aa7e8e5a48a940c8e26a81046, type: 3}
+  - {fileID: 21300000, guid: 427c14783837a0643b3ca308b8244cb0, type: 3}
+  - {fileID: 21300000, guid: 8dfe5c716fa0b57449845cea939894e2, type: 3}
+  - {fileID: 21300000, guid: 63be6ecfcd3b78640be8fbb071cf4919, type: 3}
+  - {fileID: 21300000, guid: ec1cfb1eae9451240a0596a0d4edcad4, type: 3}
+  - {fileID: 21300000, guid: 8b9ca21750bbd5d47881d65e64969357, type: 3}
+  - {fileID: 21300000, guid: c10a0e26cb1d1b54cb81b8df37242555, type: 3}
+  - {fileID: 21300000, guid: b1564ee3bbd003647a303262353c82ef, type: 3}
+  - {fileID: 21300000, guid: c0bdaeca6e5f12b49b9783f6d1955163, type: 3}
+  - {fileID: 21300000, guid: 27b3a6febb7765141b95d8d74436194b, type: 3}
+  - {fileID: 21300000, guid: 505011ec2b561314683cac45fbecb1c2, type: 3}
+  - {fileID: 21300000, guid: 0488431cc5501964b8d3bd363dc8cb79, type: 3}
+  - {fileID: 21300000, guid: e85bbda2a2e59ce499e4af80688838a7, type: 3}
+  - {fileID: 21300000, guid: 63727e70938bab74789548aa00a2811f, type: 3}
+  - {fileID: 21300000, guid: 230d954692cd9fa429962c989a15f568, type: 3}
+  - {fileID: 21300000, guid: cdb88e17a43a7464fb1a50953995ed44, type: 3}
 --- !u!1 &2091489794
 GameObject:
   m_ObjectHideFlags: 0

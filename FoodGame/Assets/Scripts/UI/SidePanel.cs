@@ -53,7 +53,7 @@ namespace UI
 
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
-            MyImage.sprite = cultivation.Image;
+            //MyImage.sprite = cultivation.Image;
 
             //TODO make a UpgradeCost variable in Cultivation
             UpgradeText.text = cultivation.UpgradeValue.ToString();

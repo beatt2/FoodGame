@@ -121,10 +121,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
-  PlacementIndex: 0
+  SpriteIndex: 2
   MyCurrentState: 0
   MyFieldType: 4
   UpgradeOptions: []
+  MyBuilding:
+    Name: Big middle blackberries
+    Sustainability: 1
+    MoneyTick: 80
+    ExpenseTick: 50
+    UpgradeRank: 0
+    BuildPrice: 3000
+    Image: {fileID: 21300000, guid: 0d8a21a446429884c857826b1fcdc25c, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 4
 --- !u!114 &114151871076518164
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,14 +19,15 @@ namespace Grid
         private int _gridSizeY;
         public GridMaker MyGridMaker;
         private NodeBehaviour _selectedNode;
-        public BuildButton MyBuildButton;
-        public GameObject BuildObject;
         private bool sort = false;
         private int _selectionSize = 1;
         private int _totalEntries;
         private bool _inSelectionState = false;
 
         private Selection _selection;
+        
+        public GameObject FenceOne;
+        public GameObject FenceTwo;
 
         [SerializeField] public BuildingPlacement BuildingPlacement;
 
@@ -46,10 +47,7 @@ namespace Grid
             _totalEntries = _gridSizeX * _gridSizeY;
         }
 
-        private void Start()
-        {
-            _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
-        }
+      
 
         public NodeBehaviour[,] GetNodeGrid()
         {
@@ -70,13 +68,19 @@ namespace Grid
                     _singleGridLists[x].Add(new SingleGridList(_nodeList[x * _gridSizeY + y].Node,
                         _nodeList[x * _gridSizeY + y].GridLocations));
                 }
-
                 _singleGridLists[x].Sort();
                 for (int y = 0; y < _gridSizeY; y++)
                 {
                     _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;
                 }
             }
+            
+           // LoadNodes();
+        }
+        
+        private void LoadNodes()
+        {
+            _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
         }
 
         public List<List<NodeBehaviour>> GetCultivationLocationList()
@@ -137,7 +141,16 @@ namespace Grid
         {
             return _selectedNode != null ? _selectedNode : null;
         }
-        
+
+        public NodeBehaviour GetNode(int x, int y)
+        {
+            return _nodeBehavioursGrid[x, y];
+        }
+
+        public int GridSizeY()
+        {
+            return _nodeBehavioursGrid.GetLength(1);
+        }
 
 
         public void SetSelectedNode(NodeBehaviour nodeBehaviour)
@@ -242,6 +255,7 @@ namespace Grid
             if (CheckGridForBuildSpace(0, 0))
             {
                 _selectedNode.HighLight.ChangeColorBlue();
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(0);
             }
             else
             {
@@ -254,6 +268,7 @@ namespace Grid
                 if (CheckGridForBuildSpace(0, -1))
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].GetNodeFence().SetLocation(2);
                 }
                 else
                 {
@@ -266,10 +281,12 @@ namespace Grid
                 if (CheckGridForBuildSpace(1, -1))
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].GetNodeFence().SetLocation(2);
                 }
                 else
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorRed();
+          
                 }
             }
 
@@ -277,8 +294,8 @@ namespace Grid
             {
                 if (CheckGridForBuildSpace(1, 0))
                 {
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight
-                        .ChangeColorBlue();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight.ChangeColorBlue();
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(3);
                 }
                 else
                 {
@@ -298,6 +315,7 @@ namespace Grid
                 if (node.IsSelected())
                 {
                     node.HighLight.ChangeColorToOld();
+                    node.GetNodeFence().SetLocation(-1);
                 }
             }
         }
@@ -326,8 +344,7 @@ namespace Grid
 
         private bool CheckGridForBuildSpace(int xValue, int yValue)
         {
-            return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue]
-                       .GetListIndex() == -1;
+            return _nodeBehavioursGrid[_selectedNode.GridLocation.x + xValue, _selectedNode.GridLocation.y + yValue].GetListIndex() == -1;
         }
 
         private void ChangeColorsToGreen()

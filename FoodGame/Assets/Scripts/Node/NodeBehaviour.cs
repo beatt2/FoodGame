@@ -23,6 +23,7 @@ namespace Node
 		private bool _emptyCultivationField;
 
 		private NodeState _nodeState;
+		private NodeFence _nodeFence;
 		
 
 		public Vector3 BuildLocation
@@ -37,6 +38,12 @@ namespace Node
 		{
 			_spriteRenderer = GetComponent<SpriteRenderer>();
 			_nodeState = GetComponent<NodeState>();
+			_nodeFence = GetComponent<NodeFence>();
+		}
+
+		public NodeFence GetNodeFence()
+		{
+			return _nodeFence;
 		}
 
 

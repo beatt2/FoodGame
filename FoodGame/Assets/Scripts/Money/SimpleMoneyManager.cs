@@ -58,19 +58,18 @@ namespace Money
         public void ChangeMoneyMonthly(float income, float expenses)
         {
 
-      
+            Debug.Log(_moneyValues.Keys.Count);      
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
             {
 
-                var percentage = _moneyValues[(NodeState.FieldTypeEnum) i].Value / 100 *
-                                 _moneyValues[(NodeState.FieldTypeEnum) i].Percentage;
-                _moneyValues[(NodeState.FieldTypeEnum) i].Value += _currentMoney + percentage;
-                
+                var percentage = _moneyValues[_moneyValues.ElementAt(i).Key].Income / 100 *
+                                 _moneyValues[_moneyValues.ElementAt(i).Key].Percentage;
+                _moneyValues[_moneyValues.ElementAt(i).Key].Income += _currentMoney + percentage;
+               
             }
 
 
         }
-
         public bool EnoughMoney(int value)
         {
             if (_currentMoney -value >= 0)
@@ -83,10 +82,6 @@ namespace Money
 
         }
         
-       
-
-       
-
         public void AddMonthlyIncome(int value)
         {
             _monthlyIncome += value;
@@ -123,7 +118,7 @@ namespace Money
             }
             else
             {
-                _moneyValues[fieldType].Value += value;
+                _moneyValues[fieldType].Income += value;
             }
          
         }

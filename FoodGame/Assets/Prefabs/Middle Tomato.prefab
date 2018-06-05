@@ -121,9 +121,23 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 2000
   UpgradeValue: 0
+  SpriteIndex: 27
   MyCurrentState: 0
   MyFieldType: 5
   UpgradeOptions: []
+  MyBuilding:
+    Name: Tomato Middle
+    Sustainability: 3
+    MoneyTick: 70
+    ExpenseTick: 50
+    UpgradeRank: 0
+    BuildPrice: 2000
+    Image: {fileID: 21300000, guid: 230d954692cd9fa429962c989a15f568, type: 3}
+    UpgradeValue: 0
+    SpriteIndex: 0
+    UpgradeOptions: []
+    MyCultivationState: 0
+    FieldType: 5
 --- !u!114 &114291170938346964
 MonoBehaviour:
   m_ObjectHideFlags: 1
