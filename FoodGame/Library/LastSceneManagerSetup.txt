@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/SampleScene.unity
-=======
-- path: Assets/Scenes/UI2.0.unity
->>>>>>> Jordan
   isLoaded: 1
   isActive: 1
