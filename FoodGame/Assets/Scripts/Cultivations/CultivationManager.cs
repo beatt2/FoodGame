@@ -37,7 +37,7 @@ namespace Cultivations
             SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
             SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
             //TODO CHANGE THE WAY TO DO THIS
-            SimpleMoneyManager.Instance.AddFinance(cultivation.FieldType, cultivation.MoneyTick);
+            SimpleMoneyManager.Instance.AddFinance(cultivation.FieldType, cultivation.MoneyTick, cultivation.ExpenseTick);
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             CheckForNull(cultivation.MyCultivationState);
             _cultivations[cultivation.MyCultivationState].Add(cultivation);

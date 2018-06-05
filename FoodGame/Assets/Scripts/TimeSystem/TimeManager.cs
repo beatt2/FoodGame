@@ -18,7 +18,7 @@ namespace TimeSystem
         public Finance FinanceScript;
 
         public int WaitForSeconds;
-
+        public bool InFinanceMenu = false;
 
         protected override void Awake()
         {
@@ -52,7 +52,12 @@ namespace TimeSystem
                 {
                     Month++;
                 }
-                FinanceScript.UpdateText();
+
+                //if (InFinanceMenu)
+                //{
+                //    FinanceScript.UpdateText();
+                //}
+               
                 EventManager.Instance.CheckDate(Month, Year);
                 SimpleMoneyManager.Instance.ChangeMonth();
 

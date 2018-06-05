@@ -45,8 +45,9 @@ namespace Events
                     {
                         case 1:
                             Debug.Log("Increase Overall Income");
+                           
                             SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
-                            _percentageEvent = EventsArray[i].InfluencePercentage;
+                           // _percentageEvent = EventsArray[i].InfluencePercentage;
                             break;
                         case 2:
                             Debug.Log("Increase overall income");
