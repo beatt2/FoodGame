@@ -61,7 +61,7 @@ namespace Money
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
             {
 
-                var percentage = _moneyValues[(NodeState.FieldTypeEnum) i].Value / 100 *
+                var percentage = _moneyValues.Keys[i].Value / 100 *
                                  _moneyValues[(NodeState.FieldTypeEnum) i].Percentage;
                 _moneyValues[(NodeState.FieldTypeEnum) i].Value += _currentMoney + percentage;
                 

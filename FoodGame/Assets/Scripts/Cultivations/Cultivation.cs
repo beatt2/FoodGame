@@ -17,15 +17,19 @@ namespace Cultivations
         public int PlacementIndex;
         public GameObject[] UpgradeOptions;
 
+        public int EnviromentValue;
+        public int Happyness;
+        
 
 
 
         public NodeState.CurrentStateEnum MyCultivationState;
         public NodeState.FieldTypeEnum FieldType;
 
+
         protected Cultivation(string name, int sustainability, int moneyTick, float expenseTick,
             int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState,
-            NodeState.FieldTypeEnum currentFieldType, Sprite image, int upgradeValue, GameObject [] upgradeOptions, int placementIndex)
+            NodeState.FieldTypeEnum currentFieldType, Sprite image, int upgradeValue, GameObject [] upgradeOptions, int placementIndex,int enviromentValue,int happyness)
         {
             Name = name;
             Sustainability = sustainability;
@@ -39,7 +43,8 @@ namespace Cultivations
             UpgradeValue = upgradeValue;
             UpgradeOptions = upgradeOptions;
             PlacementIndex = placementIndex;
-
+            EnviromentValue = enviromentValue;
+            Happyness = happyness;
         }
 
     }
