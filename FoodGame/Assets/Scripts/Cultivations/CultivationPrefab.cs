@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using Node;
+using UnityEngine;
 
 namespace Cultivations
 {
+    [Serializable]
     public abstract class CultivationPrefab : MonoBehaviour
     {
         public string Name;

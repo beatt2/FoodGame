@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using Node;
+using UnityEngine;
 
 namespace Cultivations
 {
+    [Serializable]
     public class Building : Cultivation
     {
 

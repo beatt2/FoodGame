@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Cultivations
 {
+    [Serializable]
     public class BuildingPrefab : CultivationPrefab
     {
         [HideInInspector] public Building MyBuilding;

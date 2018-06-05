@@ -4,7 +4,10 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography.X509Certificates;
+using Cultivations;
 using Grid;
+using Node;
 using TimeSystem;
 using Tools;
 using UnityEngine;
@@ -16,11 +19,19 @@ namespace Save
         public System.DateTime StopTime;
 
         private SaveInfo _saveInfo;
+        private SaveNodes [,] _saveNodes;
+
+        private string filenameNode = "nodes";
+        private string extensionNode = "save";
+
+        private string filenameTime = "time";
+        private string extensionTime = "saveTime";
+        
 
         protected override void Awake()
         {
             base.Awake();
-            _saveInfo = LoadFile<SaveInfo>();
+            _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
             
         }
         
@@ -28,10 +39,88 @@ namespace Save
 
         private void OnApplicationQuit()
         {
-
-            
+           SaveNodes();
            _saveInfo  = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear());
-           SaveFiles(_saveInfo);
+           SaveFiles(_saveInfo, filenameTime, filenameNode);
+        }
+
+
+        private void SaveNodes()
+        {
+            int x = GridManager.Instance.GetNodeGrid().GetLength(0);
+            int y = GridManager.Instance.GetNodeGrid().GetLength(1);
+            _saveNodes = new SaveNodes[x,y];
+            var tempGrid = GridManager.Instance.GetNodeGrid();
+            for (int i = 0; i < x; i++)
+            {
+                for (int j = 0; j < y; j++)
+  
+                {
+                    if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Empty)
+                    {
+                        _saveNodes[i,j] = new SaveNodes(
+                            tempGrid[i,j].GetListIndex(), 
+                            tempGrid[i,j].GetComponent<NodeState>().CurrentState,
+                            tempGrid[i,j].GetComponent<NodeState>().FieldType,
+                            tempGrid[i,j].GetCultivationField()
+                            );
+                    }
+                    else if(tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.EmptyField 
+                            || tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
+                    {
+                        _saveNodes[i,j] = new SaveNodes(
+                            tempGrid[i,j].GetListIndex(), 
+                            tempGrid[i,j].GetComponent<NodeState>().CurrentState,
+                            tempGrid[i,j].GetComponent<NodeState>().FieldType,
+                            tempGrid[i,j].GetCultivationField(),
+                            tempGrid[i,j].GetComponent<PlantPrefab>().MyPlant
+                        );
+                    }
+                    else if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
+                    {
+                        _saveNodes[i,j] = new SaveNodes(
+                            tempGrid[i,j].GetListIndex(), 
+                            tempGrid[i,j].GetComponent<NodeState>().CurrentState,
+                            tempGrid[i,j].GetComponent<NodeState>().FieldType,
+                            tempGrid[i,j].GetCultivationField(),
+                            tempGrid[i,j].GetComponent<BuildingPrefab>().MyBuilding
+                        );
+                    }
+      
+
+                }
+            }
+            SaveFiles(_saveNodes, filenameNode, extensionNode);
+        }
+
+        public NodeBehaviour[,] LoadNodes(NodeBehaviour[,] nodes)
+        {
+            var loadedNodes = LoadFile<SaveNodes[,]>(filenameNode, extensionTime);
+            for (int i = 0; i < nodes.GetLength(0); i++)
+            {
+                for (int j = 0; j < nodes.GetLength(1); j++)
+                {
+                    
+                    nodes[i, j].GetComponent<NodeState>().CurrentState = loadedNodes[i, j].CurrentState;
+                    nodes[i, j].GetComponent<NodeState>().FieldType = loadedNodes[i, j].FieldType;
+                    nodes[i, j].SetCultivationListIndex(loadedNodes[i,j].ListIndex);
+                    nodes[i, j].SetEmptyCultivationField(loadedNodes[i,j].EmptyCultivationField);
+                    if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.EmptyField
+                        || nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
+                    {
+                        nodes[i, j].gameObject.AddComponent<PlantPrefab>();
+                        nodes[i,j].GetComponent<PlantPrefab>().ChangeValues((Plant)loadedNodes[i,j].MyCultivation);
+                    }
+                    else if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
+                    {
+                        nodes[i, j].gameObject.AddComponent<BuildingPrefab>();
+                        nodes[i,j].GetComponent<BuildingPrefab>().ChangeValues((Building)loadedNodes[i,j].MyCultivation);
+                    }
+                    nodes[i,j].SetSprite(loadedNodes[i,j].MyCultivation.Image);
+                }
+            }
+
+            return nodes;
         }
 
         public DateTime GetStopTime()
@@ -48,24 +137,15 @@ namespace Save
         {
             return _saveInfo.SaveMonth;
         }
-        
 
-        public string Filename = "test";
-        public string Extension = "save";
-
-        public bool CheckFileExistance()
+        public void SaveFiles<T>(T profile, string fileName, string extension)
         {
-            return File.Exists(GetPath(Filename, Extension));
+            File.WriteAllBytes(GetPath(fileName, extension), SerializeDate(profile));
         }
 
-        public void SaveFiles<T>(T profile)
+        public T LoadFile<T>(string filename, string extension)
         {
-            File.WriteAllBytes(GetPath(Filename, Extension), SerializeDate(profile));
-        }
-
-        public T LoadFile<T>()
-        {
-            byte[] data = File.ReadAllBytes(GetPath(Filename, Extension));
+            byte[] data = File.ReadAllBytes(GetPath(filename, extension));
             MemoryStream ms = new MemoryStream(data);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             return (T) binaryFormatter.Deserialize(ms);

@@ -1,9 +1,12 @@
 ﻿
+using System;
+using Node;
 using UnityEditor;
 using UnityEngine;
 
 namespace Cultivations
 {
+    [Serializable]
     public abstract class Cultivation
     {
         public string Name;

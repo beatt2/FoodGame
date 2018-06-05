@@ -46,6 +46,7 @@
             <e p="FinanceEntry.cs" t="Include" />
             <e p="Row.cs" t="Include" />
             <e p="SimpleMoneyManager.cs" t="Include" />
+            <e p="test.cs" t="Include" />
           </e>
           <e p="Mouse.cs" t="Include" />
           <e p="Node" t="Include">

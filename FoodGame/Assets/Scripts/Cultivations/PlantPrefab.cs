@@ -1,8 +1,11 @@
-﻿using Boo.Lang.Environments;
+﻿using System;
+using Boo.Lang.Environments;
+using Node;
 using UnityEngine;
 
 namespace Cultivations
 {
+    [Serializable]
     public class PlantPrefab :CultivationPrefab
     {
         [HideInInspector] public Plant MyPlant;

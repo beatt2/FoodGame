@@ -39,6 +39,16 @@ namespace Node
 			_nodeState = GetComponent<NodeState>();
 		}
 
+
+		public bool GetCultivationField()
+		{
+			return _emptyCultivationField;
+		}
+
+		public void SetCultivationField(bool value)
+		{
+			_emptyCultivationField = value;
+		}
 		public void OnPointerDown(PointerEventData eventData)
 		{
 			GridManager.Instance.SetSelectedNode(this);

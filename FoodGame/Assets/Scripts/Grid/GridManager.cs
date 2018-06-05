@@ -2,6 +2,7 @@
 using System.Linq;
 using Cultivations;
 using Node;
+using Save;
 using Tools;
 using UI;
 using UnityEngine;
@@ -45,7 +46,12 @@ namespace Grid
             _totalEntries = _gridSizeX * _gridSizeY;
         }
 
-        public NodeBehaviour[,] getNodeGrid()
+        private void Start()
+        {
+            _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
+        }
+
+        public NodeBehaviour[,] GetNodeGrid()
         {
             return _nodeBehavioursGrid;
         }
