@@ -57,13 +57,13 @@ namespace Money
         public void ChangeMoneyMonthly(float income, float expenses)
         {
 
-      
+            Debug.Log(_moneyValues.Keys.Count);      
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
             {
 
-                var percentage = _moneyValues.Keys[i].Value / 100 *
-                                 _moneyValues[(NodeState.FieldTypeEnum) i].Percentage;
-                _moneyValues[(NodeState.FieldTypeEnum) i].Value += _currentMoney + percentage;
+                var percentage = _moneyValues[_moneyValues.ElementAt(i).Key].Value / 100 *
+                                 _moneyValues[_moneyValues.ElementAt(i).Key].Percentage;
+                _moneyValues[_moneyValues.ElementAt(i).Key].Value += _currentMoney + percentage;
                 
             }
 

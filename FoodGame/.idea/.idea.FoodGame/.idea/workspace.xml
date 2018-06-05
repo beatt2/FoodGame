@@ -7,19 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="baa3866b-0a0e-41f2-abc4-166d2a9cbf73" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FoodGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FoodGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FoodGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FoodGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Money/SimpleMoneyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Money/SimpleMoneyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeSystem/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeSystem/TimeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll.mdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll.mdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll.mdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll.mdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ShaderIncludePaths" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ShaderIncludePaths" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/Library/assetDatabase3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/0d/0d3bb855445e36e479c85976fc88383a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/0d/0d3bb855445e36e479c85976fc88383a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/12/12fd8a0055b84bb59e84c9835a37e333" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/12/12fd8a0055b84bb59e84c9835a37e333" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/13/1322fd896bbb15bb6e335591b766ae62.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/13/1322fd896bbb15bb6e335591b766ae62.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/1b/1b355da31ea043feba0c03e35dd4bc62" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/1b/1b355da31ea043feba0c03e35dd4bc62" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/1c/1c6d1fbb51834b64847b1b73a75bfc77" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/1c/1c6d1fbb51834b64847b1b73a75bfc77" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/21/21eff446d50eaf44a85985cd4c0b6fa1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/21/21eff446d50eaf44a85985cd4c0b6fa1" afterDir="false" />
@@ -28,11 +25,13 @@
       <change beforePath="$PROJECT_DIR$/Library/metadata/31/3156eb3c92e436d479fe5630382985ed" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/31/3156eb3c92e436d479fe5630382985ed" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/32/32188fd89022c154c81befa2f0e00be0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/32/32188fd89022c154c81befa2f0e00be0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/32/328cc881519068e4eb7db4bb907ad2d9" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/32/328cc881519068e4eb7db4bb907ad2d9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/36/36e8bb3feb5e6402185947b817a6ed8d.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/36/36e8bb3feb5e6402185947b817a6ed8d.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/38/38c8faf1788024c02930a0c68a6e0edc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/38/38c8faf1788024c02930a0c68a6e0edc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/3a/3a84de5cd0624681b6b6dcd8921d912a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3a/3a84de5cd0624681b6b6dcd8921d912a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/3e/3e9a2175e0404f7ea30b2b694850bae0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/3e/3e9a2175e0404f7ea30b2b694850bae0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/40/405b9b51bb344a128608d968297df79c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/40/405b9b51bb344a128608d968297df79c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/41/4113173d5e95493ab8765d7b08371de4" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/41/4113173d5e95493ab8765d7b08371de4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/45/453f100e6bdae4dfd9e655927819dc85.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/45/453f100e6bdae4dfd9e655927819dc85.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/46/46098a81a64a45c5b756320e10a22f13" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/46/46098a81a64a45c5b756320e10a22f13" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/49/49f5766d0d4954f44b85d4bbd7131677" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/49/49f5766d0d4954f44b85d4bbd7131677" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/4a/4a3ecb1425d14502837abea459cf2b70" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/4a/4a3ecb1425d14502837abea459cf2b70" afterDir="false" />
@@ -41,33 +40,44 @@
       <change beforePath="$PROJECT_DIR$/Library/metadata/51/517af1b5b81b93b43b9745d58f017562" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/51/517af1b5b81b93b43b9745d58f017562" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/53/53ebcfaa2e1e4e2dbc85882cd5a73fa1" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/53/53ebcfaa2e1e4e2dbc85882cd5a73fa1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/57/5782f9e9e6e0bb94bac99aeea24814fc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/57/5782f9e9e6e0bb94bac99aeea24814fc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/5e/5e57a6c62c1ec47d0bceb70495845164.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/5e/5e57a6c62c1ec47d0bceb70495845164.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/5f/5f32cd94baa94578a686d4b9d6b660f7" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/5f/5f32cd94baa94578a686d4b9d6b660f7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/65/6597c6ea86d36477081342001145d8d9.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/65/6597c6ea86d36477081342001145d8d9.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/69/6981461fe431401459211818212a29cf" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/69/6981461fe431401459211818212a29cf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/6a/6a10b2909283487f913b00d94cd3faf5" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/6a/6a10b2909283487f913b00d94cd3faf5" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/6e/6e2d432c5ea14e75aa3a79f90f704442" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/6e/6e2d432c5ea14e75aa3a79f90f704442" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/6f/6fe576b47d8b47688ec5d02bccd15cf9" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/6f/6fe576b47d8b47688ec5d02bccd15cf9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/75/75799de484ac4f4cadc268d2cbea830a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/75/75799de484ac4f4cadc268d2cbea830a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/76/7668179ede524d6396c8b7d84461ea29" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/76/7668179ede524d6396c8b7d84461ea29" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/79/7927683d1fc5848b5abfb54ebb1028ec.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/79/7927683d1fc5848b5abfb54ebb1028ec.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/80/80a3616ca19596e4da0f10f14d241e9f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/80/80a3616ca19596e4da0f10f14d241e9f" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/84/844f815391db42d49455cbf1a7bfc434" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/84/844f815391db42d49455cbf1a7bfc434" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/84/84ca94c19f25ae14d83aa41bb3654390" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/84/84ca94c19f25ae14d83aa41bb3654390" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/86/86c008322e7c647149878156c5b81940.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/86/86c008322e7c647149878156c5b81940.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/86/86c18994495874297b469aaa57ef9b44.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/86/86c18994495874297b469aaa57ef9b44.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/87/870353891bb340e2b2a9c8707e7419ba" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/87/870353891bb340e2b2a9c8707e7419ba" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/87/8718cdf1720b87044aea6abadb52a140" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/87/8718cdf1720b87044aea6abadb52a140" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/8e/8e7066e382b0fc749b25dbb1a3004dfe" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/8e/8e7066e382b0fc749b25dbb1a3004dfe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/90/9078b7128e594410d9b89e5b24cffd01" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/90/9078b7128e594410d9b89e5b24cffd01" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/95/9536cba6cd388804684dd4fef7f40791" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/95/9536cba6cd388804684dd4fef7f40791" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/9d/9de9e8523c82543c5b3e40a4b51aa2c9.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/9d/9de9e8523c82543c5b3e40a4b51aa2c9.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/9f/9f83db810352f3745847edf85857075c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/9f/9f83db810352f3745847edf85857075c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/a6/a6842a74831964edc8fefa1c0aed89dc.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a6/a6842a74831964edc8fefa1c0aed89dc.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/a6/a6a64f9a1fb0f874996d629cd6a28933" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a6/a6a64f9a1fb0f874996d629cd6a28933" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/a9/a91fcf12ab235194ca2c5343bd9441a6" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/a9/a91fcf12ab235194ca2c5343bd9441a6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/ad/adebbd281f1a4ef3a30be7f21937e02f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ad/adebbd281f1a4ef3a30be7f21937e02f" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/b2/b2b693dffac3a4433b3114fea0b7fd4e" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b2/b2b693dffac3a4433b3114fea0b7fd4e" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/b2/b2bead50dbf86924f8e51f03ddbebf70" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b2/b2bead50dbf86924f8e51f03ddbebf70" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/b5/b52e557db2c2b4eebb10444f1d582029.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b5/b52e557db2c2b4eebb10444f1d582029.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/b5/b5da970776034f77a070d99423d68791" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b5/b5da970776034f77a070d99423d68791" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/b8/b8a0574e92bd43a59e19d6c3c6ae54c7" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b8/b8a0574e92bd43a59e19d6c3c6ae54c7" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/b9/b95ab00277ee47c687d710a3bb623d0a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/b9/b95ab00277ee47c687d710a3bb623d0a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/c7/c768acbc9cf24d398488bb4c93b91288" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/c7/c768acbc9cf24d398488bb4c93b91288" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/c9/c99bfe4fc4e5c4dc3917c14075acd117.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/c9/c99bfe4fc4e5c4dc3917c14075acd117.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/ce/ce4395ccdb12cf62fca756358be1a892.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/ce/ce4395ccdb12cf62fca756358be1a892.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/d0/d05b96cee66e14240838de167097537a" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d0/d05b96cee66e14240838de167097537a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/d3/d33d54853fd0f48e0ac8a63ea91e6626" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d3/d33d54853fd0f48e0ac8a63ea91e6626" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/d6/d607a67dc772b484da060e66a3d61a4e.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d6/d607a67dc772b484da060e66a3d61a4e.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/d9/d91035c548f23744c9bfb107348ed1c0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/d9/d91035c548f23744c9bfb107348ed1c0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/da/da7e8f13e48804b42bc035944d491044" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/da/da7e8f13e48804b42bc035944d491044" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/dc/dc443db3e92b4983b9738c1131f555cb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/dc/dc443db3e92b4983b9738c1131f555cb" afterDir="false" />
@@ -79,6 +89,7 @@
       <change beforePath="$PROJECT_DIR$/Library/metadata/f7/f70555f144d8491a825f0804e09c671c" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f7/f70555f144d8491a825f0804e09c671c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/f7/f7b54ff4a43d4fcf81b4538b678e0bcc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/f7/f7b54ff4a43d4fcf81b4538b678e0bcc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/metadata/fe/fe32788875c74d24287c06317a648f1f" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/fe/fe32788875c74d24287c06317a648f1f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/metadata/fe/fec197bad419341558f81f2ec8a05e18.info" beforeDir="false" afterPath="$PROJECT_DIR$/Library/metadata/fe/fec197bad419341558f81f2ec8a05e18.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,20 +121,8 @@
       <file leaf-file-name="TimeManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/TimeSystem/TimeManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
-              <folding>
-                <marker date="1528182524544" expanded="true" signature="6:126" ph="..." />
-                <marker date="1528182524544" expanded="true" signature="148:1310" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="204:1308" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="453:561" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="592:638" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="668:713" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="750:1302" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="819:1292" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="931:1026" ph="{...}" />
-                <marker date="1528182524544" expanded="true" signature="1047:1112" ph="{...}" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -131,31 +130,31 @@
       <file leaf-file-name="SimpleMoneyManager.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Money/SimpleMoneyManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="138" column="58" selection-start-line="138" selection-start-column="58" selection-end-line="138" selection-end-column="58" />
+            <state relative-caret-position="50">
+              <caret line="43" column="31" lean-forward="true" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
               <folding>
-                <marker date="1528183181704" expanded="true" signature="6:106" ph="..." />
-                <marker date="1528183181704" expanded="true" signature="123:3852" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="193:3850" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="873:1147" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="1182:1267" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="1338:1747" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="1418:1735" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="1791:1988" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="1844:1901" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2063:2173" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2224:2339" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2383:2565" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2429:2554" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2649:2702" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2781:3067" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2846:2946" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="2963:3047" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="3177:3262" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="3337:3416" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="3465:3519" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="3610:3717" ph="{...}" />
-                <marker date="1528183181704" expanded="true" signature="3780:3844" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="6:106" ph="..." />
+                <marker date="1528187443418" expanded="true" signature="123:3905" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="193:3903" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="873:1147" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="1182:1267" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="1338:1800" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="1465:1788" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="1844:2041" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="1897:1954" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2116:2226" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2277:2392" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2436:2618" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2482:2607" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2702:2755" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2834:3120" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="2899:2999" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="3016:3100" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="3230:3315" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="3390:3469" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="3518:3572" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="3663:3770" ph="{...}" />
+                <marker date="1528187443418" expanded="true" signature="3833:3897" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -164,18 +163,18 @@
       <file leaf-file-name="CultivationManager.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="645">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
               <folding>
-                <marker date="1528182496863" expanded="true" signature="6:147" ph="..." />
-                <marker date="1528182496863" expanded="true" signature="171:1775" ph="{...}" />
-                <marker date="1528182496863" expanded="true" signature="241:1773" ph="{...}" />
-                <marker date="1528182496863" expanded="true" signature="457:511" ph="{...}" />
-                <marker date="1528182496863" expanded="true" signature="541:645" ph="{...}" />
-                <marker date="1528182496863" expanded="true" signature="564:635" ph="/* TickPerMonth(); ... */" />
-                <marker date="1528182496863" expanded="true" signature="700:1322" ph="{...}" />
-                <marker date="1528182496863" expanded="true" signature="1398:1555" ph="{...}" />
-                <marker date="1528182496863" expanded="true" signature="1613:1765" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="6:147" ph="..." />
+                <marker date="1528186685847" expanded="true" signature="171:1775" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="241:1773" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="457:511" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="541:645" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="564:635" ph="/* TickPerMonth(); ... */" />
+                <marker date="1528186685847" expanded="true" signature="700:1322" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="1398:1555" ph="{...}" />
+                <marker date="1528186685847" expanded="true" signature="1613:1765" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -340,11 +339,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-848" />
-    <option name="y" value="215" />
-    <option name="width" value="1950" />
-    <option name="height" value="2100" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
+    <option name="width" value="1335" />
+    <option name="height" value="2098" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -352,11 +350,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="SolutionExplorer">
-        <option name="show-file-system" value="false" />
-        <option name="show-all-items" value="false" />
-      </pane>
-      <pane id="Scratches" />
       <pane id="UnityExplorer">
         <subPane>
           <expand>
@@ -392,22 +385,15 @@
               <item name="" type="1045f7f1:UnityExplorerNode" />
               <item name="" type="1045f7f1:UnityExplorerNode" />
             </path>
-            <path>
-              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
-              <item name="" type="1045f7f1:UnityExplorerNode" />
-              <item name="" type="1045f7f1:UnityExplorerNode" />
-            </path>
-            <path>
-              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="FoodGame" type="483dac07:UnityExplorerNode$Root" />
-              <item name="" type="1045f7f1:UnityExplorerNode" />
-              <item name="" type="1045f7f1:UnityExplorerNode" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-hidden-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
       </pane>
     </panes>
   </component>
@@ -468,6 +454,7 @@
       <workItem from="1527491064137" duration="34718000" />
       <workItem from="1527862924909" duration="7000" />
       <workItem from="1527942830321" duration="229000" />
+      <workItem from="1528186835055" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="Grid now sellects 4 tiles">
       <created>1526383634009</created>
@@ -487,7 +474,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194907000" />
+    <option name="totallyTimeSpent" value="195517000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,7 +486,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="846" extended-state="7" />
+    <frame x="-6" y="-6" width="1549" height="846" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="4" weight="0.24413146" />
@@ -508,70 +495,54 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.501006" side_tool="true" weight="0.3286517" />
       <window_info anchor="bottom" id="Unit Tests" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" x="2" y="233" width="1491" height="497" id="Version Control" order="15" sideWeight="0.63983905" type="WINDOWED" weight="0.66890985" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49899396" weight="0.32974428" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.26626426" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="5" weight="0.68697476" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Unity" order="13" weight="0.32974428" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.53386986" weight="0.4241573" />
       <window_info id="Favorites" order="1" side_tool="true" weight="0.32997987" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.53386986" weight="0.4241573" />
       <window_info anchor="bottom" id="NuGet" order="14" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Unity" order="13" weight="0.32974428" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.21641791" />
-      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" x="2" y="233" width="1491" height="497" id="Version Control" order="15" sideWeight="0.63983905" type="WINDOWED" weight="0.66890985" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Unit Tests" order="9" />
-      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Errors In Solution" order="7" sideWeight="0.50033534" side_tool="true" weight="0.3286517" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info active="true" anchor="bottom" id="Review Board" order="20" sideWeight="0.49966466" visible="true" weight="0.3286517" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.501006" side_tool="true" weight="0.3286517" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Change Signature" order="16" side_tool="true" />
-      <window_info anchor="right" id="Key Promoter X" order="4" weight="0.24413146" />
       <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49228707" visible="true" weight="0.32513967" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49899396" weight="0.32974428" />
-      <window_info id="Favorites" order="1" side_tool="true" weight="0.32997987" />
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="NuGet" order="14" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Review Board" order="17" sideWeight="0.49966466" visible="true" weight="0.3286517" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" x="2" y="233" width="1491" height="497" id="Version Control" order="15" sideWeight="0.63983905" type="WINDOWED" weight="0.66890985" />
       <window_info anchor="bottom" id="Unity" order="13" weight="0.32974428" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="1" side_tool="true" weight="0.32997987" />
-      <window_info anchor="right" content_ui="combo" id="Project" order="5" weight="0.21663313" />
+      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="5" visible="true" weight="0.68697476" />
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49228707" visible="true" weight="0.32513967" />
       <window_info anchor="bottom" id="Unit Tests" order="9" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49228707" weight="0.3258427" />
-      <window_info anchor="bottom" id="Errors In Solution" order="7" sideWeight="0.50033534" side_tool="true" weight="0.3286517" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.53386986" weight="0.4241573" />
+      <window_info anchor="bottom" id="Errors In Solution" order="7" sideWeight="0.50033534" side_tool="true" weight="0.3286517" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info active="true" anchor="bottom" id="Review Board" order="17" sideWeight="0.49966466" visible="true" weight="0.3286517" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49899396" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.501006" side_tool="true" weight="0.3286517" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" x="2" y="233" width="1491" height="497" id="Version Control" order="15" sideWeight="0.63983905" type="WINDOWED" weight="0.66890985" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Change Signature" order="16" side_tool="true" />
       <window_info anchor="right" id="Key Promoter X" order="4" weight="0.24413146" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Favorites" order="1" side_tool="true" weight="0.32997987" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,65 +595,65 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/UI/SelectionButton.cs</url>
-          <line>69</line>
+          <line>68</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/UI/SelectionButton.cs" initialLine="67">
             <startOffsets>
-              <startOffset value="1986" />
+              <startOffset value="1974" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2051" />
+              <endOffset value="2039" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/UI/SelectionButton.cs</url>
-          <line>96</line>
+          <line>95</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/UI/SelectionButton.cs" initialLine="90">
             <startOffsets>
-              <startOffset value="3267" />
+              <startOffset value="3255" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3305" />
+              <endOffset value="3293" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs</url>
-          <line>212</line>
+          <line>206</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs" initialLine="196">
             <startOffsets>
-              <startOffset value="6698" />
+              <startOffset value="6549" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="6718" />
+              <endOffset value="6569" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs</url>
-          <line>211</line>
+          <line>205</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/GridManager.cs" initialLine="195">
             <startOffsets>
-              <startOffset value="6628" />
+              <startOffset value="6479" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="6677" />
+              <endOffset value="6528" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/UI/SidePanel.cs</url>
-          <line>115</line>
+          <line>114</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/UI/SidePanel.cs" initialLine="103">
             <startOffsets>
-              <startOffset value="3417" />
+              <startOffset value="3405" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3508" />
+              <endOffset value="3496" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="91" />
@@ -692,10 +663,10 @@
           <line>102</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/BuildingPlacement.cs" initialLine="100">
             <startOffsets>
-              <startOffset value="3644" />
+              <startOffset value="3689" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3670" />
+              <endOffset value="3715" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="101" />
@@ -705,10 +676,10 @@
           <line>95</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/BuildingPlacement.cs" initialLine="93">
             <startOffsets>
-              <startOffset value="3251" />
+              <startOffset value="3296" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3353" />
+              <endOffset value="3398" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="102" />
@@ -718,10 +689,10 @@
           <line>93</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/BuildingPlacement.cs" initialLine="91">
             <startOffsets>
-              <startOffset value="3147" />
+              <startOffset value="3192" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3212" />
+              <endOffset value="3257" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="103" />
@@ -731,10 +702,10 @@
           <line>92</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/BuildingPlacement.cs" initialLine="90">
             <startOffsets>
-              <startOffset value="3046" />
+              <startOffset value="3091" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3130" />
+              <endOffset value="3175" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="104" />
@@ -744,114 +715,114 @@
           <line>100</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/BuildingPlacement.cs" initialLine="98">
             <startOffsets>
-              <startOffset value="3501" />
+              <startOffset value="3546" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3609" />
+              <endOffset value="3654" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>116</line>
+          <line>106</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="115">
             <startOffsets>
-              <startOffset value="1986" />
+              <startOffset value="1817" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2070" />
+              <endOffset value="1901" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="106" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>117</line>
+          <line>107</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="116">
             <startOffsets>
-              <startOffset value="2074" />
+              <startOffset value="1905" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2112" />
+              <endOffset value="1943" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="107" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>118</line>
+          <line>108</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="117">
             <startOffsets>
-              <startOffset value="2116" />
+              <startOffset value="1947" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2145" />
+              <endOffset value="1976" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>119</line>
+          <line>109</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="118">
             <startOffsets>
-              <startOffset value="2149" />
+              <startOffset value="1980" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2178" />
+              <endOffset value="2009" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>120</line>
+          <line>110</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="119">
             <startOffsets>
-              <startOffset value="2182" />
+              <startOffset value="2013" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2198" />
+              <endOffset value="2029" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>121</line>
+          <line>111</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="120">
             <startOffsets>
-              <startOffset value="2202" />
+              <startOffset value="2033" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="2226" />
+              <endOffset value="2057" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="111" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>101</line>
+          <line>88</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="101">
             <startOffsets>
-              <startOffset value="1752" />
+              <startOffset value="1583" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="1798" />
+              <endOffset value="1629" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="112" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs</url>
-          <line>104</line>
+          <line>94</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Node/NodeBehaviour.cs" initialLine="103">
             <startOffsets>
-              <startOffset value="1813" />
+              <startOffset value="1644" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="1856" />
+              <endOffset value="1687" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="113" />
@@ -861,23 +832,23 @@
           <line>91</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Grid/BuildingPlacement.cs" initialLine="90">
             <startOffsets>
-              <startOffset value="3028" />
+              <startOffset value="3073" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="3029" />
+              <endOffset value="3074" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationManager.cs</url>
-          <line>55</line>
+          <line>54</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationManager.cs" initialLine="48">
             <startOffsets>
-              <startOffset value="1638" />
+              <startOffset value="1626" />
             </startOffsets>
             <endOffsets>
-              <endOffset value="1639" />
+              <endOffset value="1627" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="115" />
@@ -1025,30 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <marker date="1528181396343" expanded="true" signature="6:82" ph="..." />
-            <marker date="1528181396343" expanded="true" signature="98:2284" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="166:2282" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="514:628" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="525:624" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="652:756" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="813:868" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="918:949" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="978:1020" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1072:1173" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1125:1169" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1197:1266" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1293:1386" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1414:1456" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1511:1554" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1603:1643" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1675:1705" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1744:1865" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1798:1861" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1907:1951" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="1978:2238" ph="{...}" />
-            <marker date="1528181396343" expanded="true" signature="2269:2279" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1070,75 +1017,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-          <folding>
-            <marker date="1528181396335" expanded="true" signature="6:158" ph="..." />
-            <marker date="1528181396335" expanded="true" signature="174:12408" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="230:12406" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="1223:1514" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="1561:1621" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="1664:2474" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="1900:2464" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="2033:2239" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="2337:2450" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="2545:2610" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="2660:2862" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="2786:2852" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="2902:3197" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="3246:4104" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="3351:3461" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="3639:3782" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="3827:3954" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="3993:4068" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4152:4237" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4313:6674" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4362:4862" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4415:4698" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4486:4636" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4719:4848" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4879:5621" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="4962:5040" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="5115:5243" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="5264:5341" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="5429:5508" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="5529:5607" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="5658:5797" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="5814:5958" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6029:6155" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6227:6347" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6399:6477" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6586:6660" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6711:6869" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6918:7148" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="6982:7138" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7036:7124" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7192:8982" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7248:7335" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7352:7438" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7546:7983" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7611:7780" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="7801:7969" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="8025:8470" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="8090:8263" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="8284:8456" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="8511:8972" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="8575:8769" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="8790:8958" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9024:9361" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9193:9351" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9246:9337" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9424:10054" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9654:9712" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9804:9862" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="9922:9980" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="10123:10306" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="10350:10483" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="10546:11712" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="11128:11629" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="11752:11881" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="11939:12400" ph="{...}" />
-            <marker date="1528181396335" expanded="true" signature="11967:12156" ph="/* if (!Input.GetMouseButtonDown(0)) return; ... */" />
-            <marker date="1528181396335" expanded="true" signature="12164:12390" ph="/* ##if UNITY_ANDROID &amp;&amp; !UNITY_EDITOR ... */" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,16 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-          <folding>
-            <marker date="1528181396299" expanded="true" signature="44:1294" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="96:1292" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="190:470" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="505:787" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="840:925" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="964:1046" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="1079:1286" ph="{...}" />
-            <marker date="1528181396299" expanded="true" signature="1102:1276" ph="/* TODO DAFUQ? ... */" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1202,15 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <marker date="1528181396314" expanded="true" signature="73:1607" ph="{...}" />
-            <marker date="1528181396314" expanded="true" signature="121:1605" ph="{...}" />
-            <marker date="1528181396314" expanded="true" signature="208:486" ph="{...}" />
-            <marker date="1528181396314" expanded="true" signature="521:797" ph="{...}" />
-            <marker date="1528181396314" expanded="true" signature="827:877" ph="{...}" />
-            <marker date="1528181396314" expanded="true" signature="924:1480" ph="{...}" />
-            <marker date="1528181396314" expanded="true" signature="1519:1598" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1222,90 +1081,67 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Node/NodeManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1525766732368" expanded="true" signature="28:134" ph="{...}" />
-            <marker date="1525766732368" expanded="true" signature="81:132" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationPrefab.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding>
-            <marker date="1528181396308" expanded="true" signature="42:537" ph="{...}" />
-            <marker date="1528181396308" expanded="true" signature="104:535" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/TimeSystem/TimeManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <marker date="1528182524544" expanded="true" signature="6:126" ph="..." />
-            <marker date="1528182524544" expanded="true" signature="148:1310" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="204:1308" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="453:561" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="592:638" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="668:713" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="750:1302" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="819:1292" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="931:1026" ph="{...}" />
-            <marker date="1528182524544" expanded="true" signature="1047:1112" ph="{...}" />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Cultivations/CultivationManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="645">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
-            <marker date="1528182496863" expanded="true" signature="6:147" ph="..." />
-            <marker date="1528182496863" expanded="true" signature="171:1775" ph="{...}" />
-            <marker date="1528182496863" expanded="true" signature="241:1773" ph="{...}" />
-            <marker date="1528182496863" expanded="true" signature="457:511" ph="{...}" />
-            <marker date="1528182496863" expanded="true" signature="541:645" ph="{...}" />
-            <marker date="1528182496863" expanded="true" signature="564:635" ph="/* TickPerMonth(); ... */" />
-            <marker date="1528182496863" expanded="true" signature="700:1322" ph="{...}" />
-            <marker date="1528182496863" expanded="true" signature="1398:1555" ph="{...}" />
-            <marker date="1528182496863" expanded="true" signature="1613:1765" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="6:147" ph="..." />
+            <marker date="1528186685847" expanded="true" signature="171:1775" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="241:1773" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="457:511" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="541:645" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="564:635" ph="/* TickPerMonth(); ... */" />
+            <marker date="1528186685847" expanded="true" signature="700:1322" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="1398:1555" ph="{...}" />
+            <marker date="1528186685847" expanded="true" signature="1613:1765" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Money/SimpleMoneyManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="138" column="58" selection-start-line="138" selection-start-column="58" selection-end-line="138" selection-end-column="58" />
+        <state relative-caret-position="50">
+          <caret line="43" column="31" lean-forward="true" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
           <folding>
-            <marker date="1528183181704" expanded="true" signature="6:106" ph="..." />
-            <marker date="1528183181704" expanded="true" signature="123:3852" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="193:3850" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="873:1147" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="1182:1267" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="1338:1747" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="1418:1735" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="1791:1988" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="1844:1901" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2063:2173" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2224:2339" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2383:2565" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2429:2554" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2649:2702" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2781:3067" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2846:2946" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="2963:3047" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="3177:3262" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="3337:3416" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="3465:3519" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="3610:3717" ph="{...}" />
-            <marker date="1528183181704" expanded="true" signature="3780:3844" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="6:106" ph="..." />
+            <marker date="1528187443418" expanded="true" signature="123:3905" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="193:3903" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="873:1147" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="1182:1267" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="1338:1800" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="1465:1788" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="1844:2041" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="1897:1954" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2116:2226" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2277:2392" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2436:2618" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2482:2607" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2702:2755" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2834:3120" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="2899:2999" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="3016:3100" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="3230:3315" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="3390:3469" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="3518:3572" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="3663:3770" ph="{...}" />
+            <marker date="1528187443418" expanded="true" signature="3833:3897" ph="{...}" />
           </folding>
         </state>
       </provider>
