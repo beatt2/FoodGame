@@ -410,9 +410,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &38545526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,9 +973,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &106174323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,7 +1669,6 @@ MonoBehaviour:
   FenceOne: {fileID: 1863376553224154, guid: 52b49b274eec0164ca6b42cda715fb86, type: 2}
   FenceTwo: {fileID: 1558097774119902, guid: d104f7cf213711f44bd4d1fe21cf35d5, type: 2}
   BuildingPlacement: {fileID: 158667360}
-  _selectionButton: {fileID: 0}
 --- !u!114 &158667360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,6 +2058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FinanceUi: {fileID: 856427864}
+  FinanceScript: {fileID: 0}
 --- !u!114 &167777380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,9 +2342,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &196227569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2525,9 +2537,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &201179130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2851,9 +2867,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &227747962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3399,9 +3419,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &275904662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3830,9 +3854,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &341271415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4021,9 +4049,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &346478038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4955,9 +4987,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &411188908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,9 +5256,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &417302498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6016,9 +6056,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &470441861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6416,9 +6460,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &489132510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6607,9 +6655,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &507917455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7007,9 +7059,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &523891971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7447,9 +7503,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &599126548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7638,9 +7698,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &599602734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7905,6 +7969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FinanceUi: {fileID: 856427864}
+  FinanceScript: {fileID: 1509750008}
 --- !u!1 &617392093
 GameObject:
   m_ObjectHideFlags: 0
@@ -8310,7 +8375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 102.01, y: -49}
+  m_AnchoredPosition: {x: 102.01001, y: -48.99994}
   m_SizeDelta: {x: -233.98, y: -142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674591131
@@ -8647,9 +8712,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &731861313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9071,9 +9140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &755082041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9336,9 +9409,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &760718906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9791,9 +9868,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &770185912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10293,9 +10374,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &830474537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10767,9 +10852,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &885654209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11137,9 +11226,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &909666976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11611,9 +11704,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &938530604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12334,9 +12431,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &982985720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13441,9 +13542,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1066261440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13912,9 +14017,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1093880385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14688,9 +14797,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1165797188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14879,9 +14992,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1178070269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15070,9 +15187,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1202262703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15261,9 +15382,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1229292096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15655,9 +15780,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1251910348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16333,9 +16462,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1320884271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16703,9 +16836,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1347275830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17479,9 +17616,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1466172144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17879,9 +18020,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1474263156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18574,9 +18719,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1511278212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18765,9 +18914,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1527268984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18956,9 +19109,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1545296692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19673,9 +19830,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1640925171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20921,9 +21082,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1772621848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21247,9 +21412,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1805010725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21649,9 +21818,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1843637900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21840,9 +22013,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1847672877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22031,9 +22208,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1854080713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23431,9 +23612,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &1985074405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23978,9 +24163,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &2022158220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24475,9 +24664,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &2054339625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24825,6 +25018,7 @@ MonoBehaviour:
   TimeToIncrease: 5
   FinanceScript: {fileID: 1509750008}
   WaitForSeconds: 10
+  InFinanceMenu: 0
 --- !u!114 &2083029979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25072,9 +25266,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Left: 0
+  LeftGameObject: {fileID: 0}
   Right: 0
+  RightGameObject: {fileID: 0}
   Up: 0
+  UpGameObject: {fileID: 0}
   Down: 0
+  DownGameObject: {fileID: 0}
 --- !u!114 &2114748012
 MonoBehaviour:
   m_ObjectHideFlags: 0

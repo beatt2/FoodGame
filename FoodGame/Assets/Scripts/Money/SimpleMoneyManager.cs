@@ -9,7 +9,7 @@ namespace Money
 {
     public class SimpleMoneyManager : Singleton<SimpleMoneyManager>
     {
-        private float _currentMoney = 50000000;
+        private float _currentMoney = 50000;
         private float _monthlyIncome;
         private float _monthlyExpenses;
 
@@ -38,7 +38,7 @@ namespace Money
         // Use this for initialization
         private void Start ()
         {
-            _currentMoney = 5000000;
+            _currentMoney = 5000;
             MoneyUi.text = "€ " + _currentMoney;
 
 
@@ -51,20 +51,19 @@ namespace Money
 
         public void ChangeMonth()
         {
-            ChangeMoneyMonthly(_monthlyIncome,_monthlyExpenses);
+            ChangeMoneyMonthly();
         }
 
 
-        public void ChangeMoneyMonthly(float income, float expenses)
+        public void ChangeMoneyMonthly()
         {
 
-            Debug.Log(_moneyValues.Keys.Count);      
+   
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
             {
 
-                var percentage = _moneyValues[_moneyValues.ElementAt(i).Key].Income / 100 *
-                                 _moneyValues[_moneyValues.ElementAt(i).Key].Percentage;
-                _moneyValues[_moneyValues.ElementAt(i).Key].Income += _currentMoney + percentage;
+                var percentage = _moneyValues[_moneyValues.ElementAt(i).Key].Income / 100  * _moneyValues[_moneyValues.ElementAt(i).Key].Percentage;
+                _currentMoney += _moneyValues[_moneyValues.ElementAt(i).Key].Income - _moneyValues[_moneyValues.ElementAt(i).Key].Expense + percentage ;
                 
             }
 
@@ -118,8 +117,13 @@ namespace Money
             }
             else
             {
+                Debug.Log( _moneyValues[fieldType].Income + " income");
                 _moneyValues[fieldType].Income += income;
+                Debug.Log( _moneyValues[fieldType].Expense + " expense");
+                _moneyValues[fieldType].Expense += expense;
             }
+       
+
          
         }
         
