@@ -20,11 +20,15 @@ namespace Cultivations
         public int SpriteIndex;
         public GameObject[] UpgradeOptions;
 
+        public int EnviromentValue;
+        public int Happyness;
+        
 
 
 
         public NodeState.CurrentStateEnum MyCultivationState;
         public NodeState.FieldTypeEnum FieldType;
+
 
         protected Cultivation(string name, int sustainability, int moneyTick, float expenseTick,
             int upgradeRank,int buildPrice,NodeState.CurrentStateEnum currentState,

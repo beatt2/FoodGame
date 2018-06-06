@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
+using Money;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,8 +44,10 @@ namespace Events
                     switch (i)
                     {
                         case 1:
-                            Debug.Log("Increase overall income");
-                            _percentageEvent = EventsArray[i].InfluencePercentage;
+                            Debug.Log("Increase Overall Income");
+                           
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
+                           // _percentageEvent = EventsArray[i].InfluencePercentage;
                             break;
                         case 2:
                             Debug.Log("Increase overall income");

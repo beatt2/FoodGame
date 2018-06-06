@@ -20,6 +20,9 @@ namespace Cultivations
         public GameObject [] UpgradeOptions;
 
 
+        public int EnviromentValue;
+        public int Happyness;
+
 
     }
 }

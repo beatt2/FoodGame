@@ -65,7 +65,7 @@ namespace Money
                 var percentage = _moneyValues[_moneyValues.ElementAt(i).Key].Income / 100 *
                                  _moneyValues[_moneyValues.ElementAt(i).Key].Percentage;
                 _moneyValues[_moneyValues.ElementAt(i).Key].Income += _currentMoney + percentage;
-               
+                
             }
 
 
@@ -109,16 +109,16 @@ namespace Money
             return _moneyValues;
         }
 
-        public void AddFinance(NodeState.FieldTypeEnum fieldType,float value)
+        public void AddFinance(NodeState.FieldTypeEnum fieldType,float income, float expense)
         {
 
             if (!_moneyValues.ContainsKey(fieldType))
             {
-                _moneyValues.Add(fieldType, new MoneyValue(value , 0));
+                _moneyValues.Add(fieldType, new MoneyValue(income , expense,0));
             }
             else
             {
-                _moneyValues[fieldType].Income += value;
+                _moneyValues[fieldType].Income += income;
             }
          
         }
@@ -134,6 +134,16 @@ namespace Money
         {
             return _moneyValues[fieldTypeEnum].Percentage;
         }
+
+        public float GetMoneyValue(NodeState.FieldTypeEnum fieldTypeEnum)
+        {
+            return _moneyValues[fieldTypeEnum].Income;
+        }
+
+        public float GetExpense(NodeState.FieldTypeEnum fieldTypeEnum)
+        {
+            return _moneyValues[fieldTypeEnum].Expense;
+        }
         
 
         public float GetCurrentMoney()
@@ -142,12 +152,7 @@ namespace Money
         }
 
 
-        public void Add(NodeState.FieldTypeEnum fieldType, float value,float percentage)
-        {
-            
-            _moneyValues.Add(fieldType,new MoneyValue(value,percentage));
-        }
-
+ 
         public void Remove(NodeState.FieldTypeEnum fieldType)
         {
             _moneyValues.Remove(fieldType);

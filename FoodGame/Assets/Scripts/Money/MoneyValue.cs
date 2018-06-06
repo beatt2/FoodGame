@@ -7,12 +7,15 @@ namespace Money
     {
 
         public float Income;
+        public float Expense;
         public float Percentage;
 
 
-        public MoneyValue(float value, float percentage)
+
+        public MoneyValue(float income,float expense, float percentage)
         {
-            Income = value;
+            Income = income;
+            Expense = expense;
             Percentage = percentage;
         }
 
