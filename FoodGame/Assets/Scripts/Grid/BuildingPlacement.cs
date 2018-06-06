@@ -113,6 +113,7 @@ namespace Grid
             for (int i = 0; i < nodeCount; i++)
             {
                 var nodeBehaviour = GridManager.Instance.GetCultivationLocationList()[nodeIndex][i];
+                nodeBehaviour.GetNodeFence().TryRemoveFence();
                 if (nodeBehaviour.gameObject.GetComponent<PlantPrefab>() != null)
                 {
                     CultivationManager.Instance.RemoveEntry(nodeBehaviour.gameObject.GetComponent<PlantPrefab>().MyPlant);

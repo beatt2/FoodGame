@@ -31,8 +31,6 @@ namespace Grid
 
         [SerializeField] public BuildingPlacement BuildingPlacement;
 
-        //TODO Should probably move to another script
-        [SerializeField] private SelectionButton _selectionButton;
 
         private readonly List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
 
@@ -101,7 +99,6 @@ namespace Grid
         public void SetSelectionSize()
         {
             _selectionSize = _selectionSize == 1 ? 4 : 1;
-            Debug.Log("SelectionNode = " + _selectionSize);
             if (_selectedNode == null) return;
             ChangeColorsToOld();
             if(_selectionSize == 4)
@@ -144,7 +141,7 @@ namespace Grid
 
         public NodeBehaviour GetNode(int x, int y)
         {
-            if (x < GridSizeX() && x > 0 && y < _gridSizeY && y > 0)
+            if (x < GridSizeX() && x > 0 && y <GridSizeY() && y > 0)
             {
                 return _nodeBehavioursGrid[x, y];
             }

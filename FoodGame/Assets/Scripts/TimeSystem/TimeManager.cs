@@ -37,11 +37,8 @@ namespace TimeSystem
         {
             DateTime currentTime = DateTime.Now;
             DateTime oldTime = SaveManager.Instance.GetStopTime();
-            Debug.Log(oldTime);
-            TimeSpan temp = currentTime.Subtract(oldTime);
-            Debug.Log(temp.TotalSeconds);    
+            TimeSpan temp = currentTime.Subtract(oldTime);  
             int totalAddedMonths =(int)temp.TotalSeconds / WaitForSeconds;
-
             Month = SaveManager.Instance.GetSaveMonth() == 0 ? 1 : SaveManager.Instance.GetSaveMonth();
             Year = SaveManager.Instance.GetSaveMonth() == 0 ? 2018 : SaveManager.Instance.GetSaveYear();
 
