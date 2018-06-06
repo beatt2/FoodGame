@@ -38,7 +38,7 @@ namespace Money
         // Use this for initialization
         private void Start ()
         {
-            _currentMoney = 5000;
+            _currentMoney = 5000000;
             MoneyUi.text = "€ " + _currentMoney;
 
 

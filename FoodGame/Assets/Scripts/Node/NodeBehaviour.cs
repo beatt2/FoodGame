@@ -46,6 +46,11 @@ namespace Node
 			return _nodeFence;
 		}
 
+		public int GetLayer()
+		{
+			return _spriteRenderer.sortingOrder;
+		}
+
 
 		public bool GetCultivationField()
 		{

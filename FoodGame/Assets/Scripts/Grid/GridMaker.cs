@@ -82,7 +82,7 @@ namespace Grid
                     white = !white;
                     currentPosition.x -= XOffset;
                     currentPosition.y += YOffset;
-                    currentLayerCount--;
+                    currentLayerCount -= 2;
                 }
                 white = x % 2 == 0;
 

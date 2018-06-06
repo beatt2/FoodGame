@@ -95,7 +95,6 @@ namespace Grid
                 go.GetComponent<BuildingPrefab>().CustomAwake();
                 node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
             }
-
             node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
         }
 

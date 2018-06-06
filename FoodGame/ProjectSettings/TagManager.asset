@@ -46,3 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Farm
+    uniqueID: 3761524641
+    locked: 0
+  - name: Fence
+    uniqueID: 1621696911
+    locked: 0
