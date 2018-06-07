@@ -117,9 +117,9 @@ namespace Money
             }
             else
             {
-                Debug.Log( _moneyValues[fieldType].Income + " income");
+                //Debug.Log( _moneyValues[fieldType].Income + " income");
                 _moneyValues[fieldType].Income += income;
-                Debug.Log( _moneyValues[fieldType].Expense + " expense");
+                //Debug.Log( _moneyValues[fieldType].Expense + " expense");
                 _moneyValues[fieldType].Expense += expense;
             }
        

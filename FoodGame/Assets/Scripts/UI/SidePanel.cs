@@ -2,7 +2,9 @@
 using System.Security.Policy;
 using Cultivations;
 using Grid;
+using Money;
 using Node;
+using Save;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +25,7 @@ namespace UI
         public GameObject UpgradePanel;
 
         public Button KillButton;
+        public Button UpgradeButton;
 
 
         private Cultivation _currentCultivation;
@@ -31,6 +34,19 @@ namespace UI
         {
             _defaultSprite = MyImage.sprite;
             _panelLerp = GetComponent<PanelLerp>();
+        }
+
+        private void Update()
+        {
+            if (!SidePanelActive() || _currentCultivation == null) return;
+            if (SimpleMoneyManager.Instance.GetCurrentMoney() > _currentCultivation.BuildPrice)
+            {
+                UpgradeButton.interactable = true;
+            }
+            else
+            {
+                UpgradeButton.interactable = false;
+            }
         }
 
         public void TogglePannel()
@@ -53,16 +69,13 @@ namespace UI
 
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
-            //MyImage.sprite = cultivation.Image;
+            MyImage.sprite = SaveManager.Instance.GetSprites()[cultivation.SpriteIndex];
 
-            //TODO make a UpgradeCost variable in Cultivation
+         
             UpgradeText.text = cultivation.UpgradeValue.ToString();
             MoneyTickText.text = "money per month" + cultivation.MoneyTick;
 
-            if (cultivation.MyCultivationState == NodeState.CurrentStateEnum.EmptyField)
-            {
-                KillButton.interactable = false;
-            }
+            KillButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField;
         }
 
         public void OnUpgradeButtonPressed()

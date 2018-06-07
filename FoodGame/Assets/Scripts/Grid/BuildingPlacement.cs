@@ -68,6 +68,7 @@ namespace Grid
 
         public bool BuildField(int index)
         {
+            Debug.Log(Fields[index].GetComponent<PlantPrefab>().BuildingPrice);
             if (SimpleMoneyManager.Instance.EnoughMoney(Fields[index].GetComponent<PlantPrefab>().BuildingPrice))
             {
                 ChangeTile(Fields[index], true);

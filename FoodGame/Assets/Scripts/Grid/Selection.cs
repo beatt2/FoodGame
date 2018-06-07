@@ -100,7 +100,7 @@ public class Selection : MonoBehaviour
 
    public void SetSidePanel(Cultivation cultivation)
    {
-      MySidePanel.SetPanel(cultivation)  ;
+      MySidePanel.SetPanel(cultivation);
    }
 
    public void ToggleSidePanel()

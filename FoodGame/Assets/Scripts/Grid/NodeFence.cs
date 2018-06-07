@@ -30,10 +30,10 @@ namespace Grid
 
         private int _location = -1;
 
-        private static readonly Vector2 DownLocation = new Vector2(1.39f, -0.93f);
-        private static readonly Vector2 UpLocation = new Vector2(-1.46f, 0.58f);
-        private static readonly Vector2 RightLocation = new Vector2(1.52f, 0.53f);
-        private static readonly Vector2 LeftLocation = new Vector2(-1.38f, -0.92f);
+        public static readonly Vector2 DownLocation = new Vector2(1.39f, -0.93f);
+        public static readonly Vector2 UpLocation = new Vector2(-1.46f, 0.58f);
+        public static readonly Vector2 RightLocation = new Vector2(1.52f, 0.53f);
+        public static readonly Vector2 LeftLocation = new Vector2(-1.38f, -0.92f);
 
         private NodeBehaviour _nodeBehaviour;
 
@@ -131,7 +131,7 @@ namespace Grid
             DownGameObject = BuildFence(GridManager.Instance.FenceTwo, DownLocation, 1);
         }
 
-        private GameObject BuildFence(GameObject go, Vector2 loc, int layerIncrement)
+        public GameObject BuildFence(GameObject go, Vector2 loc, int layerIncrement)
         {
             go = Instantiate(go, loc, Quaternion.identity, transform);
             go.transform.localPosition = loc;
@@ -180,11 +180,7 @@ namespace Grid
             }
         }
 
-
-        private void RemoveFence()
-        {
-        }
-
+  
         private bool CheckNeighbour(int x, int y, SideEnum side)
         {
             var neighBourNode =

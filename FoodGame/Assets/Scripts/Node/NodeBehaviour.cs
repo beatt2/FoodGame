@@ -19,7 +19,7 @@ namespace Node
 		private SpriteRenderer _spriteRenderer;
 
 
-		private int _listIndex = -1;
+		public int _listIndex = -1;
 		private bool _emptyCultivationField;
 
 		private NodeState _nodeState;

@@ -441,6 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 3}
+  _listIndex: -1
 --- !u!60 &38545528
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1004,6 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 2}
+  _listIndex: -1
 --- !u!60 &106174325
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2373,6 +2375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 2}
+  _listIndex: -1
 --- !u!60 &196227571
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2568,6 +2571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 3}
+  _listIndex: -1
 --- !u!60 &201179132
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2898,6 +2902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 0}
+  _listIndex: -1
 --- !u!60 &227747964
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3450,6 +3455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 6}
+  _listIndex: -1
 --- !u!60 &275904664
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3885,6 +3891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 2}
+  _listIndex: -1
 --- !u!60 &341271417
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4080,6 +4087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 5}
+  _listIndex: -1
 --- !u!60 &346478040
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4418,8 +4426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1160, y: 0}
-  m_SizeDelta: {x: -1520, y: 0}
+  m_AnchoredPosition: {x: 1160, y: -50}
+  m_SizeDelta: {x: -1520, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381892892
 MonoBehaviour:
@@ -4486,6 +4494,7 @@ MonoBehaviour:
   DestroyPanel: {fileID: 970875396}
   UpgradePanel: {fileID: 126036463}
   KillButton: {fileID: 2062988307}
+  UpgradeButton: {fileID: 398488794}
 --- !u!1 &390053417
 GameObject:
   m_ObjectHideFlags: 0
@@ -4597,7 +4606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -365}
+  m_AnchoredPosition: {x: 71, y: -365}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398488794
@@ -4782,6 +4791,7 @@ RectTransform:
   - {fileID: 1340613709}
   - {fileID: 602343027}
   - {fileID: 957145824}
+  - {fileID: 654341718}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5018,6 +5028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 6}
+  _listIndex: -1
 --- !u!60 &411188910
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5287,6 +5298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 6}
+  _listIndex: -1
 --- !u!60 &417302500
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6087,6 +6099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 1}
+  _listIndex: -1
 --- !u!60 &470441863
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6491,6 +6504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 1}
+  _listIndex: -1
 --- !u!60 &489132512
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6686,6 +6700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 0}
+  _listIndex: -1
 --- !u!60 &507917457
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7090,6 +7105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 4}
+  _listIndex: -1
 --- !u!60 &523891973
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7534,6 +7550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 0}
+  _listIndex: -1
 --- !u!60 &599126550
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7729,6 +7746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 0}
+  _listIndex: -1
 --- !u!60 &599602736
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8160,6 +8178,128 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 629578912}
+--- !u!1 &654341717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 654341718}
+  - component: {fileID: 654341721}
+  - component: {fileID: 654341720}
+  - component: {fileID: 654341719}
+  m_Layer: 5
+  m_Name: DeleteSaves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &654341718
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654341717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 803560296}
+  m_Father: {fileID: 404316297}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 8, y: -482}
+  m_SizeDelta: {x: 320, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &654341719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654341717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 654341720}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2083029981}
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &654341720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654341717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &654341721
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654341717}
 --- !u!1 &667695965
 GameObject:
   m_ObjectHideFlags: 0
@@ -8743,6 +8883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 2}
+  _listIndex: -1
 --- !u!60 &731861315
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9171,6 +9312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 4}
+  _listIndex: -1
 --- !u!60 &755082043
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9440,6 +9582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 6}
+  _listIndex: -1
 --- !u!60 &760718908
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9899,6 +10042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 0}
+  _listIndex: -1
 --- !u!60 &770185914
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10072,6 +10216,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 802296445}
+--- !u!1 &803560295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 803560296}
+  - component: {fileID: 803560298}
+  - component: {fileID: 803560297}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &803560296
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803560295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 654341718}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &803560297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803560295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Reset
+--- !u!222 &803560298
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 803560295}
 --- !u!1 &813046293
 GameObject:
   m_ObjectHideFlags: 0
@@ -10405,6 +10623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 0}
+  _listIndex: -1
 --- !u!60 &830474539
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -10883,6 +11102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 4}
+  _listIndex: -1
 --- !u!60 &885654211
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11257,6 +11477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 5}
+  _listIndex: -1
 --- !u!60 &909666978
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -11735,6 +11956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 5}
+  _listIndex: -1
 --- !u!60 &938530606
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12462,6 +12684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 6}
+  _listIndex: -1
 --- !u!60 &982985722
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -12633,7 +12856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 420}
+  m_AnchoredPosition: {x: 0, y: 19}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994699262
@@ -13373,7 +13596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 167}
+  m_AnchoredPosition: {x: 0, y: 322}
   m_SizeDelta: {x: 584, y: 444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1058874125
@@ -13573,6 +13796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 2}
+  _listIndex: -1
 --- !u!60 &1066261442
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14048,6 +14272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 4}
+  _listIndex: -1
 --- !u!60 &1093880387
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -14288,7 +14513,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kill
+  m_Text: Destroy
 --- !u!222 &1099125887
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14828,6 +15053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 2}
+  _listIndex: -1
 --- !u!60 &1165797190
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15023,6 +15249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 3}
+  _listIndex: -1
 --- !u!60 &1178070271
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15218,6 +15445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 2}
+  _listIndex: -1
 --- !u!60 &1202262705
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15413,6 +15641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 5}
+  _listIndex: -1
 --- !u!60 &1229292098
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -15811,6 +16040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 4}
+  _listIndex: -1
 --- !u!60 &1251910350
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16493,6 +16723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 0}
+  _listIndex: -1
 --- !u!60 &1320884273
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16867,6 +17098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 4}
+  _listIndex: -1
 --- !u!60 &1347275832
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -17647,6 +17879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 6}
+  _listIndex: -1
 --- !u!60 &1466172146
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18051,6 +18284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 3}
+  _listIndex: -1
 --- !u!60 &1474263158
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18750,6 +18984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 6}
+  _listIndex: -1
 --- !u!60 &1511278214
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -18945,6 +19180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 6, y: 3}
+  _listIndex: -1
 --- !u!60 &1527268986
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -19140,6 +19376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 3}
+  _listIndex: -1
 --- !u!60 &1545296694
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -19861,6 +20098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 3, y: 1}
+  _listIndex: -1
 --- !u!60 &1640925173
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -20416,7 +20654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 400
+  m_Text: Upgrade
 --- !u!222 &1703689114
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21113,6 +21351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 1}
+  _listIndex: -1
 --- !u!60 &1772621850
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21443,6 +21682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 5, y: 5}
+  _listIndex: -1
 --- !u!60 &1805010727
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -21849,6 +22089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 4}
+  _listIndex: -1
 --- !u!60 &1843637902
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -22044,6 +22285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 1}
+  _listIndex: -1
 --- !u!60 &1847672879
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -22239,6 +22481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 1, y: 1}
+  _listIndex: -1
 --- !u!60 &1854080715
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -23643,6 +23886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 1}
+  _listIndex: -1
 --- !u!60 &1985074407
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24194,6 +24438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 2, y: 5}
+  _listIndex: -1
 --- !u!60 &2022158222
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24695,6 +24940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 5}
+  _listIndex: -1
 --- !u!60 &2054339627
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -24834,7 +25080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112, y: -365}
+  m_AnchoredPosition: {x: -52.3, y: -365}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062988307
@@ -25297,6 +25543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 4, y: 3}
+  _listIndex: -1
 --- !u!60 &2114748014
 PolygonCollider2D:
   m_ObjectHideFlags: 0

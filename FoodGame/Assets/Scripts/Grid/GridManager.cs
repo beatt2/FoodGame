@@ -32,7 +32,7 @@ namespace Grid
         [SerializeField] public BuildingPlacement BuildingPlacement;
 
 
-        private readonly List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
+        private  List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
 
 
         protected override void Awake()
@@ -73,7 +73,7 @@ namespace Grid
                 }
             }
             
-           // LoadNodes();
+            LoadNodes();
         }
         
         private void LoadNodes()
@@ -84,6 +84,11 @@ namespace Grid
         public List<List<NodeBehaviour>> GetCultivationLocationList()
         {
             return _cultivationLocationList;
+        }
+
+        public void SetCultivationList(List<List<NodeBehaviour>> nodes)
+        {
+            _cultivationLocationList = nodes;
         }
 
 
@@ -370,6 +375,7 @@ namespace Grid
             _cultivationLocationList.Add(new List<NodeBehaviour>());
             _cultivationLocationList[listCount].Add(_selectedNode);
             _cultivationLocationList[listCount][0].SetCultivationListIndex(listCount);
+            SaveManager.Instance.SetHighestCultivationIndex(listCount);
             _selectedNode.HighLight.ChangeColorToOld();
             var tempNodeState = _selectedNode.GetComponent<NodeState>();
             

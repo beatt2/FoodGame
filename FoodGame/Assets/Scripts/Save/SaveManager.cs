@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Cultivations;
 using Grid;
@@ -23,6 +25,8 @@ namespace Save
         private string filenameTime = "time";
         private string extensionTime = "saveTime";
 
+        private bool _reset = false;
+
         [SerializeField]
        private Sprite[] _sprites;
         
@@ -33,21 +37,37 @@ namespace Save
             LoadTime();
         
         }
+
+        public void Reset()
+        {
+            File.Delete(GetPath(filenameNode,extensionNode));
+            _reset = true;
+        }
+
+        public Sprite[] GetSprites()
+        {
+            return _sprites;
+        }
         
         
 
         private void LoadTime()
         {
-            _saveInfo = new SaveInfo(DateTime.Now, 1, 2018);
-//            if (File.Exists(GetPath(filenameTime, extensionTime)))
-//            {
-//                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
-//            }
-//            else
-//            {
-//                
-//            }
+           
+            if (File.Exists(GetPath(filenameTime, extensionTime)))
+            {
+                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
+            }
+            else
+            {
+                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 0);
+            }
   
+        }
+
+        public void SetHighestCultivationIndex(int value)
+        {
+            _saveInfo.HighestCultivationListIndex = value;
         }
         
 
@@ -55,13 +75,14 @@ namespace Save
         private void OnApplicationQuit()
         {
            SaveNodes();
-           _saveInfo  = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear());
+           _saveInfo  = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear(), _saveInfo.HighestCultivationListIndex);
            SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
 
 
         private void SaveNodes()
         {
+            if (_reset) return;
             int x = GridManager.Instance.GetNodeGrid().GetLength(0);
             int y = GridManager.Instance.GetNodeGrid().GetLength(1);
             _saveNodes = new SaveNodes[x,y];
@@ -88,7 +109,17 @@ namespace Save
                             tempGrid[i,j].GetComponent<NodeState>().CurrentState,
                             tempGrid[i,j].GetComponent<NodeState>().FieldType,
                             tempGrid[i,j].GetCultivationField(),
-                            tempGrid[i,j].GetComponent<PlantPrefab>().MyPlant
+                            tempGrid[i,j].GetComponent<PlantPrefab>().MyPlant,
+                            tempGrid[i,j].GetNodeFence().Left,
+                            tempGrid[i,j].GetNodeFence().LeftGameObject != null,
+                            tempGrid[i,j].GetNodeFence().Right,
+                            tempGrid[i,j].GetNodeFence().RightGameObject != null,
+                            tempGrid[i,j].GetNodeFence().Up,
+                            tempGrid[i,j].GetNodeFence().UpGameObject != null,
+                            tempGrid[i,j].GetNodeFence().Down,
+                            tempGrid[i,j].GetNodeFence().DownGameObject != null
+                            
+                                
                         );
                     }
                     else if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
@@ -99,9 +130,18 @@ namespace Save
                             tempGrid[i,j].GetComponent<NodeState>().CurrentState,
                             tempGrid[i,j].GetComponent<NodeState>().FieldType,
                             tempGrid[i,j].GetCultivationField(),
-                            tempGrid[i,j].GetComponent<BuildingPrefab>().MyBuilding
+                            tempGrid[i,j].GetComponent<BuildingPrefab>().MyBuilding,
+                            tempGrid[i,j].GetNodeFence().Left,
+                            tempGrid[i,j].GetNodeFence().LeftGameObject != null,
+                            tempGrid[i,j].GetNodeFence().Right,
+                            tempGrid[i,j].GetNodeFence().RightGameObject != null,
+                            tempGrid[i,j].GetNodeFence().Up,
+                            tempGrid[i,j].GetNodeFence().UpGameObject != null,
+                            tempGrid[i,j].GetNodeFence().Down,
+                            tempGrid[i,j].GetNodeFence().DownGameObject != null
                         );
                     }
+                    
       
 
                 }
@@ -114,6 +154,13 @@ namespace Save
         {
             if (!File.Exists(GetPath(filenameNode, extensionNode))) return nodes;
             var loadedNodes = LoadFile<SaveNodes[,]>(filenameNode, extensionNode);
+            List<List<NodeBehaviour>> tempCultivationLocationList = new List<List<NodeBehaviour>>();
+            for (int i = 0; i < _saveInfo.HighestCultivationListIndex +1; i++)
+            {
+                tempCultivationLocationList.Add(new List<NodeBehaviour>());
+                
+            }
+           
             for (int i = 0; i < nodes.GetLength(0); i++)
             {
                 for (int j = 0; j < nodes.GetLength(1); j++)
@@ -123,6 +170,43 @@ namespace Save
                     nodes[i, j].GetComponent<NodeState>().FieldType = loadedNodes[i, j].FieldType;
                     nodes[i, j].SetCultivationListIndex(loadedNodes[i,j].ListIndex);
                     nodes[i, j].SetEmptyCultivationField(loadedNodes[i,j].EmptyCultivationField);
+                    nodes[i, j].GetNodeFence().Left = loadedNodes[i, j].FenceLeft;
+                    nodes[i, j].GetNodeFence().Right = loadedNodes[i, j].FenceRight;
+                    nodes[i, j].GetNodeFence().Up = loadedNodes[i, j].FenceUp;
+                    nodes[i, j].GetNodeFence().Down = loadedNodes[i, j].FenceDown;
+
+                    if (loadedNodes[i, j].FenceLeftOwner)
+                    {
+                        nodes[i, j].GetNodeFence().LeftGameObject = nodes[i, j].GetNodeFence().BuildFence(
+                            GridManager.Instance.FenceOne,
+                            NodeFence.LeftLocation,
+                            1
+                        );
+                    }
+                    if (loadedNodes[i, j].FenceRightOwner)
+                    {
+                        nodes[i, j].GetNodeFence().RightGameObject = nodes[i, j].GetNodeFence().BuildFence(
+                            GridManager.Instance.FenceOne,
+                            NodeFence.RightLocation,
+                            0
+                        );
+                    }
+                    if (loadedNodes[i, j].FenceUpOwner)
+                    {
+                        nodes[i, j].GetNodeFence().UpGameObject = nodes[i, j].GetNodeFence().BuildFence(
+                            GridManager.Instance.FenceTwo,
+                            NodeFence.UpLocation,
+                            -1
+                        );
+                    }
+                    if (loadedNodes[i, j].FenceDownOwner)
+                    {
+                        nodes[i, j].GetNodeFence().DownGameObject = nodes[i, j].GetNodeFence().BuildFence(
+                            GridManager.Instance.FenceTwo,
+                            NodeFence.DownLocation,
+                            1
+                        );
+                    }
                     if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.EmptyField
                         || nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
                     {
@@ -138,12 +222,17 @@ namespace Save
                         nodes[i, j].SetSprite(
                             _sprites[nodes[i, j].GetComponent<BuildingPrefab>().MyBuilding.SpriteIndex]);
                     }
-                    
+
+                    if (nodes[i, j].GetListIndex() != -1)
+                    {
+                        tempCultivationLocationList[nodes[i, j].GetListIndex()].Add(nodes[i, j]);
+                    }
                        
                     
             
                 }
             }
+            GridManager.Instance.SetCultivationList(tempCultivationLocationList);
             return nodes;
         }
 
