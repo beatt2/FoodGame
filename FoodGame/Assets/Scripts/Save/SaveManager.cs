@@ -20,7 +20,7 @@ namespace Save
         private SaveInfo _saveInfo;
         private SaveNodes [,] _saveNodes;
 
-        private string filenameNode = "nodes";
+        private string filenameNode = "node";
         private string extensionNode = "save";
 
         private string filenameTime = "time";
@@ -39,6 +39,7 @@ namespace Save
         
         }
 
+
         public void Reset()
         {
             File.Delete(GetPath(filenameNode,extensionNode));
@@ -56,14 +57,15 @@ namespace Save
         private void LoadTime()
         {
            
-            if (File.Exists(GetPath(filenameTime, extensionTime)))
-            {
-                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
-            }
-            else
-            {
-                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0);
-            }
+            _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0);
+//            if (File.Exists(GetPath(filenameTime, extensionTime)))
+//            {
+//                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
+//            }
+//            else
+//            {
+//
+//            }
   
         }
 
@@ -227,9 +229,9 @@ namespace Save
                     else if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
                         nodes[i, j].gameObject.AddComponent<BuildingPrefab>();
+                       
                         nodes[i,j].GetComponent<BuildingPrefab>().ChangeValues((Building)loadedNodes[i,j].MyCultivation);
-                        nodes[i, j].SetSprite(
-                            _sprites[nodes[i, j].GetComponent<BuildingPrefab>().MyBuilding.SpriteIndex]);
+                        nodes[i, j].SetSprite(_sprites[nodes[i, j].GetComponent<BuildingPrefab>().MyBuilding.SpriteIndex]);
                     }
 
                     if (nodes[i, j].GetListIndex() != -1)

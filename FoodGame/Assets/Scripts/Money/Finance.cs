@@ -1,8 +1,5 @@
-﻿
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 using System.Linq;
-
 using Events;
 using Node;
 using UnityEngine;
@@ -11,14 +8,13 @@ using UnityEngine.UI;
 
 namespace Money
 {
-    public class Finance : MonoBehaviour {
-
+    public class Finance : MonoBehaviour
+    {
         public GameObject Content;
         private readonly List<FinanceEntry> _financeTexts = new List<FinanceEntry>();
 
 
-
-        public GameObject RowPrefab;        
+        public GameObject RowPrefab;
         private readonly List<GameObject> _go = new List<GameObject>();
 
 
@@ -32,7 +28,7 @@ namespace Money
 
         private string _name;
         private float _eventPercentage;
-        
+
         private string GetName(NodeState.FieldTypeEnum fieldType)
         {
             _name = "Null";
@@ -73,46 +69,65 @@ namespace Money
             _currentpos = StartingPos;
         }
 
-        
-        
+
         public void CheckForText()
         {
             _totalAmount = 0;
-            
+
             //_currentpos = StartingPos;
+            Debug.Log(SimpleMoneyManager.Instance.GetMoneyValueDict().Count);
             for (int i = 0; i < SimpleMoneyManager.Instance.GetMoneyValueDict().Keys.Count; i++)
             {
-                
-
-                    switch (SimpleMoneyManager.Instance.GetMoneyValueDict().ElementAt(i).Key)
+                switch (SimpleMoneyManager.Instance.GetMoneyValueDict().ElementAt(i).Key)
                 {
                     case NodeState.FieldTypeEnum.Corn:
-                        
-                        
-                            AddText(GetName(NodeState.FieldTypeEnum.Corn), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Corn), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Corn), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Corn));
-                        
+
+
+                        AddText(GetName(NodeState.FieldTypeEnum.Corn),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Corn),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Corn),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Corn));
+
                         break;
                     case NodeState.FieldTypeEnum.Carrot:
-                        
-                            AddText(GetName(NodeState.FieldTypeEnum.Carrot), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Carrot), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Carrot), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Carrot));
-                        
+
+                        AddText(GetName(NodeState.FieldTypeEnum.Carrot),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Carrot),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Carrot),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Carrot));
+
                         break;
                     case NodeState.FieldTypeEnum.Nothing:
                         break;
                     case NodeState.FieldTypeEnum.Apple:
-                        AddText(GetName(NodeState.FieldTypeEnum.Apple), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Apple), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Apple), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Apple));
+                        AddText(GetName(NodeState.FieldTypeEnum.Apple),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Apple),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Apple),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Apple));
                         break;
                     case NodeState.FieldTypeEnum.Blackberries:
-                        AddText(GetName(NodeState.FieldTypeEnum.Blackberries), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Blackberries), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Blackberries), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Blackberries));
+                        AddText(GetName(NodeState.FieldTypeEnum.Blackberries),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Blackberries),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Blackberries),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Blackberries));
                         break;
                     case NodeState.FieldTypeEnum.Tomato:
-                        AddText(GetName(NodeState.FieldTypeEnum.Tomato), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Tomato), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Tomato), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Tomato));
+                        AddText(GetName(NodeState.FieldTypeEnum.Tomato),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Tomato),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Tomato),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Tomato));
                         break;
                     case NodeState.FieldTypeEnum.Tree:
-                        AddText(GetName(NodeState.FieldTypeEnum.Tree), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Tree), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Tree), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Tree));
+                        AddText(GetName(NodeState.FieldTypeEnum.Tree),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Tree),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Tree),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Tree));
                         break;
                     case NodeState.FieldTypeEnum.Grapes:
-                        AddText(GetName(NodeState.FieldTypeEnum.Grapes), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Grapes), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Grapes), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Grapes));
+                        AddText(GetName(NodeState.FieldTypeEnum.Grapes),
+                            SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Grapes),
+                            SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Grapes),
+                            SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Grapes));
                         break;
                     default:
                         break;
@@ -122,27 +137,23 @@ namespace Money
 
         public void AddText(string name, float income, float expense, float eventPercentage)
         {
-            _financeTexts.Add(new FinanceEntry(name,income,expense));
+            _financeTexts.Add(new FinanceEntry(name, income, expense));
 
 
-            GameObject go = Instantiate(RowPrefab, _currentpos.position, Quaternion.identity, Content.transform) as GameObject;
-            _go.Add(go);
-            _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + Gap, _currentpos.position.z);
-           
-            ChangeText(go, name,income,expense,eventPercentage);
+            GameObject go =Instantiate(RowPrefab, _currentpos.position, Quaternion.identity, Content.transform) as GameObject;
+            _go.Add(go);_currentpos.position =new Vector3(_currentpos.position.x, _currentpos.position.y + Gap, _currentpos.position.z);
+
+            ChangeText(go, name, income, expense, eventPercentage);
         }
 
         private float CalculatePercentage(float percentageAmount, float income)
         {
-            
-
             float eventPercentage = percentageAmount / 100;
             float eventChange = income * eventPercentage;
 
 
             float eventAmount = 100 / income * eventChange;
             eventAmount = Mathf.Round(eventAmount * 100) / 100;
-
 
 
             return eventAmount;
@@ -156,9 +167,10 @@ namespace Money
             row.Expense.text = expense.ToString();
 
 
-            
             row.Eventpercentage.text = percentage + "%";
-            
+
+            Debug.Log(income + "income");
+            Debug.Log(expense + "expesne");
             float total = income - expense + CalculatePercentage(percentage, income);
 
             total = Mathf.Round(total * 100) / 100;
@@ -171,10 +183,8 @@ namespace Money
         private float UpdateTotalAmount(float amount)
         {
             _totalAmount += amount;
-            
 
 
-            
             if (_totalAmount > 0)
             {
                 TotalAmountText.color = new Color(0, 0.5f, 0);
@@ -184,23 +194,17 @@ namespace Money
                 TotalAmountText.color = new Color(1, 0, 0);
             }
 
-           
-            
+
             return _totalAmount;
         }
+
         public void RemoveText()
         {
             Debug.Log(_go.Count);
             for (int i = 0; i < _financeTexts.Count; i++)
             {
-
-
-                
-                
-                
-                
-
-                _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y - Gap, _currentpos.position.z);
+                _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y - Gap,
+                    _currentpos.position.z);
                 //_currentpos = StartingPos;
             }
 
@@ -212,11 +216,9 @@ namespace Money
             }
 
             _go.Clear();
-           
-
         }
-       
-        
+
+
         public void UpdateText()
         {
             if (!EventManager.Instance.InEventMenu)
@@ -224,17 +226,15 @@ namespace Money
                 _totalAmount = 0;
                 for (int i = 0; i < _financeTexts.Count; i++)
                 {
-
-
-                    
-
                     switch (SimpleMoneyManager.Instance.GetMoneyValueDict().ElementAt(i).Key)
                     {
                         case NodeState.FieldTypeEnum.Corn:
 
 
-                           
-                            ChangeText(_go[i],GetName(NodeState.FieldTypeEnum.Corn), SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Corn), SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Corn), SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Corn));
+                            ChangeText(_go[i], GetName(NodeState.FieldTypeEnum.Corn),
+                                SimpleMoneyManager.Instance.GetMoneyValue(NodeState.FieldTypeEnum.Corn),
+                                SimpleMoneyManager.Instance.GetExpense(NodeState.FieldTypeEnum.Corn),
+                                SimpleMoneyManager.Instance.GetPercentage(NodeState.FieldTypeEnum.Corn));
                             break;
                         case NodeState.FieldTypeEnum.Carrot:
 
@@ -286,11 +286,6 @@ namespace Money
                     }
                 }
             }
-            
         }
-
-
-
-
     }
 }

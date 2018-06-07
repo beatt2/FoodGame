@@ -73,7 +73,7 @@ namespace Grid
                 }
             }
             
-            LoadNodes();
+            //LoadNodes();
         }
         
         private void LoadNodes()

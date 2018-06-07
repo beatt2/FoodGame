@@ -6,34 +6,34 @@ using UnityEngine;
 namespace Cultivations
 {
     [Serializable]
-    public class PlantPrefab :CultivationPrefab
+    public class PlantPrefab : CultivationPrefab
     {
         [HideInInspector] public Plant MyPlant;
 
 
         protected void Awake()
         {
-
-            MyPlant = new Plant(Name,Sustainability,MoneyTick, ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType, UpgradeValue,SpriteIndex, EnviromentValue, Happiness);
-
+            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, UpgradeRank, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
+            
+            
         }
-        public  void CustomAwake()
-        {
-        
-            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, UpgradeRank, BuildingPrice, MyCurrentState, MyFieldType,  UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
 
+        public void CustomAwake()
+        {
+            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, UpgradeRank, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
         }
 
         private void Start()
         {
             AddCultivation();
         }
-        
- 
+
+
         //TODO WHY IS THIS DIFFERENT THAN BUILDINGPREFAB????
         public void ChangeValues(Plant plant)
         {
-
             MyPlant = plant;
             MyPlant.FieldType = GetComponent<NodeState>().FieldType;
             MyPlant.MyCultivationState = GetComponent<NodeState>().CurrentState;
@@ -51,6 +51,5 @@ namespace Cultivations
         {
             CultivationManager.Instance.AddValue(MyPlant);
         }
-
     }
 }

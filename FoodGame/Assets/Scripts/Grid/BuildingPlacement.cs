@@ -9,16 +9,11 @@ namespace Grid
     public class BuildingPlacement : MonoBehaviour
     {
         public GameObject [] Farms;
-        private BuildingPrefab [] _buildingPrefabs;
-
-        private FarmButtons[] _farmButtons;
-
-
         public GameObject[] Fields;
         public GameObject EmptyField;
         private Sprite _emptyFieldSprite;
 
-        public bool BuildingTabActive = true;
+
 
      
 
@@ -29,17 +24,6 @@ namespace Grid
         {
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(true);
             _emptyFieldSprite = EmptyField.GetComponent<SpriteRenderer>().sprite;
-            _buildingPrefabs = new BuildingPrefab[Farms.Length];
-            //TODO Probably can remove the others now
-            var tempGameObjects = GameObject.FindGameObjectsWithTag("FarmButton");
-            _farmButtons = new FarmButtons[Farms.Length];
-            for (int i = 0; i < _buildingPrefabs.Length; i++)
-            {
-                _buildingPrefabs[i] = Farms[i].GetComponent<BuildingPrefab>();
-                _buildingPrefabs[i].CustomAwake();
-                _farmButtons[i] = tempGameObjects[i].GetComponent<FarmButtons>();
-            }
-
 
         }
 
@@ -70,7 +54,6 @@ namespace Grid
 
         public bool BuildField(int index)
         {
-            Debug.Log(Fields[index].GetComponent<PlantPrefab>().BuildingPrice);
             if (SimpleMoneyManager.Instance.EnoughMoney(Fields[index].GetComponent<PlantPrefab>().BuildingPrice))
             {
                 ChangeTile(Fields[index], true);
@@ -87,19 +70,20 @@ namespace Grid
             var node = GridManager.Instance.GetSelectedNode();
             node.SetSprite(go.GetComponent<SpriteRenderer>().sprite);
             if (field)
-            {
-               
+            {              
                 go.GetComponent<PlantPrefab>().CustomAwake();
-                Debug.Log(go.GetComponent<PlantPrefab>().MyPlant.BuildPrice + "Buildprice");
                 node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
             }
             else
             {
-                node.gameObject.AddComponent<BuildingPrefab>();
                 go.GetComponent<BuildingPrefab>().CustomAwake();
-                node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+                node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+                
+       
+ 
             }
             node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
+            
         }
 
         public Sprite GetOriginalSprite()

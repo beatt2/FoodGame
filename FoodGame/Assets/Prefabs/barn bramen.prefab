@@ -137,7 +137,8 @@ MonoBehaviour:
   SpriteIndex: 9
   MyCurrentState: 0
   MyFieldType: 4
-  UpgradeOptions: []
+  EnviromentValue: 8
+  Happiness: 0
   MyBuilding:
     Name: Blackberries Barn
     Sustainability: 5
@@ -147,9 +148,10 @@ MonoBehaviour:
     BuildPrice: 1000
     UpgradeValue: 0
     SpriteIndex: 9
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
-    FieldType: 4
+    FieldType: 0
 --- !u!212 &212630516288518340
 SpriteRenderer:
   m_ObjectHideFlags: 1

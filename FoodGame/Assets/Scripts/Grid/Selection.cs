@@ -9,19 +9,16 @@ public class Selection : MonoBehaviour
    public GameObject BuildPanel;
    public GameObject YesNoButtons;
    public GameObject YesNoBuildButton;
+   public BuildingTab MyBuildingTab;
 
    private int _index;
 
-   private void Start()
-   {
-      ToggleBuildPanel(false);
-   }
 
 
    public void ToggleBuildPanel(bool value)
    {
       BuildPanel.SetActive(value);
-      GridManager.Instance.BuildingPlacement.BuildingTabActive = value;
+      //GridManager.Instance.BuildingPlacement.BuildingTabActive = value;
    }
 
    //Called from button
