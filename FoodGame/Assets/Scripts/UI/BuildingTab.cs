@@ -2,6 +2,7 @@
 using Grid;
 using Money;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -10,9 +11,9 @@ namespace UI
         public static Sprite StatBarFill;
         private BuildingPrefab [] _buildingPrefabs;
         private FarmButtons[] _farmButtons;
-        public bool BuildingTabActive = true;
+        public bool BuildingTabActive = false;
 
-        private int _highestPrice;
+        private float _highestPrice;
         
 
         private void Start()
@@ -23,20 +24,46 @@ namespace UI
             _buildingPrefabs = new BuildingPrefab[tempFarms.Length];
             var tempGameObjects = GameObject.FindGameObjectsWithTag("FarmButton");
             _farmButtons = new FarmButtons[tempFarms.Length];
-//            foreach (var farm in tempFarms)
-//            {
-//                if (farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice > _highestPrice)
-//                {
-//                    _highestPrice =farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice;
-//                }
-//            }
+            foreach (var farm in tempFarms)
+            {
+                if (farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice > _highestPrice)
+                {
+                    _highestPrice =farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice;
+                }
+            }
             for (int i = 0; i < _buildingPrefabs.Length; i++)
             {
                 _buildingPrefabs[i] = tempFarms[i].GetComponent<BuildingPrefab>();
                 _buildingPrefabs[i].CustomAwake();
                 _farmButtons[i] = tempGameObjects[i].GetComponent<FarmButtons>();
+                SetButton(_farmButtons[i].GetComponent<Button>(), _buildingPrefabs[i]) ;
+                
             }
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(false);
+        }
+
+        private void SetButton(Button button, BuildingPrefab prefab)
+        {
+            StatBar statBar = button.gameObject.transform.parent.GetComponent<StatBar>();
+            if (statBar == null) return;
+            for (int i = 0; i < prefab.Happiness; i++)
+            {
+                statBar.Happiness[i].gameObject.SetActive(true);
+            }
+
+            for (int i = 0; i < prefab.EnviromentValue; i++)
+            {
+                statBar.Enviroment[i].gameObject.SetActive(true);
+            }
+
+            float onePercent = _highestPrice / 100;
+            int moneyValue =  prefab.MyBuilding.BuildPrice / (int)onePercent;
+            int finalValue = moneyValue / 10;
+            for (int i = 0; i < finalValue; i++)    
+            {
+                statBar.Money[i].gameObject.SetActive(true);
+            }
+
         }
         
         private void Update()
