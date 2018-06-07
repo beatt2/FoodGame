@@ -20,9 +20,11 @@ namespace Grid
 
         public bool BuildingTabActive = true;
 
+     
 
 
 
+        //TODO MOVE TO ANOTHER SCRIPT 
         private void Awake()
         {
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(true);
@@ -88,6 +90,7 @@ namespace Grid
             {
                
                 go.GetComponent<PlantPrefab>().CustomAwake();
+                Debug.Log(go.GetComponent<PlantPrefab>().MyPlant.BuildPrice + "Buildprice");
                 node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
             }
             else

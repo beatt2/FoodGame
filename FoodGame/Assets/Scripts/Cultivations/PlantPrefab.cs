@@ -13,14 +13,14 @@ namespace Cultivations
 
         protected void Awake()
         {
-            var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyPlant = new Plant(Name,Sustainability,MoneyTick, ExpenseTick, BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions,SpriteIndex);
+
+            MyPlant = new Plant(Name,Sustainability,MoneyTick, ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType, UpgradeValue,SpriteIndex, EnviromentValue, Happiness);
 
         }
         public  void CustomAwake()
         {
-            var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyPlant = new Plant(Name,Sustainability,MoneyTick,ExpenseTick,BuildingPrice,UpgradeRank,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions,SpriteIndex);
+        
+            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, UpgradeRank, BuildingPrice, MyCurrentState, MyFieldType,  UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
 
         }
 
@@ -28,7 +28,9 @@ namespace Cultivations
         {
             AddCultivation();
         }
-
+        
+ 
+        //TODO WHY IS THIS DIFFERENT THAN BUILDINGPREFAB????
         public void ChangeValues(Plant plant)
         {
 

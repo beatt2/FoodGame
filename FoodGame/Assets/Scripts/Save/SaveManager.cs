@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Cultivations;
 using Grid;
+using Money;
 using Node;
 using TimeSystem;
 using Tools;
@@ -41,6 +42,7 @@ namespace Save
         public void Reset()
         {
             File.Delete(GetPath(filenameNode,extensionNode));
+            File.Delete(GetPath(filenameTime, extensionTime));
             _reset = true;
         }
 
@@ -60,7 +62,7 @@ namespace Save
             }
             else
             {
-                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 0);
+                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0);
             }
   
         }
@@ -74,15 +76,21 @@ namespace Save
 
         private void OnApplicationQuit()
         {
+            if (_reset) return;
            SaveNodes();
-           _saveInfo  = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear(), _saveInfo.HighestCultivationListIndex);
+           _saveInfo  = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear(),SimpleMoneyManager.Instance.GetCurrentMoney(), _saveInfo.HighestCultivationListIndex);
            SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
+        public float GetMoney()
+        {
+            return _saveInfo.SaveMoney;
+        }
+
 
 
         private void SaveNodes()
         {
-            if (_reset) return;
+     
             int x = GridManager.Instance.GetNodeGrid().GetLength(0);
             int y = GridManager.Instance.GetNodeGrid().GetLength(1);
             _saveNodes = new SaveNodes[x,y];
@@ -104,12 +112,13 @@ namespace Save
                     else if(tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.EmptyField 
                             || tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
                     {
-                        _saveNodes[i,j] = new SaveNodes(
-                            tempGrid[i,j].GetListIndex(), 
-                            tempGrid[i,j].GetComponent<NodeState>().CurrentState,
-                            tempGrid[i,j].GetComponent<NodeState>().FieldType,
-                            tempGrid[i,j].GetCultivationField(),
-                            tempGrid[i,j].GetComponent<PlantPrefab>().MyPlant,
+                        tempGrid[i, j].GetComponent<PlantPrefab>().MyPlant.BuildPrice = 0;
+                        _saveNodes[i, j] = new SaveNodes(
+                            tempGrid[i, j].GetListIndex(),
+                            tempGrid[i, j].GetComponent<NodeState>().CurrentState,
+                            tempGrid[i, j].GetComponent<NodeState>().FieldType,
+                            tempGrid[i, j].GetCultivationField(),
+                            tempGrid[i, j].GetComponent<PlantPrefab>().MyPlant,
                             tempGrid[i,j].GetNodeFence().Left,
                             tempGrid[i,j].GetNodeFence().LeftGameObject != null,
                             tempGrid[i,j].GetNodeFence().Right,
@@ -124,7 +133,7 @@ namespace Save
                     }
                     else if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
-                        
+                            tempGrid[i, j].GetComponent<BuildingPrefab>().MyBuilding.BuildPrice = 0;
                              _saveNodes[i,j] = new SaveNodes(
                             tempGrid[i,j].GetListIndex(), 
                             tempGrid[i,j].GetComponent<NodeState>().CurrentState,

@@ -71,18 +71,26 @@
           </e>
           <e p="UI" t="Include">
             <e p="BuildButton.cs" t="Include" />
+            <e p="BuildingTab.cs" t="Include" />
             <e p="FarmButtons.cs" t="Include" />
             <e p="IButtonInteractable.cs" t="Include" />
             <e p="OkayButton.cs" t="Include" />
             <e p="PanelLerp.cs" t="Include" />
             <e p="SelectionButton.cs" t="Include" />
             <e p="SidePanel.cs" t="Include" />
+            <e p="StatBar.cs" t="Include" />
             <e p="TopBar.cs" t="Include" />
             <e p="UIButton.cs" t="Include" />
             <e p="UIButtonAbstract.cs" t="Include" />
             <e p="UpgradeEntry.cs" t="Include" />
             <e p="UpgradeTab.cs" t="Include" />
           </e>
+        </e>
+        <e p="SimpleAndroidNotifications" t="Include">
+          <e p="NotificationExample.cs" t="Include" />
+          <e p="NotificationIcon.cs" t="Include" />
+          <e p="NotificationManager.cs" t="Include" />
+          <e p="NotificationParams.cs" t="Include" />
         </e>
       </e>
       <e p="FoodGame.sln" t="IncludeFlat" />

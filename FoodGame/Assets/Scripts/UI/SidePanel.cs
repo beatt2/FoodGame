@@ -70,11 +70,12 @@ namespace UI
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
             MyImage.sprite = SaveManager.Instance.GetSprites()[cultivation.SpriteIndex];
-
+            
          
             UpgradeText.text = cultivation.UpgradeValue.ToString();
             MoneyTickText.text = "money per month" + cultivation.MoneyTick;
 
+            UpgradeButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.Field;
             KillButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField;
         }
 
@@ -113,8 +114,7 @@ namespace UI
                     break;
                 case NodeState.CurrentStateEnum.Farm:
                     UpgradePanel.SetActive(true);
-                    UpgradePanel.GetComponent<UpgradeTab>().ActivateTab(GridManager.Instance.GetSelectedNode()
-                        .GetComponent<BuildingPrefab>().MyBuilding);
+                    //UpgradePanel.GetComponent<UpgradeTab>().ActivateTab(GridManager.Instance.GetSelectedNode().GetComponent<BuildingPrefab>().MyBuilding);
                     break;
                 case NodeState.CurrentStateEnum.Field:
                     throw new NotImplementedException();

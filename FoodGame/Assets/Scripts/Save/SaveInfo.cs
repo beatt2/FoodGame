@@ -8,14 +8,15 @@ namespace Save
         public DateTime StopTime;
         public int SaveMonth;
         public int SaveYear;
-        public int SaveMoney;
+        public float SaveMoney;
         public int HighestCultivationListIndex;
 
-        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, int highestCultivationListIndex)
+        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, int highestCultivationListIndex)
         {
             StopTime = stopTime;
             SaveMonth = saveMonth;
             SaveYear = saveYear;
+            SaveMoney = saveMoney;
             HighestCultivationListIndex = highestCultivationListIndex;
         }
 

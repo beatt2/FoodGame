@@ -17,11 +17,11 @@ namespace Cultivations
         public int SpriteIndex;
         public NodeState.CurrentStateEnum MyCurrentState;
         public NodeState.FieldTypeEnum MyFieldType;
-        public GameObject [] UpgradeOptions;
+        
 
 
         public int EnviromentValue;
-        public int Happyness;
+        public int Happiness;
 
 
     }

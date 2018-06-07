@@ -92,17 +92,23 @@
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />
     <Compile Include="Assets\Scripts\Tools\UpdateableData.cs" />
     <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
+    <Compile Include="Assets\Scripts\UI\BuildingTab.cs" />
     <Compile Include="Assets\Scripts\UI\FarmButtons.cs" />
     <Compile Include="Assets\Scripts\UI\IButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\OkayButton.cs" />
     <Compile Include="Assets\Scripts\UI\PanelLerp.cs" />
     <Compile Include="Assets\Scripts\UI\SelectionButton.cs" />
     <Compile Include="Assets\Scripts\UI\SidePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\StatBar.cs" />
     <Compile Include="Assets\Scripts\UI\TopBar.cs" />
     <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonAbstract.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeEntry.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeTab.cs" />
+    <Compile Include="Assets\SimpleAndroidNotifications\NotificationExample.cs" />
+    <Compile Include="Assets\SimpleAndroidNotifications\NotificationIcon.cs" />
+    <Compile Include="Assets\SimpleAndroidNotifications\NotificationManager.cs" />
+    <Compile Include="Assets\SimpleAndroidNotifications\NotificationParams.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Documents/GitHub/FoodGame/FoodGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

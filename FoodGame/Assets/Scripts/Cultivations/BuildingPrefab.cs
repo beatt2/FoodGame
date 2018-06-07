@@ -13,13 +13,13 @@ namespace Cultivations
         protected void Awake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType,tempSprite,UpgradeValue, UpgradeOptions, SpriteIndex);
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType,UpgradeValue,SpriteIndex, EnviromentValue, Happiness);
         }
 
         public void CustomAwake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType, tempSprite, UpgradeValue, UpgradeOptions, SpriteIndex);
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
         }
 
         public void ChangeValues(Building building)
@@ -33,11 +33,6 @@ namespace Cultivations
             CultivationManager.Instance.AddValue(MyBuilding);
         }
 
-        protected void Update()
-        {
-            //TODO DAFUQ?
-//          Vector3 tempVect = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-//            transform.position = (new Vector3(tempVect.x, tempVect.y, 0));
-        }
+
     }
 }

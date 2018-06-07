@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Node;
+using Save;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ namespace Money
         private float _vegetablevalue;
 
 
-        private float _cornValue;
+        private float _cornValue;    
         //private float _
 
 
@@ -38,7 +39,7 @@ namespace Money
         // Use this for initialization
         private void Start ()
         {
-            _currentMoney = 5000;
+            _currentMoney = SaveManager.Instance.GetMoney();
             MoneyUi.text = "€ " + _currentMoney;
 
 

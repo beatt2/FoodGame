@@ -137,9 +137,9 @@ MonoBehaviour:
   SpriteIndex: 10
   MyCurrentState: 0
   MyFieldType: 1
-  UpgradeOptions:
-  - {fileID: 1816446448162904, guid: 53b4b1bd81582714db267e3503b7fe05, type: 2}
-  - {fileID: 1663389968083526, guid: 461fe9396578bfa4c82f42bcca9dad08, type: 2}
+  UpgradeOptions: []
+  EnviromentValue: 0
+  Happyness: 0
   MyBuilding:
     Name: Carrot Barn
     Sustainability: 5
@@ -152,6 +152,8 @@ MonoBehaviour:
     UpgradeOptions:
     - {fileID: 1816446448162904, guid: 53b4b1bd81582714db267e3503b7fe05, type: 2}
     - {fileID: 1663389968083526, guid: 461fe9396578bfa4c82f42bcca9dad08, type: 2}
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 1
 --- !u!212 &212846951375361958

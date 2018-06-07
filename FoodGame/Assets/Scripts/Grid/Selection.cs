@@ -31,6 +31,7 @@ public class Selection : MonoBehaviour
       SetManager();
    }
 
+
    public void ConfirmLocationPressed(bool value)
    {
       if (!GridManager.Instance.ConfirmLocation(value)) return;
