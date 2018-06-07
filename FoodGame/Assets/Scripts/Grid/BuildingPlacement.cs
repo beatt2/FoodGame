@@ -132,22 +132,7 @@ namespace Grid
 
         }
 
-        private void Update()
-        {
-            if (!BuildingTabActive) return;
-            foreach (var t in _farmButtons)
-            {
-                // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
-                if (_buildingPrefabs[t.IndexNumber].BuildingPrice > SimpleMoneyManager.Instance.GetCurrentMoney())
-                {
-                    t.SetInteractable(false);
-                }
-                else
-                {
-                    t.SetInteractable(true);
-                }
-            }
-        }
+  
 
 
     }

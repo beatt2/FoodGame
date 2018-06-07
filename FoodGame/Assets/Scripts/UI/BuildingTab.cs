@@ -1,5 +1,6 @@
 ﻿using Cultivations;
 using Grid;
+using Money;
 using UnityEngine;
 
 namespace UI
@@ -9,6 +10,7 @@ namespace UI
         public static Sprite StatBarFill;
         private BuildingPrefab [] _buildingPrefabs;
         private FarmButtons[] _farmButtons;
+        public bool BuildingTabActive = true;
         
         
         private void Awake()
@@ -25,9 +27,24 @@ namespace UI
                 _farmButtons[i] = tempGameObjects[i].GetComponent<FarmButtons>();
             }
 
-            
-       
-   
+  
+        }
+        
+        private void Update()
+        {
+            if (!BuildingTabActive) return;
+            foreach (var t in _farmButtons)
+            {
+                // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+                if (_buildingPrefabs[t.IndexNumber].BuildingPrice > SimpleMoneyManager.Instance.GetCurrentMoney())
+                {
+                    t.SetInteractable(false);
+                }
+                else
+                {
+                    t.SetInteractable(true);
+                }
+            }
         }
         
         
