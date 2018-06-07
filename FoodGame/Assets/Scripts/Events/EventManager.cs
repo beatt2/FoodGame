@@ -41,34 +41,34 @@ namespace Events
                     _eventGoingOn[i] = true;
                     Ui.SetActive(InEventMenu);
                     SetText(i);
-                    
-                    switch (i)
-                    {
-                        case 1:
-                            Debug.Log("Increase Overall Income");
-                           
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
-                           // _percentageEvent = EventsArray[i].InfluencePercentage;
-                            break;
-                        case 2:
-                            Debug.Log("Increase overall income");
-                            break;
-                        case 3:
-                            Debug.Log("decrease overall income");
-                            break;
-                        case 4:
-                            Debug.Log("unhappy reviews");
-                            break;
-                        case 5:
-                            break;
-                        case 6:
-                            break;
-                        case 7:
-                            break;
+                    Debug.Log(EventsArray[i].FieldType);
+                    SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
+                    //switch (EventsArray[i].FieldType)
+                    //{
+                    //    case NodeState.FieldTypeEnum.Corn:
+                    //        Debug.Log("Corn");
 
-                        default:
-                            break;
-                    }
+                    //        SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
+                    //        // _percentageEvent = EventsArray[i].InfluencePercentage;
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Carrot:
+                    //        Debug.Log("Increase overall income");
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Nothing:
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Apple:
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Blackberries:
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Tomato:
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Tree:
+                    //        break;
+                    //    case NodeState.FieldTypeEnum.Grapes:
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
                 }
 
                 if (EventsArray[i].Finishes == new Vector2Int(month, year))

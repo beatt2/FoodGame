@@ -132,6 +132,7 @@ namespace Money
 
         public void SetPercentage(NodeState.FieldTypeEnum fieldTypeEnum, float percentage)
         {
+           
             _moneyValues[fieldTypeEnum].Percentage = percentage;
         }
 
