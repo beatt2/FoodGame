@@ -121,10 +121,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 2000
   UpgradeValue: 0
-  SpriteIndex: 27
+  SpriteIndex: 20
   MyCurrentState: 0
   MyFieldType: 5
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Tomato Middle
     Sustainability: 3
@@ -134,7 +135,8 @@ MonoBehaviour:
     BuildPrice: 2000
     UpgradeValue: 0
     SpriteIndex: 27
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 5
 --- !u!114 &114291170938346964

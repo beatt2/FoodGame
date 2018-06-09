@@ -134,10 +134,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 2000
   UpgradeValue: 0
-  SpriteIndex: 25
+  SpriteIndex: 19
   MyCurrentState: 0
   MyFieldType: 0
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Corn Middle
     Sustainability: 3
@@ -147,7 +148,8 @@ MonoBehaviour:
     BuildPrice: 2000
     UpgradeValue: 0
     SpriteIndex: 25
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212483200469657686

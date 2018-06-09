@@ -118,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighLight: {fileID: 0}
   GridLocation: {x: 0, y: 0}
+  _listIndex: -1
 --- !u!114 &114336197451712618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,10 +161,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 0
   UpgradeValue: 1500
-  SpriteIndex: 16
+  SpriteIndex: 4
   MyCurrentState: 2
   MyFieldType: 2
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyPlant:
     Name: EmptyField
     Sustainability: 0
@@ -171,10 +173,10 @@ MonoBehaviour:
     ExpenseTick: 0
     UpgradeRank: 0
     BuildPrice: 0
-    Image: {fileID: 21300000, guid: 63be6ecfcd3b78640be8fbb071cf4919, type: 3}
     UpgradeValue: 1500
     SpriteIndex: 0
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 2
     FieldType: 5
 --- !u!212 &212602781056753814

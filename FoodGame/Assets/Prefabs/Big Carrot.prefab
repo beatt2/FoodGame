@@ -121,10 +121,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
-  SpriteIndex: 22
+  SpriteIndex: 10
   MyCurrentState: 0
   MyFieldType: 1
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Big Carrot
     Sustainability: 1
@@ -134,7 +135,8 @@ MonoBehaviour:
     BuildPrice: 3000
     UpgradeValue: 0
     SpriteIndex: 22
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 1
 --- !u!114 &114468864577604376

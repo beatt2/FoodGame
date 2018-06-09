@@ -134,10 +134,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 500
   UpgradeValue: 0
-  SpriteIndex: 13
+  SpriteIndex: 1
   MyCurrentState: 1
   MyFieldType: 4
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyPlant:
     Name: 
     Sustainability: 0
@@ -147,7 +148,8 @@ MonoBehaviour:
     BuildPrice: 0
     UpgradeValue: 0
     SpriteIndex: 0
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212931628766754050

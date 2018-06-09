@@ -124,7 +124,8 @@ MonoBehaviour:
   SpriteIndex: 17
   MyCurrentState: 0
   MyFieldType: 3
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Big Apple
     Sustainability: 1
@@ -133,8 +134,9 @@ MonoBehaviour:
     UpgradeRank: 0
     BuildPrice: 3000
     UpgradeValue: 0
-    SpriteIndex: 17
-    UpgradeOptions: []
+    SpriteIndex: 5
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 3
 --- !u!114 &114780162073959432

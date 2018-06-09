@@ -134,10 +134,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
-  SpriteIndex: 18
+  SpriteIndex: 6
   MyCurrentState: 0
   MyFieldType: 4
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Big Blackberries
     Sustainability: 1
@@ -147,7 +148,8 @@ MonoBehaviour:
     BuildPrice: 3000
     UpgradeValue: 0
     SpriteIndex: 18
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 4
 --- !u!212 &212115234456201024

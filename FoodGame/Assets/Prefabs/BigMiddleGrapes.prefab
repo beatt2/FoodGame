@@ -134,10 +134,11 @@ MonoBehaviour:
   UpgradeRank: 0
   BuildingPrice: 3000
   UpgradeValue: 0
-  SpriteIndex: 3
+  SpriteIndex: 13
   MyCurrentState: 0
   MyFieldType: 7
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Big middle grapes
     Sustainability: 1
@@ -147,7 +148,8 @@ MonoBehaviour:
     BuildPrice: 3000
     UpgradeValue: 0
     SpriteIndex: 3
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 7
 --- !u!212 &212134382722600958
