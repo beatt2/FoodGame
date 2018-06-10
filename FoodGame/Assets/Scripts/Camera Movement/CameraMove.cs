@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Grid;
+using Money;
+using UnityEngine;
 
 namespace Camera_Movement
 {
@@ -32,7 +34,6 @@ namespace Camera_Movement
 
         private void Update()
         {
-
 
 
             if (Input.touchCount == 2)

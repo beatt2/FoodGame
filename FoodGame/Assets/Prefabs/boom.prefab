@@ -118,7 +118,7 @@ MonoBehaviour:
   Sustainability: 5
   MoneyTick: 50
   ExpenseTick: 10
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 500
   UpgradeValue: 0
   SpriteIndex: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
     Sustainability: 0
     MoneyTick: 0
     ExpenseTick: 0
-    UpgradeRank: 0
+    MonthsToGrow: 0
     BuildPrice: 0
     UpgradeValue: 0
     SpriteIndex: 0

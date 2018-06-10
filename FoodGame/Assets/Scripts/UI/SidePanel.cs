@@ -26,6 +26,8 @@ namespace UI
 
         public Button KillButton;
         public Button UpgradeButton;
+        
+        
 
 
         private Cultivation _currentCultivation;

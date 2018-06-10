@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Cultivations;
 using Node;
 using Save;
 using Tools;
@@ -31,7 +32,8 @@ namespace Money
         //private float _
 
 
-        private readonly Dictionary<NodeState.FieldTypeEnum,MoneyValue> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, MoneyValue>();
+        private readonly Dictionary<NodeState.FieldTypeEnum,List<MoneyValue>> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>>();
+        private readonly Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
         //TODO THIS IS FOR PROTOTYPE
         public bool ShowExpenses;
 
@@ -56,16 +58,30 @@ namespace Money
         }
 
 
-        public void ChangeMoneyMonthly()
+        private void ChangeMoneyMonthly()
         {
-
-   
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
             {
+                float tempTotal = 0;
+                foreach (var t in _moneyValues.ElementAt(i).Value)
+                {
+                    if (t.MonthsToGrow == t.MonthCount)
+                    {
+                        tempTotal += t.Income;
+                        t.MonthCount = 0;
+                    }
+                    else
+                    {
+                        t.MonthCount++;
+                    }
+                }
 
-                var percentage = _moneyValues[_moneyValues.ElementAt(i).Key].Income / 100  * _moneyValues[_moneyValues.ElementAt(i).Key].Percentage;
-                _currentMoney += _moneyValues[_moneyValues.ElementAt(i).Key].Income - _moneyValues[_moneyValues.ElementAt(i).Key].Expense + percentage ;
-                
+                float percentage = 0;
+                if(_percentageValues.ContainsKey(_moneyValues.ElementAt(i).Key))
+                {
+                    percentage = tempTotal / 100 * _percentageValues.ElementAt(i).Value;
+                }
+                _currentMoney += tempTotal + percentage;   
             }
 
 
@@ -104,51 +120,72 @@ namespace Money
 
         }
 
-        public Dictionary<NodeState.FieldTypeEnum, MoneyValue> GetMoneyValueDict()
+        public Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>> GetMoneyValueDict()
         {
             return _moneyValues;
         }
 
-        public void AddFinance(NodeState.FieldTypeEnum fieldType,float income, float expense)
+        public void AddFinance(Cultivation cultivation)
         {
 
-            if (!_moneyValues.ContainsKey(fieldType))
+            if (!_moneyValues.ContainsKey(cultivation.FieldType))
             {
-                _moneyValues.Add(fieldType, new MoneyValue(income , expense,0));
+                _moneyValues.Add(cultivation.FieldType, new List<MoneyValue>());
+                _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation));
             }
             else
             {
-                //Debug.Log( _moneyValues[fieldType].Income + " income");
-                _moneyValues[fieldType].Income += income;
-                //Debug.Log( _moneyValues[fieldType].Expense + " expense");
-                _moneyValues[fieldType].Expense += expense;
-            }
-       
+                _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation));
 
-         
+            }
         }
         
-        
-
+       
         public void SetPercentage(NodeState.FieldTypeEnum fieldTypeEnum, float percentage)
         {
            
-            _moneyValues[fieldTypeEnum].Percentage = percentage;
+            if (!_moneyValues.ContainsKey(fieldTypeEnum))
+            {
+                Debug.Log("Percentage key not in _moneyvalues dict");
+                return;
+            }
+
+            if (!_percentageValues.ContainsKey(fieldTypeEnum))
+            {
+                _percentageValues.Add(fieldTypeEnum, percentage);
+            }
+            else
+            {
+                _percentageValues[fieldTypeEnum] = percentage;
+            }
         }
 
         public float GetPercentage(NodeState.FieldTypeEnum fieldTypeEnum)
         {
-            return _moneyValues[fieldTypeEnum].Percentage;
+            return _percentageValues[fieldTypeEnum];
         }
 
         public float GetMoneyValue(NodeState.FieldTypeEnum fieldTypeEnum)
         {
-            return _moneyValues[fieldTypeEnum].Income;
+            float tempIncome = 0;
+            for (int i = 0; i < _moneyValues[fieldTypeEnum].Count; i++)
+            {
+                tempIncome += _moneyValues[fieldTypeEnum][i].Income;
+            }
+
+            return tempIncome;
         }
 
         public float GetExpense(NodeState.FieldTypeEnum fieldTypeEnum)
         {
-            return _moneyValues[fieldTypeEnum].Expense;
+            float tempExpense = 0;
+            for (int i = 0; i < _moneyValues[fieldTypeEnum].Count; i++)
+            {
+                tempExpense += _moneyValues[fieldTypeEnum][i].Expense;
+            }
+
+            return tempExpense;
+
         }
         
 

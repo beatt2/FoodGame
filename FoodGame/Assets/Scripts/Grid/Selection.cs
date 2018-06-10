@@ -18,7 +18,8 @@ public class Selection : MonoBehaviour
    public void ToggleBuildPanel(bool value)
    {
       BuildPanel.SetActive(value);
-      //GridManager.Instance.BuildingPlacement.BuildingTabActive = value;
+      MyBuildingTab.BuildingTabActive = true;
+
    }
 
    //Called from button

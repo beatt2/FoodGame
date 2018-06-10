@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Node
 {
-	public class NodeBehaviour : MonoBehaviour , IPointerDownHandler
+	public class NodeBehaviour : MonoBehaviour , IPointerDownHandler , IPointerEnterHandler
 	{
 		[HideInInspector]
 		public HighLight HighLight;
@@ -61,6 +61,12 @@ namespace Node
 		{
 			_emptyCultivationField = value;
 		}
+
+		public void OnPointerEnter(PointerEventData eventData)
+		{
+			GridManager.Instance.SetSelectedNode(this);
+		}
+		
 		public void OnPointerDown(PointerEventData eventData)
 		{
 			GridManager.Instance.SetSelectedNode(this);
@@ -147,9 +153,5 @@ namespace Node
 		}
 
 
-		private void OnMouseDown()
-		{
-	
-		}
 	}
 }

@@ -4,9 +4,7 @@ using Cultivations;
 using Node;
 using Save;
 using Tools;
-using UI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Grid
 {
@@ -28,6 +26,8 @@ namespace Grid
         
         public GameObject FenceOne;
         public GameObject FenceTwo;
+        public GameObject FenceOneBig;
+        public GameObject FenceTwoBig;
 
         [SerializeField] public BuildingPlacement BuildingPlacement;
 
@@ -368,10 +368,10 @@ namespace Grid
         public void ConfirmBuildFarmButtonPressed(int target)
         {
             if (!BuildingPlacement.BuildFarm(target)) return;
-      
+            int sizeRank = BuildingPlacement.Farms[target].GetComponent<BuildingPrefab>().SizeRank;
             SetTilesToAlpha(false);
             int listCount = _cultivationLocationList.Count;
-            _selectedNode.GetComponent<NodeFence>().ConfirmBuild();
+            _selectedNode.GetComponent<NodeFence>().ConfirmBuild(sizeRank);
             _cultivationLocationList.Add(new List<NodeBehaviour>());
             _cultivationLocationList[listCount].Add(_selectedNode);
             _cultivationLocationList[listCount][0].SetCultivationListIndex(listCount);
@@ -382,7 +382,7 @@ namespace Grid
             foreach (var node in _nodeBehavioursGrid)
             {
                 if (!node.HighLight.IsBlue()) continue;
-                node.GetComponent<NodeFence>().ConfirmBuild();
+                node.GetComponent<NodeFence>().ConfirmBuild(sizeRank);
                 //TODO ARE THESE STILL Necessary??
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);

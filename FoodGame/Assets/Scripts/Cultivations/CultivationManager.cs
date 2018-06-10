@@ -33,7 +33,7 @@ namespace Cultivations
             //TODO CHANGE THE WAY TO DO THIS
             if (cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField)
             {
-                SimpleMoneyManager.Instance.AddFinance(cultivation.FieldType, cultivation.MoneyTick, cultivation.ExpenseTick);
+                SimpleMoneyManager.Instance.AddFinance(cultivation);
             }
  
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);

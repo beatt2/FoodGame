@@ -118,9 +118,9 @@ MonoBehaviour:
   Sustainability: 3
   MoneyTick: 70
   ExpenseTick: 50
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 2000
-  UpgradeValue: 0
+  UpgradeValue: 3
   SpriteIndex: 20
   MyCurrentState: 0
   MyFieldType: 5
@@ -131,14 +131,14 @@ MonoBehaviour:
     Sustainability: 3
     MoneyTick: 70
     ExpenseTick: 50
-    UpgradeRank: 0
+    MonthsToGrow: 0
     BuildPrice: 2000
-    UpgradeValue: 0
-    SpriteIndex: 27
+    UpgradeValue: 3
+    SpriteIndex: 20
     EnviromentValue: 0
     Happyness: 0
     MyCultivationState: 0
-    FieldType: 5
+    FieldType: 0
 --- !u!114 &114291170938346964
 MonoBehaviour:
   m_ObjectHideFlags: 1

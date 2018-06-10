@@ -57,23 +57,25 @@ MonoBehaviour:
   Sustainability: 5
   MoneyTick: 50
   ExpenseTick: 10
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 500
-  UpgradeValue: 0
+  UpgradeValue: 3
   SpriteIndex: 28
   MyCurrentState: 1
   MyFieldType: 5
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyPlant:
     Name: Tomato Field
     Sustainability: 5
     MoneyTick: 50
     ExpenseTick: 10
-    UpgradeRank: 500
+    MonthsToGrow: 0
     BuildPrice: 0
     UpgradeValue: 0
     SpriteIndex: 0
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 2
     FieldType: 5
 --- !u!114 &114795382849737568

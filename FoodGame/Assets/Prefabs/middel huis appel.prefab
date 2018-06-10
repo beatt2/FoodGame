@@ -131,23 +131,25 @@ MonoBehaviour:
   Sustainability: 3
   MoneyTick: 70
   ExpenseTick: 50
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 2000
   UpgradeValue: 0
   SpriteIndex: 17
   MyCurrentState: 0
   MyFieldType: 3
-  UpgradeOptions: []
+  EnviromentValue: 0
+  Happiness: 0
   MyBuilding:
     Name: Apple Middle
     Sustainability: 3
     MoneyTick: 70
     ExpenseTick: 50
-    UpgradeRank: 0
-    BuildPrice: 2000
+    MonthsToGrow: 0
+    BuildPrice: 0
     UpgradeValue: 0
     SpriteIndex: 17
-    UpgradeOptions: []
+    EnviromentValue: 0
+    Happyness: 0
     MyCultivationState: 0
     FieldType: 3
 --- !u!212 &212843172398098088

@@ -8,16 +8,21 @@ namespace Grid
     public class NodeFence : MonoBehaviour
     {
         public bool Left;
+        public int LeftSizeRank;
         public GameObject LeftGameObject;
 
         public bool Right;
+        public int RightSizeRank;
         public GameObject RightGameObject;
 
         public bool Up;
+        public int UpSizeRank;
         public GameObject UpGameObject;
 
         public bool Down;
+        public int DownSizeRank;
         public GameObject DownGameObject;
+
 
         public enum SideEnum
         {
@@ -47,8 +52,12 @@ namespace Grid
             _location = value;
         }
 
-        public void ConfirmBuild()
+        public void ConfirmBuild(int sizeRank)
         {
+            LeftSizeRank = sizeRank;
+            RightSizeRank = sizeRank;
+            DownSizeRank = sizeRank;
+            UpSizeRank = sizeRank;
             switch (_location)
             {
                 case 0:
@@ -73,62 +82,72 @@ namespace Grid
 
         private void CheckUpSpace()
         {
-            if (Up) return;
-            var neighBourNode =
-                GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x, _nodeBehaviour.GridLocation.y + 1);
+            if (Up && UpSizeRank < 3 || Up && UpSizeRank > 2 && UpGameObject != null) return;
+            var neighBourNode =GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x, _nodeBehaviour.GridLocation.y + 1);
             if (neighBourNode != null)
             {
+                if (neighBourNode.GetNodeFence().DownSizeRank < 3 && neighBourNode.GetNodeFence().DownGameObject != null)
+                {
+                    HardRemoveFence(SideEnum.Down, neighBourNode.GetNodeFence());
+                }
                 neighBourNode.GetNodeFence().Down = true;
+                
             }
-
-
             Up = true;
-            UpGameObject = BuildFence(GridManager.Instance.FenceTwo, UpLocation, -1);
+            UpGameObject = BuildFence(UpSizeRank < 3 ? GridManager.Instance.FenceTwo : GridManager.Instance.FenceTwoBig, UpLocation, -1);
         }
 
 
         private void CheckRightSpace()
         {
-            if (Right) return;
-            var neighBourNode =
-                GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x + 1, _nodeBehaviour.GridLocation.y);
+            if (Right && RightSizeRank < 3 || Right && RightSizeRank > 2 && RightGameObject != null) return;
+            var neighBourNode = GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x + 1, _nodeBehaviour.GridLocation.y);
             if (neighBourNode != null)
             {
+                if (neighBourNode.GetNodeFence().LeftSizeRank < 3 && neighBourNode.GetNodeFence().LeftGameObject != null)
+                {
+                    HardRemoveFence(SideEnum.Left, neighBourNode.GetNodeFence());
+                }
                 neighBourNode.GetNodeFence().Left = true;
             }
 
-
             Right = true;
-            RightGameObject = BuildFence(GridManager.Instance.FenceOne, RightLocation, 0);
+            RightGameObject = BuildFence(RightSizeRank < 3 ? GridManager.Instance.FenceOne : GridManager.Instance.FenceOneBig, RightLocation, 0);
         }
 
         private void CheckLeftSpace()
         {
-            if (Left) return;
-            var neighBourNode =
-                GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x - 1, _nodeBehaviour.GridLocation.y);
+            if (Left && LeftSizeRank < 3 || Left && LeftSizeRank > 2 && LeftGameObject != null) return;
+            var neighBourNode = GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x - 1, _nodeBehaviour.GridLocation.y);
             if (neighBourNode != null)
             {
+                if (neighBourNode.GetNodeFence().RightSizeRank < 3 && neighBourNode.GetNodeFence().RightGameObject != null)
+                {
+                    HardRemoveFence(SideEnum.Right, neighBourNode.GetNodeFence());
+                }
                 neighBourNode.GetNodeFence().Right = true;
             }
 
             Left = true;
-            LeftGameObject = BuildFence(GridManager.Instance.FenceOne, LeftLocation, 1);
+            LeftGameObject = BuildFence(LeftSizeRank < 3 ? GridManager.Instance.FenceOne : GridManager.Instance.FenceOneBig, LeftLocation, 1);
             //build fence left
         }
 
         private void CheckDownSpace()
         {
-            if (Down) return;
-            var neighBourNode =
-                GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x, _nodeBehaviour.GridLocation.y - 1);
+            if (Down && DownSizeRank < 3 || Down && DownSizeRank > 2 && DownGameObject != null) return;
+            var neighBourNode = GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x, _nodeBehaviour.GridLocation.y - 1);
             if (neighBourNode != null)
             {
+                if (neighBourNode.GetNodeFence().UpSizeRank < 3 && neighBourNode.GetNodeFence().DownGameObject != null)
+                {
+                    HardRemoveFence(SideEnum.Up, neighBourNode.GetNodeFence());
+                }
                 neighBourNode.GetNodeFence().Up = true;
             }
 
             Down = true;
-            DownGameObject = BuildFence(GridManager.Instance.FenceTwo, DownLocation, 1);
+            DownGameObject = BuildFence(DownSizeRank < 3 ? GridManager.Instance.FenceTwo : GridManager.Instance.FenceTwoBig, DownLocation, 1);
         }
 
         public GameObject BuildFence(GameObject go, Vector2 loc, int layerIncrement)
@@ -137,6 +156,27 @@ namespace Grid
             go.transform.localPosition = loc;
             go.GetComponent<SpriteRenderer>().sortingOrder = _nodeBehaviour.GetLayer() + layerIncrement;
             return go;
+        }
+
+        private void HardRemoveFence(SideEnum sideEnum, NodeFence node)
+        {
+            switch (sideEnum)
+            {
+                case SideEnum.Left:
+                    Destroy(node.LeftGameObject);
+                    break;
+                case SideEnum.Right:
+                    Destroy(node.RightGameObject);
+                    break;
+                case SideEnum.Up:
+                    Destroy(node.UpGameObject);
+                    break;
+                case SideEnum.Down:
+                    Destroy(node.DownGameObject);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("sideEnum", sideEnum, null);
+            }
         }
 
 
@@ -148,7 +188,12 @@ namespace Grid
                 {
                     Destroy(LeftGameObject);
                     Left = false;
+                    LeftSizeRank = 0;
                 }
+            }
+            else
+            {
+                LeftSizeRank = 0;
             }
 
             if (RightGameObject != null)
@@ -157,7 +202,13 @@ namespace Grid
                 {
                     Destroy(RightGameObject);
                     Right = false;
+                    RightSizeRank = 0;
                 }
+             
+            }
+            else
+            {
+                RightSizeRank = 0;
             }
 
             if (UpGameObject != null)
@@ -166,7 +217,13 @@ namespace Grid
                 {
                     Destroy(UpGameObject);
                     Up = false;
+                    UpSizeRank = 0;
                 }
+             
+            }
+            else
+            {
+                UpSizeRank = 0;
             }
 
             if (DownGameObject != null)
@@ -176,15 +233,20 @@ namespace Grid
                     
                     Destroy(DownGameObject);
                     Down = false;
+                    DownSizeRank= 0;
                 }
+           
+            }
+            else
+            {
+                DownSizeRank = 0;
             }
         }
 
   
         private bool CheckNeighbour(int x, int y, SideEnum side)
         {
-            var neighBourNode =
-                GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x + x, _nodeBehaviour.GridLocation.y + y);
+            var neighBourNode = GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x + x, _nodeBehaviour.GridLocation.y + y);
             if (neighBourNode == null) return false;
          
             switch (side)
@@ -253,29 +315,92 @@ namespace Grid
                 switch (side)
                 {
                     case SideEnum.Left:
-                        nodeFence.LeftGameObject = RightGameObject;
+                        if (nodeFence.LeftSizeRank < 3 && RightSizeRank > 2)
+                        {
+                            nodeFence.LeftGameObject = nodeFence.BuildFence(
+                                GridManager.Instance.FenceOne,
+                                LeftLocation,
+                                1
+                            );
+                     
+                            
+                        }
+                        else
+                        {
+                            nodeFence.LeftGameObject = RightGameObject;
+                        }
+                        Destroy(RightGameObject);
                         nodeFence.LeftGameObject.transform.parent = nodeFence.transform;
                         RightGameObject = null;
                         Right = false;
+                        RightSizeRank = 0;
                         break;
                     case SideEnum.Right:
-                        nodeFence.RightGameObject = LeftGameObject;
+                        if (nodeFence.RightSizeRank < 3 && LeftSizeRank > 2)
+                        {
+                            nodeFence.RightGameObject = nodeFence.BuildFence(
+                                GridManager.Instance.FenceOne,
+                                RightLocation,
+                                0
+                            );
+              
+                        }
+                        else
+                        {
+                            nodeFence.RightGameObject = LeftGameObject;
+                        }
+                        Destroy(LeftGameObject);
                         nodeFence.RightGameObject.transform.parent = nodeFence.transform;
+                        
+                        LeftGameObject = null;
                         Left = false;
+                        LeftSizeRank = 0;
                         break;
                     case SideEnum.Up:
-                        nodeFence.UpGameObject = DownGameObject;
+                        if (nodeFence.UpSizeRank < 3 && DownSizeRank > 2)
+                        {
+                            nodeFence.UpGameObject = nodeFence.BuildFence(
+                                GridManager.Instance.FenceTwo,
+                                UpLocation,
+                                -1
+                            );
+         
+                        }
+                        else
+                        {
+                            nodeFence.UpGameObject = DownGameObject;
+                        }
+                        Destroy(DownGameObject);
                         nodeFence.UpGameObject.transform.parent = nodeFence.transform;
+                        DownGameObject = null;
                         Down = false;
+                        DownSizeRank = 0;
                         break;
                     case SideEnum.Down:
-                        nodeFence.DownGameObject = UpGameObject;
+                        if (nodeFence.DownSizeRank < 3 && UpSizeRank > 2)
+                        {
+                            nodeFence.DownGameObject = nodeFence.BuildFence(
+                                GridManager.Instance.FenceTwo,
+                                DownLocation,
+                                0
+                            );
+              
+                        }
+                        else
+                        {
+                            nodeFence.DownGameObject = DownGameObject;
+                        }
                         nodeFence.DownGameObject.transform.parent = nodeFence.transform;
+                        Destroy(UpGameObject);
+                        UpGameObject = null;
                         Up = false;
+                        UpSizeRank = 0;
                         break;
                     default:
                         throw new ArgumentOutOfRangeException("side", side, null);
                 }
+
+                
             }
         }
     }

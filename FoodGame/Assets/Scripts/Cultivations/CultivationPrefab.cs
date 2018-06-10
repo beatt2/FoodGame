@@ -11,17 +11,15 @@ namespace Cultivations
         public int Sustainability;
         public int MoneyTick;
         public float ExpenseTick;
-        public int UpgradeRank;
+        public int MonthsToGrow;
         public int BuildingPrice;
         public int UpgradeValue;
         public int SpriteIndex;
         public NodeState.CurrentStateEnum MyCurrentState;
         public NodeState.FieldTypeEnum MyFieldType;
-        
-
-
         public int EnviromentValue;
         public int Happiness;
+        public int SizeRank;
 
 
     }

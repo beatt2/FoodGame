@@ -131,7 +131,7 @@ MonoBehaviour:
   Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 3000
   UpgradeValue: 0
   SpriteIndex: 7
@@ -139,17 +139,19 @@ MonoBehaviour:
   MyFieldType: 7
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 3
   MyBuilding:
-    Name: CarrotBig
+    Name: GrapeBig
     Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
-    UpgradeRank: 0
-    BuildPrice: 3000
+    MonthsToGrow: 3
+    BuildPrice: 0
     UpgradeValue: 0
-    SpriteIndex: 19
+    SpriteIndex: 7
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
     MyCultivationState: 0
     FieldType: 7
 --- !u!212 &212183563270223444

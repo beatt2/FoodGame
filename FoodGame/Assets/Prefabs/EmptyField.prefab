@@ -160,7 +160,7 @@ MonoBehaviour:
   ExpenseTick: 0
   UpgradeRank: 0
   BuildingPrice: 0
-  UpgradeValue: 1500
+  UpgradeValue: 0
   SpriteIndex: 4
   MyCurrentState: 2
   MyFieldType: 2
@@ -174,11 +174,11 @@ MonoBehaviour:
     UpgradeRank: 0
     BuildPrice: 0
     UpgradeValue: 1500
-    SpriteIndex: 0
+    SpriteIndex: 4
     EnviromentValue: 0
     Happyness: 0
     MyCultivationState: 2
-    FieldType: 5
+    FieldType: 3
 --- !u!212 &212602781056753814
 SpriteRenderer:
   m_ObjectHideFlags: 1

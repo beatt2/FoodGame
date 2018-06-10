@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Cultivations;
 using Grid;
@@ -57,7 +56,7 @@ namespace Save
         private void LoadTime()
         {
            
-            _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0);
+            _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 500000, 0);
 //            if (File.Exists(GetPath(filenameTime, extensionTime)))
 //            {
 //                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
@@ -128,7 +127,12 @@ namespace Save
                             tempGrid[i,j].GetNodeFence().Up,
                             tempGrid[i,j].GetNodeFence().UpGameObject != null,
                             tempGrid[i,j].GetNodeFence().Down,
-                            tempGrid[i,j].GetNodeFence().DownGameObject != null
+                            tempGrid[i,j].GetNodeFence().DownGameObject != null,
+                            tempGrid[i,j].GetNodeFence().LeftSizeRank,
+                            tempGrid[i,j].GetNodeFence().RightSizeRank,
+                            tempGrid[i,j].GetNodeFence().UpSizeRank,
+                            tempGrid[i,j].GetNodeFence().DownSizeRank
+                            
                             
                                 
                         );
@@ -149,7 +153,11 @@ namespace Save
                             tempGrid[i,j].GetNodeFence().Up,
                             tempGrid[i,j].GetNodeFence().UpGameObject != null,
                             tempGrid[i,j].GetNodeFence().Down,
-                            tempGrid[i,j].GetNodeFence().DownGameObject != null
+                            tempGrid[i,j].GetNodeFence().DownGameObject != null,
+                            tempGrid[i,j].GetNodeFence().LeftSizeRank,
+                            tempGrid[i,j].GetNodeFence().RightSizeRank,
+                            tempGrid[i,j].GetNodeFence().UpSizeRank,
+                            tempGrid[i,j].GetNodeFence().DownSizeRank
                         );
                     }
                     
@@ -188,35 +196,31 @@ namespace Save
 
                     if (loadedNodes[i, j].FenceLeftOwner)
                     {
-                        nodes[i, j].GetNodeFence().LeftGameObject = nodes[i, j].GetNodeFence().BuildFence(
-                            GridManager.Instance.FenceOne,
-                            NodeFence.LeftLocation,
-                            1
-                        );
+                        nodes[i, j].GetNodeFence().LeftGameObject = 
+                            nodes[i, j].GetNodeFence().BuildFence(loadedNodes[i, j].SizeRankLeft > 2 ? 
+                                GridManager.Instance.FenceOneBig :
+                                GridManager.Instance.FenceOne, NodeFence.LeftLocation, 1);
                     }
                     if (loadedNodes[i, j].FenceRightOwner)
                     {
-                        nodes[i, j].GetNodeFence().RightGameObject = nodes[i, j].GetNodeFence().BuildFence(
-                            GridManager.Instance.FenceOne,
-                            NodeFence.RightLocation,
-                            0
-                        );
+                        nodes[i, j].GetNodeFence().RightGameObject = 
+                            nodes[i, j].GetNodeFence().BuildFence(loadedNodes[i, j].SizeRankRight > 2 ? 
+                                GridManager.Instance.FenceOneBig :
+                                GridManager.Instance.FenceOne, NodeFence.RightLocation, 0);
                     }
                     if (loadedNodes[i, j].FenceUpOwner)
                     {
-                        nodes[i, j].GetNodeFence().UpGameObject = nodes[i, j].GetNodeFence().BuildFence(
-                            GridManager.Instance.FenceTwo,
-                            NodeFence.UpLocation,
-                            -1
-                        );
+                        nodes[i, j].GetNodeFence().UpGameObject = 
+                            nodes[i, j].GetNodeFence().BuildFence(loadedNodes[i, j].SizeRankUp > 2 ? 
+                                GridManager.Instance.FenceTwoBig :
+                                GridManager.Instance.FenceTwo, NodeFence.UpLocation, -1);
                     }
                     if (loadedNodes[i, j].FenceDownOwner)
                     {
-                        nodes[i, j].GetNodeFence().DownGameObject = nodes[i, j].GetNodeFence().BuildFence(
-                            GridManager.Instance.FenceTwo,
-                            NodeFence.DownLocation,
-                            1
-                        );
+                        nodes[i, j].GetNodeFence().DownGameObject = 
+                            nodes[i, j].GetNodeFence().BuildFence(loadedNodes[i, j].SizeRankDown > 2 ? 
+                                GridManager.Instance.FenceTwoBig :
+                                GridManager.Instance.FenceTwo, NodeFence.DownLocation, 1);
                     }
                     if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.EmptyField
                         || nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)

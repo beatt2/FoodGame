@@ -16,15 +16,19 @@ namespace Save
 
         public bool FenceLeft;
         public bool FenceLeftOwner;
+        public int SizeRankLeft;
         
         public bool FenceRight;
         public bool FenceRightOwner;
+        public int SizeRankRight;
         
         public bool FenceUp;
         public bool FenceUpOwner;
+        public int SizeRankUp;
         
         public bool FenceDown;
         public bool FenceDownOwner;
+        public int SizeRankDown;
 
 
 
@@ -32,7 +36,9 @@ namespace Save
         public SaveNodes(int listIndex, NodeState.CurrentStateEnum currentState,
             NodeState.FieldTypeEnum fieldType,
             bool emptyCultivationField, Cultivation myCultivation, bool fenceLeft, bool fenceLeftOwner,
-            bool fenceRight, bool fenceRightOwner, bool fenceUp, bool fenceUpOwner, bool fenceDown, bool fenceDownOwner)
+            bool fenceRight, bool fenceRightOwner, bool fenceUp, bool fenceUpOwner, bool fenceDown, bool fenceDownOwner,
+            int sizeRankLeft, int sizeRankRight, int sizeRankUp, int sizeRankDown
+            )
         {
             
             ListIndex = listIndex;
@@ -43,11 +49,15 @@ namespace Save
             FenceLeft = fenceLeft;
             FenceLeftOwner = fenceLeftOwner;
             FenceRight = fenceRight;
-            FenceRightOwner = fenceRight;
+            FenceRightOwner = fenceRightOwner;
             FenceUp = fenceUp;
             FenceUpOwner = fenceUpOwner;
             FenceDown = fenceDown;
             FenceDownOwner = fenceDownOwner;
+            SizeRankLeft = sizeRankLeft;
+            SizeRankRight = sizeRankRight;
+            SizeRankUp = sizeRankUp;
+            SizeRankDown = sizeRankDown;
 
         }
         public SaveNodes(int listIndex,NodeState.CurrentStateEnum currentState ,

@@ -13,6 +13,8 @@ public class TopBar : MonoBehaviour
 	public Text[] MyMonth;
 	public Text[] MyYear;
 
+	private int _currentMoneyLength = 0;
+
 	// Use this for initialization
 	void Start () {
 
@@ -51,9 +53,21 @@ public class TopBar : MonoBehaviour
 	{
 		string currentMoney = SimpleMoneyManager.Instance.GetCurrentMoney().ToString();
 		int j = 0;
+
+		if (currentMoney.Length < _currentMoneyLength)
+		{
+			foreach (var t in MyMoney)
+			{
+				t.text = "0";
+			}
+		}
+
 		for (int i = currentMoney.Length - 1;  i > -1 ; i -- , j++)
 		{
 			MyMoney[i].text = currentMoney[j].ToString();
 		}
+		_currentMoneyLength = currentMoney.Length;
+
+
 	}
 }

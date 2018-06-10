@@ -131,7 +131,7 @@ MonoBehaviour:
   Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 3000
   UpgradeValue: 0
   SpriteIndex: 6
@@ -139,19 +139,21 @@ MonoBehaviour:
   MyFieldType: 4
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 0
   MyBuilding:
     Name: Big Blackberries
     Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
-    UpgradeRank: 0
+    MonthsToGrow: 3
     BuildPrice: 3000
     UpgradeValue: 0
-    SpriteIndex: 18
+    SpriteIndex: 6
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 3
     MyCultivationState: 0
-    FieldType: 4
+    FieldType: 0
 --- !u!212 &212115234456201024
 SpriteRenderer:
   m_ObjectHideFlags: 1

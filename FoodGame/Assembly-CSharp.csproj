@@ -53,6 +53,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BackGround\BackGroundMovement.cs" />
+    <Compile Include="Assets\Scripts\BackGround\Cloud.cs" />
     <Compile Include="Assets\Scripts\Camera Movement\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Cultivations\Building.cs" />
     <Compile Include="Assets\Scripts\Cultivations\BuildingPrefab.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\Scripts\Save\SaveInfo.cs" />
     <Compile Include="Assets\Scripts\Save\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Save\SaveNodes.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\TimeSystem\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Tools\MathExt.cs" />
     <Compile Include="Assets\Scripts\Tools\Singleton.cs" />

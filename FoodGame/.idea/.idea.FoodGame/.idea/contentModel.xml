@@ -11,6 +11,10 @@
           <e p="UpdateableDataEditor.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="BackGround" t="Include">
+            <e p="BackGroundMovement.cs" t="Include" />
+            <e p="Cloud.cs" t="Include" />
+          </e>
           <e p="Camera Movement" t="Include">
             <e p="CameraMove.cs" t="Include" />
           </e>
@@ -61,6 +65,7 @@
             <e p="SaveManager.cs" t="Include" />
             <e p="SaveNodes.cs" t="Include" />
           </e>
+          <e p="Sound.cs" t="Include" />
           <e p="TimeSystem" t="Include">
             <e p="TimeManager.cs" t="Include" />
           </e>

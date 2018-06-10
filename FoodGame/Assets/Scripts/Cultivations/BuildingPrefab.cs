@@ -10,12 +10,7 @@ namespace Cultivations
         public Building MyBuilding;
 
 
-//
-//        protected void Awake()
-//        {
-//            var tempSprite = GetComponent<SpriteRenderer>().sprite;
-//           //MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType,UpgradeValue,SpriteIndex, EnviromentValue, Happiness);
-//        }
+
 
         public void Start()
         {
@@ -33,7 +28,7 @@ namespace Cultivations
         {
             
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,UpgradeRank,BuildingPrice,MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
+            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,MonthsToGrow,BuildingPrice,MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank);
         }
 
         public void ChangeValues(Building building)
@@ -43,14 +38,7 @@ namespace Cultivations
             Sustainability = MyBuilding.Sustainability;
             MoneyTick = MyBuilding.MoneyTick;
             BuildingPrice = MyBuilding.BuildPrice;
-            UpgradeRank = MyBuilding.UpgradeRank;
-
-            
-            //TODO POSSIBLE BUG
-//            MyCurrentState = MyBuilding.MyCultivationState;
-//            MyFieldType = MyBuilding.FieldType;
-            
-            
+            MonthsToGrow = MyBuilding.MonthsToGrow;
         }
 
         private void AddCultivation()

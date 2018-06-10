@@ -24,6 +24,7 @@ namespace UI
             _buildingPrefabs = new BuildingPrefab[tempFarms.Length];
             var tempGameObjects = GameObject.FindGameObjectsWithTag("FarmButton");
             _farmButtons = new FarmButtons[tempFarms.Length];
+            Debug.Log(_farmButtons.Length + "tempGos");
             foreach (var farm in tempFarms)
             {
                 if (farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice > _highestPrice)
@@ -44,7 +45,7 @@ namespace UI
 
         private void SetButton(Button button, BuildingPrefab prefab)
         {
-            StatBar statBar = button.gameObject.transform.parent.GetComponent<StatBar>();
+            StatBar statBar = button.gameObject.transform.parent.GetComponentInChildren<StatBar>();
             if (statBar == null) return;
             for (int i = 0; i < prefab.Happiness; i++)
             {

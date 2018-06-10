@@ -118,7 +118,7 @@ MonoBehaviour:
   Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
-  UpgradeRank: 0
+  MonthsToGrow: 3
   BuildingPrice: 3000
   UpgradeValue: 0
   SpriteIndex: 17
@@ -126,19 +126,21 @@ MonoBehaviour:
   MyFieldType: 3
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 3
   MyBuilding:
     Name: Big Apple
     Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
-    UpgradeRank: 0
+    MonthsToGrow: 3
     BuildPrice: 3000
     UpgradeValue: 0
-    SpriteIndex: 5
+    SpriteIndex: 17
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
     MyCultivationState: 0
-    FieldType: 3
+    FieldType: 0
 --- !u!114 &114780162073959432
 MonoBehaviour:
   m_ObjectHideFlags: 1

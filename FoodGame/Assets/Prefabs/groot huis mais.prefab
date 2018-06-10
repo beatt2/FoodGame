@@ -118,7 +118,7 @@ MonoBehaviour:
   Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
-  UpgradeRank: 0
+  MonthsToGrow: 2
   BuildingPrice: 3000
   UpgradeValue: 0
   SpriteIndex: 8
@@ -126,17 +126,19 @@ MonoBehaviour:
   MyFieldType: 0
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 3
   MyBuilding:
     Name: Big Corn
     Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
-    UpgradeRank: 0
+    MonthsToGrow: 2
     BuildPrice: 3000
     UpgradeValue: 0
-    SpriteIndex: 20
+    SpriteIndex: 8
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114924242732996806

@@ -13,16 +13,16 @@ namespace Cultivations
 
         protected void Awake()
         {
-            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, UpgradeRank, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
+            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank);
             
             
         }
 
         public void CustomAwake()
         {
-            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, UpgradeRank, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness);
+            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank);
         }
 
         private void Start()
@@ -41,7 +41,7 @@ namespace Cultivations
             Sustainability = MyPlant.Sustainability;
             MoneyTick = MyPlant.MoneyTick;
             BuildingPrice = MyPlant.BuildPrice;
-            UpgradeRank = MyPlant.UpgradeRank;
+            MonthsToGrow = MyPlant.MonthsToGrow;
             MyCurrentState = MyPlant.MyCultivationState;
             MyFieldType = MyPlant.FieldType;
             AddCultivation();
