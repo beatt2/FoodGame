@@ -52,7 +52,7 @@ namespace Grid
             for (int x = 0; x < Size.x; x++)
             {
 
-                var currentLayerCount = oldLayerCount - x;
+                var currentLayerCount = oldLayerCount - x -1;
                 var currentPosition = Vector3.zero;
                 currentPosition.x = XRowOffset * x;
                 currentPosition.y = YRowOffset * x;
@@ -85,6 +85,7 @@ namespace Grid
                     currentLayerCount -= 2;
                 }
                 white = x % 2 == 0;
+                
 
             }
 

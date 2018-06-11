@@ -112,7 +112,7 @@ namespace Grid
             }
 
             Right = true;
-            RightGameObject = BuildFence(RightSizeRank < 3 ? GridManager.Instance.FenceOne : GridManager.Instance.FenceOneBig, RightLocation, 0);
+            RightGameObject = BuildFence(RightSizeRank < 3 ? GridManager.Instance.FenceOne : GridManager.Instance.FenceOneBig, RightLocation, -1);
         }
 
         private void CheckLeftSpace()
@@ -341,7 +341,7 @@ namespace Grid
                             nodeFence.RightGameObject = nodeFence.BuildFence(
                                 GridManager.Instance.FenceOne,
                                 RightLocation,
-                                0
+                                -1
                             );
               
                         }
