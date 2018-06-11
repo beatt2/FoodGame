@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System;
+using System.Collections;
 using Money;
 using Node;
 using Tools;
@@ -13,17 +13,20 @@ namespace Events
         public Events[] EventsArray;
         
         public Text Headline;
+        public GameObject HeadlineUi;
+
+        public GameObject ExclamationMark;
+
+        public Sprite[] Sprites;
         public Text Content;
+        public Text Effect;
         public GameObject Ui;
-        public bool InEventMenu;
-        private readonly bool[] _eventGoingOn = new bool[10];
+        public bool InEventMenu = false;
+
+        private bool _eventOnGoing;
 
         private float _percentageEvent = 0;
-        private void Start()
-        {
-            Ui.SetActive(InEventMenu);
-        }
-
+        private string _name;
         public float GetInfluence()
         {
             return _percentageEvent;
@@ -36,60 +39,130 @@ namespace Events
             {
                 if (EventsArray[i].Starts == new Vector2Int(month,year))
                 {
+
                     
-                    InEventMenu = true;
-                    _eventGoingOn[i] = true;
-                    Ui.SetActive(InEventMenu);
+                    HeadlineUi.SetActive(true);
+                    ExclamationMark.SetActive(true);
+                    
+                    if (EventsArray[i].InfluencePercentage < -5 || EventsArray[i].InfluencePercentage > 8)
+                    {
+                        ExclamationMark.GetComponent<Image>().sprite = Sprites[2];
+                    }
+                    else if(EventsArray[i].InfluencePercentage < 0 || EventsArray[i].InfluencePercentage > 4)
+
+                    {
+                        ExclamationMark.GetComponent<Image>().sprite = Sprites[1];
+                    }
+                    else
+                    {
+                        ExclamationMark.GetComponent<Image>().sprite = Sprites[0];
+                    }
+                    StartCoroutine("UiTimer");
                     SetText(i);
-                    Debug.Log(EventsArray[i].FieldType);
-                    SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
-                    //switch (EventsArray[i].FieldType)
-                    //{
-                    //    case NodeState.FieldTypeEnum.Corn:
-                    //        Debug.Log("Corn");
+                    //Debug.Log(EventsArray[i].FieldType);
+                    //SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
+                //    switch (EventsArray[i].FieldType)
+                //    {
+                //        case NodeState.FieldTypeEnum.Corn:
+                            
 
-                    //        SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
-                    //        // _percentageEvent = EventsArray[i].InfluencePercentage;
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Carrot:
-                    //        Debug.Log("Increase overall income");
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Nothing:
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Apple:
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Blackberries:
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Tomato:
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Tree:
-                    //        break;
-                    //    case NodeState.FieldTypeEnum.Grapes:
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
+                            
+                //            break;
+                //        case NodeState.FieldTypeEnum.Carrot:
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Carrot, EventsArray[i].InfluencePercentage);
+                            
+                //            break;
+                //        case NodeState.FieldTypeEnum.Nothing:
+                //            break;
+                //        case NodeState.FieldTypeEnum.Apple:
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Apple, EventsArray[i].InfluencePercentage);
+                //            break;
+                //        case NodeState.FieldTypeEnum.Blackberries:
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Blackberries, EventsArray[i].InfluencePercentage);
+                //            break;
+                //        case NodeState.FieldTypeEnum.Tomato:
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tomato, EventsArray[i].InfluencePercentage);
+                //            break;
+                //        case NodeState.FieldTypeEnum.Tree:
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tree, EventsArray[i].InfluencePercentage);
+                //            break;
+                //        case NodeState.FieldTypeEnum.Grapes:
+                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Grapes, EventsArray[i].InfluencePercentage);
+                //            break;
+                //        default:
+                //            break;
+                //    }
                 }
 
-                if (EventsArray[i].Finishes == new Vector2Int(month, year))
-                {                   
-                    _eventGoingOn[i] = false;
-                    InEventMenu = true;
-                    Ui.SetActive(InEventMenu);
-                    SetTextEnded(i);
-                }
+                if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
+               
+                HeadlineUi.SetActive(false);
+                ExclamationMark.SetActive(false);
+                SetTextEnded(i);
             }
         }
+
+        private IEnumerator UiTimer()
+        {
+            yield return new WaitForSeconds(10);
+            HeadlineUi.SetActive(false);
+        }
+
         public void SetText(int whichevent)
         {
             Headline.text = EventsArray[whichevent].Headline;
-            Content.text = EventsArray[whichevent].Content;      
+            Content.text = EventsArray[whichevent].Content;
+
+            if (EventsArray[whichevent].InfluencePercentage > 0)
+            {
+                Effect.text = GetName(EventsArray[whichevent].FieldType) + "  " + "+ " + EventsArray[whichevent].InfluencePercentage + "%";
+            }
+            else
+            {
+                Effect.text = GetName(EventsArray[whichevent].FieldType) + "  " + EventsArray[whichevent].InfluencePercentage + " %";
+            }
+            
+            //FieldText.text = GetName(EventsArray[whichevent].FieldType);
+        }
+        private string GetName(NodeState.FieldTypeEnum fieldType)
+        {
+            _name = "";
+
+            switch (fieldType)
+            {
+                case NodeState.FieldTypeEnum.Corn:
+                    _name = "Maïs";
+                    break;
+                case NodeState.FieldTypeEnum.Carrot:
+                    _name = "Wortel";
+                    break;
+                case NodeState.FieldTypeEnum.Nothing:
+                    _name = "Null";
+                    break;
+                case NodeState.FieldTypeEnum.Apple:
+                    _name = "Appel";
+                    break;
+                case NodeState.FieldTypeEnum.Blackberries:
+                    _name = "Bramen";
+                    break;
+                case NodeState.FieldTypeEnum.Tomato:
+                    _name = "Tomaten";
+                    break;
+                case NodeState.FieldTypeEnum.Tree:
+                    _name = "Bomen";
+                    break;
+                case NodeState.FieldTypeEnum.Grapes:
+                    _name = "Druiven";
+                    break;
+            }
+
+            return _name;
         }
 
         public void SetTextEnded(int whichevent)
         {
-            Headline.text = EventsArray[whichevent].Headline + " has ended";
-            Content.text = EventsArray[whichevent].Content;        
+            Headline.text = "is gestopt";          
         }
 
     }

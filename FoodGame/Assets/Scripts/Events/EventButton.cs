@@ -4,12 +4,17 @@ namespace Events
 {
     public class EventButton : MonoBehaviour
     {
-        public GameObject EventsUi;
+        
 
         public void CloseEvent()
         {
-            EventManager.Instance.InEventMenu = false;
-            EventsUi.SetActive(false);
+            
+            EventManager.Instance.Ui.SetActive(false);
+        }
+
+        public void OpenEventInfo()
+        {
+            EventManager.Instance.Ui.SetActive(true);
         }
     }
 }

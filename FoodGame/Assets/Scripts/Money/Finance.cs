@@ -31,7 +31,7 @@ namespace Money
 
         private string GetName(NodeState.FieldTypeEnum fieldType)
         {
-            _name = "Null";
+            _name = "";
 
             switch (fieldType)
             {
@@ -152,8 +152,8 @@ namespace Money
             float eventChange = income * eventPercentage;
 
 
-            float eventAmount = 100 / income * eventChange;
-            eventAmount = Mathf.Round(eventAmount * 100) / 100;
+            //float eventAmount = 100 / income * eventChange;
+            //eventAmount = Mathf.Round(eventAmount * 100) / 100;
 
 
             return eventAmount;
@@ -173,7 +173,7 @@ namespace Money
             Debug.Log(expense + "expesne");
             float total = income - expense + CalculatePercentage(percentage, income);
 
-            total = Mathf.Round(total * 100) / 100;
+            total = Mathf.Round(total);
             row.Total.text = "€ " + total;
 
             row.Total.color = income > expense ? new Color(0, 0.5f, 0) : new Color(1, 0, 0);
@@ -200,7 +200,7 @@ namespace Money
 
         public void RemoveText()
         {
-            Debug.Log(_go.Count);
+           
             for (int i = 0; i < _financeTexts.Count; i++)
             {
                 _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y - Gap,
@@ -221,8 +221,7 @@ namespace Money
 
         public void UpdateText()
         {
-            if (!EventManager.Instance.InEventMenu)
-            {
+            
                 _totalAmount = 0;
                 for (int i = 0; i < _financeTexts.Count; i++)
                 {

@@ -89,11 +89,11 @@ namespace TimeSystem
                     Month++;
                 }
 
-                //if (InFinanceMenu)
-                //{
-                //    FinanceScript.UpdateText();
-                //}
-               
+                if (InFinanceMenu)
+                {
+                    FinanceScript.UpdateText();
+                }
+
                 EventManager.Instance.CheckDate(Month, Year);
                 SimpleMoneyManager.Instance.ChangeMonth();
 
