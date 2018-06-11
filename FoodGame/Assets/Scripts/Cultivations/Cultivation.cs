@@ -21,6 +21,8 @@ namespace Cultivations
         public int EnviromentValue;
         public int Happyness;
         public int SizeRank;
+        public bool Upgrade;
+        public int UpgradeDuration;
         
 
 
@@ -32,7 +34,7 @@ namespace Cultivations
         protected Cultivation(string name, int sustainability, int moneyTick, float expenseTick,
             int monthsToGrow,int buildPrice,NodeState.CurrentStateEnum currentState,
             NodeState.FieldTypeEnum currentFieldType, int upgradeValue, int spriteIndex, int enviromentValue, int happiness,
-            int sizeRank)
+            int sizeRank, bool upgrade , int upgradeDuration)
         {
             Name = name;
             Sustainability = sustainability;
@@ -45,6 +47,9 @@ namespace Cultivations
             EnviromentValue = enviromentValue;
             Happyness = happiness;
             MonthsToGrow = monthsToGrow;
+            SizeRank = sizeRank;
+            Upgrade = upgrade;
+            UpgradeDuration = upgradeDuration;
 
         }
 

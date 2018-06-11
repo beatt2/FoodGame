@@ -126,17 +126,23 @@ MonoBehaviour:
   MyFieldType: 5
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 0
+  Upgrade: 0
+  UpgradeDuration: 0
   MyBuilding:
     Name: Tomato Middle
     Sustainability: 3
     MoneyTick: 70
     ExpenseTick: 50
-    MonthsToGrow: 0
+    MonthsToGrow: 3
     BuildPrice: 2000
     UpgradeValue: 3
     SpriteIndex: 20
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
+    Upgrade: 0
+    UpgradeDuration: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114291170938346964
@@ -187,7 +193,7 @@ SpriteRenderer:
   m_SortingLayerID: -533442655
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 230d954692cd9fa429962c989a15f568, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63727e70938bab74789548aa00a2811f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

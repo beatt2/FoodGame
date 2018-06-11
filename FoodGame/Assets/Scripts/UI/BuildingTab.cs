@@ -1,4 +1,5 @@
-﻿using Cultivations;
+﻿using System.Security.Policy;
+using Cultivations;
 using Grid;
 using Money;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace UI
         public static Sprite StatBarFill;
         private BuildingPrefab [] _buildingPrefabs;
         private FarmButtons[] _farmButtons;
+        public Text[] MonthTexts;
+        
         public bool BuildingTabActive = false;
 
         private float _highestPrice;
@@ -39,6 +42,13 @@ namespace UI
                 _farmButtons[i] = tempGameObjects[i].GetComponent<FarmButtons>();
                 SetButton(_farmButtons[i].GetComponent<Button>(), _buildingPrefabs[i]) ;
                 
+            }
+
+            
+            for (int i = 0; i < GridManager.Instance.BuildingPlacement.Fields.Length; i++)
+            {
+                MonthTexts[i].text = GridManager.Instance.BuildingPlacement.Fields[i].GetComponent<PlantPrefab>()
+                    .MyPlant.MonthsToGrow + " maanden";
             }
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(false);
         }

@@ -8,6 +8,7 @@ namespace Cultivations
     public class BuildingPrefab : CultivationPrefab
     {
         public Building MyBuilding;
+        private Building _savedBuilding;
 
 
 
@@ -28,21 +29,33 @@ namespace Cultivations
         {
             
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyBuilding = new Building(Name,Sustainability,MoneyTick,ExpenseTick,MonthsToGrow,BuildingPrice,MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank);
+            MyBuilding = new Building( Name,Sustainability,MoneyTick,ExpenseTick,MonthsToGrow,BuildingPrice,
+                MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration);
         }
 
         public void ChangeValues(Building building)
         {
+            if (MyBuilding != null)
+            {
+                _savedBuilding = MyBuilding;
+            }
             MyBuilding = building;
             Name = MyBuilding.Name;
             Sustainability = MyBuilding.Sustainability;
             MoneyTick = MyBuilding.MoneyTick;
             BuildingPrice = MyBuilding.BuildPrice;
             MonthsToGrow = MyBuilding.MonthsToGrow;
+            Upgrade = MyBuilding.Upgrade;
+            UpgradeDuration = MyBuilding.UpgradeDuration;
         }
 
         private void AddCultivation()
         {
+            if (Upgrade)
+            {
+                CultivationManager.Instance.RemoveEntry(_savedBuilding);
+
+            }
             CultivationManager.Instance.AddValue(MyBuilding);
         }
 

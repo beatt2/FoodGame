@@ -20,6 +20,9 @@ namespace Cultivations
         public int EnviromentValue;
         public int Happiness;
         public int SizeRank;
+        public bool Upgrade;
+        public int UpgradeDuration;
+        
 
 
     }

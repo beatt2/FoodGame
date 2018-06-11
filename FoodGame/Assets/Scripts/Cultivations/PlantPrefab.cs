@@ -10,11 +10,13 @@ namespace Cultivations
     {
         [HideInInspector] public Plant MyPlant;
 
+        private Plant _savePlant;
+
 
         protected void Awake()
         {
             MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank);
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration);
             
             
         }
@@ -22,7 +24,7 @@ namespace Cultivations
         public void CustomAwake()
         {
             MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank);
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration);
         }
 
         private void Start()
@@ -34,6 +36,10 @@ namespace Cultivations
         //TODO WHY IS THIS DIFFERENT THAN BUILDINGPREFAB????
         public void ChangeValues(Plant plant, NodeState.CurrentStateEnum currentStateEnum, NodeState.FieldTypeEnum fieldTypeEnum)
         {
+            if (MyPlant != null)
+            {
+                _savePlant = MyPlant;
+            }
             MyPlant = plant;
             MyPlant.FieldType = GetComponent<NodeState>().FieldType;
             MyPlant.MyCultivationState = GetComponent<NodeState>().CurrentState;
@@ -44,11 +50,20 @@ namespace Cultivations
             MonthsToGrow = MyPlant.MonthsToGrow;
             MyCurrentState = MyPlant.MyCultivationState;
             MyFieldType = MyPlant.FieldType;
+            Upgrade = MyPlant.Upgrade;
+            UpgradeDuration = MyPlant.UpgradeDuration;
             AddCultivation();
         }
+        
+      
 
         private void AddCultivation()
         {
+            if (Upgrade)
+            {
+                CultivationManager.Instance.RemoveEntry(_savePlant);
+            }
+            
             CultivationManager.Instance.AddValue(MyPlant);
         }
     }

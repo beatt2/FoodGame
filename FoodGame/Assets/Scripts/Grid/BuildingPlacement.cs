@@ -10,6 +10,8 @@ namespace Grid
     {
         public GameObject [] Farms;
         public GameObject[] Fields;
+        public GameObject[] FarmUpgrades;
+        public GameObject[] FieldUpgrades;
         public GameObject EmptyField;
         private Sprite _emptyFieldSprite;
 
@@ -58,11 +60,20 @@ namespace Grid
             if (SimpleMoneyManager.Instance.EnoughMoney(Fields[index].GetComponent<PlantPrefab>().BuildingPrice))
             {
                 ChangeTile(Fields[index], true);
+
                 return true;
             }
             Debug.Log("Sorry not enough money");
             return false;
 
+        }
+        
+        public void UpgradeField(int index)
+        {
+            if (SimpleMoneyManager.Instance.EnoughMoney(FieldUpgrades[index].GetComponent<PlantPrefab>().UpgradeValue))
+            {
+                
+            }
         }
 
         private void ChangeTile(GameObject go, bool field)
@@ -70,19 +81,33 @@ namespace Grid
             if (GridManager.Instance.GetSelectedNode() == null) return;
             var node = GridManager.Instance.GetSelectedNode();
             node.SetSprite(go.GetComponent<SpriteRenderer>().sprite);
+            node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
             if (field)
             {              
                 go.GetComponent<PlantPrefab>().CustomAwake();
                 node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant,
                     go.GetComponent<NodeState>().CurrentState, go.GetComponent<NodeState>().FieldType);
+                
+                
+                GetComponent<Selection>().SetSidePanel(node.GetComponent<PlantPrefab>().MyPlant);
    
             }
             else
             {
                 go.GetComponent<BuildingPrefab>().CustomAwake();
-                node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+
+                if (!go.GetComponent<BuildingPrefab>().MyBuilding.Upgrade)
+                {
+                    node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+                }
+                else
+                {
+                    node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+                }
+      
             }
-            node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
+
+            
             
         }
 
@@ -95,7 +120,22 @@ namespace Grid
         public void RemoveTiles(NodeBehaviour node)
         {
             if (node.GetListIndex() == -1) return;
+            if (node.GetCurrentState() == NodeState.CurrentStateEnum.Field)
+            {
+                if (node.gameObject.GetComponent<PlantPrefab>() != null)
+                {
+                    CultivationManager.Instance.RemoveEntry(node.gameObject.GetComponent<PlantPrefab>().MyPlant);
 
+                }
+                else if (node.gameObject.GetComponent<BuildingPrefab>() != null)
+                {
+                    CultivationManager.Instance.RemoveEntry(node.gameObject.GetComponent<BuildingPrefab>().MyBuilding);
+                }
+
+                GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Remove(node);
+                node.ResetNode();
+                return;
+            }
             int nodeCount = GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Count;
             int nodeIndex = node.GetListIndex();
             for (int i = 0; i < nodeCount; i++)
@@ -113,6 +153,8 @@ namespace Grid
                 }
                 nodeBehaviour.ResetNode();
             }
+            
+            GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Clear();
 
         }
 
