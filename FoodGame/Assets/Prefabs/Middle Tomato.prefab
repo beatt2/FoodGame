@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Tomato Middle
-  Sustainability: 3
   MoneyTick: 70
   ExpenseTick: 50
   MonthsToGrow: 3
@@ -129,9 +128,10 @@ MonoBehaviour:
   SizeRank: 0
   Upgrade: 0
   UpgradeDuration: 0
+  UpgradePrefabIndex: 17
+  MonthCount: 0
   MyBuilding:
     Name: Tomato Middle
-    Sustainability: 3
     MoneyTick: 70
     ExpenseTick: 50
     MonthsToGrow: 3
@@ -141,8 +141,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
     Upgrade: 0
     UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114291170938346964

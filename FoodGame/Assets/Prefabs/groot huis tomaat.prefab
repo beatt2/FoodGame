@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Big Tomato
-  Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
   MonthsToGrow: 3
@@ -127,9 +126,12 @@ MonoBehaviour:
   EnviromentValue: 0
   Happiness: 0
   SizeRank: 3
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 11
+  MonthCount: 0
   MyBuilding:
     Name: Big Tomato
-    Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
     MonthsToGrow: 3
@@ -139,6 +141,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114633482916400634

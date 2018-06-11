@@ -5063,7 +5063,13 @@ MonoBehaviour:
   - {fileID: 1034941669485994, guid: bdb2c4f8bef001e488e5324514ea1416, type: 2}
   - {fileID: 1867923072371706, guid: da8438dba7c88d24c8c255b90fb8224f, type: 2}
   - {fileID: 1080175814690908, guid: b434417d2bde97645a350274b1fbc5fb, type: 2}
-  FieldUpgrades: []
+  FieldUpgrades:
+  - {fileID: 1523110492354398, guid: d34a949d6e8039a409ea67bc3829be5e, type: 2}
+  - {fileID: 1335118988892712, guid: 942691a02bc11744d95507f732cd2d08, type: 2}
+  - {fileID: 1166366628374390, guid: 7241f64b9d7da6a418d7c61fef4fb1d2, type: 2}
+  - {fileID: 1606165395007852, guid: 8adac0d15e72cb84e80cf5cda1132396, type: 2}
+  - {fileID: 1494519114727298, guid: dbca694dc6061474c961080d68294f25, type: 2}
+  - {fileID: 1405671841607468, guid: 82fa233bd99197b4792b14cedcc96d69, type: 2}
   EmptyField: {fileID: 1338494046311358, guid: 2c4cf2a08fbb59d4198c5b66530e33d0, type: 2}
 --- !u!114 &158667361
 MonoBehaviour:
@@ -21216,7 +21222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 102.01001, y: -29.00003}
+  m_AnchoredPosition: {x: 102.01001, y: -29}
   m_SizeDelta: {x: -233.98, y: -142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &674591131

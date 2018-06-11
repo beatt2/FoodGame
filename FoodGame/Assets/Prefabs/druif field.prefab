@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Druiven
-  Sustainability: 5
   MoneyTick: 50
   ExpenseTick: 10
   MonthsToGrow: 2
@@ -127,9 +126,12 @@ MonoBehaviour:
   EnviromentValue: 0
   Happiness: 0
   SizeRank: 0
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 4
+  MonthCount: 0
   MyPlant:
     Name: Bramen
-    Sustainability: 5
     MoneyTick: 50
     ExpenseTick: 10
     MonthsToGrow: 2
@@ -139,6 +141,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 1
     FieldType: 4
 --- !u!114 &114325302337568514

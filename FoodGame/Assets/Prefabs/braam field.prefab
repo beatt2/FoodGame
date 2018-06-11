@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Bramen
-  Sustainability: 5
   MoneyTick: 50
   ExpenseTick: 10
   MonthsToGrow: 2
@@ -139,9 +138,13 @@ MonoBehaviour:
   MyFieldType: 4
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 0
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 1
+  MonthCount: 0
   MyPlant:
     Name: 
-    Sustainability: 0
     MoneyTick: 0
     ExpenseTick: 0
     MonthsToGrow: 0
@@ -150,6 +153,11 @@ MonoBehaviour:
     SpriteIndex: 0
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
+    MonthCount: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212931628766754050
