@@ -72,6 +72,10 @@
     <Compile Include="Assets\Scripts\Events\EventButton.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
     <Compile Include="Assets\Scripts\Events\Events.cs" />
+    <Compile Include="Assets\Scripts\Events\Message.cs" />
+    <Compile Include="Assets\Scripts\Events\MessageButton.cs" />
+    <Compile Include="Assets\Scripts\Events\MessageEntry.cs" />
+    <Compile Include="Assets\Scripts\Events\Messages.cs" />
     <Compile Include="Assets\Scripts\Grid\BuildingPlacement.cs" />
     <Compile Include="Assets\Scripts\Grid\GridList.cs" />
     <Compile Include="Assets\Scripts\Grid\GridMaker.cs" />

@@ -162,7 +162,13 @@ namespace Money
 
         public float GetPercentage(NodeState.FieldTypeEnum fieldTypeEnum)
         {
-            return _percentageValues[fieldTypeEnum];
+            if (_percentageValues.ContainsKey(fieldTypeEnum))
+            {
+                return _percentageValues[fieldTypeEnum];
+            }
+
+            return 0;
+
         }
 
         public float GetMoneyValue(NodeState.FieldTypeEnum fieldTypeEnum)

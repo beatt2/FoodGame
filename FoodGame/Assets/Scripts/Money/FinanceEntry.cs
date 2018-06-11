@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-namespace Money
+﻿namespace Money
 {
     public class FinanceEntry
     {

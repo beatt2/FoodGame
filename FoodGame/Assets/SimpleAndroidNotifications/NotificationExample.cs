@@ -32,7 +32,7 @@ namespace Assets.SimpleAndroidNotifications
                 Id = UnityEngine.Random.Range(0, int.MaxValue),
                 Delay = TimeSpan.FromSeconds(5),
                 Title = "Custom notification",
-                Message = "Message",
+                Message = "MessageEntry",
                 Ticker = "Ticker",
                 Sound = true,
                 Vibrate = true,

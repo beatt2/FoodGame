@@ -59,40 +59,39 @@ namespace Events
                     }
                     StartCoroutine("UiTimer");
                     SetText(i);
-                    //Debug.Log(EventsArray[i].FieldType);
-                    //SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
-                //    switch (EventsArray[i].FieldType)
-                //    {
-                //        case NodeState.FieldTypeEnum.Corn:
-                            
+                    
+                    switch (EventsArray[i].FieldType)
+                    {
+                        case NodeState.FieldTypeEnum.Corn:
 
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
-                            
-                //            break;
-                //        case NodeState.FieldTypeEnum.Carrot:
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Carrot, EventsArray[i].InfluencePercentage);
-                            
-                //            break;
-                //        case NodeState.FieldTypeEnum.Nothing:
-                //            break;
-                //        case NodeState.FieldTypeEnum.Apple:
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Apple, EventsArray[i].InfluencePercentage);
-                //            break;
-                //        case NodeState.FieldTypeEnum.Blackberries:
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Blackberries, EventsArray[i].InfluencePercentage);
-                //            break;
-                //        case NodeState.FieldTypeEnum.Tomato:
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tomato, EventsArray[i].InfluencePercentage);
-                //            break;
-                //        case NodeState.FieldTypeEnum.Tree:
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tree, EventsArray[i].InfluencePercentage);
-                //            break;
-                //        case NodeState.FieldTypeEnum.Grapes:
-                //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Grapes, EventsArray[i].InfluencePercentage);
-                //            break;
-                //        default:
-                //            break;
-                //    }
+
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn, EventsArray[i].InfluencePercentage);
+
+                            break;
+                        case NodeState.FieldTypeEnum.Carrot:
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Carrot, EventsArray[i].InfluencePercentage);
+
+                            break;
+                        case NodeState.FieldTypeEnum.Nothing:
+                            break;
+                        case NodeState.FieldTypeEnum.Apple:
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Apple, EventsArray[i].InfluencePercentage);
+                            break;
+                        case NodeState.FieldTypeEnum.Blackberries:
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Blackberries, EventsArray[i].InfluencePercentage);
+                            break;
+                        case NodeState.FieldTypeEnum.Tomato:
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tomato, EventsArray[i].InfluencePercentage);
+                            break;
+                        case NodeState.FieldTypeEnum.Tree:
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tree, EventsArray[i].InfluencePercentage);
+                            break;
+                        case NodeState.FieldTypeEnum.Grapes:
+                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Grapes, EventsArray[i].InfluencePercentage);
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
                 if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
