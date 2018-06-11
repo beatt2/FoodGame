@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/SimpleAndroidNotifications/DemoScene.unity
     guid: 04bafa369dbac00478feecb96bf71f90
   - enabled: 1
