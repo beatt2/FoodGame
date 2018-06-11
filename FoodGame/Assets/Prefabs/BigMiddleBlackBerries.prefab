@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Big middle blackberries
-  Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
   MonthsToGrow: 2
@@ -126,9 +125,12 @@ MonoBehaviour:
   MyFieldType: 4
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 0
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 1
   MyBuilding:
     Name: Big middle blackberries
-    Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
     MonthsToGrow: 0
@@ -137,6 +139,10 @@ MonoBehaviour:
     SpriteIndex: 12
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114151871076518164

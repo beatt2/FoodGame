@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Big middle tree
-  Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
   MonthsToGrow: 4
@@ -139,9 +138,12 @@ MonoBehaviour:
   MyFieldType: 0
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 0
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 3
   MyBuilding:
     Name: Big middle tree
-    Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
     MonthsToGrow: 0
@@ -150,6 +152,10 @@ MonoBehaviour:
     SpriteIndex: 14
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212419294262002008

@@ -10,7 +10,6 @@ namespace Cultivations
     public abstract class Cultivation
     {
         public string Name;
-        public int Sustainability;
         public int MoneyTick;// = value
         public float ExpenseTick;
         public int MonthsToGrow;
@@ -21,9 +20,11 @@ namespace Cultivations
         public int EnviromentValue;
         public int Happyness;
         public int SizeRank;
+        public int MonthCount;
         public bool Upgrade;
         public int UpgradeDuration;
-        
+        public int UpgradePrefabIndex;
+
 
 
 
@@ -31,13 +32,12 @@ namespace Cultivations
         public NodeState.FieldTypeEnum FieldType;
 
 
-        protected Cultivation(string name, int sustainability, int moneyTick, float expenseTick,
+        protected Cultivation(string name, int upgradePrefabIndex, int moneyTick, float expenseTick,
             int monthsToGrow,int buildPrice,NodeState.CurrentStateEnum currentState,
             NodeState.FieldTypeEnum currentFieldType, int upgradeValue, int spriteIndex, int enviromentValue, int happiness,
-            int sizeRank, bool upgrade , int upgradeDuration)
+            int sizeRank, bool upgrade , int upgradeDuration, int monthCount)
         {
             Name = name;
-            Sustainability = sustainability;
             MoneyTick = moneyTick;
             ExpenseTick = expenseTick;
             MyCultivationState = currentState;
@@ -50,6 +50,8 @@ namespace Cultivations
             SizeRank = sizeRank;
             Upgrade = upgrade;
             UpgradeDuration = upgradeDuration;
+            UpgradePrefabIndex = upgradePrefabIndex;
+            MonthCount = monthCount;
 
         }
 

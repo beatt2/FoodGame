@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using Grid;
 using Money;
 using Node;
 using Tools;
@@ -11,19 +12,14 @@ namespace Cultivations
 {
     public class CultivationManager : Singleton<CultivationManager>
     {
-      
-        
-  
-
 
         private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
-
+        private readonly List<CultivationPrefab> _activeUpgradedCultivations = new List<CultivationPrefab>();
 
         public Dictionary<Enum, List<Cultivation>> GetCultivations()
         {
             return _cultivations;
         }
-
 
         public void AddValue(Cultivation cultivation)
         {
@@ -33,21 +29,59 @@ namespace Cultivations
             //TODO CHANGE THE WAY TO DO THIS
             if (cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField)
             {
+
                 SimpleMoneyManager.Instance.AddFinance(cultivation);
             }
- 
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             CheckForNull(cultivation.MyCultivationState);
             _cultivations[cultivation.MyCultivationState].Add(cultivation);
-            
+        }
+
+
+        //TODO Maybe turn this into an event
+        public void MonthlyTick()
+        {
+            foreach (var cultivationPrefab in _activeUpgradedCultivations)
+            {
+                cultivationPrefab.UpgradeDuration--;
+                if (cultivationPrefab.UpgradeDuration >= 1) continue;
+                if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Farm)
+                {
+                    Debug.Log("Building type = buidling prefab");
+                    GridManager.Instance.BuildingPlacement.UpgradeFarmFinished((BuildingPrefab) cultivationPrefab);
+                    RemoveUpgradedCultivation(cultivationPrefab);
+                }
+                else if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Field)
+                {
+                    GridManager.Instance.BuildingPlacement.UpgradeFieldFinished((PlantPrefab)cultivationPrefab);
+                    RemoveUpgradedCultivation(cultivationPrefab);
+                    Debug.Log("Building type = plant prefab");
+                }
+                else
+                {
+                    Debug.LogError("Type not found");
+                }
+            }
+        }
+
+
+        public void AddUpgradedCultivation(CultivationPrefab cultivationPrefab)
+        {
+            _activeUpgradedCultivations.Add(cultivationPrefab);
+        }
+
+        public void RemoveUpgradedCultivation(CultivationPrefab cultivationPrefab)
+        {
+            _activeUpgradedCultivations.Remove(cultivationPrefab);
         }
 
         private void CheckForNull(NodeState.CurrentStateEnum currentState)
         {
             if (_cultivations.ContainsKey(currentState)) return ;
             _cultivations.Add(currentState, new List<Cultivation>());
-
         }
+
+
 
         public void RemoveEntry(Cultivation cultivation)
         {
@@ -57,4 +91,4 @@ namespace Cultivations
 
 
     }
-}    
+}

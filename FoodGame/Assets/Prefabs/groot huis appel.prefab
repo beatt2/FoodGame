@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Big Apple
-  Sustainability: 1
   MoneyTick: 80
   ExpenseTick: 50
   MonthsToGrow: 3
@@ -127,9 +126,11 @@ MonoBehaviour:
   EnviromentValue: 0
   Happiness: 0
   SizeRank: 3
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 7
   MyBuilding:
     Name: Big Apple
-    Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
     MonthsToGrow: 3
@@ -139,6 +140,9 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114780162073959432

@@ -1,5 +1,6 @@
 ﻿using System;
 using Boo.Lang.Environments;
+using JetBrains.Annotations;
 using Node;
 using UnityEngine;
 
@@ -10,26 +11,47 @@ namespace Cultivations
     {
         [HideInInspector] public Plant MyPlant;
 
-        private Plant _savePlant;
+        private Plant _savedPlant;
 
 
         protected void Awake()
         {
-            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration);
-            
-            
+            MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration, MonthCount);
+
+
         }
 
         public void CustomAwake()
         {
-            MyPlant = new Plant(Name, Sustainability, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration);
+            MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
         }
 
         private void Start()
         {
             AddCultivation();
+        }
+
+        public void RemoveUpgrade()
+        {
+            CultivationManager.Instance.RemoveEntry(MyPlant);
+            MyPlant = _savedPlant;
+            SyncValuesToMyPlant();
+            AddCultivation();
+
+        }
+
+        [CanBeNull]
+        public Plant GetSavedPlant()
+        {
+            return _savedPlant;
+
+        }
+
+        public void SetSavedPlant(Plant plant)
+        {
+            _savedPlant = plant;
         }
 
 
@@ -38,13 +60,20 @@ namespace Cultivations
         {
             if (MyPlant != null)
             {
-                _savePlant = MyPlant;
+                _savedPlant = MyPlant;
             }
             MyPlant = plant;
+            SyncValuesToMyPlant();
+            AddCultivation();
+        }
+
+        private void SyncValuesToMyPlant()
+        {
+            Name = MyPlant.Name;
             MyPlant.FieldType = GetComponent<NodeState>().FieldType;
             MyPlant.MyCultivationState = GetComponent<NodeState>().CurrentState;
             Name = MyPlant.Name;
-            Sustainability = MyPlant.Sustainability;
+            UpgradePrefabIndex = MyPlant.UpgradePrefabIndex;
             MoneyTick = MyPlant.MoneyTick;
             BuildingPrice = MyPlant.BuildPrice;
             MonthsToGrow = MyPlant.MonthsToGrow;
@@ -52,18 +81,22 @@ namespace Cultivations
             MyFieldType = MyPlant.FieldType;
             Upgrade = MyPlant.Upgrade;
             UpgradeDuration = MyPlant.UpgradeDuration;
-            AddCultivation();
+            UpgradePrefabIndex = MyPlant.UpgradePrefabIndex;
+            MonthCount = MyPlant.MonthCount;
         }
-        
-      
+
+
+
+
+
+
 
         private void AddCultivation()
         {
             if (Upgrade)
             {
-                CultivationManager.Instance.RemoveEntry(_savePlant);
+                CultivationManager.Instance.RemoveEntry(_savedPlant);
             }
-            
             CultivationManager.Instance.AddValue(MyPlant);
         }
     }

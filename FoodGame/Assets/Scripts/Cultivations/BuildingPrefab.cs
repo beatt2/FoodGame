@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Node;
 using UnityEngine;
 
@@ -17,7 +18,6 @@ namespace Cultivations
         {
             MyBuilding.FieldType = GetComponent<NodeState>().FieldType;
             MyBuilding.MyCultivationState = GetComponent<NodeState>().CurrentState;
-            
             MyCurrentState = MyBuilding.MyCultivationState;
             MyFieldType = MyBuilding.FieldType;
             //TODO this is kinda wonky
@@ -27,10 +27,18 @@ namespace Cultivations
 
         public void CustomAwake()
         {
-            
+
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyBuilding = new Building( Name,Sustainability,MoneyTick,ExpenseTick,MonthsToGrow,BuildingPrice,
-                MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration);
+            MyBuilding = new Building( Name,UpgradePrefabIndex,MoneyTick,ExpenseTick,MonthsToGrow,BuildingPrice,
+                MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
+        }
+
+        public void RemoveUpgrade()
+        {
+            CultivationManager.Instance.RemoveEntry(MyBuilding);
+            MyBuilding = _savedBuilding;
+            SyncValuesToMyBuidling();
+            AddCultivation();
         }
 
         public void ChangeValues(Building building)
@@ -39,14 +47,39 @@ namespace Cultivations
             {
                 _savedBuilding = MyBuilding;
             }
+
             MyBuilding = building;
+            SyncValuesToMyBuidling();
+            AddCultivation();
+
+        }
+
+
+        [CanBeNull]
+        public Building GetSavedBuilding()
+        {
+            return _savedBuilding;
+        }
+
+        public void SetSavedBuilding(Building building)
+        {
+            _savedBuilding = building;
+        }
+
+
+        // Nodestate is set by gridmanager
+        //TODO probably rework that..
+        private void SyncValuesToMyBuidling()
+        {
             Name = MyBuilding.Name;
-            Sustainability = MyBuilding.Sustainability;
+            UpgradePrefabIndex = MyBuilding.UpgradePrefabIndex;
             MoneyTick = MyBuilding.MoneyTick;
             BuildingPrice = MyBuilding.BuildPrice;
             MonthsToGrow = MyBuilding.MonthsToGrow;
             Upgrade = MyBuilding.Upgrade;
             UpgradeDuration = MyBuilding.UpgradeDuration;
+            UpgradePrefabIndex = MyBuilding.UpgradePrefabIndex;
+            MonthCount = MyBuilding.MonthCount;
         }
 
         private void AddCultivation()

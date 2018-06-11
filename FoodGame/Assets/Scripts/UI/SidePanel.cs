@@ -26,8 +26,8 @@ namespace UI
 
         public Button KillButton;
         public Button UpgradeButton;
-        
-        
+
+
 
 
         private Cultivation _currentCultivation;
@@ -72,8 +72,8 @@ namespace UI
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
             MyImage.sprite = SaveManager.Instance.GetSprites()[cultivation.SpriteIndex];
-            
-         
+
+
             UpgradeText.text = cultivation.UpgradeValue.ToString();
             MoneyTickText.text = "money per month" + cultivation.MoneyTick;
 
@@ -103,7 +103,6 @@ namespace UI
                         case NodeState.FieldTypeEnum.Tomato:
                             GridManager.Instance.BuildingPlacement.BuildField(3);
                             break;
-                    
                         case NodeState.FieldTypeEnum.Nothing:
                             break;
                         case NodeState.FieldTypeEnum.Tree:
@@ -112,16 +111,13 @@ namespace UI
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-
                     break;
                 case NodeState.CurrentStateEnum.Farm:
-                    UpgradePanel.SetActive(true);
-                    //UpgradePanel.GetComponent<UpgradeTab>().ActivateTab(GridManager.Instance.GetSelectedNode().GetComponent<BuildingPrefab>().MyBuilding);
+                    GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
                     break;
                 case NodeState.CurrentStateEnum.Field:
-                    throw new NotImplementedException();
-
-
+                    GridManager.Instance.BuildingPlacement.UpgradeField(_currentCultivation.UpgradePrefabIndex);
+                    break;
                 case NodeState.CurrentStateEnum.Empty:
                     break;
                 default:

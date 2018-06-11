@@ -23,10 +23,10 @@ namespace TimeSystem
         public int WaitForSeconds;
         public bool InFinanceMenu = false;
 
-       
 
 
-  
+
+
 
         private void Start()
         {
@@ -38,7 +38,7 @@ namespace TimeSystem
         {
             DateTime currentTime = DateTime.Now;
             DateTime oldTime = SaveManager.Instance.GetStopTime();
-            TimeSpan temp = currentTime.Subtract(oldTime);  
+            TimeSpan temp = currentTime.Subtract(oldTime);
             int totalAddedMonths =(int)temp.TotalSeconds / WaitForSeconds;
             Month = SaveManager.Instance.GetSaveMonth() == 0 ? 1 : SaveManager.Instance.GetSaveMonth();
             Year = SaveManager.Instance.GetSaveMonth() == 0 ? 2018 : SaveManager.Instance.GetSaveYear();
@@ -57,10 +57,6 @@ namespace TimeSystem
                     Month++;
                 }
             }
-         
-
-
-
         }
 
         public int GetMonth()
@@ -96,7 +92,7 @@ namespace TimeSystem
 
                 EventManager.Instance.CheckDate(Month, Year);
                 SimpleMoneyManager.Instance.ChangeMonth();
-
+                CultivationManager.Instance.MonthlyTick();
             }
         }
     }

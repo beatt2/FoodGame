@@ -8,7 +8,6 @@ namespace Cultivations
     public abstract class CultivationPrefab : MonoBehaviour
     {
         public string Name;
-        public int Sustainability;
         public int MoneyTick;
         public float ExpenseTick;
         public int MonthsToGrow;
@@ -22,7 +21,12 @@ namespace Cultivations
         public int SizeRank;
         public bool Upgrade;
         public int UpgradeDuration;
-        
+        public int UpgradePrefabIndex;
+        public int MonthCount;
+
+
+
+
 
 
     }

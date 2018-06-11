@@ -23,6 +23,7 @@ namespace Money
             Expense = cultivation.ExpenseTick;
             Percentage = 0;
             MonthsToGrow = cultivation.MonthsToGrow;
+            MyCultivation = cultivation;
         }
 
     }

@@ -28,12 +28,13 @@ namespace Money
         private float _vegetablevalue;
 
 
-        private float _cornValue;    
+        private float _cornValue;
         //private float _
 
 
         private readonly Dictionary<NodeState.FieldTypeEnum,List<MoneyValue>> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>>();
         private readonly Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
+        private readonly Dictionary<int , int > _monthCountSave = new Dictionary<int, int>();
         //TODO THIS IS FOR PROTOTYPE
         public bool ShowExpenses;
 
@@ -58,6 +59,8 @@ namespace Money
         }
 
 
+
+        //TODO CHECK IF MONTHCOUNT IS WORKING IN CULTIVATION CLASS AND TEST UPGRADE
         private void ChangeMoneyMonthly()
         {
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
@@ -69,10 +72,12 @@ namespace Money
                     {
                         tempTotal += t.Income;
                         t.MonthCount = 0;
+                        t.MyCultivation.MonthCount = t.MonthCount;
                     }
                     else
                     {
                         t.MonthCount++;
+                        t.MyCultivation.MonthCount = t.MonthCount;
                     }
                 }
 
@@ -81,7 +86,7 @@ namespace Money
                 {
                     percentage = tempTotal / 100 * _percentageValues.ElementAt(i).Value;
                 }
-                _currentMoney += tempTotal + percentage;   
+                _currentMoney += tempTotal + percentage;
             }
 
 
@@ -97,7 +102,7 @@ namespace Money
 
 
         }
-        
+
         public void AddMonthlyIncome(int value)
         {
             _monthlyIncome += value;
@@ -137,13 +142,16 @@ namespace Money
             {
                 _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation));
 
+
             }
         }
-        
-       
+
+
+
+
         public void SetPercentage(NodeState.FieldTypeEnum fieldTypeEnum, float percentage)
         {
-           
+
             if (!_moneyValues.ContainsKey(fieldTypeEnum))
             {
                 Debug.Log("Percentage key not in _moneyvalues dict");
@@ -166,9 +174,7 @@ namespace Money
             {
                 return _percentageValues[fieldTypeEnum];
             }
-
-            return 0;    
-
+            return 0;
         }
 
         public float GetMoneyValue(NodeState.FieldTypeEnum fieldTypeEnum)
@@ -178,7 +184,6 @@ namespace Money
             {
                 tempIncome += _moneyValues[fieldTypeEnum][i].Income;
             }
-
             return tempIncome;
         }
 
@@ -191,18 +196,28 @@ namespace Money
             }
 
             return tempExpense;
-
         }
-        
 
         public float GetCurrentMoney()
         {
             return _currentMoney;
         }
 
+        public void RemoveValue(Cultivation cultivation)
+        {
+            for (int i = 0; i < _moneyValues[cultivation.FieldType].Count; i++)
+            {
+                if (_moneyValues[cultivation.FieldType][i].MyCultivation == cultivation)
+                {
 
- 
-        public void Remove(NodeState.FieldTypeEnum fieldType)
+                    _moneyValues[cultivation.FieldType].RemoveAt(i);
+                }
+            }
+
+        }
+
+
+        public void RemoveKey(NodeState.FieldTypeEnum fieldType)
         {
             _moneyValues.Remove(fieldType);
         }
