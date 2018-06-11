@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Events;
 using Node;
 using UnityEngine;
 using UnityEngine.UI;
@@ -156,7 +155,7 @@ namespace Money
             //eventAmount = Mathf.Round(eventAmount * 100) / 100;
 
 
-            return eventAmount;
+            return eventChange;
         }
 
         private void ChangeText(GameObject go, string name, float income, float expense, float percentage)
@@ -284,7 +283,7 @@ namespace Money
                             break;
                     }
                 }
-            }
+            
         }
     }
 }
