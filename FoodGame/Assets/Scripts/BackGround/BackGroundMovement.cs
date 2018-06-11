@@ -6,8 +6,8 @@ namespace BackGround
     {
         public Cloud[] Clouds;
 
-        public float MinSpeed = .000005f;
-        public float MaxSpeed = .00003f;
+        public float MinSpeed = .0003f;
+        public float MaxSpeed = .0009f;
 
         private void Start()
         {
@@ -24,7 +24,7 @@ namespace BackGround
                 Clouds[i].transform.position =Clouds[i].GetVector3Speed();
                 if (Clouds[i].transform.localPosition.x > 8)
                 {
-                    Clouds[i].transform.localPosition = new Vector3(-8,Clouds[i].transform.position.y, Clouds[i].transform.position.z);
+                    Clouds[i].transform.localPosition = new Vector3(-8,Clouds[i].transform.localPosition.y, Clouds[i].transform.localPosition.z);
                     Clouds[i].SetSpeed(Random.Range(MinSpeed,MaxSpeed));
                 }
             }

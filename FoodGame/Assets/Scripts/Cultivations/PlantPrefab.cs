@@ -32,7 +32,7 @@ namespace Cultivations
 
 
         //TODO WHY IS THIS DIFFERENT THAN BUILDINGPREFAB????
-        public void ChangeValues(Plant plant)
+        public void ChangeValues(Plant plant, NodeState.CurrentStateEnum currentStateEnum, NodeState.FieldTypeEnum fieldTypeEnum)
         {
             MyPlant = plant;
             MyPlant.FieldType = GetComponent<NodeState>().FieldType;

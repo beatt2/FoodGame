@@ -38,7 +38,8 @@ namespace Grid
             if (GridManager.Instance.GetSelectedNode() == null) return;
             EmptyField.GetComponent<PlantPrefab>().CustomAwake();
             node.AddComponent<PlantPrefab>();
-            node.GetComponent<PlantPrefab>().ChangeValues(EmptyField.GetComponent<PlantPrefab>().MyPlant);
+            node.GetComponent<PlantPrefab>().ChangeValues(
+                EmptyField.GetComponent<PlantPrefab>().MyPlant, NodeState.CurrentStateEnum.EmptyField, NodeState.FieldTypeEnum.Nothing);
         }
 
         public bool BuildFarm(int index)
@@ -72,15 +73,14 @@ namespace Grid
             if (field)
             {              
                 go.GetComponent<PlantPrefab>().CustomAwake();
-                node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
+                node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant,
+                    go.GetComponent<NodeState>().CurrentState, go.GetComponent<NodeState>().FieldType);
+   
             }
             else
             {
                 go.GetComponent<BuildingPrefab>().CustomAwake();
                 node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
-                
-       
- 
             }
             node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
             

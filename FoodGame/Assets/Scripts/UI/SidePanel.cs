@@ -103,7 +103,7 @@ namespace UI
                         case NodeState.FieldTypeEnum.Tomato:
                             GridManager.Instance.BuildingPlacement.BuildField(3);
                             break;
-
+                    
                         case NodeState.FieldTypeEnum.Nothing:
                             break;
                         case NodeState.FieldTypeEnum.Tree:
