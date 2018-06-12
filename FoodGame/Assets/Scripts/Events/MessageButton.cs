@@ -10,11 +10,13 @@ namespace Events
         public void OpenMessages()
         {
             MessageUi.SetActive(true);
+            EventManager.Instance.InMenu = true;
         }
 
         public void CloseMessages()
         {
             MessageUi.SetActive(false);
+            EventManager.Instance.InMenu = false;
         }
         public void OpenPopup()
         {

@@ -27,6 +27,8 @@ namespace Events
 
         private float _percentageEvent = 0;
         private string _name;
+        public Messages MessageScript;
+        public bool InMenu = false;
         public float GetInfluence()
         {
             return _percentageEvent;
@@ -40,8 +42,12 @@ namespace Events
                 if (EventsArray[i].Starts == new Vector2Int(month,year))
                 {
 
+                    MessageScript.AddEvent(EventsArray[i]);
+                    if (!InMenu)
+                    {
+                        HeadlineUi.SetActive(true);
+                    }
                     
-                    HeadlineUi.SetActive(true);
                     ExclamationMark.SetActive(true);
                     
                     if (EventsArray[i].InfluencePercentage < -5 || EventsArray[i].InfluencePercentage > 8)
@@ -104,60 +110,62 @@ namespace Events
 
         private IEnumerator UiTimer()
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
             HeadlineUi.SetActive(false);
         }
 
         public void SetText(int whichevent)
         {
             Headline.text = EventsArray[whichevent].Headline;
-            Content.text = EventsArray[whichevent].Content;
+            //Content.text = EventsArray[whichevent].Content;
 
-            if (EventsArray[whichevent].InfluencePercentage > 0)
-            {
-                Effect.text = GetName(EventsArray[whichevent].FieldType) + "  " + "+ " + EventsArray[whichevent].InfluencePercentage + "%";
-            }
-            else
-            {
-                Effect.text = GetName(EventsArray[whichevent].FieldType) + "  " + EventsArray[whichevent].InfluencePercentage + " %";
-            }
-            
+            //if (EventsArray[whichevent].InfluencePercentage > 0)
+            //{
+            //    Effect.text = GetName(EventsArray[whichevent].FieldType) + "  " + "+ " + EventsArray[whichevent].InfluencePercentage + "%";
+            //}
+            //else
+            //{
+            //    Effect.text = GetName(EventsArray[whichevent].FieldType) + "  " + EventsArray[whichevent].InfluencePercentage + " %";
+            //}
+
             //FieldText.text = GetName(EventsArray[whichevent].FieldType);
         }
-        private string GetName(NodeState.FieldTypeEnum fieldType)
-        {
-            _name = "";
+        //private string GetName(NodeState.FieldTypeEnum fieldType)
+        //{
+        //    _name = "";
 
-            switch (fieldType)
-            {
-                case NodeState.FieldTypeEnum.Corn:
-                    _name = "Maïs";
-                    break;
-                case NodeState.FieldTypeEnum.Carrot:
-                    _name = "Wortel";
-                    break;
-                case NodeState.FieldTypeEnum.Nothing:
-                    _name = "Null";
-                    break;
-                case NodeState.FieldTypeEnum.Apple:
-                    _name = "Appel";
-                    break;
-                case NodeState.FieldTypeEnum.Blackberries:
-                    _name = "Bramen";
-                    break;
-                case NodeState.FieldTypeEnum.Tomato:
-                    _name = "Tomaten";
-                    break;
-                case NodeState.FieldTypeEnum.Tree:
-                    _name = "Bomen";
-                    break;
-                case NodeState.FieldTypeEnum.Grapes:
-                    _name = "Druiven";
-                    break;
-            }
+        //    switch (fieldType)
+        //    {
+        //        case NodeState.FieldTypeEnum.Corn:
+        //            _name = "Maïs";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Carrot:
+        //            _name = "Wortel";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Nothing:
+        //            _name = "Null";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Apple:
+        //            _name = "Appel";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Blackberries:
+        //            _name = "Bramen";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Tomato:
+        //            _name = "Tomaten";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Tree:
+        //            _name = "Bomen";
+        //            break;
+        //        case NodeState.FieldTypeEnum.Grapes:
+        //            _name = "Druiven";
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-            return _name;
-        }
+        //    return _name;
+        //}
 
         public void SetTextEnded(int whichevent)
         {
