@@ -72,7 +72,7 @@ namespace Assets.SimpleAndroidNotifications
             var p = notificationParams;
             var delay = (long) p.Delay.TotalMilliseconds;
 
-            new AndroidJavaClass(FullClassName).CallStatic("SetNotification", p.Id, delay, p.Title, p.Message, p.Ticker,
+            new AndroidJavaClass(FullClassName).CallStatic("SetNotification", p.Id, delay, p.Title, p.MessageEntry, p.Ticker,
                 p.Sound ? 1 : 0, p.Vibrate ? 1 : 0, p.Light ? 1 : 0, p.LargeIcon, GetSmallIconName(p.SmallIcon), ColotToInt(p.SmallIconColor), MainActivityClassName);
 
             #else

@@ -66,6 +66,11 @@
     <Compile Include="Assets\Scripts\Events\EventButton.cs" />
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
     <Compile Include="Assets\Scripts\Events\Events.cs" />
+    <Compile Include="Assets\Scripts\Events\MessageButton.cs" />
+    <Compile Include="Assets\Scripts\Events\MessageEntry.cs" />
+    <Compile Include="Assets\Scripts\Events\MessagePrefab.cs" />
+    <Compile Include="Assets\Scripts\Events\Messages.cs" />
+    <Compile Include="Assets\Scripts\Events\Popup.cs" />
     <Compile Include="Assets\Scripts\Grid\BuildingPlacement.cs" />
     <Compile Include="Assets\Scripts\Grid\GridList.cs" />
     <Compile Include="Assets\Scripts\Grid\GridMaker.cs" />
@@ -73,6 +78,8 @@
     <Compile Include="Assets\Scripts\Grid\NodeFence.cs" />
     <Compile Include="Assets\Scripts\Grid\Selection.cs" />
     <Compile Include="Assets\Scripts\Grid\SingleGridList.cs" />
+    <Compile Include="Assets\Scripts\KansKaarten\KanskaartButtons.cs" />
+    <Compile Include="Assets\Scripts\KansKaarten\Kanskaarten.cs" />
     <Compile Include="Assets\Scripts\MainMenu\SceneButton.cs" />
     <Compile Include="Assets\Scripts\Money\Finance.cs" />
     <Compile Include="Assets\Scripts\Money\FinanceButton.cs" />
