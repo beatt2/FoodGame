@@ -31,6 +31,11 @@
             <e p="EventButton.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
             <e p="Events.cs" t="Include" />
+            <e p="MessageButton.cs" t="Include" />
+            <e p="MessageEntry.cs" t="Include" />
+            <e p="MessagePrefab.cs" t="Include" />
+            <e p="Messages.cs" t="Include" />
+            <e p="Popup.cs" t="Include" />
           </e>
           <e p="Grid" t="Include">
             <e p="BuildingPlacement.cs" t="Include" />
