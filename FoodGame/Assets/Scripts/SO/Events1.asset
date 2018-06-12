@@ -14,7 +14,7 @@ MonoBehaviour:
   Headline: Biologische voeding aantrekkelijk!
   Content: Uit onderzoek is gebleken dat veel mensen biologische voeding aantrekkelijk
     vinden,  en hiervoor zelfs extra geld voor willen uitgeven.
-  Starts: {x: 5, y: 2018}
+  Starts: {x: 12, y: 2018}
   Finishes: {x: 7, y: 2025}
   FieldType: 0
   Type: 1

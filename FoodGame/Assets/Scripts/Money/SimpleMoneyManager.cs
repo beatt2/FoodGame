@@ -200,6 +200,10 @@ namespace Money
             return _currentMoney;
         }
 
+        public void AddMoney(float value)
+        {
+            _currentMoney += value;
+        }
 
  
         public void Remove(NodeState.FieldTypeEnum fieldType)
