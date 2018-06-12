@@ -83,9 +83,6 @@ namespace Events
         public void Add(string headline, string content, string effect)
         {
           
-
-            
-            
             _messageText.Add(new MessageEntry(headline, content, effect));
 
             GameObject go = Instantiate(HeadlineUiPrefab, StartingPos.position, Quaternion.identity, Content.transform) as GameObject;
@@ -95,11 +92,6 @@ namespace Events
             {
                 UpdateTextPos();
             }
-
-
-
-
-
             MessagePrefab messagePrefab = go.GetComponent<MessagePrefab>();
             messagePrefab.Headline.text = headline;
 
@@ -113,12 +105,14 @@ namespace Events
 
         public void UpdateTextPos()
         {
-            foreach (var t in _go)
+            int multiplierRate = _go.Count;
+            for (int i = 1; i < _go.Count; i++ , multiplierRate--)
             {
-                _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + Gap,
-                    _currentpos.position.z);
-                t.transform.position = _currentpos.position;
+                _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + Gap,_currentpos.position.z);
+                _go[i].transform.position = _currentpos.position;
             }
+
+            _currentpos.position = StartingPos.position;
         }
 
         //public void ChangeText(GameObject go,string headline, string content, string effect)
