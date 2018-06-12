@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Big middle grapes
-  Sustainability: 1
   MoneyTick: 120
   ExpenseTick: 50
   MonthsToGrow: 3
@@ -126,12 +125,13 @@ MonoBehaviour:
   MyFieldType: 7
   EnviromentValue: 0
   Happiness: 0
-  SizeRank: 0
+  SizeRank: 36
   Upgrade: 1
-  UpgradeDuration: 12
+  UpgradeDuration: 2
+  UpgradePrefabIndex: 0
+  MonthCount: 0
   MyBuilding:
     Name: Big middle grapes
-    Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
     MonthsToGrow: 3
@@ -141,8 +141,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
     Upgrade: 0
     UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!114 &114802508555678456

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Cultivations
 {
+
     [Serializable]
     public class Building : Cultivation
     {

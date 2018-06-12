@@ -1,36 +1,34 @@
 using System;
+using Boo.Lang.Environments;
 using JetBrains.Annotations;
+using Money;
 using Node;
 using UnityEngine;
 
 namespace Cultivations
 {
-    [Serializable]
     public class BuildingPrefab : CultivationPrefab
     {
         public Building MyBuilding;
         private Building _savedBuilding;
 
 
-
-
         public void Start()
         {
-            MyBuilding.FieldType = GetComponent<NodeState>().FieldType;
-            MyBuilding.MyCultivationState = GetComponent<NodeState>().CurrentState;
-            MyCurrentState = MyBuilding.MyCultivationState;
-            MyFieldType = MyBuilding.FieldType;
-            //TODO this is kinda wonky
-            AddCultivation();
-
+//            MyBuilding.FieldType = GetComponent<NodeState>().FieldType;
+//            MyBuilding.MyCultivationState = GetComponent<NodeState>().CurrentState;
+//            MyCurrentState = MyBuilding.MyCultivationState;
+//            MyFieldType = MyBuilding.FieldType;
+//            //TODO this is kinda wonky
+//            AddCultivation();
         }
 
         public void CustomAwake()
         {
-
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-            MyBuilding = new Building( Name,UpgradePrefabIndex,MoneyTick,ExpenseTick,MonthsToGrow,BuildingPrice,
-                MyCurrentState, MyFieldType,UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
+                MyBuilding = new Building(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade,
+                UpgradeDuration, MonthCount);
         }
 
         public void RemoveUpgrade()
@@ -46,12 +44,12 @@ namespace Cultivations
             if (MyBuilding != null)
             {
                 _savedBuilding = MyBuilding;
+                SimpleMoneyManager.Instance.RemoveValue(MyBuilding);
             }
 
             MyBuilding = building;
             SyncValuesToMyBuidling();
             AddCultivation();
-
         }
 
 
@@ -72,6 +70,10 @@ namespace Cultivations
         private void SyncValuesToMyBuidling()
         {
             Name = MyBuilding.Name;
+            MyCurrentState = MyBuilding.MyCultivationState;
+            Debug.Log(MyCurrentState);
+            MyFieldType = MyBuilding.FieldType;
+            Debug.Log(MyFieldType);
             UpgradePrefabIndex = MyBuilding.UpgradePrefabIndex;
             MoneyTick = MyBuilding.MoneyTick;
             BuildingPrice = MyBuilding.BuildPrice;
@@ -87,11 +89,9 @@ namespace Cultivations
             if (Upgrade)
             {
                 CultivationManager.Instance.RemoveEntry(_savedBuilding);
-
             }
-            CultivationManager.Instance.AddValue(MyBuilding);
+
+            CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding());
         }
-
-
     }
 }

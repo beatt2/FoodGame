@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Money;
+﻿using Money;
 using TimeSystem;
 using UnityEngine;
 using UnityEngine.UI;

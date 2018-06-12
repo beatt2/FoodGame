@@ -130,19 +130,28 @@ namespace Money
             return _moneyValues;
         }
 
-        public void AddFinance(Cultivation cultivation)
+        public void AddFinance(Cultivation cultivation, int oldMonthCount)
         {
 
             if (!_moneyValues.ContainsKey(cultivation.FieldType))
             {
                 _moneyValues.Add(cultivation.FieldType, new List<MoneyValue>());
-                _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation));
+                _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation, oldMonthCount));
+                
             }
             else
             {
-                _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation));
+                _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation, oldMonthCount));
+            }
 
+            for (int i = 0; i < _moneyValues.Keys.Count; i++)
+            {
 
+                foreach (var t in _moneyValues.ElementAt(i).Value)
+                {
+                    t.MyCultivation.MonthCount = t.MonthCount;
+
+                }
             }
         }
 

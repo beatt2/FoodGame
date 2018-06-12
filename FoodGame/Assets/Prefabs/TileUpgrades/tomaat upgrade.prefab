@@ -54,13 +54,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Tomato Field
-  Sustainability: 5
   MoneyTick: 1000
   ExpenseTick: 10
   MonthsToGrow: 3
   BuildingPrice: 500
   UpgradeValue: 3
-  SpriteIndex: 28
+  SpriteIndex: 47
   MyCurrentState: 1
   MyFieldType: 5
   EnviromentValue: 0
@@ -68,9 +67,10 @@ MonoBehaviour:
   SizeRank: 0
   Upgrade: 1
   UpgradeDuration: 12
+  UpgradePrefabIndex: 0
+  MonthCount: 0
   MyPlant:
     Name: Tomato Field
-    Sustainability: 5
     MoneyTick: 50
     ExpenseTick: 10
     MonthsToGrow: 0
@@ -80,8 +80,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
     Upgrade: 0
     UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 2
     FieldType: 5
 --- !u!114 &114685363629210484

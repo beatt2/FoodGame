@@ -1,12 +1,13 @@
 ﻿using System;
 using Boo.Lang.Environments;
 using JetBrains.Annotations;
+using Money;
 using Node;
 using UnityEngine;
 
 namespace Cultivations
 {
-    [Serializable]
+
     public class PlantPrefab : CultivationPrefab
     {
         [HideInInspector] public Plant MyPlant;
@@ -56,11 +57,13 @@ namespace Cultivations
 
 
         //TODO WHY IS THIS DIFFERENT THAN BUILDINGPREFAB????
-        public void ChangeValues(Plant plant, NodeState.CurrentStateEnum currentStateEnum, NodeState.FieldTypeEnum fieldTypeEnum)
+        public void ChangeValues(Plant plant)
         {
             if (MyPlant != null)
             {
                 _savedPlant = MyPlant;
+                //SimpleMoneyManager.Instance.RemoveValue(_savedPlant);
+
             }
             MyPlant = plant;
             SyncValuesToMyPlant();
@@ -97,7 +100,7 @@ namespace Cultivations
             {
                 CultivationManager.Instance.RemoveEntry(_savedPlant);
             }
-            CultivationManager.Instance.AddValue(MyPlant);
+            CultivationManager.Instance.AddValue(MyPlant, GetSavedPlant());
         }
     }
 }

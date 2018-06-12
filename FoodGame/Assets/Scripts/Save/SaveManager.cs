@@ -232,7 +232,7 @@ namespace Save
                         || nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
                     {
                         nodes[i, j].gameObject.AddComponent<PlantPrefab>();
-                        nodes[i,j].GetComponent<PlantPrefab>().ChangeValues((Plant)loadedNodes[i,j].MyCultivation,loadedNodes[i,j].CurrentState,loadedNodes[i,j].FieldType);
+                        nodes[i,j].GetComponent<PlantPrefab>().ChangeValues((Plant)loadedNodes[i,j].MyCultivation);
                         nodes[i, j].SetSprite( _sprites[nodes[i, j].GetComponent<PlantPrefab>().MyPlant.SpriteIndex]);
                         if ((Plant) loadedNodes[i, j].MySavedCultivation != null)
                         {

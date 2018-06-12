@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Cultivations
 {
+
     [Serializable]
     public abstract class Cultivation
     {
@@ -51,6 +52,7 @@ namespace Cultivations
             Upgrade = upgrade;
             UpgradeDuration = upgradeDuration;
             UpgradePrefabIndex = upgradePrefabIndex;
+            FieldType = currentFieldType;
             MonthCount = monthCount;
 
         }

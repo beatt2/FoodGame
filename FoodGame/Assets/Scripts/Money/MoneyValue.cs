@@ -17,11 +17,12 @@ namespace Money
 
 
 
-        public MoneyValue(Cultivation cultivation)
+        public MoneyValue(Cultivation cultivation, int monthCount)
         {
             Income = cultivation.MoneyTick;
             Expense = cultivation.ExpenseTick;
             Percentage = 0;
+            MonthCount = monthCount;
             MonthsToGrow = cultivation.MonthsToGrow;
             MyCultivation = cultivation;
         }

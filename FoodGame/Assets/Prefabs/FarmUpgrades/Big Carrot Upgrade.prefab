@@ -128,23 +128,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Big Carrot
-  Sustainability: 1
   MoneyTick: 150
   ExpenseTick: 50
   MonthsToGrow: 2
   BuildingPrice: 3000
   UpgradeValue: 2000
-  SpriteIndex: 10
+  SpriteIndex: 33
   MyCurrentState: 0
   MyFieldType: 1
   EnviromentValue: 0
   Happiness: 0
   SizeRank: 0
   Upgrade: 1
-  UpgradeDuration: 12
+  UpgradeDuration: 2
+  UpgradePrefabIndex: 0
+  MonthCount: 0
   MyBuilding:
     Name: Big Carrot
-    Sustainability: 1
     MoneyTick: 80
     ExpenseTick: 50
     MonthsToGrow: 2
@@ -154,8 +154,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
     Upgrade: 0
     UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212218253364163976

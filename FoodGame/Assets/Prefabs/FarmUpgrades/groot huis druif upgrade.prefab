@@ -128,34 +128,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: GrapeBig
-  Sustainability: 1
   MoneyTick: 150
   ExpenseTick: 50
   MonthsToGrow: 3
   BuildingPrice: 3000
   UpgradeValue: 1000
-  SpriteIndex: 7
+  SpriteIndex: 30
   MyCurrentState: 0
   MyFieldType: 7
   EnviromentValue: 0
   Happiness: 0
   SizeRank: 3
   Upgrade: 1
-  UpgradeDuration: 12
+  UpgradeDuration: 2
+  UpgradePrefabIndex: 0
+  MonthCount: 0
   MyBuilding:
     Name: GrapeBig
-    Sustainability: 1
-    MoneyTick: 80
+    MoneyTick: 150
     ExpenseTick: 50
     MonthsToGrow: 3
     BuildPrice: 3000
-    UpgradeValue: 0
-    SpriteIndex: 7
+    UpgradeValue: 1000
+    SpriteIndex: 30
     EnviromentValue: 0
     Happyness: 0
-    SizeRank: 0
-    Upgrade: 0
-    UpgradeDuration: 0
+    SizeRank: 3
+    MonthCount: 2
+    Upgrade: 1
+    UpgradeDuration: 2
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212404738737839510

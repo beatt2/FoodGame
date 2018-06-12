@@ -21,7 +21,7 @@ namespace Cultivations
             return _cultivations;
         }
 
-        public void AddValue(Cultivation cultivation)
+        public void AddValue(Cultivation cultivation, Cultivation oldCultivation)
         {
             if (!SimpleMoneyManager.Instance.EnoughMoney(cultivation.BuildPrice)) return;
             SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
@@ -29,8 +29,8 @@ namespace Cultivations
             //TODO CHANGE THE WAY TO DO THIS
             if (cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField)
             {
-
-                SimpleMoneyManager.Instance.AddFinance(cultivation);
+                SimpleMoneyManager.Instance.AddFinance(cultivation,
+                    oldCultivation != null ? oldCultivation.MonthCount : 0);
             }
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             CheckForNull(cultivation.MyCultivationState);
@@ -41,8 +41,9 @@ namespace Cultivations
         //TODO Maybe turn this into an event
         public void MonthlyTick()
         {
-            foreach (var cultivationPrefab in _activeUpgradedCultivations)
+            for (var index = 0; index < _activeUpgradedCultivations.Count; index++)
             {
+                var cultivationPrefab = _activeUpgradedCultivations[index];
                 cultivationPrefab.UpgradeDuration--;
                 if (cultivationPrefab.UpgradeDuration >= 1) continue;
                 if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Farm)
@@ -53,7 +54,7 @@ namespace Cultivations
                 }
                 else if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Field)
                 {
-                    GridManager.Instance.BuildingPlacement.UpgradeFieldFinished((PlantPrefab)cultivationPrefab);
+                    GridManager.Instance.BuildingPlacement.UpgradeFieldFinished((PlantPrefab) cultivationPrefab);
                     RemoveUpgradedCultivation(cultivationPrefab);
                     Debug.Log("Building type = plant prefab");
                 }

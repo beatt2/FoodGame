@@ -108,6 +108,9 @@ namespace UI
                         case NodeState.FieldTypeEnum.Tree:
                             GridManager.Instance.BuildingPlacement.BuildField(4);
                             break;
+                        case NodeState.FieldTypeEnum.Grapes:
+                            GridManager.Instance.BuildingPlacement.BuildField(5);
+                            break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }

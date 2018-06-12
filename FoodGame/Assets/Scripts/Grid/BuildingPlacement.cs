@@ -2,6 +2,7 @@
 using Money;
 using Node;
 using Save;
+using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 
 
@@ -34,9 +35,7 @@ namespace Grid
             if (GridManager.Instance.GetSelectedNode() == null) return;
             EmptyField.GetComponent<PlantPrefab>().CustomAwake();
             node.AddComponent<PlantPrefab>();
-            node.GetComponent<PlantPrefab>().ChangeValues(
-                EmptyField.GetComponent<PlantPrefab>().MyPlant, NodeState.CurrentStateEnum.EmptyField,
-                NodeState.FieldTypeEnum.Nothing);
+            node.GetComponent<PlantPrefab>().ChangeValues(EmptyField.GetComponent<PlantPrefab>().MyPlant);
         }
 
         public bool BuildFarm(int index)
@@ -44,6 +43,7 @@ namespace Grid
             if (SimpleMoneyManager.Instance.EnoughMoney(Farms[index].GetComponent<BuildingPrefab>().BuildingPrice))
             {
                 ChangeTile(Farms[index], false);
+
                 return true;
             }
 
@@ -56,7 +56,6 @@ namespace Grid
             if (SimpleMoneyManager.Instance.EnoughMoney(Fields[index].GetComponent<PlantPrefab>().BuildingPrice))
             {
                 ChangeTile(Fields[index], true);
-
                 return true;
             }
 
@@ -66,10 +65,11 @@ namespace Grid
 
         public bool UpgradeField(int index)
         {
-            if (SimpleMoneyManager.Instance.EnoughMoney(FieldUpgrades[index].GetComponent<PlantPrefab>().UpgradeValue))
+            if (SimpleMoneyManager.Instance.EnoughMoney(FieldUpgrades[index].GetComponent<PlantPrefab>().MyPlant.UpgradeValue))
             {
                 ChangeTile(FieldUpgrades[index], true);
-                return true;
+                CultivationManager.Instance.AddUpgradedCultivation(GridManager.Instance.GetSelectedNode().GetComponent<PlantPrefab>());             
+                return true;   
             }
 
             Debug.Log("Sorry not enough money");
@@ -79,9 +79,12 @@ namespace Grid
 
         public bool UpgradeFarm(int index)
         {
-            if (SimpleMoneyManager.Instance.EnoughMoney(FarmUpgrades[index].GetComponent<BuildingPrefab>().UpgradeValue))
+            if (SimpleMoneyManager.Instance.EnoughMoney(FarmUpgrades[index].GetComponent<BuildingPrefab>().MyBuilding.UpgradeValue))
             {
+                FarmUpgrades[index].GetComponent<BuildingPrefab>().CustomAwake();
                 ChangeTile(FarmUpgrades[index], false);
+                CultivationManager.Instance.AddUpgradedCultivation(GridManager.Instance.GetSelectedNode().GetComponent<BuildingPrefab>());
+
                 return true;
             }
             Debug.Log("Sorry not enough money");
@@ -91,16 +94,19 @@ namespace Grid
         public void UpgradeFarmFinished(BuildingPrefab buildingPrefab)
         {
             var node = buildingPrefab.GetComponent<NodeBehaviour>();
-            node.SetSprite(SaveManager.Instance.GetSprite(buildingPrefab.SpriteIndex));
+            node.SetSprite(SaveManager.Instance.GetSprite(buildingPrefab.GetSavedBuilding().SpriteIndex));
+            
             buildingPrefab.RemoveUpgrade();
         }
 
         public void UpgradeFieldFinished(PlantPrefab plantPrefab)
         {
             var node = plantPrefab.GetComponent<NodeBehaviour>();
-            node.SetSprite(SaveManager.Instance.GetSprite(plantPrefab.SpriteIndex));
+            node.SetSprite(SaveManager.Instance.GetSprite(plantPrefab.GetSavedPlant().SpriteIndex));
             plantPrefab.RemoveUpgrade();
         }
+        
+        
 
         private void ChangeTile(GameObject go, bool field)
         {
@@ -110,19 +116,16 @@ namespace Grid
             node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
             if (field)
             {
-                go.GetComponent<PlantPrefab>().CustomAwake();
-                node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant,
-                    go.GetComponent<NodeState>().CurrentState, go.GetComponent<NodeState>().FieldType);
+                go.GetComponent<PlantPrefab>().CustomAwake();    
+                node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
                 GetComponent<Selection>().SetSidePanel(node.GetComponent<PlantPrefab>().MyPlant);
             }
             else
             {
-                go.GetComponent<BuildingPrefab>().CustomAwake();
-
+                
                 if (!go.GetComponent<BuildingPrefab>().MyBuilding.Upgrade)
                 {
-                    node.gameObject.AddComponent<BuildingPrefab>()
-                        .ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
+                    node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
                 }
                 else
                 {

@@ -30,6 +30,7 @@ namespace UI
             Debug.Log(_farmButtons.Length + "tempGos");
             foreach (var farm in tempFarms)
             {
+                farm.GetComponent<BuildingPrefab>().CustomAwake();
                 if (farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice > _highestPrice)
                 {
                     _highestPrice =farm.GetComponent<BuildingPrefab>().MyBuilding.BuildPrice;

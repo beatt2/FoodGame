@@ -128,23 +128,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Carrot Middle
-  Sustainability: 3
   MoneyTick: 150
   ExpenseTick: 50
   MonthsToGrow: 2
   BuildingPrice: 2000
   UpgradeValue: 1500
-  SpriteIndex: 21
+  SpriteIndex: 46
   MyCurrentState: 0
   MyFieldType: 1
   EnviromentValue: 0
   Happiness: 0
   SizeRank: 0
   Upgrade: 1
-  UpgradeDuration: 12
+  UpgradeDuration: 2
+  UpgradePrefabIndex: 0
+  MonthCount: 0
   MyBuilding:
     Name: Carrot Middle
-    Sustainability: 3
     MoneyTick: 70
     ExpenseTick: 50
     MonthsToGrow: 4
@@ -154,8 +154,10 @@ MonoBehaviour:
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
     Upgrade: 0
     UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
 --- !u!212 &212965040706900620
