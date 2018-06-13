@@ -43,7 +43,7 @@ namespace Grid
             if (SimpleMoneyManager.Instance.EnoughMoney(Farms[index].GetComponent<BuildingPrefab>().BuildingPrice))
             {
                 ChangeTile(Farms[index], false);
-
+                SoundManager.Instance.FarmPlacementSound();
                 return true;
             }
 
@@ -56,6 +56,7 @@ namespace Grid
             if (SimpleMoneyManager.Instance.EnoughMoney(Fields[index].GetComponent<PlantPrefab>().BuildingPrice))
             {
                 ChangeTile(Fields[index], true);
+                SoundManager.Instance.PlayFieldPlacementSound();
                 return true;
             }
 
@@ -68,8 +69,9 @@ namespace Grid
             if (SimpleMoneyManager.Instance.EnoughMoney(FieldUpgrades[index].GetComponent<PlantPrefab>().MyPlant.UpgradeValue))
             {
                 ChangeTile(FieldUpgrades[index], true);
-                CultivationManager.Instance.AddUpgradedCultivation(GridManager.Instance.GetSelectedNode().GetComponent<PlantPrefab>());             
-                return true;   
+                CultivationManager.Instance.AddUpgradedCultivation(GridManager.Instance.GetSelectedNode().GetComponent<PlantPrefab>());
+                SoundManager.Instance.PlayUpgradeSound();
+                return true;
             }
 
             Debug.Log("Sorry not enough money");
@@ -84,7 +86,7 @@ namespace Grid
                 FarmUpgrades[index].GetComponent<BuildingPrefab>().CustomAwake();
                 ChangeTile(FarmUpgrades[index], false);
                 CultivationManager.Instance.AddUpgradedCultivation(GridManager.Instance.GetSelectedNode().GetComponent<BuildingPrefab>());
-
+                SoundManager.Instance.PlayUpgradeSound();
                 return true;
             }
             Debug.Log("Sorry not enough money");
@@ -95,7 +97,7 @@ namespace Grid
         {
             var node = buildingPrefab.GetComponent<NodeBehaviour>();
             node.SetSprite(SaveManager.Instance.GetSprite(buildingPrefab.GetSavedBuilding().SpriteIndex));
-            
+
             buildingPrefab.RemoveUpgrade();
         }
 
@@ -105,8 +107,8 @@ namespace Grid
             node.SetSprite(SaveManager.Instance.GetSprite(plantPrefab.GetSavedPlant().SpriteIndex));
             plantPrefab.RemoveUpgrade();
         }
-        
-        
+
+
 
         private void ChangeTile(GameObject go, bool field)
         {
@@ -116,13 +118,13 @@ namespace Grid
             node.GetComponent<NodeState>().ChangeValues(go.GetComponent<NodeState>());
             if (field)
             {
-                go.GetComponent<PlantPrefab>().CustomAwake();    
+                go.GetComponent<PlantPrefab>().CustomAwake();
                 node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
                 GetComponent<Selection>().SetSidePanel(node.GetComponent<PlantPrefab>().MyPlant);
             }
             else
             {
-                
+
                 if (!go.GetComponent<BuildingPrefab>().MyBuilding.Upgrade)
                 {
                     node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);

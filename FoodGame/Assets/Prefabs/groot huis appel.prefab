@@ -121,6 +121,7 @@ MonoBehaviour:
   BuildingPrice: 3000
   UpgradeValue: 0
   SpriteIndex: 17
+  SidePanelSpriteIndex: 3
   MyCurrentState: 0
   MyFieldType: 3
   EnviromentValue: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   Upgrade: 0
   UpgradeDuration: 0
   UpgradePrefabIndex: 7
+  MonthCount: 0
   MyBuilding:
     Name: Big Apple
     MoneyTick: 80
@@ -137,9 +139,11 @@ MonoBehaviour:
     BuildPrice: 3000
     UpgradeValue: 0
     SpriteIndex: 17
+    SidePanelSpriteIndex: 0
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0
+    MonthCount: 0
     Upgrade: 0
     UpgradeDuration: 0
     UpgradePrefabIndex: 0

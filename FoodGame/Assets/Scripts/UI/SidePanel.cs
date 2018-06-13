@@ -13,8 +13,12 @@ namespace UI
     public class SidePanel : MonoBehaviour
     {
         public Text HeaderText;
+
         public Text UpgradeText;
         public Text MoneyTickText;
+        public Text ExpenseTickText;
+        public Text HappinessText;
+        public Text EnviromentalText;
 
 
         private PanelLerp _panelLerp;
@@ -26,6 +30,8 @@ namespace UI
 
         public Button KillButton;
         public Button UpgradeButton;
+
+        public Sprite[] SidePanelIcons;
 
 
 
@@ -70,13 +76,21 @@ namespace UI
             }
 
             _currentCultivation = cultivation;
-            HeaderText.text = cultivation.Name + " " + cultivation.FieldType;
-            MyImage.sprite = SaveManager.Instance.GetSprites()[cultivation.SpriteIndex];
+            HeaderText.text = cultivation.Name;
+            MyImage.sprite = SidePanelIcons[cultivation.SidePanelSpriteIndex];
+            if (!cultivation.Upgrade)
+            {
+                UpgradeText.text = "Upgrade value = " + cultivation.UpgradeValue;
+            }
+            else
+            {
+                UpgradeText.text = "";
+            }
 
-
-            UpgradeText.text = cultivation.UpgradeValue.ToString();
-            MoneyTickText.text = "money per month" + cultivation.MoneyTick;
-
+            MoneyTickText.text = "Income: " + cultivation.MoneyTick;
+            ExpenseTickText.text = "Expense: " + cultivation.ExpenseTick;
+            HappinessText.text = "Happiness: " + cultivation.Happyness;
+            EnviromentalText.text = "Enviromental: " + cultivation.EnviromentValue;
             UpgradeButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.Field;
             KillButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField;
         }

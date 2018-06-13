@@ -17,7 +17,8 @@ namespace Events
         public NodeState.FieldTypeEnum FieldType;
         public NodeState.CurrentStateEnum Type;
         public float InfluencePercentage;
+        public bool Review;
     }
 
-    
+
 }

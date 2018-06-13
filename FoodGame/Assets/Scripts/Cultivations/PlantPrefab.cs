@@ -18,7 +18,7 @@ namespace Cultivations
         protected void Awake()
         {
             MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration, MonthCount);
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration, MonthCount);
 
 
         }
@@ -26,7 +26,7 @@ namespace Cultivations
         public void CustomAwake()
         {
             MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
         }
 
         private void Start()

@@ -18,6 +18,7 @@ namespace Cultivations
         //Going to be multiple values
         public int UpgradeValue;
         public int SpriteIndex;
+        public int SidePanelSpriteIndex;
         public int EnviromentValue;
         public int Happyness;
         public int SizeRank;
@@ -35,7 +36,7 @@ namespace Cultivations
 
         protected Cultivation(string name, int upgradePrefabIndex, int moneyTick, float expenseTick,
             int monthsToGrow,int buildPrice,NodeState.CurrentStateEnum currentState,
-            NodeState.FieldTypeEnum currentFieldType, int upgradeValue, int spriteIndex, int enviromentValue, int happiness,
+            NodeState.FieldTypeEnum currentFieldType, int upgradeValue, int spriteIndex,int sidePanelSpriteIndex, int enviromentValue, int happiness,
             int sizeRank, bool upgrade , int upgradeDuration, int monthCount)
         {
             Name = name;
@@ -45,6 +46,7 @@ namespace Cultivations
             BuildPrice = buildPrice;
             UpgradeValue = upgradeValue;
             SpriteIndex = spriteIndex;
+            SidePanelSpriteIndex = sidePanelSpriteIndex;
             EnviromentValue = enviromentValue;
             Happyness = happiness;
             MonthsToGrow = monthsToGrow;

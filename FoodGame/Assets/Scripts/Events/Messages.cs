@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MathExt;
 using Node;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,8 @@ namespace Events
         public GameObject PopupUi;
 
         public Popup PopupScript;
+
+        public bool Review;
 
         private string _name;
         // Use this for initialization
@@ -91,6 +94,10 @@ namespace Events
             _messageText.Add(new MessageEntry(headline, content, effect));
 
             GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform) as GameObject;
+            if (Review)
+            {
+                go.GetComponent<Image>().sprite = EventManager.Instance.ReviewBackground.GetRandom_Array();
+            }
             _go.Insert(0,go);
 
             if (_go.Count > 1)

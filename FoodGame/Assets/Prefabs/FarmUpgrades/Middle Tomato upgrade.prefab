@@ -121,6 +121,7 @@ MonoBehaviour:
   BuildingPrice: 2000
   UpgradeValue: 3
   SpriteIndex: 45
+  SidePanelSpriteIndex: 19
   MyCurrentState: 0
   MyFieldType: 5
   EnviromentValue: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
     BuildPrice: 2000
     UpgradeValue: 3
     SpriteIndex: 20
+    SidePanelSpriteIndex: 0
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0

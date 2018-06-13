@@ -114,13 +114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b1e956b2167df4a9bd596a3dbe67e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Carrot
+  Name: Corn
   MoneyTick: 50
   ExpenseTick: 10
   MonthsToGrow: 3
   BuildingPrice: 500
   UpgradeValue: 0
   SpriteIndex: 3
+  SidePanelSpriteIndex: 14
   MyCurrentState: 1
   MyFieldType: 0
   EnviromentValue: 0
@@ -138,6 +139,7 @@ MonoBehaviour:
     BuildPrice: 0
     UpgradeValue: 0
     SpriteIndex: 0
+    SidePanelSpriteIndex: 0
     EnviromentValue: 0
     Happyness: 0
     SizeRank: 0

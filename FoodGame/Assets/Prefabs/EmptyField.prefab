@@ -155,28 +155,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: EmptyField
-  Sustainability: 0
   MoneyTick: 0
   ExpenseTick: 0
-  UpgradeRank: 0
+  MonthsToGrow: 0
   BuildingPrice: 0
   UpgradeValue: 0
   SpriteIndex: 4
+  SidePanelSpriteIndex: 23
   MyCurrentState: 2
   MyFieldType: 2
   EnviromentValue: 0
   Happiness: 0
+  SizeRank: 0
+  Upgrade: 0
+  UpgradeDuration: 0
+  UpgradePrefabIndex: 0
+  MonthCount: 0
   MyPlant:
     Name: EmptyField
-    Sustainability: 0
     MoneyTick: 0
     ExpenseTick: 0
-    UpgradeRank: 0
+    MonthsToGrow: 0
     BuildPrice: 0
     UpgradeValue: 1500
     SpriteIndex: 4
+    SidePanelSpriteIndex: 0
     EnviromentValue: 0
     Happyness: 0
+    SizeRank: 0
+    MonthCount: 0
+    Upgrade: 0
+    UpgradeDuration: 0
+    UpgradePrefabIndex: 0
     MyCultivationState: 2
     FieldType: 3
 --- !u!212 &212602781056753814

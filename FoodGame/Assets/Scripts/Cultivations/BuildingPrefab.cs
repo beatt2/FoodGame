@@ -27,7 +27,7 @@ namespace Cultivations
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
                 MyBuilding = new Building(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade,
+                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade,
                 UpgradeDuration, MonthCount);
         }
 

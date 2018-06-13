@@ -14,6 +14,7 @@ namespace Cultivations
         public int BuildingPrice;
         public int UpgradeValue;
         public int SpriteIndex;
+        public int SidePanelSpriteIndex;
         public NodeState.CurrentStateEnum MyCurrentState;
         public NodeState.FieldTypeEnum MyFieldType;
         public int EnviromentValue;

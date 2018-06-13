@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using MathExt;
 using Money;
 using Node;
 using Tools;
@@ -11,11 +12,12 @@ namespace Events
     public class EventManager : Singleton<EventManager>
     {
         public Events[] EventsArray;
-        
+
         public Text Headline;
         public GameObject HeadlineUi;
 
         public GameObject ExclamationMark;
+        public GameObject ExclamationMarkReview;
 
         public Sprite[] Sprites;
         public Text Content;
@@ -28,17 +30,32 @@ namespace Events
         private float _percentageEvent = 0;
         private string _name;
         public Messages MessageScript;
+        public Messages ReviewScript;
         public bool InMenu = false;
+
+        public Sprite[] ReviewBackground;
+        public Sprite MessageBackground;
+
+        private Image _headlineUiImage;
+
+
+
         public float GetInfluence()
         {
             return _percentageEvent;
         }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            _headlineUiImage = HeadlineUi.GetComponent<Image>();
+        }
+
         public void CheckDate(int month,int year)
         {
-            
+
           SetMessageScreen(month,year);
-            
+
         }
 
         private void SetMessageScreen(int month, int year)
@@ -48,77 +65,95 @@ namespace Events
                 if (EventsArray[i].Starts == new Vector2Int(month, year))
                 {
 
-                    MessageScript.AddEvent(EventsArray[i]);
-                    if (!InMenu)
+                    SoundManager.Instance.PlayMessageSound();
+                    if (!EventsArray[i].Review)
                     {
-                        HeadlineUi.SetActive(true);
-                    }
-
-                    ExclamationMark.SetActive(true);
-
-                    if (EventsArray[i].InfluencePercentage < -5 || EventsArray[i].InfluencePercentage > 8)
-                    {
-                        ExclamationMark.GetComponent<Image>().sprite = Sprites[2];
-                    }
-                    else if (EventsArray[i].InfluencePercentage < 0 || EventsArray[i].InfluencePercentage > 4)
-
-                    {
-                        ExclamationMark.GetComponent<Image>().sprite = Sprites[1];
+                        MessageScript.AddEvent(EventsArray[i]);
                     }
                     else
                     {
-                        ExclamationMark.GetComponent<Image>().sprite = Sprites[0];
+                        ReviewScript.AddEvent(EventsArray[i]);
+                    }
+
+                    if (!InMenu)
+                    {
+                        HeadlineUi.SetActive(true);
+                        if (EventsArray[i].Review)
+                        {
+                            _headlineUiImage.sprite = ReviewBackground.GetRandom_Array();
+                        }
+                        else
+                        {
+                            _headlineUiImage.sprite = MessageBackground;
+
+                        }
+                    }
+
+                    if (!EventsArray[i].Review)
+                    {
+                        ExclamationMark.SetActive(true);
+                    }
+                    else
+                    {
+                        ExclamationMarkReview.SetActive(true);
+                    }
+
+                    if (EventsArray[i].InfluencePercentage < -5 || EventsArray[i].InfluencePercentage > 8)
+                    {
+                        if (!EventsArray[i].Review)
+                        {
+                            ExclamationMark.GetComponent<Image>().sprite = Sprites[2];
+                        }
+                        else
+                        {
+                            ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[2];
+                        }
+
+                    }
+                    else if (EventsArray[i].InfluencePercentage < 0 || EventsArray[i].InfluencePercentage > 4)
+                    {
+                        if (!EventsArray[i].Review)
+                        {
+                            ExclamationMark.GetComponent<Image>().sprite = Sprites[1];
+                        }
+                        else
+                        {
+                            ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[1];
+                        }
+                    }
+                    else
+                    {
+                        if (!EventsArray[i].Review)
+                        {
+                            ExclamationMark.GetComponent<Image>().sprite = Sprites[0];
+                        }
+                        else
+                        {
+                            ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[0];
+                        }
                     }
 
                     StartCoroutine("UiTimer");
                     SetText(i);
 
-                    switch (EventsArray[i].FieldType)
+                    SimpleMoneyManager.Instance.SetPercentage(EventsArray[i].FieldType,
+                        EventsArray[i].InfluencePercentage);
+
+
+                    if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
+                    HeadlineUi.SetActive(false);
+                    if (EventsArray[i].Review)
                     {
-                        case NodeState.FieldTypeEnum.Corn:
-
-
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn,
-                                EventsArray[i].InfluencePercentage);
-
-                            break;
-                        case NodeState.FieldTypeEnum.Carrot:
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Carrot,
-                                EventsArray[i].InfluencePercentage);
-
-                            break;
-                        case NodeState.FieldTypeEnum.Nothing:
-                            break;
-                        case NodeState.FieldTypeEnum.Apple:
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Apple,
-                                EventsArray[i].InfluencePercentage);
-                            break;
-                        case NodeState.FieldTypeEnum.Blackberries:
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Blackberries,
-                                EventsArray[i].InfluencePercentage);
-                            break;
-                        case NodeState.FieldTypeEnum.Tomato:
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tomato,
-                                EventsArray[i].InfluencePercentage);
-                            break;
-                        case NodeState.FieldTypeEnum.Tree:
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tree,
-                                EventsArray[i].InfluencePercentage);
-                            break;
-                        case NodeState.FieldTypeEnum.Grapes:
-                            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Grapes,
-                                EventsArray[i].InfluencePercentage);
-                            break;
-                        default:
-                            break;
+                        ExclamationMarkReview.SetActive(false);
                     }
+                    else
+                    {
+                        ExclamationMark.SetActive(false);
+
+                    }
+
+                    SetTextEnded(i);
                 }
-
-                if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
-
-                HeadlineUi.SetActive(false);
-                ExclamationMark.SetActive(false);
-                SetTextEnded(i);
             }
         }
 
@@ -183,7 +218,7 @@ namespace Events
 
         public void SetTextEnded(int whichevent)
         {
-            Headline.text = "is gestopt";          
+            Headline.text = "is gestopt";
         }
 
     }
