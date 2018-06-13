@@ -26,9 +26,26 @@ namespace Cultivations
         public void CustomAwake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-                MyBuilding = new Building(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade,
-                UpgradeDuration, MonthCount);
+            MyBuilding = new Building
+                (
+                Name,
+                UpgradePrefabIndex,
+                MoneyTick,
+                ExpenseTick,
+                MonthsToGrow,
+                BuildingPrice,
+                MyCurrentState,
+                MyFieldType,
+                UpgradeValue,
+                SpriteIndex,
+                SidePanelSpriteIndex,
+                EnviromentValue,
+                Happiness,
+                SizeRank,
+                Upgrade,
+                UpgradeDuration,
+                MonthCount
+                );
         }
 
         public void RemoveUpgrade()

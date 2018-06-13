@@ -29,7 +29,7 @@ namespace Assets.SimpleAndroidNotifications
                 Id = UnityEngine.Random.Range(0, int.MaxValue),
                 Delay = delay,
                 Title = title,
-                Message = message,
+                MessageEntry = message,
                 Ticker = message,
                 Sound = true,
                 Vibrate = true,
@@ -51,7 +51,7 @@ namespace Assets.SimpleAndroidNotifications
                 Id = UnityEngine.Random.Range(0, int.MaxValue),
                 Delay = delay,
                 Title = title,
-                Message = message,
+                MessageEntry = message,
                 Ticker = message,
                 Sound = true,
                 Vibrate = true,
@@ -67,7 +67,7 @@ namespace Assets.SimpleAndroidNotifications
         /// </summary>
         public static int SendCustom(NotificationParams notificationParams)
         {
-            #if UNITY_ANDROID && !UNITY_EDITOR
+           #if UNITY_ANDROID && !UNITY_EDITOR
 
             var p = notificationParams;
             var delay = (long) p.Delay.TotalMilliseconds;
@@ -111,7 +111,7 @@ namespace Assets.SimpleAndroidNotifications
         private static int ColotToInt(Color color)
         {
             var smallIconColor = (Color32) color;
-            
+
             return smallIconColor.r * 65536 + smallIconColor.g * 256 + smallIconColor.b;
         }
 

@@ -24,6 +24,7 @@
             <e p="Cultivation.cs" t="Include" />
             <e p="CultivationManager.cs" t="Include" />
             <e p="CultivationPrefab.cs" t="Include" />
+            <e p="CultivationPrefabList.cs" t="Include" />
             <e p="Plant.cs" t="Include" />
             <e p="PlantPrefab.cs" t="Include" />
           </e>
@@ -47,7 +48,6 @@
             <e p="SingleGridList.cs" t="Include" />
           </e>
           <e p="KansKaarten" t="Include">
-            <e p="KanskaartButtons.cs" t="Include" />
             <e p="Kanskaarten.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
@@ -68,6 +68,9 @@
             <e p="NodeBehaviour.cs" t="Include" />
             <e p="NodeManager.cs" t="Include" />
             <e p="NodeState.cs" t="Include" />
+          </e>
+          <e p="Notifications" t="Include">
+            <e p="MyNotificationManager.cs" t="Include" />
           </e>
           <e p="Save" t="Include">
             <e p="SaveInfo.cs" t="Include" />

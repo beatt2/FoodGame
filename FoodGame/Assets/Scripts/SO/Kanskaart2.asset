@@ -15,5 +15,5 @@ MonoBehaviour:
   Starts: {x: 10, y: 2018}
   FieldType: 3
   Type: 0
-  InfluencePercentage: 0
+  InfluencePercentage: 4
   Reward: -10

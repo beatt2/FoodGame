@@ -14,7 +14,7 @@ namespace Cultivations
     {
 
         private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
-        private readonly List<CultivationPrefab> _activeUpgradedCultivations = new List<CultivationPrefab>();
+        private readonly List<CultivationPrefabList> _activeUpgradedCultivations = new List<CultivationPrefabList>();
 
         public Dictionary<Enum, List<Cultivation>> GetCultivations()
         {
@@ -43,7 +43,7 @@ namespace Cultivations
         {
             for (var index = 0; index < _activeUpgradedCultivations.Count; index++)
             {
-                var cultivationPrefab = _activeUpgradedCultivations[index];
+                var cultivationPrefab = _activeUpgradedCultivations[index].MyCultivationPrefab;
                 cultivationPrefab.UpgradeDuration--;
                 if (cultivationPrefab.UpgradeDuration >= 1) continue;
                 if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Farm)
@@ -65,16 +65,27 @@ namespace Cultivations
             }
         }
 
+        public List<CultivationPrefabList> GetActiveCultivationPrefabLists()
+        {
+            return _activeUpgradedCultivations;
+        }
+
 
         public void AddUpgradedCultivation(CultivationPrefab cultivationPrefab)
         {
-            _activeUpgradedCultivations.Add(cultivationPrefab);
+            _activeUpgradedCultivations.Add(new CultivationPrefabList(cultivationPrefab));
         }
 
         public void RemoveUpgradedCultivation(CultivationPrefab cultivationPrefab)
         {
-            _activeUpgradedCultivations.Remove(cultivationPrefab);
+            _activeUpgradedCultivations.RemoveAll(
+                c =>
+                _activeUpgradedCultivations.Any
+                    (c2 => c2.MyCultivationPrefab == cultivationPrefab));
         }
+
+
+
 
         private void CheckForNull(NodeState.CurrentStateEnum currentState)
         {

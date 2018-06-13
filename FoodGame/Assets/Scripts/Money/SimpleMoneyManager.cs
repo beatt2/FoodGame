@@ -193,6 +193,7 @@ namespace Money
             return tempIncome;
         }
 
+
         public float GetExpense(NodeState.FieldTypeEnum fieldTypeEnum)
         {
             float tempExpense = 0;
@@ -202,6 +203,15 @@ namespace Money
             }
 
             return tempExpense;
+        }
+
+        public float [] GetIncomeExpenseAndPercentage(NodeState.FieldTypeEnum fieldType)
+        {
+            float [] tempFloat = new float[3];
+            tempFloat[0] = GetMoneyValue(fieldType);
+            tempFloat[1] = GetExpense(fieldType);
+            tempFloat[2] = GetPercentage(fieldType);
+            return tempFloat;
         }
 
         public float GetCurrentMoney()
