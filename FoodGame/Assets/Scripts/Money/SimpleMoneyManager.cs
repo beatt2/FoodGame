@@ -34,7 +34,6 @@ namespace Money
 
         private readonly Dictionary<NodeState.FieldTypeEnum,List<MoneyValue>> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>>();
         private readonly Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
-        private readonly Dictionary<int , int > _monthCountSave = new Dictionary<int, int>();
         //TODO THIS IS FOR PROTOTYPE
         public bool ShowExpenses;
 
@@ -59,8 +58,6 @@ namespace Money
         }
 
 
-
-        //TODO CHECK IF MONTHCOUNT IS WORKING IN CULTIVATION CLASS AND TEST UPGRADE
         private void ChangeMoneyMonthly()
         {
             for (int i = 0; i < _moneyValues.Keys.Count; i++)
@@ -137,7 +134,7 @@ namespace Money
             {
                 _moneyValues.Add(cultivation.FieldType, new List<MoneyValue>());
                 _moneyValues[cultivation.FieldType].Add(new MoneyValue(cultivation, oldMonthCount));
-                
+
             }
             else
             {
@@ -223,7 +220,14 @@ namespace Money
                 }
             }
 
+
         }
+
+        public void AddMoney(float value)
+        {
+            _currentMoney += value;
+        }
+
 
 
         public void RemoveKey(NodeState.FieldTypeEnum fieldType)

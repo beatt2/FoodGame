@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
+using KansKaarten;
 using MathExt;
+using KansKaarten;
 using Money;
 using Node;
 using Tools;
@@ -12,12 +14,15 @@ namespace Events
     public class EventManager : Singleton<EventManager>
     {
         public Events[] EventsArray;
+        public Kanskaarten[] KansKaartenArray;
 
         public Text Headline;
         public GameObject HeadlineUi;
-
+        public GameObject KanskaartUi;
+        public GameObject KanskaartPopup;
         public GameObject ExclamationMark;
         public GameObject ExclamationMarkReview;
+        public Button KanskaartButton;
 
         public Sprite[] Sprites;
         public Text Content;
@@ -35,10 +40,10 @@ namespace Events
 
         public Sprite[] ReviewBackground;
         public Sprite MessageBackground;
-
         private Image _headlineUiImage;
-
-
+        public Text KanskaartText;
+        private bool _inKanskaartMenu = false;
+        private readonly List<Kanskaarten> _actieveKanskaarten = new List<Kanskaarten>();
 
         public float GetInfluence()
         {
@@ -55,8 +60,165 @@ namespace Events
         {
 
           SetMessageScreen(month,year);
+          SetKansKaart(month,year);
 
         }
+         public void ApplyCard()
+        {
+
+        }
+        private void SetKansKaart(int month, int year)
+        {
+            for (int i = 0; i < KansKaartenArray.Length; i++)
+            {
+                if (KansKaartenArray[i].Starts == new Vector2Int(month, year))
+                {
+                    Debug.Log(i);
+                    _actieveKanskaarten.Add(KansKaartenArray[i]);
+
+
+                        KanskaartUi.SetActive(true);
+                        _inKanskaartMenu = true;
+
+
+                        Button tempButton = KanskaartButton.GetComponent<Button>();
+                        int tempCount = KansKaartenArray.Length;
+                        tempButton.onClick.AddListener(() => this.OnClickAccept(tempCount));
+
+
+
+
+                    //SetTextKanskaart(i);
+
+
+                    //    switch (EventsArray[i].FieldType)
+                    //    {
+                    //        case NodeState.FieldTypeEnum.Corn:
+
+
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Corn,
+                    //                EventsArray[i].InfluencePercentage);
+
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Carrot:
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Carrot,
+                    //                EventsArray[i].InfluencePercentage);
+
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Nothing:
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Apple:
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Apple,
+                    //                EventsArray[i].InfluencePercentage);
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Blackberries:
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Blackberries,
+                    //                EventsArray[i].InfluencePercentage);
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Tomato:
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tomato,
+                    //                EventsArray[i].InfluencePercentage);
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Tree:
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Tree,
+                    //                EventsArray[i].InfluencePercentage);
+                    //            break;
+                    //        case NodeState.FieldTypeEnum.Grapes:
+                    //            SimpleMoneyManager.Instance.SetPercentage(NodeState.FieldTypeEnum.Grapes,
+                    //                EventsArray[i].InfluencePercentage);
+                    //            break;
+                    //        default:
+                    //            break;
+                    //    }
+                }
+
+                //if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
+
+                //HeadlineUi.SetActive(false);
+                //ExclamationMark.SetActive(false);
+                //SetTextEnded(i);
+            }
+        }
+
+        private void OnClickAccept(int index)
+        {
+            ChangeTextButton(index);
+            KanskaartUi.SetActive(false);
+            KanskaartPopup.SetActive(true);
+            _actieveKanskaarten.RemoveAt(index - 1);
+            if (_actieveKanskaarten.Count >= 1)
+            {
+                KanskaartUi.SetActive(true);
+            }
+            else
+            {
+                _inKanskaartMenu = false;
+            }
+        }
+
+        private void ChangeTextButton(int index)
+        {
+            Debug.Log(index);
+            KanskaartText.text = KansKaartenArray[index -1].Headline;
+            if (KansKaartenArray[index -1].InfluencePercentage > 0 || KansKaartenArray[index - 1].InfluencePercentage < 0)
+            {
+                switch (KansKaartenArray[index - 1].FieldType)
+                {
+                    case NodeState.FieldTypeEnum.Corn:
+                        break;
+                    case NodeState.FieldTypeEnum.Carrot:
+                        break;
+                    case NodeState.FieldTypeEnum.Nothing:
+                        break;
+                    case NodeState.FieldTypeEnum.Apple:
+                        break;
+                    case NodeState.FieldTypeEnum.Blackberries:
+                        break;
+                    case NodeState.FieldTypeEnum.Tomato:
+                        break;
+                    case NodeState.FieldTypeEnum.Tree:
+                        break;
+                    case NodeState.FieldTypeEnum.Grapes:
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else if (KansKaartenArray[index - 1].Reward > 0 || KansKaartenArray[index - 1].Reward < 0)
+            {
+                switch (KansKaartenArray[index - 1].FieldType)
+                {
+                    case NodeState.FieldTypeEnum.Corn:
+                        SimpleMoneyManager.Instance.AddMoney(KansKaartenArray[index - 1].Reward);
+                        break;
+                    case NodeState.FieldTypeEnum.Carrot:
+                        break;
+                    case NodeState.FieldTypeEnum.Nothing:
+                        break;
+                    case NodeState.FieldTypeEnum.Apple:
+                        break;
+                    case NodeState.FieldTypeEnum.Blackberries:
+                        break;
+                    case NodeState.FieldTypeEnum.Tomato:
+                        break;
+                    case NodeState.FieldTypeEnum.Tree:
+                        break;
+                    case NodeState.FieldTypeEnum.Grapes:
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //string effect = GetName(_eventsInInbox[index - 1].FieldType) + " " + _eventsInInbox[index - 1].InfluencePercentage + "%";
+
+        }
+
+        private void SetTextKanskaart(int whichcard)
+        {
+            KanskaartText.text = KansKaartenArray[whichcard].Headline;
+        }
+
 
         private void SetMessageScreen(int month, int year)
         {
