@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Cultivations;
 using Events;
@@ -76,7 +77,8 @@ namespace Save
             }
             else
             {
-                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0);
+                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0,
+                    new Dictionary<NodeState.FieldTypeEnum, float>(), 0);
             }
         }
 
@@ -85,20 +87,54 @@ namespace Save
             _saveInfo.HighestCultivationListIndex = value;
         }
 
+        public Dictionary<NodeState.FieldTypeEnum, float> GetPercentageValues()
+        {
+            return _saveInfo.PercentageValues;
+        }
 
+
+        #if !UNITY_EDITOR
         private void OnApplicationPause(bool value)
         {
-            if (_reset) return;
+        #else
+        private void OnApplicationQuit()
+        {
+        #endif    
+            Debug.Log(SimpleMoneyManager.Instance.GetMoneyValueDict().Count);
+            if(_reset) return;
             SaveNodes();
             SaveMessagesAndReviews();
-            _saveInfo = new SaveInfo(DateTime.Now, TimeManager.Instance.GetMonth(), TimeManager.Instance.GetYear(),
-                SimpleMoneyManager.Instance.GetCurrentMoney(), _saveInfo.HighestCultivationListIndex);
+            int tempTrack = 0;
+            for (int i = 0; i < SimpleMoneyManager.Instance.GetMoneyValueDict().Count; i++)
+            {
+                for (int j = 0; j < SimpleMoneyManager.Instance.GetMoneyValueDict().ElementAt(i).Value.Count; j++)
+                {
+                    tempTrack++;
+                }
+            }
+            _saveInfo = new SaveInfo
+            (
+                DateTime.Now,
+                TimeManager.Instance.GetMonth(),
+                TimeManager.Instance.GetYear(),
+                SimpleMoneyManager.Instance.GetCurrentMoney(),
+                _saveInfo.HighestCultivationListIndex,
+                SimpleMoneyManager.Instance.GetPercentageValues(),
+                tempTrack
+            );
+
+
             SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
 
         public float GetMoney()
         {
             return _saveInfo.SaveMoney;
+        }
+
+        public int GetMoneyValueCount()
+        {
+            return _saveInfo.TotalAmountOfMoneyValues;
         }
 
         private void SaveMessagesAndReviews()
@@ -122,7 +158,6 @@ namespace Save
                 var tempReviews = LoadFile<List<int>>(_filenameReview, _extensionReview);
                 Reviews.SetInboxInt(tempReviews);
             }
-
         }
 
 
@@ -153,6 +188,7 @@ namespace Save
                              NodeState.CurrentStateEnum.Field)
                     {
                         tempGrid[i, j].GetComponent<PlantPrefab>().MyPlant.BuildPrice = 0;
+                        tempGrid[i, j].GetComponent<PlantPrefab>().FirstRun = true;
                         _saveNodes[i, j] = new SaveNodes(
                             tempGrid[i, j].GetListIndex(),
                             tempGrid[i, j].GetComponent<NodeState>().CurrentState,
@@ -177,6 +213,7 @@ namespace Save
                     else if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
                         tempGrid[i, j].GetComponent<BuildingPrefab>().MyBuilding.BuildPrice = 0;
+                        tempGrid[i, j].GetComponent<BuildingPrefab>().FirstRun = true;
                         _saveNodes[i, j] = new SaveNodes(
                             tempGrid[i, j].GetListIndex(),
                             tempGrid[i, j].GetComponent<NodeState>().CurrentState,

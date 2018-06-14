@@ -3,6 +3,7 @@ using System.Linq;
 using Cultivations;
 using Node;
 using Save;
+using TimeSystem;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,9 +34,8 @@ namespace Money
 
 
         private readonly Dictionary<NodeState.FieldTypeEnum,List<MoneyValue>> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>>();
-        private readonly Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
-        //TODO THIS IS FOR PROTOTYPE
-        public bool ShowExpenses;
+        private Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
+        
 
 
         // Use this for initialization
@@ -50,6 +50,8 @@ namespace Money
 
             Income.text = "€ " + _monthlyIncome;
             Expense.text = "€ " + _monthlyExpenses;
+            _percentageValues = SaveManager.Instance.GetPercentageValues();
+  
         }
 
         public void ChangeMonth()
@@ -69,13 +71,14 @@ namespace Money
                     {
                         tempTotal += t.Income;
                         t.MonthCount = 0;
-                        t.MyCultivation.MonthCount = t.MonthCount;
+                      
                     }
                     else
                     {
                         t.MonthCount++;
-                        t.MyCultivation.MonthCount = t.MonthCount;
+                   
                     }
+                    t.MyCultivation.MonthCount = t.MonthCount;
                 }
 
                 float percentage = 0;
@@ -126,10 +129,11 @@ namespace Money
         {
             return _moneyValues;
         }
+  
+        
 
         public void AddFinance(Cultivation cultivation, int oldMonthCount)
         {
-
             if (!_moneyValues.ContainsKey(cultivation.FieldType))
             {
                 _moneyValues.Add(cultivation.FieldType, new List<MoneyValue>());
@@ -181,6 +185,16 @@ namespace Money
                 return _percentageValues[fieldTypeEnum];
             }
             return 0;
+        }
+
+        public Dictionary<NodeState.FieldTypeEnum, float> GetPercentageValues()
+        {
+            return _percentageValues;
+        }
+
+        public void SetPercentageValues(Dictionary<NodeState.FieldTypeEnum, float> percentagevalues)
+        {
+            _percentageValues = percentagevalues;
         }
 
         public float GetMoneyValue(NodeState.FieldTypeEnum fieldTypeEnum)

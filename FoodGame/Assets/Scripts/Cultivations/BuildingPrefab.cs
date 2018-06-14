@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using Boo.Lang.Environments;
 using JetBrains.Annotations;
 using Money;
@@ -22,6 +23,8 @@ namespace Cultivations
 //            //TODO this is kinda wonky
 //            AddCultivation();
         }
+
+        public bool FirstRun;
 
         public void CustomAwake()
         {
@@ -103,12 +106,21 @@ namespace Cultivations
 
         private void AddCultivation()
         {
-            if (Upgrade)
+            if (Upgrade && !FirstRun)
             {
                 CultivationManager.Instance.RemoveEntry(_savedBuilding);
             }
+            else if (!FirstRun)
+            {
+                CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding());
+            }
+            else
+            {
+                CultivationManager.Instance.AddValue(MyBuilding, MyBuilding);
+                FirstRun = false;
+            }
 
-            CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding());
+ 
         }
     }
 }

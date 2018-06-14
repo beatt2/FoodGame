@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Money;
+using Node;
 
 namespace Save
 {
@@ -10,14 +13,20 @@ namespace Save
         public int SaveYear;
         public float SaveMoney;
         public int HighestCultivationListIndex;
+        public int TotalAmountOfMoneyValues;
+        public Dictionary<NodeState.FieldTypeEnum, float> PercentageValues;
+        
 
-        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, int highestCultivationListIndex)
+        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, int highestCultivationListIndex,
+            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues, int totalAmountOfMoneyValues)
         {
             StopTime = stopTime;
             SaveMonth = saveMonth;
             SaveYear = saveYear;
             SaveMoney = saveMoney;
             HighestCultivationListIndex = highestCultivationListIndex;
+            PercentageValues = perrcentageValues;
+            TotalAmountOfMoneyValues = totalAmountOfMoneyValues;
         }
 
     }

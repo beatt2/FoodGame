@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using Grid;
 using Money;
 using Node;
+using Save;
+using TimeSystem;
 using Tools;
 using UnityEngine;
 
@@ -15,22 +17,32 @@ namespace Cultivations
 
         private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
         private readonly List<CultivationPrefabList> _activeUpgradedCultivations = new List<CultivationPrefabList>();
+        private int _moneyValueTracker = 0;
+        private int _moneyValueCount;
 
         public Dictionary<Enum, List<Cultivation>> GetCultivations()
         {
             return _cultivations;
         }
 
+        private void Start()
+        {
+            _moneyValueCount = SaveManager.Instance.GetMoneyValueCount();
+        }
+
         public void AddValue(Cultivation cultivation, Cultivation oldCultivation)
         {
             if (!SimpleMoneyManager.Instance.EnoughMoney(cultivation.BuildPrice)) return;
             SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
-            SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
             //TODO CHANGE THE WAY TO DO THIS
             if (cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField)
             {
-                SimpleMoneyManager.Instance.AddFinance(cultivation,
-                    oldCultivation != null ? oldCultivation.MonthCount : 0);
+                SimpleMoneyManager.Instance.AddFinance(cultivation,oldCultivation != null ? oldCultivation.MonthCount : 0);
+                _moneyValueTracker++;
+                if (_moneyValueTracker == _moneyValueCount)
+                {
+                    TimeManager.Instance.CalculateMoney();
+                }
             }
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             CheckForNull(cultivation.MyCultivationState);

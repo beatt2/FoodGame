@@ -9,8 +9,6 @@ namespace Notifications
 {
     public class MyNotificationManager : Singleton<MyNotificationManager>
     {
-
-
         public void AddUpgradeEvent(int upgradeDuration)
         {
             var waitForSeconds = TimeManager.Instance.WaitForSeconds;
@@ -27,14 +25,18 @@ namespace Notifications
                 SmallIcon = NotificationIcon.Message,
                 SmallIconColor = new Color(0, 0.5f, 0),
                 LargeIcon = "app_icon"
-
             };
 
             NotificationManager.SendCustom(notificationParams);
         }
 
-        private void OnApplicationPause(bool isPaused)
+        #if !UNITY_EDITOR
+        private void OnApplicationPause(bool value)
         {
+        #else
+        private void OnApplicationQuit()
+        {
+        #endif
             int outOfControlCount = 5;
             var activeCultivationUpgradeList = CultivationManager.Instance.GetActiveCultivationPrefabLists();
             for (int i = 0; i < activeCultivationUpgradeList.Count; i++)
@@ -51,15 +53,11 @@ namespace Notifications
                     }
                 }
             }
-
-
         }
 
 
         private void CalculateToRealWorldTime()
         {
-
         }
-
     }
 }
