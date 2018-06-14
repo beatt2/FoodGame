@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
+  m_Name: Events12
+  m_EditorClassIdentifier: 
+  Headline: Een appel per dag...
+  Content: 'De overheid gaat meer geld investeren aan fruit voor scholen. Met de groei
+    van obesitas in kinderen wilt de overheid dat er meer gezond wordt gegeten en
+    zij denkt dat dit de eerste stap in de juiste richting is. Van alle fruit lijken
+    vooral appels populair bij de kinderen te zijn. '
+  Starts: {x: 5, y: 2400}
+  Finishes: {x: 9, y: 2450}
+  FieldType: 3
+  Type: 1
+  InfluencePercentage: 15
+  Review: 0

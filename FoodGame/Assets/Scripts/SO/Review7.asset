@@ -8,12 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
-  m_Name: New Kanskaarten
+  m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
+  m_Name: Review7
   m_EditorClassIdentifier: 
-  Headline: 
-  Starts: {x: 0, y: 0}
-  FieldType: 0
-  Type: 0
+  Headline: Mais is niet lekker!
+  Content: "\u201CIk vind mais sowieso niet lekker\u201D"
+  Starts: {x: 8, y: 2025}
+  Finishes: {x: 7, y: 2025}
+  FieldType: 5
+  Type: 1
   InfluencePercentage: 0
-  Reward: 0
+  Review: 1

@@ -11,9 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart1
   m_EditorClassIdentifier: 
-  Headline: "Je krijgt 10 euro per ma\xEFs veld"
+  Headline: Door de vooruitgang van technologie zijn de grootste afvalproducenten
+    een stuk duurzamer geworden! Hoera!
   Starts: {x: 8, y: 2018}
   FieldType: 0
   Type: 0
+  Size: 2
   InfluencePercentage: 0
-  Reward: 10
+  Reward: 0
+  EnviromentInfluence: 5
+  HappynessInfluence: 0

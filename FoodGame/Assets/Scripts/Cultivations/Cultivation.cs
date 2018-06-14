@@ -34,10 +34,26 @@ namespace Cultivations
         public NodeState.FieldTypeEnum FieldType;
 
 
-        protected Cultivation(string name, int upgradePrefabIndex, int moneyTick, float expenseTick,
-            int monthsToGrow,int buildPrice,NodeState.CurrentStateEnum currentState,
-            NodeState.FieldTypeEnum currentFieldType, int upgradeValue, int spriteIndex,int sidePanelSpriteIndex, int enviromentValue, int happiness,
-            int sizeRank, bool upgrade , int upgradeDuration, int monthCount)
+        protected Cultivation
+        (
+            string name,
+            int upgradePrefabIndex,
+            int moneyTick,
+            float expenseTick,
+            int monthsToGrow,
+            int buildPrice,
+            NodeState.CurrentStateEnum currentState,
+            NodeState.FieldTypeEnum currentFieldType,
+            int upgradeValue,
+            int spriteIndex,
+            int sidePanelSpriteIndex,
+            int enviromentValue,
+            int happiness,
+            int sizeRank,
+            bool upgrade ,
+            int upgradeDuration,
+            int monthCount
+        )
         {
             Name = name;
             MoneyTick = moneyTick;

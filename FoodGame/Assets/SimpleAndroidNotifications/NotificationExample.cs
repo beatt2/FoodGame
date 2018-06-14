@@ -1,10 +1,13 @@
-﻿using System;
+﻿
+
+using System;
 using UnityEngine;
 
 namespace Assets.SimpleAndroidNotifications
 {
     public class NotificationExample : MonoBehaviour
     {
+        #if UNITY_EDITOR
         public void Rate()
         {
             Application.OpenURL("http://u3d.as/y6r");
@@ -32,7 +35,7 @@ namespace Assets.SimpleAndroidNotifications
                 Id = UnityEngine.Random.Range(0, int.MaxValue),
                 Delay = TimeSpan.FromSeconds(5),
                 Title = "Custom notification",
-                Message = "MessageEntry",
+                MessageEntry = "MessageEntry",
                 Ticker = "Ticker",
                 Sound = true,
                 Vibrate = true,
@@ -49,5 +52,6 @@ namespace Assets.SimpleAndroidNotifications
         {
             NotificationManager.CancelAll();
         }
+        #endif
     }
 }

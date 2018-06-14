@@ -29,6 +29,8 @@ namespace Cultivations
                 MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
         }
 
+        public bool FirstRun;
+
         private void Start()
         {
             AddCultivation();
@@ -96,11 +98,21 @@ namespace Cultivations
 
         private void AddCultivation()
         {
-            if (Upgrade)
+            if (Upgrade && !FirstRun)
             {
                 CultivationManager.Instance.RemoveEntry(_savedPlant);
             }
-            CultivationManager.Instance.AddValue(MyPlant, GetSavedPlant());
+            else if (!FirstRun)
+            {
+                CultivationManager.Instance.AddValue(MyPlant, GetSavedPlant());
+            }
+
+            else
+            {
+                CultivationManager.Instance.AddValue(MyPlant, MyPlant);
+                FirstRun = false;
+            }
+       
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Grid
         private bool _inSelectionState = false;
 
         private Selection _selection;
-        
+
         public GameObject FenceOne;
         public GameObject FenceTwo;
         public GameObject FenceOneBig;
@@ -45,7 +45,7 @@ namespace Grid
             _totalEntries = _gridSizeX * _gridSizeY;
         }
 
-      
+
 
         public NodeBehaviour[,] GetNodeGrid()
         {
@@ -72,10 +72,10 @@ namespace Grid
                     _nodeBehavioursGrid[x, y] = _singleGridLists[x][y].Node;
                 }
             }
-            
-            //LoadNodes();
+
+            LoadNodes();
         }
-        
+
         private void LoadNodes()
         {
             _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
@@ -108,7 +108,7 @@ namespace Grid
             ChangeColorsToOld();
             if(_selectionSize == 4)
             ChangeColorsToBlue();
-      
+
         }
 
         public bool ConfirmLocation(bool value)
@@ -117,16 +117,16 @@ namespace Grid
             {
                 Debug.Log("Cant build in the red");
                 return false;
-            }    
+            }
             _inSelectionState = value;
             Debug.Log(_inSelectionState ? "Selection state is true" : "Selection state is false");
             if (!_inSelectionState)
             {
                 SetTilesToAlpha(false);
                 _selectionSize = 1;
-                ChangeColorsToOld();  
+                ChangeColorsToOld();
             }
-            else if (_selectedNode != null) 
+            else if (_selectedNode != null)
             {
                 SetTilesToAlpha(true);
                 _selectedNode.HighLight.ChangeColorGreen();
@@ -232,14 +232,14 @@ namespace Grid
             }
             else if (_selection.SidePannelActive())
             {
-                _selection.ToggleSidePanel();    
+                _selection.ToggleSidePanel();
             }
             if (_selectionSize != 4 || _inSelectionState) return;
             if (!_selection.YesNoActive())
             {
                 _selection.ToggleYesNo(true);
             }
-   
+
         }
 
         public void SetNodeToNull()
@@ -298,7 +298,7 @@ namespace Grid
                 else
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorRed();
-          
+
                 }
             }
 
@@ -378,7 +378,7 @@ namespace Grid
             SaveManager.Instance.SetHighestCultivationIndex(listCount);
             _selectedNode.HighLight.ChangeColorToOld();
             var tempNodeState = _selectedNode.GetComponent<NodeState>();
-            
+
             foreach (var node in _nodeBehavioursGrid)
             {
                 if (!node.HighLight.IsBlue()) continue;
@@ -403,14 +403,14 @@ namespace Grid
             _inSelectionState = false;
             ChangeColorsToBlue();
         }
-        
-        
-        
+
+
+
 
         private void Update()
         {
 #if UNITY_EDITOR
-//            if (!Input.GetMouseButtonDown(0)) return; 
+//            if (!Input.GetMouseButtonDown(0)) return;
 //            if (!EventSystem.current.IsPointerOverGameObject())
 //            {
 //                SetNodeToNull();

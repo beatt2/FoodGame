@@ -1,10 +1,12 @@
-﻿using Cultivations;
+﻿using System;
+using Cultivations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityScript.Macros;
 
 namespace Money
 {
+    [Serializable]
     public class MoneyValue
     {
 

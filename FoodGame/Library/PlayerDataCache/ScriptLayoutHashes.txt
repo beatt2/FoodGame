@@ -1,12 +1,13 @@
 Android
 PlayerPath?
-D:/Documents/GitHub/FoodGame/FoodGame/Builds/FoodGame_V0.009.apk
+C:/Users/KoenPC/Documents/Builds/Foodgame/FOODGAME_V.08.apk
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/SampleScene.unity
 SceneListEnd?
 1df3be656fd92892c1d2147e48b38d35 Assembly-CSharp.dll:.FarmButtons
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UpgradeEntry
+580c5e039058592f820e89d76fd03d8f Assembly-CSharp.dll:Events.MessagePrefab
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -19,7 +20,8 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-f3630887f52ae2fe9c899fcab867cc9c Assembly-CSharp.dll:UI.BuildingTab
+ca2b26f314710cac7c58763c5772f626 Assembly-CSharp.dll:KansKaarten.Kanskaarten
+37f0e265abfc6548c40f5af0ff1adc58 Assembly-CSharp.dll:UI.BuildingTab
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -89,7 +91,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 8eb8dbde0844639c69157c334c2e5946 Assembly-CSharp.dll:UI.OkayButton
 6e2d5dbaec446dd364ffe9259a8bf965 Assembly-CSharp.dll:.UpgradeTab
 47ac214ba888092e69d3923695f38b07 Assembly-CSharp.dll:Grid.GridMaker
-b721c2aa7f2bd329f9941c7317e8a5c1 Assembly-CSharp.dll:Events.EventButton
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Events.EventButton
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 13bdb7c23815c33a33b37b0ba8dd39be UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -117,8 +119,9 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-76de96ac7f6d469326cd9f5a7fc402bc Assembly-CSharp.dll:Events.Events
-86f6e8f7537982e7ea9ea884db23287f Assembly-CSharp.dll:UI.SidePanel
+8ba031d7ba1ecb27aad58ebfc0287950 Assembly-CSharp.dll:Events.Events
+11d97bad5c8d3beca0266acc16394baf Assembly-CSharp.dll:UI.SidePanel
+30ef17d4387a9e3cc6eb45ace6031250 Assembly-CSharp.dll:.SoundManager
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -128,12 +131,14 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 a8571446a1c13f1377eb6d268c2d2095 Assembly-CSharp.dll:Node.Fences
 77d2e41ca1a345844ba69799a2763a9d Assembly-CSharp.dll:.TopBar
-b4eca5b468b52a509bf964d6e72887d9 Assembly-CSharp.dll:Cultivations.PlantPrefab
+e226e7cab9a8eb0bccbb4fb7490e595a Assembly-CSharp.dll:Events.MessageButton
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Sound
+b978f91b24071293192f044f5427f488 Assembly-CSharp.dll:Cultivations.PlantPrefab
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Node.NodeManager
-b638c0e354018effa00d1ef9e7a2f92b Assembly-CSharp.dll:Cultivations.BuildingPrefab
+b1cff7a7ef6a217b748fafd7e961525d Assembly-CSharp.dll:Cultivations.BuildingPrefab
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Assets.SimpleAndroidNotifications.NotificationExample
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Cultivations.CultivationManager
-0edf85c70cdc20c753a14eedbb7af257 Assembly-CSharp.dll:Events.EventManager
+d10a5a003da3aa990dc214300e2e9bef Assembly-CSharp.dll:Events.EventManager
 b77c87740fe6f2351c573cd2d28eb851 Assembly-CSharp.dll:.Selection
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -149,6 +154,8 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+dfefb2ef224b3070694ba4fcb2f2518e Assembly-CSharp.dll:Events.Messages
+d7b466c47cc65eb9786ad3efcc71fde5 Assembly-CSharp.dll:.Popup
 795e4b823559bef09ae9b27e07183fc8 Assembly-CSharp.dll:UI.SelectionButton
 0d34d6ecef729b799dbd774b33371b61 Assembly-CSharp.dll:MainMenu.SceneButton
 99c8cd929cd1f2e54fe0dc67a8c2b2a2 Assembly-CSharp.dll:Grid.NodeFence
@@ -167,7 +174,9 @@ e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 cb2d4a68af8e2498fdf7bfa6842caf30 Assembly-CSharp.dll:Money.Finance
-8d4b8230a5b19cfdd3641f341a81e8b6 Assembly-CSharp.dll:Save.SaveManager
+4688f2a9f5e5484cff929db94173a0dc Assembly-CSharp.dll:BackGround.BackGroundMovement
+8cbb028d4b2de024abea8c5ec2416323 Assembly-CSharp.dll:Save.SaveManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:BackGround.Cloud
 739fafc30a0d11ea989c75a313845d34 Assembly-CSharp.dll:Camera_Movement.CameraMove
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -175,7 +184,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 e6bbb46f32ee849afbb866d27b65d503 Assembly-CSharp.dll:Money.SimpleMoneyManager
-e92ef5a93056e4ee62a5bae815a77d48 Assembly-CSharp.dll:Grid.BuildingPlacement
+1b7f230d5658eb07e2906240449f60fb Assembly-CSharp.dll:Grid.BuildingPlacement
 efacfdb39ccda02d6b515e1fdeed3158 Assembly-CSharp.dll:UI.BuildButton
 9162012b7fa37eee7af853353dae2c84 Assembly-CSharp.dll:Node.NodeState
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
@@ -184,7 +193,5 @@ efacfdb39ccda02d6b515e1fdeed3158 Assembly-CSharp.dll:UI.BuildButton
 992a14bcfd1f4f00dbd3c65c408fcabb Assembly-CSharp.dll:Money.Row
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Mouse
 ad24bec5f29c49068c5a782e66dceead Assembly-CSharp.dll:.PanelLerp
-ac54377c81941c74599b56dcb10cad18 Assembly-CSharp.dll:TimeSystem.TimeManager
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:BackGround.Cloud
-4688f2a9f5e5484cff929db94173a0dc Assembly-CSharp.dll:BackGround.BackGroundMovement
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Sound
+e40464c0f073a0c9fde99ec4af75f2f3 Assembly-CSharp.dll:TimeSystem.TimeManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Notifications.MyNotificationManager

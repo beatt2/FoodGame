@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using Boo.Lang.Environments;
 using JetBrains.Annotations;
 using Money;
@@ -23,12 +24,31 @@ namespace Cultivations
 //            AddCultivation();
         }
 
+        public bool FirstRun;
+
         public void CustomAwake()
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
-                MyBuilding = new Building(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex, SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade,
-                UpgradeDuration, MonthCount);
+            MyBuilding = new Building
+                (
+                Name,
+                UpgradePrefabIndex,
+                MoneyTick,
+                ExpenseTick,
+                MonthsToGrow,
+                BuildingPrice,
+                MyCurrentState,
+                MyFieldType,
+                UpgradeValue,
+                SpriteIndex,
+                SidePanelSpriteIndex,
+                EnviromentValue,
+                Happiness,
+                SizeRank,
+                Upgrade,
+                UpgradeDuration,
+                MonthCount
+                );
         }
 
         public void RemoveUpgrade()
@@ -86,12 +106,21 @@ namespace Cultivations
 
         private void AddCultivation()
         {
-            if (Upgrade)
+            if (Upgrade && !FirstRun)
             {
                 CultivationManager.Instance.RemoveEntry(_savedBuilding);
             }
+            else if (!FirstRun)
+            {
+                CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding());
+            }
+            else
+            {
+                CultivationManager.Instance.AddValue(MyBuilding, MyBuilding);
+                FirstRun = false;
+            }
 
-            CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding());
+ 
         }
     }
 }

@@ -5158,6 +5158,8 @@ MonoBehaviour:
   - {fileID: 1702026317156618, guid: d23e40c71c9d3684a9a0270813bcc031, type: 2}
   - {fileID: 1173303315434488, guid: a03cc4c759e36d1408f0985b38ae779e, type: 2}
   - {fileID: 1114548608813966, guid: bd9aac5d622470c45b70647414e26669, type: 2}
+  FarmUpgrades: []
+  FieldUpgrades: []
   EmptyField: {fileID: 1338494046311358, guid: 2c4cf2a08fbb59d4198c5b66530e33d0, type: 2}
 --- !u!114 &158667361
 MonoBehaviour:
@@ -11976,11 +11978,15 @@ MonoBehaviour:
   HeaderText: {fileID: 994699262}
   UpgradeText: {fileID: 1956745575}
   MoneyTickText: {fileID: 963527475}
+  ExpenseTickText: {fileID: 0}
+  HappinessText: {fileID: 0}
+  EnviromentalText: {fileID: 0}
   MyImage: {fileID: 1058874125}
   DestroyPanel: {fileID: 970875396}
   UpgradePanel: {fileID: 0}
   KillButton: {fileID: 2062988307}
   UpgradeButton: {fileID: 398488794}
+  SidePanelIcons: []
 --- !u!1 &383026280
 GameObject:
   m_ObjectHideFlags: 0
@@ -13242,6 +13248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02162b41d2ef0f745bcd3a6c6ae0dd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MonthTexts: []
   BuildingTabActive: 0
 --- !u!1 &406349185
 GameObject:
@@ -48036,6 +48043,7 @@ MonoBehaviour:
   Gap: -160
   PopupUi: {fileID: 389076991}
   PopupScript: {fileID: 389076995}
+  Review: 0
 --- !u!1 &1513930524
 GameObject:
   m_ObjectHideFlags: 0
@@ -64550,15 +64558,21 @@ MonoBehaviour:
   KanskaartUi: {fileID: 783849012}
   KanskaartPopup: {fileID: 266423970}
   ExclamationMark: {fileID: 882910591}
+  ExclamationMarkReview: {fileID: 0}
   KanskaartButton: {fileID: 1706908978}
   Sprites:
   - {fileID: 21300000, guid: 5aa7bc848820ce1489ffdd19fb29297f, type: 3}
   - {fileID: 21300000, guid: fbab4951be2aab04e996d569175d8ae8, type: 3}
   - {fileID: 21300000, guid: 79de5b061dd87a04d84a36cd9619a7df, type: 3}
+  Content: {fileID: 0}
+  Effect: {fileID: 0}
   Ui: {fileID: 0}
   InEventMenu: 0
   MessageScript: {fileID: 1509750013}
+  ReviewScript: {fileID: 0}
   InMenu: 0
+  ReviewBackground: []
+  MessageBackground: {fileID: 0}
   KanskaartText: {fileID: 246293340}
 --- !u!4 &2083029980
 Transform:

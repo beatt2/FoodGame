@@ -67,7 +67,7 @@ MonoBehaviour:
   Happiness: 0
   SizeRank: 0
   Upgrade: 1
-  UpgradeDuration: 12
+  UpgradeDuration: 24
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyPlant:

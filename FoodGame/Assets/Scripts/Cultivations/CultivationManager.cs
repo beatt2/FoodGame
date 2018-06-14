@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using Grid;
 using Money;
 using Node;
+using Save;
+using TimeSystem;
 using Tools;
 using UnityEngine;
 
@@ -14,23 +16,33 @@ namespace Cultivations
     {
 
         private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
-        private readonly List<CultivationPrefab> _activeUpgradedCultivations = new List<CultivationPrefab>();
+        private readonly List<CultivationPrefabList> _activeUpgradedCultivations = new List<CultivationPrefabList>();
+        private int _moneyValueTracker = 0;
+        private int _moneyValueCount;
 
         public Dictionary<Enum, List<Cultivation>> GetCultivations()
         {
             return _cultivations;
         }
 
+        private void Start()
+        {
+            _moneyValueCount = SaveManager.Instance.GetMoneyValueCount();
+        }
+
         public void AddValue(Cultivation cultivation, Cultivation oldCultivation)
         {
             if (!SimpleMoneyManager.Instance.EnoughMoney(cultivation.BuildPrice)) return;
             SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
-            SimpleMoneyManager.Instance.AddMonthlyIncome(cultivation.MoneyTick);
             //TODO CHANGE THE WAY TO DO THIS
             if (cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField)
             {
-                SimpleMoneyManager.Instance.AddFinance(cultivation,
-                    oldCultivation != null ? oldCultivation.MonthCount : 0);
+                SimpleMoneyManager.Instance.AddFinance(cultivation,oldCultivation != null ? oldCultivation.MonthCount : 0);
+                _moneyValueTracker++;
+                if (_moneyValueTracker == _moneyValueCount)
+                {
+                    TimeManager.Instance.CalculateMoney();
+                }
             }
             SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
             CheckForNull(cultivation.MyCultivationState);
@@ -43,7 +55,7 @@ namespace Cultivations
         {
             for (var index = 0; index < _activeUpgradedCultivations.Count; index++)
             {
-                var cultivationPrefab = _activeUpgradedCultivations[index];
+                var cultivationPrefab = _activeUpgradedCultivations[index].MyCultivationPrefab;
                 cultivationPrefab.UpgradeDuration--;
                 if (cultivationPrefab.UpgradeDuration >= 1) continue;
                 if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Farm)
@@ -65,16 +77,27 @@ namespace Cultivations
             }
         }
 
+        public List<CultivationPrefabList> GetActiveCultivationPrefabLists()
+        {
+            return _activeUpgradedCultivations;
+        }
+
 
         public void AddUpgradedCultivation(CultivationPrefab cultivationPrefab)
         {
-            _activeUpgradedCultivations.Add(cultivationPrefab);
+            _activeUpgradedCultivations.Add(new CultivationPrefabList(cultivationPrefab));
         }
 
         public void RemoveUpgradedCultivation(CultivationPrefab cultivationPrefab)
         {
-            _activeUpgradedCultivations.Remove(cultivationPrefab);
+            _activeUpgradedCultivations.RemoveAll(
+                c =>
+                _activeUpgradedCultivations.Any
+                    (c2 => c2.MyCultivationPrefab == cultivationPrefab));
         }
+
+
+
 
         private void CheckForNull(NodeState.CurrentStateEnum currentState)
         {

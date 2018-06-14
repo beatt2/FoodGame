@@ -11,7 +11,7 @@ namespace Assets.SimpleAndroidNotifications
         public int Id;
         public TimeSpan Delay;
         public string Title;
-        public string Message;
+        public string MessageEntry;
         public string Ticker;
         public bool Sound = true;
         public bool Vibrate = true;
