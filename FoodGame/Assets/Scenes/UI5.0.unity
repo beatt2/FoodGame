@@ -68611,7 +68611,7 @@ MonoBehaviour:
   Month: 1
   Year: 0
   FinanceScript: {fileID: 1509750008}
-  WaitForSeconds: 1
+  WaitForSeconds: 10
   InFinanceMenu: 0
 --- !u!114 &2083029979
 MonoBehaviour:

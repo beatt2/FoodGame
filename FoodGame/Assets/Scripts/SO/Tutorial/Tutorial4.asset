@@ -11,6 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7112bfd52ed5a4aab1cf2d8c1117ca, type: 3}
   m_Name: Tutorial4
   m_EditorClassIdentifier: 
-  Text: Dit zijn de berichten hier staat alle informatie wat er is gebeurt in een
-    gebeurtenis.
+  Text: Dit zijn de berichten hier staat alle informatie wat er is gebeurt in de game.
   Index: 4
