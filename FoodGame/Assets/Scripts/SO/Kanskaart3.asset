@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Headline: ' -insert groente/fruit- lijken steeds populairder te worden. De bevolking
     doet massaal inkopen.'
-  Starts: {x: 10, y: 2018}
+  Starts: {x: 12, y: 2018}
   FieldType: 0
   Type: 0
   Size: 0

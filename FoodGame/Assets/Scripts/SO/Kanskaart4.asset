@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Headline: Jouw -insert groente/fruit- zijn als beste getest bij supermarkt Arend
     Haan. Dat verdient een prijsje!
-  Starts: {x: 10, y: 2018}
+  Starts: {x: 10, y: 2020}
   FieldType: 0
   Type: 0
   Size: 0

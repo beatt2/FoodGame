@@ -16,7 +16,7 @@ MonoBehaviour:
     Dit ras heeft een enorme eetlust en is ontzettend dol op wortels. Onlangs zijn
     veel wortelvelden aangetast door deze hongerige knaagdieren en daardoor is de
     productie van wortel vertraagd.
-  Starts: {x: 5, y: 2400}
+  Starts: {x: 5, y: 2032}
   Finishes: {x: 9, y: 2450}
   FieldType: 1
   Type: 1

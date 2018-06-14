@@ -80,16 +80,23 @@ namespace Events
         {
             _eventsInInbox.Add(events);
             string effect = GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
-            Add(events.Headline);
+            Add(events.Headline, events.InfluencePercentage);
         }
 
-        public void Add(string headline)
+        public void Add(string headline, float percentage)
         {
             GameObject go =
                 Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform) as GameObject;
             if (Review)
             {
-                go.GetComponent<Image>().sprite = EventManager.Instance.ReviewBackground.GetRandom_Array();
+                go.GetComponent<Image>().sprite = percentage < 0 ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array() : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
+            }
+            else
+            {
+                if (percentage < 0)
+                {
+                    go.GetComponent<Image>().sprite = EventManager.Instance.MessageBackground[1];
+                }
             }
 
             _go.Insert(0, go);
@@ -149,7 +156,7 @@ namespace Events
             for (var index = 0; index < inbox.Count; index++)
             {
                 _eventsInInbox.Add(EventManager.Instance.EventsArray[inbox[index]]);
-                Add(_eventsInInbox[index].Headline);
+                Add(_eventsInInbox[index].Headline, _eventsInInbox[index].InfluencePercentage);
             }
         }
 

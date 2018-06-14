@@ -15,7 +15,7 @@ MonoBehaviour:
   Content: De zachtfruitteelt is aan het groeien, zoals blijkt uit de laatste cijfers.
     Echter zijn er nog niet veel boerderijen die bramen verbouwen. Nu zou dus een
     goed moment zijn om te investeren in meer braamstruiken.
-  Starts: {x: 5, y: 2400}
+  Starts: {x: 5, y: 2050}
   Finishes: {x: 9, y: 2450}
   FieldType: 4
   Type: 1

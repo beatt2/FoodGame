@@ -7024,7 +7024,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: ccbaf0e2f4cda8e4cb4acc4c12c4b68d, type: 3}
     m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
@@ -7036,7 +7036,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Null
 --- !u!222 &226496233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50419,7 +50419,6 @@ MonoBehaviour:
   - {fileID: 629745441}
   - {fileID: 428263787}
   Index: 0
-  GridArrow: {fileID: 1233152350859510, guid: 271e7a4fb2198584682fe6f98fdd45dc, type: 2}
 --- !u!114 &1509750014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68633,9 +68632,32 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d69bec3c49388764fa73f35a6feaa285, type: 2}
   - {fileID: 11400000, guid: 780e87df8bb641d4baca036dd815a8d0, type: 2}
   - {fileID: 11400000, guid: e3f6ed0244a076945bd59f43db49a618, type: 2}
+  - {fileID: 11400000, guid: e4bca5d870c09c74f963213c33c1fe79, type: 2}
+  - {fileID: 11400000, guid: ccdd9b5fc750233448245b45cd18035f, type: 2}
+  - {fileID: 11400000, guid: 5f6a60fc5853f22409520741d6868de4, type: 2}
+  - {fileID: 11400000, guid: 49feba29c6e84e04aaab7af9772aa6af, type: 2}
+  - {fileID: 11400000, guid: b570870452f235d4583aa4602d4c0681, type: 2}
+  - {fileID: 11400000, guid: 02e7de160a5f5e24aa3364f97bb07834, type: 2}
+  - {fileID: 11400000, guid: aeb101363644b0947848adda14828ba3, type: 2}
+  - {fileID: 11400000, guid: 9038f916bc961464cbf85b3d102cc9e0, type: 2}
+  - {fileID: 11400000, guid: 6d15cd2f533bedb4db90fedf8999929f, type: 2}
+  - {fileID: 11400000, guid: 81f7ceaa731fc4e4eba79e16f5da27f6, type: 2}
+  - {fileID: 11400000, guid: 5911bcd6e240e484fb2fb02653f27b84, type: 2}
+  - {fileID: 11400000, guid: d043f3b7821acf547b3a1bf534b7ea4b, type: 2}
+  - {fileID: 11400000, guid: 6c2d507f51fc75b4aab046c7245e29a8, type: 2}
+  - {fileID: 11400000, guid: d689620ff5ccbd341aef28ab9848b3b8, type: 2}
+  - {fileID: 11400000, guid: acf9e20407dfc8a498f4c6220b7e814d, type: 2}
+  - {fileID: 11400000, guid: e0256153a43e717488a6e314ae35335c, type: 2}
+  - {fileID: 11400000, guid: ef3e84433f1bed744a4a158705cc5067, type: 2}
   KansKaartenArray:
   - {fileID: 11400000, guid: b9dcf758c5b8c9f4dae6aeea6dd7b19d, type: 2}
   - {fileID: 11400000, guid: 021ee67b591bb8148a152d75e511f8c4, type: 2}
+  - {fileID: 11400000, guid: 7213b3a34d949a54e97000dacf728477, type: 2}
+  - {fileID: 11400000, guid: 79530e95de76e9d44b851133a3009400, type: 2}
+  - {fileID: 11400000, guid: bec13c15c3586024195f90ac6e358491, type: 2}
+  - {fileID: 11400000, guid: af40722e2b57eed41b6ace9eaad8bf25, type: 2}
+  - {fileID: 11400000, guid: c3dc2606f40971b419bd5770803388d6, type: 2}
+  - {fileID: 11400000, guid: 290067f2b39a4174ba175c8d3f4fcdca, type: 2}
   Headline: {fileID: 226496232}
   HeadlineUi: {fileID: 1814033462}
   KanskaartUi: {fileID: 246454796}
@@ -68654,14 +68676,23 @@ MonoBehaviour:
   MessageScript: {fileID: 404316299}
   ReviewScript: {fileID: 1509750014}
   InMenu: 0
-  ReviewBackground:
-  - {fileID: 21300000, guid: 15ce1c09888cb6c4d8eb3216ce99009a, type: 3}
-  - {fileID: 21300000, guid: fe5705cd53a371f4092801efa142df4c, type: 3}
-  - {fileID: 21300000, guid: 609dd6a8c85de2e4193677d5b3217e11, type: 3}
-  - {fileID: 21300000, guid: 004270cea1313d94783e23e5b02f6086, type: 3}
-  - {fileID: 21300000, guid: 7c578866b147ea94ca2c3c28764dc0bc, type: 3}
-  - {fileID: 21300000, guid: dc8101bbd9aab8c47a6d19e306b80137, type: 3}
-  MessageBackground: {fileID: 21300000, guid: 6905871ddc1d18849ab5842cdb9fbe9a, type: 3}
+  ReviewBackgroundNegative:
+  - {fileID: 21300000, guid: 6c47ef1a78a8ace488db2678e0551751, type: 3}
+  - {fileID: 21300000, guid: ca69f836f45209d42a32bca89574823f, type: 3}
+  - {fileID: 21300000, guid: e1c52c8a7c6e1d94cb0c5037aa322a40, type: 3}
+  - {fileID: 21300000, guid: 7a1037e0b21ca8b49963945b9dfb15bd, type: 3}
+  - {fileID: 21300000, guid: 54e1e1d480bd80c46930b3219437afbe, type: 3}
+  - {fileID: 21300000, guid: 20a063687a684ba4baef6bb6b990af2a, type: 3}
+  ReviewBackgroundPositive:
+  - {fileID: 21300000, guid: 636575765884e48409a70376fdd75c9c, type: 3}
+  - {fileID: 21300000, guid: 269f1792009593f4694ddd2408500bd4, type: 3}
+  - {fileID: 21300000, guid: 8c583601a613ba7499aa45c2ac29e2f7, type: 3}
+  - {fileID: 21300000, guid: ea27c2c70d20a8449b29314e786e4fb5, type: 3}
+  - {fileID: 21300000, guid: 35cef554ddbbe1d4788c0a10bc8fdeaa, type: 3}
+  - {fileID: 21300000, guid: 5c4145290fd8a8647b10931b989c0b59, type: 3}
+  MessageBackground:
+  - {fileID: 21300000, guid: 36cf7b26ea42d44498857902db0aa5ed, type: 3}
+  - {fileID: 21300000, guid: 079921608004cab4e84b58128863aed5, type: 3}
 --- !u!4 &2083029980
 Transform:
   m_ObjectHideFlags: 0

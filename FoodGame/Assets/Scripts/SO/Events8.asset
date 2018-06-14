@@ -16,7 +16,7 @@ MonoBehaviour:
     sterk gaat be\xEFnvloeden voor de komende tijd. Er is een stijgende vraag naar
     een nieuwe soort wijn, namelijk een vruchtenwijn gemaakt van peren. Hierdoor lijkt
     het erop dat de normale druivenwijn sterk in populariteit is gedaald."
-  Starts: {x: 5, y: 2190}
+  Starts: {x: 5, y: 2035}
   Finishes: {x: 9, y: 2200}
   FieldType: 7
   Type: 1

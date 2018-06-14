@@ -15,7 +15,7 @@ MonoBehaviour:
   Content: Er is een nieuw stofje gevonden in de chemische middelen die gebruikt worden
     om ongedierte te bestrijden bij appels. Dit stofje kan zeer schadelijk zijn voor
     mens en dier en het wordt aangeraden om alle recent gekochte appels weg te gooien.
-  Starts: {x: 8, y: 2150}
+  Starts: {x: 8, y: 2030}
   Finishes: {x: 9, y: 2160}
   FieldType: 3
   Type: 1

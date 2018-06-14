@@ -41,8 +41,9 @@ namespace Events
         public Messages ReviewScript;
         public bool InMenu = false;
 
-        public Sprite[] ReviewBackground;
-        public Sprite MessageBackground;
+        public Sprite[] ReviewBackgroundNegative;
+        public Sprite[] ReviewBackgroundPositive;
+        public Sprite[] MessageBackground;
         private Image _headlineUiImage;
         private bool _inKanskaartMenu = false;
         private readonly List<Kanskaarten> _actieveKanskaarten = new List<Kanskaarten>();
@@ -168,11 +169,12 @@ namespace Events
                         HeadlineUi.SetActive(true);
                         if (EventsArray[i].Review)
                         {
-                            _headlineUiImage.sprite = ReviewBackground.GetRandom_Array();
+                            //_headlineUiImage.sprite = ReviewBackgroundNegative.GetRandom_Array();
+                            _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0 ? ReviewBackgroundNegative.GetRandom_Array() : ReviewBackgroundPositive.GetRandom_Array();
                         }
                         else
                         {
-                            _headlineUiImage.sprite = MessageBackground;
+                            _headlineUiImage.sprite = EventsArray[i].InfluencePercentage <0 ? MessageBackground[1] : MessageBackground[0];
                         }
                     }
 
@@ -190,11 +192,17 @@ namespace Events
                         if (!EventsArray[i].Review)
                         {
                             ExclamationMark.GetComponent<Image>().sprite = Sprites[2];
+                           
                         }
                         else
                         {
                             ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[2];
+                            if (EventsArray[i].InfluencePercentage < -5)
+                            {
+                                _headlineUiImage.sprite = ReviewBackgroundNegative[4];
+                            }
                         }
+                        
                     }
                     else if (EventsArray[i].InfluencePercentage < 0 || EventsArray[i].InfluencePercentage > 4)
                     {

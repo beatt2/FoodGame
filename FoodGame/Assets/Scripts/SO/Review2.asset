@@ -19,5 +19,5 @@ MonoBehaviour:
   Finishes: {x: 7, y: 2025}
   FieldType: 5
   Type: 1
-  InfluencePercentage: 0
+  InfluencePercentage: -5
   Review: 1

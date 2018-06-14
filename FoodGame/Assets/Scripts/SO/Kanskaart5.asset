@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Kanskaart5
   m_EditorClassIdentifier: 
   Headline: Het lijkt erop dat de oogst niet zo goed ging dit seizoen. Jammer!
-  Starts: {x: 10, y: 2018}
+  Starts: {x: 10, y: 2022}
   FieldType: 0
   Type: 0
   Size: 0

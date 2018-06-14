@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Headline: Oh nee! Er is een virus ontdekt en een groot deel van je -insert een fruit/groente-
     zijn besmet.
-  Starts: {x: 10, y: 2018}
+  Starts: {x: 5, y: 2021}
   FieldType: 0
   Type: 0
   Size: 0

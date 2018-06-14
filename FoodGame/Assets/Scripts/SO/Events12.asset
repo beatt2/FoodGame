@@ -16,7 +16,7 @@ MonoBehaviour:
     van obesitas in kinderen wilt de overheid dat er meer gezond wordt gegeten en
     zij denkt dat dit de eerste stap in de juiste richting is. Van alle fruit lijken
     vooral appels populair bij de kinderen te zijn. '
-  Starts: {x: 5, y: 2400}
+  Starts: {x: 5, y: 2024}
   Finishes: {x: 9, y: 2450}
   FieldType: 3
   Type: 1

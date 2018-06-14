@@ -19,10 +19,8 @@ namespace Tutorial
         public Tutorials[] Tutorials;
         public GameObject[] Arrows;
         public int Index;
-
-        public GameObject GridArrow;
         // Use this for initialization
-        void Start()
+        private void Start()
         {
             
             if (!_tutorialFinished)
@@ -34,12 +32,6 @@ namespace Tutorial
             {
                 TutorialBg.SetActive(false);
             }
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
 
         }
 
@@ -108,7 +100,12 @@ namespace Tutorial
 
         public void SkipTutorial()
         {
+            foreach (var t in Arrows)
+            {
+                t.SetActive(false);
+            }
             TutorialBg.SetActive(false);
+
             _tutorialFinished = true;
             //save
         }
