@@ -1,4 +1,5 @@
-﻿using Node;
+﻿using Cultivations;
+using Node;
 using UnityEngine;
 
 namespace KansKaarten
@@ -14,8 +15,17 @@ namespace KansKaarten
 
         public NodeState.FieldTypeEnum FieldType;
         public NodeState.CurrentStateEnum Type;
+        public enum BuildingSize
+        {
+            Small,Medium,Big
+        }
+
+        public BuildingSize Size;
+
         public float InfluencePercentage;
         public float Reward;
+        public float EnviromentInfluence;
+        public float HappynessInfluence;
 
     }
 }

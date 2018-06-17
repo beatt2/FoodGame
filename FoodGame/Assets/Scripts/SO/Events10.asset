@@ -11,17 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events10
   m_EditorClassIdentifier: 
-  Headline: Lorum Ipsum?
-  Content: ' Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-    montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-    eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-    vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-    venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-    Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
-    Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem
-    ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut
-    metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel
-    augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. '
-  Starts: {x: 5, y: 2400}
+  Headline: Konijnen houden van wortels
+  Content: Er is een nieuw ras wilde konijnen ontdekt dat zich razendsnel verspreidt.
+    Dit ras heeft een enorme eetlust en is ontzettend dol op wortels. Onlangs zijn
+    veel wortelvelden aangetast door deze hongerige knaagdieren en daardoor is de
+    productie van wortel vertraagd.
+  Starts: {x: 5, y: 2032}
   Finishes: {x: 9, y: 2450}
+  FieldType: 1
+  Type: 1
+  InfluencePercentage: -5
+  Review: 0

@@ -162,11 +162,7 @@ namespace Money
         public void SetPercentage(NodeState.FieldTypeEnum fieldTypeEnum, float percentage)
         {
 
-            if (!_moneyValues.ContainsKey(fieldTypeEnum))
-            {
-                Debug.Log("Percentage key not in _moneyvalues dict");
-                return;
-            }
+        
 
             if (!_percentageValues.ContainsKey(fieldTypeEnum))
             {

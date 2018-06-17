@@ -11,9 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart2
   m_EditorClassIdentifier: 
-  Headline: Je verliest 10 euro per appel veld
+  Headline: Door verbeterde technologie hebben kleine boerderijen meer oogst! Hoera!
   Starts: {x: 10, y: 2018}
-  FieldType: 3
+  FieldType: 0
   Type: 0
-  InfluencePercentage: 4
-  Reward: -10
+  Size: 0
+  InfluencePercentage: 5
+  Reward: 0
+  EnviromentInfluence: 0
+  HappynessInfluence: 0

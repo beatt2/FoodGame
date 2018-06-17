@@ -101,7 +101,7 @@ namespace Money
             //eventAmount = Mathf.Round(eventAmount * 100) / 100;
 
             Debug.Log("WARNING ALWAYS RETURN 0");
-            return 0;
+            return eventChange;
         }
 
         private void ChangeText(GameObject go, string name, float income, float expense, float percentage)
