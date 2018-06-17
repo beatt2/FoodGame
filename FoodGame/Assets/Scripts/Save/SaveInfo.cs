@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cultivations;
 using Money;
 using Node;
 
@@ -15,10 +16,12 @@ namespace Save
         public int HighestCultivationListIndex;
         public int TotalAmountOfMoneyValues;
         public Dictionary<NodeState.FieldTypeEnum, float> PercentageValues;
+        public List<CultivationPrefabList> ActiveCultivationPrefabLists;
         
 
         public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, int highestCultivationListIndex,
-            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues, int totalAmountOfMoneyValues)
+            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues, int totalAmountOfMoneyValues
+            )
         {
             StopTime = stopTime;
             SaveMonth = saveMonth;

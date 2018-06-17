@@ -57,9 +57,10 @@ public class Selection : MonoBehaviour
 
    private void SetManager()
    {
-      GridManager.Instance.SetSelectionSize();
+  
       if (GridManager.Instance.GetSelectedNode() != null)
       {
+         GridManager.Instance.SetSelectionSize(4);
          ToggleYesNo(true);
       }
       ToggleBuildPanel(false);

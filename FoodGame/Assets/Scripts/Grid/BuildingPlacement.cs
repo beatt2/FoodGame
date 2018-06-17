@@ -148,11 +148,11 @@ namespace Grid
             {
                 if (node.gameObject.GetComponent<PlantPrefab>() != null)
                 {
-                    CultivationManager.Instance.RemoveEntry(node.gameObject.GetComponent<PlantPrefab>().MyPlant);
+                    SimpleMoneyManager.Instance.RemoveValue(node.gameObject.GetComponent<PlantPrefab>().MyPlant);
                 }
                 else if (node.gameObject.GetComponent<BuildingPrefab>() != null)
                 {
-                    CultivationManager.Instance.RemoveEntry(node.gameObject.GetComponent<BuildingPrefab>().MyBuilding);
+                    SimpleMoneyManager.Instance.RemoveValue(node.gameObject.GetComponent<BuildingPrefab>().MyBuilding);
                 }
 
                 GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Remove(node);
@@ -168,12 +168,12 @@ namespace Grid
                 nodeBehaviour.GetNodeFence().TryRemoveFence();
                 if (nodeBehaviour.gameObject.GetComponent<PlantPrefab>() != null)
                 {
-                    CultivationManager.Instance.RemoveEntry(
+                    SimpleMoneyManager.Instance.RemoveValue(
                         nodeBehaviour.gameObject.GetComponent<PlantPrefab>().MyPlant);
                 }
                 else if (nodeBehaviour.gameObject.GetComponent<BuildingPrefab>() != null)
                 {
-                    CultivationManager.Instance.RemoveEntry(nodeBehaviour.gameObject.GetComponent<BuildingPrefab>()
+                    SimpleMoneyManager.Instance.RemoveValue(nodeBehaviour.gameObject.GetComponent<BuildingPrefab>()
                         .MyBuilding);
                 }
 

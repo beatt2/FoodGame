@@ -235,14 +235,18 @@ namespace Money
 
         public void RemoveValue(Cultivation cultivation)
         {
-            for (int i = 0; i < _moneyValues[cultivation.FieldType].Count; i++)
+            if (_moneyValues.ContainsKey(cultivation.FieldType))
             {
-                if (_moneyValues[cultivation.FieldType][i].MyCultivation == cultivation)
+                for (int i = 0; i < _moneyValues[cultivation.FieldType].Count; i++)
                 {
+                    if (_moneyValues[cultivation.FieldType][i].MyCultivation == cultivation)
+                    {
 
-                    _moneyValues[cultivation.FieldType].RemoveAt(i);
+                        _moneyValues[cultivation.FieldType].RemoveAt(i);
+                    }
                 }
             }
+      
 
 
         }

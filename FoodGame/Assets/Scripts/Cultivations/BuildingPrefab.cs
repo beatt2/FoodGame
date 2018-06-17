@@ -30,7 +30,7 @@ namespace Cultivations
         {
             var tempSprite = GetComponent<SpriteRenderer>().sprite;
             MyBuilding = new Building
-                (
+            (
                 Name,
                 UpgradePrefabIndex,
                 MoneyTick,
@@ -48,12 +48,14 @@ namespace Cultivations
                 Upgrade,
                 UpgradeDuration,
                 MonthCount
-                );
+            );
+
+            SyncValuesToMyBuidling();
         }
 
         public void RemoveUpgrade()
         {
-            CultivationManager.Instance.RemoveEntry(MyBuilding);
+            SimpleMoneyManager.Instance.RemoveValue(MyBuilding);
             MyBuilding = _savedBuilding;
             SyncValuesToMyBuidling();
             AddCultivation();
@@ -91,11 +93,16 @@ namespace Cultivations
         {
             Name = MyBuilding.Name;
             MyCurrentState = MyBuilding.MyCultivationState;
-            Debug.Log(MyCurrentState);
             MyFieldType = MyBuilding.FieldType;
-            Debug.Log(MyFieldType);
             UpgradePrefabIndex = MyBuilding.UpgradePrefabIndex;
             MoneyTick = MyBuilding.MoneyTick;
+            ExpenseTick = MyBuilding.ExpenseTick;
+            UpgradeValue = MyBuilding.UpgradeValue;
+            SpriteIndex = MyBuilding.SpriteIndex;
+            SidePanelSpriteIndex = MyBuilding.SidePanelSpriteIndex;
+            EnviromentValue = MyBuilding.EnviromentValue;
+            Happiness = MyBuilding.Happiness;
+            SizeRank = MyBuilding.SizeRank;
             BuildingPrice = MyBuilding.BuildPrice;
             MonthsToGrow = MyBuilding.MonthsToGrow;
             Upgrade = MyBuilding.Upgrade;
@@ -108,19 +115,18 @@ namespace Cultivations
         {
             if (Upgrade && !FirstRun)
             {
-                CultivationManager.Instance.RemoveEntry(_savedBuilding);
+                SimpleMoneyManager.Instance.RemoveValue(_savedBuilding);
             }
-            else if (!FirstRun)
+
+            if (FirstRun)
             {
-                CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding());
+                CultivationManager.Instance.AddValue(MyBuilding, MyBuilding, this);
+                FirstRun = false;
             }
             else
             {
-                CultivationManager.Instance.AddValue(MyBuilding, MyBuilding);
-                FirstRun = false;
+                CultivationManager.Instance.AddValue(MyBuilding, GetSavedBuilding(), this);
             }
-
- 
         }
     }
 }

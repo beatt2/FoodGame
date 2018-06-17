@@ -15,22 +15,19 @@ namespace Cultivations
     public class CultivationManager : Singleton<CultivationManager>
     {
 
-        private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
-        private readonly List<CultivationPrefabList> _activeUpgradedCultivations = new List<CultivationPrefabList>();
+        //private readonly Dictionary<Enum,List<Cultivation>> _cultivations = new Dictionary<Enum,List<Cultivation>>();
+        private List<CultivationPrefabList> _activeUpgradedCultivations = new List<CultivationPrefabList>();
         private int _moneyValueTracker = 0;
         private int _moneyValueCount;
 
-        public Dictionary<Enum, List<Cultivation>> GetCultivations()
-        {
-            return _cultivations;
-        }
-
+   
         private void Start()
         {
-            _moneyValueCount = SaveManager.Instance.GetMoneyValueCount();
+             _moneyValueCount = SaveManager.Instance.GetMoneyValueCount();
+            
         }
 
-        public void AddValue(Cultivation cultivation, Cultivation oldCultivation)
+        public void AddValue(Cultivation cultivation, Cultivation oldCultivation, CultivationPrefab cultivationPrefab)
         {
             if (!SimpleMoneyManager.Instance.EnoughMoney(cultivation.BuildPrice)) return;
             SimpleMoneyManager.Instance.RemoveMoney(cultivation.BuildPrice);
@@ -43,10 +40,13 @@ namespace Cultivations
                 {
                     TimeManager.Instance.CalculateMoney();
                 }
+                else if(cultivation.Upgrade)
+                {
+                    AddUpgradedCultivation(cultivationPrefab);
+                }
             }
-            SimpleMoneyManager.Instance.AddMonthlyExpenses(10);
-            CheckForNull(cultivation.MyCultivationState);
-            _cultivations[cultivation.MyCultivationState].Add(cultivation);
+            //CheckForNull(cultivation.MyCultivationState);
+            //_cultivations[cultivation.MyCultivationState].Add(cultivation);
         }
 
 
@@ -57,6 +57,15 @@ namespace Cultivations
             {
                 var cultivationPrefab = _activeUpgradedCultivations[index].MyCultivationPrefab;
                 cultivationPrefab.UpgradeDuration--;
+                if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Farm)
+                {
+                    ((BuildingPrefab) cultivationPrefab).MyBuilding.UpgradeDuration = cultivationPrefab.UpgradeDuration;
+                }
+                else if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Field)
+                {
+                    ((PlantPrefab) cultivationPrefab).MyPlant.UpgradeDuration = cultivationPrefab.UpgradeDuration;
+                    
+                }
                 if (cultivationPrefab.UpgradeDuration >= 1) continue;
                 if (cultivationPrefab.MyCurrentState == NodeState.CurrentStateEnum.Farm)
                 {
@@ -82,6 +91,11 @@ namespace Cultivations
             return _activeUpgradedCultivations;
         }
 
+        public void SetActiveCultivationPrefabList(List<CultivationPrefabList> getActiveCultivationPrefabLists)
+        {
+            _activeUpgradedCultivations = getActiveCultivationPrefabLists;
+        }
+
 
         public void AddUpgradedCultivation(CultivationPrefab cultivationPrefab)
         {
@@ -99,19 +113,14 @@ namespace Cultivations
 
 
 
-        private void CheckForNull(NodeState.CurrentStateEnum currentState)
-        {
-            if (_cultivations.ContainsKey(currentState)) return ;
-            _cultivations.Add(currentState, new List<Cultivation>());
-        }
 
 
-
-        public void RemoveEntry(Cultivation cultivation)
-        {
-            //TODO STILL HAS TO LINK TO MONEYMANAGER
-            _cultivations[cultivation.MyCultivationState].Remove(cultivation);
-        }
+//        public void RemoveEntry(Cultivation cultivation)
+//        {
+//            //TODO STILL HAS TO LINK TO MONEYMANAGER
+//            //if(_cultivations.ContainsKey(cultivation.MyCultivationState))
+//            //_cultivations[cultivation.MyCultivationState].Remove(cultivation);
+//        }
 
 
     }

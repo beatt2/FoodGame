@@ -1,5 +1,4 @@
-﻿using System;
-using Boo.Lang.Environments;
+﻿using Boo.Lang.Environments;
 using JetBrains.Annotations;
 using Money;
 using Node;
@@ -17,16 +16,18 @@ namespace Cultivations
 
         protected void Awake()
         {
-            MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration, MonthCount);
+            //MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
+               // MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration, MonthCount);
 
-
+            //SyncValuesToMyPlant();
         }
 
         public void CustomAwake()
         {
             MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
                 MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
+            
+            SyncValuesToMyPlant();
         }
 
         public bool FirstRun;
@@ -38,7 +39,7 @@ namespace Cultivations
 
         public void RemoveUpgrade()
         {
-            CultivationManager.Instance.RemoveEntry(MyPlant);
+            SimpleMoneyManager.Instance.RemoveValue(MyPlant);
             MyPlant = _savedPlant;
             SyncValuesToMyPlant();
             AddCultivation();
@@ -78,7 +79,6 @@ namespace Cultivations
             MyPlant.FieldType = GetComponent<NodeState>().FieldType;
             MyPlant.MyCultivationState = GetComponent<NodeState>().CurrentState;
             Name = MyPlant.Name;
-            UpgradePrefabIndex = MyPlant.UpgradePrefabIndex;
             MoneyTick = MyPlant.MoneyTick;
             BuildingPrice = MyPlant.BuildPrice;
             MonthsToGrow = MyPlant.MonthsToGrow;
@@ -87,7 +87,15 @@ namespace Cultivations
             Upgrade = MyPlant.Upgrade;
             UpgradeDuration = MyPlant.UpgradeDuration;
             UpgradePrefabIndex = MyPlant.UpgradePrefabIndex;
+            UpgradeValue = MyPlant.UpgradeValue;
+            EnviromentValue = MyPlant.EnviromentValue;
+            SidePanelSpriteIndex = MyPlant.SidePanelSpriteIndex;
+            SpriteIndex = MyPlant.SpriteIndex;
             MonthCount = MyPlant.MonthCount;
+            ExpenseTick = MyPlant.ExpenseTick;
+            Happiness = MyPlant.Happiness;
+            SizeRank = MyPlant.SizeRank;
+
         }
 
 
@@ -100,16 +108,16 @@ namespace Cultivations
         {
             if (Upgrade && !FirstRun)
             {
-                CultivationManager.Instance.RemoveEntry(_savedPlant);
+                SimpleMoneyManager.Instance.RemoveValue(_savedPlant);
+                CultivationManager.Instance.AddValue(MyPlant, GetSavedPlant(), this);
             }
             else if (!FirstRun)
             {
-                CultivationManager.Instance.AddValue(MyPlant, GetSavedPlant());
+                CultivationManager.Instance.AddValue(MyPlant, GetSavedPlant(), this);
             }
-
             else
             {
-                CultivationManager.Instance.AddValue(MyPlant, MyPlant);
+                CultivationManager.Instance.AddValue(MyPlant, MyPlant, this);
                 FirstRun = false;
             }
        
