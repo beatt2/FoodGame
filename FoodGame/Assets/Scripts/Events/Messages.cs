@@ -46,7 +46,7 @@ namespace Events
         {
             _eventsInInbox.Add(events);
             string effect = Finance.GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
-            Add(events.Headline);
+            Add(events.Headline, events.InfluencePercentage);
         }
 
         public void Add(string headline, float percentage)
@@ -57,7 +57,7 @@ namespace Events
             {
                 go.GetComponent<Image>().sprite = percentage < 0 ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array() : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
             }
-            else
+            else if (percentage < 0)
             {
                 if (percentage < 0)
                 {
