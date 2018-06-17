@@ -89,7 +89,7 @@ namespace UI
 
             MoneyTickText.text = "Income: " + cultivation.MoneyTick;
             ExpenseTickText.text = "Expense: " + cultivation.ExpenseTick;
-            HappinessText.text = "Happiness: " + cultivation.Happyness;
+            HappinessText.text = "Happiness: " + cultivation.Happiness;
             EnviromentalText.text = "Enviromental: " + cultivation.EnviromentValue;
             UpgradeButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.Field;
             KillButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField;

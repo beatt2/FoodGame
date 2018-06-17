@@ -101,9 +101,9 @@ namespace Grid
             }
         }
 
-        public void SetSelectionSize()
+        public void SetSelectionSize(int size)
         {
-            _selectionSize = _selectionSize == 1 ? 4 : 1;
+            _selectionSize = size;
             if (_selectedNode == null) return;
             ChangeColorsToOld();
             if(_selectionSize == 4)

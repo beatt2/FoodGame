@@ -30,13 +30,10 @@ namespace Notifications
             NotificationManager.SendCustom(notificationParams);
         }
 
-        #if !UNITY_EDITOR
+    
         private void OnApplicationPause(bool value)
         {
-        #else
-        private void OnApplicationQuit()
-        {
-        #endif
+    
             int outOfControlCount = 5;
             var activeCultivationUpgradeList = CultivationManager.Instance.GetActiveCultivationPrefabLists();
             for (int i = 0; i < activeCultivationUpgradeList.Count; i++)

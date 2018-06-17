@@ -77,9 +77,20 @@ namespace Save
             }
             else
             {
-                _saveInfo = new SaveInfo(DateTime.Now, 1, 2018, 5000, 0,
-                    new Dictionary<NodeState.FieldTypeEnum, float>(), 0);
+                _saveInfo = new SaveInfo
+                (
+                    DateTime.Now,
+                    1,
+                    2018,
+                    5000,
+                    0,
+                    new Dictionary<NodeState.FieldTypeEnum, float>(),
+                    0
+        
+                );
             }
+            
+            
         }
 
         public void SetHighestCultivationIndex(int value)
@@ -93,15 +104,13 @@ namespace Save
         }
 
 
-        #if !UNITY_EDITOR
+
         private void OnApplicationPause(bool value)
         {
-        #else
-        private void OnApplicationQuit()
-        {
-        #endif    
+    
+
             Debug.Log(SimpleMoneyManager.Instance.GetMoneyValueDict().Count);
-            if(_reset) return;
+            if (_reset) return;
             SaveNodes();
             SaveMessagesAndReviews();
             int tempTrack = 0;
@@ -112,6 +121,7 @@ namespace Save
                     tempTrack++;
                 }
             }
+
             _saveInfo = new SaveInfo
             (
                 DateTime.Now,
@@ -121,7 +131,8 @@ namespace Save
                 _saveInfo.HighestCultivationListIndex,
                 SimpleMoneyManager.Instance.GetPercentageValues(),
                 tempTrack
-            );
+             
+            );  
 
 
             SaveFiles(_saveInfo, filenameTime, extensionTime);
@@ -135,6 +146,11 @@ namespace Save
         public int GetMoneyValueCount()
         {
             return _saveInfo.TotalAmountOfMoneyValues;
+        }
+
+        public List<CultivationPrefabList> GetActiveCultivationPrefabLists()
+        {
+            return _saveInfo.ActiveCultivationPrefabLists;
         }
 
         private void SaveMessagesAndReviews()
@@ -188,7 +204,6 @@ namespace Save
                              NodeState.CurrentStateEnum.Field)
                     {
                         tempGrid[i, j].GetComponent<PlantPrefab>().MyPlant.BuildPrice = 0;
-                        tempGrid[i, j].GetComponent<PlantPrefab>().FirstRun = true;
                         _saveNodes[i, j] = new SaveNodes(
                             tempGrid[i, j].GetListIndex(),
                             tempGrid[i, j].GetComponent<NodeState>().CurrentState,
@@ -213,7 +228,6 @@ namespace Save
                     else if (tempGrid[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
                         tempGrid[i, j].GetComponent<BuildingPrefab>().MyBuilding.BuildPrice = 0;
-                        tempGrid[i, j].GetComponent<BuildingPrefab>().FirstRun = true;
                         _saveNodes[i, j] = new SaveNodes(
                             tempGrid[i, j].GetListIndex(),
                             tempGrid[i, j].GetComponent<NodeState>().CurrentState,
@@ -268,8 +282,7 @@ namespace Save
                     if (loadedNodes[i, j].FenceLeftOwner)
                     {
                         nodes[i, j].GetNodeFence().LeftGameObject =
-                            nodes[i, j].GetNodeFence()
-                                .BuildFence(
+                            nodes[i, j].GetNodeFence().BuildFence(
                                     loadedNodes[i, j].SizeRankLeft > 2
                                         ? GridManager.Instance.FenceOneBig
                                         : GridManager.Instance.FenceOne, NodeFence.LeftLocation, 1);
@@ -309,17 +322,23 @@ namespace Save
                         || nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Field)
                     {
                         nodes[i, j].gameObject.AddComponent<PlantPrefab>();
-                        nodes[i, j].GetComponent<PlantPrefab>().ChangeValues((Plant) loadedNodes[i, j].MyCultivation);
+                        nodes[i, j].GetComponent<PlantPrefab>().FirstRun = true;
+                        nodes[i, j].GetComponent<PlantPrefab>().ChangeValues((Plant)loadedNodes[i, j].MyCultivation);
                         nodes[i, j].SetSprite(_sprites[nodes[i, j].GetComponent<PlantPrefab>().MyPlant.SpriteIndex]);
                         if ((Plant) loadedNodes[i, j].MySavedCultivation != null)
                         {
                             nodes[i, j].GetComponent<PlantPrefab>()
                                 .SetSavedPlant((Plant) loadedNodes[i, j].MySavedCultivation);
                         }
+      
+
                     }
                     else if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
+      
+
                         nodes[i, j].gameObject.AddComponent<BuildingPrefab>();
+                        nodes[i, j].GetComponent<BuildingPrefab>().FirstRun = true;
                         nodes[i, j].GetComponent<BuildingPrefab>()
                             .ChangeValues((Building) loadedNodes[i, j].MyCultivation);
                         nodes[i, j].SetSprite(

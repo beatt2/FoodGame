@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Cultivations
 {
-    [Serializable]
+ 
     public abstract class CultivationPrefab : MonoBehaviour
     {
         public string Name;

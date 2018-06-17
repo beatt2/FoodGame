@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MathExt;
+using Money;
 using Node;
 using Save;
 using UnityEngine;
@@ -39,48 +40,13 @@ namespace Events
             _rectTransform = Content.GetComponent<RectTransform>();
         }
 
-        private string GetName(NodeState.FieldTypeEnum fieldType)
-        {
-            _name = "";
 
-            switch (fieldType)
-            {
-                case NodeState.FieldTypeEnum.Corn:
-                    _name = "Mais";
-                    break;
-                case NodeState.FieldTypeEnum.Carrot:
-                    _name = "Wortel";
-                    break;
-                case NodeState.FieldTypeEnum.Nothing:
-                    _name = "Null";
-                    break;
-                case NodeState.FieldTypeEnum.Apple:
-                    _name = "Appel";
-                    break;
-                case NodeState.FieldTypeEnum.Blackberries:
-                    _name = "Bramen";
-                    break;
-                case NodeState.FieldTypeEnum.Tomato:
-                    _name = "Tomaten";
-                    break;
-                case NodeState.FieldTypeEnum.Tree:
-                    _name = "Bomen";
-                    break;
-                case NodeState.FieldTypeEnum.Grapes:
-                    _name = "Druiven";
-                    break;
-                default:
-                    break;
-            }
-
-            return _name;
-        }
 
         public void AddEvent(Events events)
         {
             _eventsInInbox.Add(events);
-            string effect = GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
-            Add(events.Headline, events.InfluencePercentage);
+            string effect = Finance.GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
+            Add(events.Headline);
         }
 
         public void Add(string headline, float percentage)
@@ -167,7 +133,7 @@ namespace Events
             messagePrefab.Content = PopupScript.ContentText;
             messagePrefab.Effect = PopupScript.EffectText;
             messagePrefab.Content.text = _eventsInInbox[index - 1].Content;
-            string effect = GetName(_eventsInInbox[index - 1].FieldType) + " " +
+            string effect = Finance.GetName(_eventsInInbox[index - 1].FieldType) + " " +
                             _eventsInInbox[index - 1].InfluencePercentage + "%";
             messagePrefab.Effect.text = effect;
         }

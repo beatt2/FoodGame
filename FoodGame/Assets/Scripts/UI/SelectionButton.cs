@@ -37,7 +37,7 @@ namespace UI
         {
             if (CurrentState == CurrentStateEnum.BuildFarm)
             {
-                GridManager.Instance.SetSelectionSize();
+                GridManager.Instance.SetSelectionSize(4);
                 ChangeColor();
                 if (GridManager.Instance.GetSelectedNode() == null) return;
                 ToggleYesNoButtons();

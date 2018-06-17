@@ -63,8 +63,10 @@ namespace TimeSystem
         {
             var moneyValues = SimpleMoneyManager.Instance.GetMoneyValueDict();
             float tempTotal =0;
+            
             for (int i = 0; i < _totalAddedMonths; i++)
             {
+                CultivationManager.Instance.MonthlyTick();
                 for (int j = 0; j < moneyValues.Keys.Count; j++)
                 {
                     foreach (var t in moneyValues.ElementAt(j).Value)
@@ -77,12 +79,10 @@ namespace TimeSystem
                         }
                         else
                         {
-                            t.MonthCount++;
-                            
+                            t.MonthCount++;                 
                         }
-                        t.MyCultivation.MonthCount = t.MonthCount;
-                    }
 
+                    }
                     float percentage = 0;
                     if(SimpleMoneyManager.Instance.GetPercentageValues().ContainsKey(moneyValues.ElementAt(j).Key))
                     {
@@ -92,9 +92,7 @@ namespace TimeSystem
                     SimpleMoneyManager.Instance.AddMoney(tempTotal + percentage);
                 }
             }
-        
-            
-            
+       
         }
 
         public int GetMonth()

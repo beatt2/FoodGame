@@ -9528,7 +9528,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27477,7 +27477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &856427865
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34426,9 +34426,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1085540496
 MonoBehaviour:
@@ -64513,7 +64513,6 @@ MonoBehaviour:
   MoneyUi: {fileID: 1471145859}
   Income: {fileID: 1036364737}
   Expense: {fileID: 1572890206}
-  ShowExpenses: 0
 --- !u!114 &2083029978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64527,7 +64526,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Month: 1
   Year: 0
-  TimeToIncrease: 5
   FinanceScript: {fileID: 1509750008}
   WaitForSeconds: 1
   InFinanceMenu: 0
@@ -64559,13 +64557,13 @@ MonoBehaviour:
   KanskaartPopup: {fileID: 266423970}
   ExclamationMark: {fileID: 882910591}
   ExclamationMarkReview: {fileID: 0}
-  KanskaartButton: {fileID: 1706908978}
   Sprites:
   - {fileID: 21300000, guid: 5aa7bc848820ce1489ffdd19fb29297f, type: 3}
   - {fileID: 21300000, guid: fbab4951be2aab04e996d569175d8ae8, type: 3}
   - {fileID: 21300000, guid: 79de5b061dd87a04d84a36cd9619a7df, type: 3}
-  Content: {fileID: 0}
-  Effect: {fileID: 0}
+  KanskaartText: {fileID: 246293340}
+  RewardKansKaart: {fileID: 0}
+  PercentageKansKaart: {fileID: 0}
   Ui: {fileID: 0}
   InEventMenu: 0
   MessageScript: {fileID: 1509750013}
@@ -64573,7 +64571,6 @@ MonoBehaviour:
   InMenu: 0
   ReviewBackground: []
   MessageBackground: {fileID: 0}
-  KanskaartText: {fileID: 246293340}
 --- !u!4 &2083029980
 Transform:
   m_ObjectHideFlags: 0
@@ -64598,6 +64595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07dc79b403818b4d9ec4b8b33f73372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Messages: {fileID: 0}
+  Reviews: {fileID: 0}
   _sprites:
   - {fileID: 21300000, guid: 84dd872bcde56d346a829a9b61bccdb1, type: 3}
   - {fileID: 21300000, guid: 358e151aa7e8e5a48a940c8e26a81046, type: 3}

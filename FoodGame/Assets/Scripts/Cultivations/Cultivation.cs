@@ -20,7 +20,7 @@ namespace Cultivations
         public int SpriteIndex;
         public int SidePanelSpriteIndex;
         public int EnviromentValue;
-        public int Happyness;
+        public int Happiness;
         public int SizeRank;
         public int MonthCount;
         public bool Upgrade;
@@ -64,7 +64,7 @@ namespace Cultivations
             SpriteIndex = spriteIndex;
             SidePanelSpriteIndex = sidePanelSpriteIndex;
             EnviromentValue = enviromentValue;
-            Happyness = happiness;
+            Happiness = happiness;
             MonthsToGrow = monthsToGrow;
             SizeRank = sizeRank;
             Upgrade = upgrade;
