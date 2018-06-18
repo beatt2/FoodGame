@@ -37,7 +37,7 @@ namespace Grid
 
         protected override void Awake()
         {
-            Screen.SetResolution(1920,1080,true);
+         
             base.Awake();
             _selection = GetComponent<Selection>();
             _gridSizeX = MyGridMaker.Size.x;

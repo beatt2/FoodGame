@@ -1,6 +1,7 @@
 ﻿using System;
 using Assets.SimpleAndroidNotifications;
 using Cultivations;
+using Events;
 using TimeSystem;
 using Tools;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace Notifications
             var notificationParams = new NotificationParams
             {
                 Id = UnityEngine.Random.Range(0, int.MaxValue),
-                Delay = TimeSpan.FromSeconds(5),
+                Delay = TimeSpan.FromSeconds(waitForSeconds),
                 Title = "Upgrade has ended",
                 MessageEntry = "Your upgrade has ended",
                 Ticker = "geld",
@@ -30,10 +31,55 @@ namespace Notifications
             NotificationManager.SendCustom(notificationParams);
         }
 
-    
-        private void OnApplicationPause(bool value)
+        public void SetTutorialNotifications()
         {
-    
+            var waitForSeconds = TimeManager.Instance.WaitForSeconds;
+            var year = TimeManager.Instance.Year;
+            var month = TimeManager.Instance.Month;
+            var events = EventManager.Instance.EventsArray;
+            
+
+            for (int i = 0; i < EventManager.Instance.EventsArray.Length; i++)
+            {
+                int monthCount = month;
+                int targetYear = events[i].Starts.y-  year;
+                for (int j = year; j < targetYear; j++)
+                {
+                    for (int k = month; k < 13; k++)
+                    {
+                        monthCount++;
+                    }
+                }
+
+                var notificationParams = new NotificationParams
+                {
+                    Id = UnityEngine.Random.Range(0, int.MaxValue),
+                    Delay = TimeSpan.FromSeconds(monthCount * waitForSeconds),
+                    Title = events[i].Headline,
+                    MessageEntry = "New event started " + events[i].Headline,
+                    Ticker = "",
+                    Sound = true,
+                    Vibrate = true,
+                    Light = true,
+                    SmallIcon = NotificationIcon.Message,
+                    SmallIconColor = new Color(0, 0.5f, 0),
+                    LargeIcon = "app_icon"
+                };
+                NotificationManager.SendCustom(notificationParams);
+                
+            }
+  
+            
+        }
+
+
+#if UNITY_EDITOR
+        private void OnApplicationQuit()
+#endif
+#if!UNITY_EDITOR
+        private void OnApplicationPause(bool value)
+#endif
+        {
             int outOfControlCount = 5;
             var activeCultivationUpgradeList = CultivationManager.Instance.GetActiveCultivationPrefabLists();
             for (int i = 0; i < activeCultivationUpgradeList.Count; i++)

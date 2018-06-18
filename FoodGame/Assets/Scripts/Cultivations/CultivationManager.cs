@@ -38,6 +38,7 @@ namespace Cultivations
                 _moneyValueTracker++;
                 if (_moneyValueTracker == _moneyValueCount)
                 {
+                    SimpleMoneyManager.Instance.SetPercentageValues(SaveManager.Instance.GetPercentageValues());
                     TimeManager.Instance.CalculateMoney();
                 }
                 else if(cultivation.Upgrade)
@@ -45,8 +46,6 @@ namespace Cultivations
                     AddUpgradedCultivation(cultivationPrefab);
                 }
             }
-            //CheckForNull(cultivation.MyCultivationState);
-            //_cultivations[cultivation.MyCultivationState].Add(cultivation);
         }
 
 

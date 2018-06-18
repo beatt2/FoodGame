@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Save;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,7 @@ namespace Tutorial
         private void Start()
         {
             
-            if (!_tutorialFinished)
+            if (!SaveManager.Instance.GetTutorialBool())
             {
                 TutorialBg.SetActive(true);
                 TutorialText.text = Tutorials[0].Text;
@@ -35,6 +36,8 @@ namespace Tutorial
 
         }
 
+        
+        //REFACTOR
         public void OnButtonClick()
         {
             Index++;
@@ -91,7 +94,7 @@ namespace Tutorial
                 case 11:
                     TutorialBg.SetActive(false);
                     _tutorialFinished = true;
-                    //save
+                    SaveManager.Instance.SetTutorialBool(true);
                     break;
                 default:
                     break;
@@ -107,7 +110,7 @@ namespace Tutorial
             TutorialBg.SetActive(false);
 
             _tutorialFinished = true;
-            //save
+            SaveManager.Instance.SetTutorialBool(true);
         }
     }
 }

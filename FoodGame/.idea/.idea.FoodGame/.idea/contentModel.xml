@@ -51,6 +51,7 @@
             <e p="Kanskaarten.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
+            <e p="MainMenuScript.cs" t="Include" />
             <e p="SceneButton.cs" t="Include" />
           </e>
           <e p="Money" t="Include">
@@ -86,6 +87,10 @@
             <e p="MathExt.cs" t="Include" />
             <e p="Singleton.cs" t="Include" />
             <e p="UpdateableData.cs" t="Include" />
+          </e>
+          <e p="Tutorial" t="Include">
+            <e p="Tutorials.cs" t="Include" />
+            <e p="TutorialScript.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="BuildButton.cs" t="Include" />

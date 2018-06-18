@@ -3,6 +3,7 @@ using MathExt;
 using Money;
 using Node;
 using Save;
+using TimeSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -123,6 +124,40 @@ namespace Events
             {
                 _eventsInInbox.Add(EventManager.Instance.EventsArray[inbox[index]]);
                 Add(_eventsInInbox[index].Headline, _eventsInInbox[index].InfluencePercentage);
+                
+            }
+
+            int oldMonth = SaveManager.Instance.GetSaveMonth();
+            int oldYear = SaveManager.Instance.GetSaveYear();
+            int month = TimeManager.Instance.GetMonth();
+            int year = TimeManager.Instance.GetYear();
+            for (int i = 0; i < TimeManager.Instance.GetTotalAddedMonths(); i++)
+            {
+                for (int j = 0; j < EventManager.Instance.EventsArray.Length; j++)
+                {
+                    if(EventManager.Instance.EventsArray[j].Starts == new Vector2Int(oldMonth,oldYear) && EventManager.Instance.EventsArray[j].Review == Review)
+                    {
+                        
+                        _eventsInInbox.Add(EventManager.Instance.EventsArray[j]);
+                        Add(_eventsInInbox[_eventsInInbox.Count - 1].Headline, _eventsInInbox[_eventsInInbox.Count -1].InfluencePercentage);
+                    }
+                }
+   
+                if (oldMonth >= 12)
+                {
+                    oldMonth = 1;
+                    oldYear++;
+                }
+                else
+                {
+                    oldMonth++;
+                }
+
+                if (oldMonth == month && oldYear == year)
+                {
+                    break;
+                }
+           
             }
         }
 

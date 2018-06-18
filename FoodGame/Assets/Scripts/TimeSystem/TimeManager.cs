@@ -31,7 +31,9 @@ namespace TimeSystem
 
         public void Start()
         {
+            
             CalculateNewTime();
+            SaveManager.Instance.LoadMessagesAndReviews();
             StartCoroutine("Timer");
     
         }
@@ -57,6 +59,11 @@ namespace TimeSystem
                     Month++;
                 }
             }
+        }
+
+        public int GetTotalAddedMonths()
+        {
+            return _totalAddedMonths;
         }
 
         public void CalculateMoney()
@@ -86,8 +93,7 @@ namespace TimeSystem
                     float percentage = 0;
                     if(SimpleMoneyManager.Instance.GetPercentageValues().ContainsKey(moneyValues.ElementAt(j).Key))
                     {
-                        percentage = tempTotal / 100 *
-                                     SimpleMoneyManager.Instance.GetPercentageValues().ElementAt(j).Value;
+                        percentage = tempTotal / 100  * SimpleMoneyManager.Instance.GetPercentageValues().ElementAt(j).Value;
                     }
                     SimpleMoneyManager.Instance.AddMoney(tempTotal + percentage);
                 }

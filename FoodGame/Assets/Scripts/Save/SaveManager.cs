@@ -8,6 +8,7 @@ using Events;
 using Grid;
 using Money;
 using Node;
+using Notifications;
 using TimeSystem;
 using Tools;
 using UnityEngine;
@@ -45,7 +46,7 @@ namespace Save
         {
             base.Awake();
             LoadTime();
-            LoadMessagesAndReviews();
+     
         }
 
 
@@ -85,7 +86,8 @@ namespace Save
                     5000,
                     0,
                     new Dictionary<NodeState.FieldTypeEnum, float>(),
-                    0
+                    0,
+                    false
         
                 );
             }
@@ -103,16 +105,42 @@ namespace Save
             return _saveInfo.PercentageValues;
         }
 
-
-
-        private void OnApplicationPause(bool value)
+        public void SetTutorialBool(bool value)
         {
-    
+            if (value)
+            {
+                MyNotificationManager.Instance.SetTutorialNotifications();
+            }
+            _saveInfo.TutorialHasPlayed = value;
+        }
 
+        public bool GetTutorialBool()
+        {
+            return _saveInfo.TutorialHasPlayed;
+        }
+
+#if UNITY_EDITOR
+        private void OnApplicationQuit()
+#endif
+#if!UNITY_EDITOR
+        private void OnApplicationPause(bool value)
+#endif
+        {
             Debug.Log(SimpleMoneyManager.Instance.GetMoneyValueDict().Count);
             if (_reset) return;
             SaveNodes();
             SaveMessagesAndReviews();
+            SaveMiscFiles();
+            if (!_saveInfo.TutorialHasPlayed)
+            {
+                
+            }
+            
+            
+        }
+
+        public void SaveMiscFiles()
+        {
             int tempTrack = 0;
             for (int i = 0; i < SimpleMoneyManager.Instance.GetMoneyValueDict().Count; i++)
             {
@@ -130,11 +158,10 @@ namespace Save
                 SimpleMoneyManager.Instance.GetCurrentMoney(),
                 _saveInfo.HighestCultivationListIndex,
                 SimpleMoneyManager.Instance.GetPercentageValues(),
-                tempTrack
+                tempTrack,
+                _saveInfo.TutorialHasPlayed
              
-            );  
-
-
+            ); 
             SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
 
@@ -161,7 +188,7 @@ namespace Save
             SaveFiles(tempReviewsSave, _filenameReview, _extensionReview);
         }
 
-        private void LoadMessagesAndReviews()
+        public void LoadMessagesAndReviews()
         {
             if (File.Exists(GetPath(_filenameMessage, _extensionMessage)))
             {
