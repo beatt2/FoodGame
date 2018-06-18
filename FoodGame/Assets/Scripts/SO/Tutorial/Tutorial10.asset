@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7112bfd52ed5a4aab1cf2d8c1117ca, type: 3}
   m_Name: Tutorial10
   m_EditorClassIdentifier: 
-  Text: Bevestig de grond van jouw gebouw.
+  Text: Selecteer waar je het wilt plaatsen en klik op het groene vinkje
   Index: 10

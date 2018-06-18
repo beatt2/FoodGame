@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7112bfd52ed5a4aab1cf2d8c1117ca, type: 3}
   m_Name: Tutorial11
   m_EditorClassIdentifier: 
-  Text: Daarna selecteer in een van de vier blauwe vakjes waar je jouw gebouw wilt
-    plaatsen
+  Text: Selecteer in het blauwe gebied waar je het gebouw wilt plaatsen en klik op
+    het vinkje
   Index: 11

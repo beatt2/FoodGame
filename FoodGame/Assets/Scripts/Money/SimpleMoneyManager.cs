@@ -35,8 +35,8 @@ namespace Money
 
         private readonly Dictionary<NodeState.FieldTypeEnum,List<MoneyValue>> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>>();
         private Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
-        
 
+        public WaarschuwingScript WaarschuwingScript;
 
         // Use this for initialization
         private void Start ()
@@ -97,10 +97,16 @@ namespace Money
             {
                 return true;
             }
-            Debug.Log("Sorry not enough money");
+            Waarschuwing("Sorry not enough money");
+            //Debug.Log("Sorry not enough money");
             return false;
 
 
+        }
+
+        public void Waarschuwing(string waarschuwing)
+        {
+            WaarschuwingScript.ChangeText(waarschuwing);
         }
 
         public void AddMonthlyIncome(int value)

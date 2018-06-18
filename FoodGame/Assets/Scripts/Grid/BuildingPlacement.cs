@@ -45,7 +45,7 @@ namespace Grid
                 return true;
             }
 
-            Debug.Log("Sorry not enough money");
+            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
@@ -58,7 +58,7 @@ namespace Grid
                 return true;
             }
 
-            Debug.Log("Sorry not enough money");
+            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
@@ -73,7 +73,7 @@ namespace Grid
                 return true;
             }
 
-            Debug.Log("Sorry not enough money");
+            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
 
         }
@@ -88,7 +88,7 @@ namespace Grid
                 SoundManager.Instance.PlayUpgradeSound();
                 return true;
             }
-            Debug.Log("Sorry not enough money");
+            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
