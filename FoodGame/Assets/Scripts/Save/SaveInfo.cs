@@ -13,25 +13,30 @@ namespace Save
         public int SaveMonth;
         public int SaveYear;
         public float SaveMoney;
-        public int HighestCultivationListIndex;
+        public List<int> DictionaryIndexEntrys;
         public int TotalAmountOfMoneyValues;
         public bool TutorialHasPlayed;
         public Dictionary<NodeState.FieldTypeEnum, float> PercentageValues;
         public List<CultivationPrefabList> ActiveCultivationPrefabLists;
+        public Dictionary<int, bool> ReadDictionaryMessages;
+        public Dictionary<int, bool> ReadDictionaryReview;
         
 
-        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, int highestCultivationListIndex,
-            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues, int totalAmountOfMoneyValues, bool tutorialHasPlayed
+        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, List<int> dictionaryIndexEntrys,
+            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues, int totalAmountOfMoneyValues, bool tutorialHasPlayed,
+            Dictionary<int, bool> readDictionaryReview, Dictionary<int,bool> readDictionaryMessages
             )
         {
             StopTime = stopTime;
             SaveMonth = saveMonth;
             SaveYear = saveYear;
             SaveMoney = saveMoney;
-            HighestCultivationListIndex = highestCultivationListIndex;
+            DictionaryIndexEntrys =  dictionaryIndexEntrys;
             PercentageValues = perrcentageValues;
             TotalAmountOfMoneyValues = totalAmountOfMoneyValues;
             TutorialHasPlayed = tutorialHasPlayed;
+            ReadDictionaryReview = readDictionaryReview;
+            ReadDictionaryMessages = readDictionaryMessages;
         }
 
     }

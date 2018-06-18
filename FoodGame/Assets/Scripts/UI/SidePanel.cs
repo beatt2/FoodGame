@@ -130,10 +130,26 @@ namespace UI
                     }
                     break;
                 case NodeState.CurrentStateEnum.Farm:
-                    GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
+                    if (!_currentCultivation.Upgrade)
+                    {
+                        GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
+                    }
+                    else
+                    {
+                        Debug.Log("Already upgraded");
+                    }
+           
                     break;
                 case NodeState.CurrentStateEnum.Field:
-                    GridManager.Instance.BuildingPlacement.UpgradeField(_currentCultivation.UpgradePrefabIndex);
+                    if (!_currentCultivation.Upgrade)
+                    {
+                        GridManager.Instance.BuildingPlacement.UpgradeField(_currentCultivation.UpgradePrefabIndex);
+
+                    }
+                    else
+                    {
+                        Debug.Log("Already upgraded");
+                    }
                     break;
                 case NodeState.CurrentStateEnum.Empty:
                     break;

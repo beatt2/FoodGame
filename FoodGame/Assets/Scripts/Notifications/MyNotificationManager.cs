@@ -4,6 +4,7 @@ using Cultivations;
 using Events;
 using TimeSystem;
 using Tools;
+using UnityEditor;
 using UnityEngine;
 
 namespace Notifications
@@ -42,14 +43,18 @@ namespace Notifications
             for (int i = 0; i < EventManager.Instance.EventsArray.Length; i++)
             {
                 int monthCount = month;
-                int targetYear = events[i].Starts.y-  year;
+                int targetYear = events[i].Starts.y;
+                Debug.Log(targetYear);
                 for (int j = year; j < targetYear; j++)
                 {
                     for (int k = month; k < 13; k++)
                     {
                         monthCount++;
                     }
+
+                    month = 0;
                 }
+                Debug.Log(monthCount * waitForSeconds);
 
                 var notificationParams = new NotificationParams
                 {
@@ -75,8 +80,7 @@ namespace Notifications
 
 #if UNITY_EDITOR
         private void OnApplicationQuit()
-#endif
-#if!UNITY_EDITOR
+#elif!UNITY_EDITOR
         private void OnApplicationPause(bool value)
 #endif
         {

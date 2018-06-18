@@ -27,7 +27,6 @@ namespace UI
             _buildingPrefabs = new BuildingPrefab[tempFarms.Length];
             var tempGameObjects = GameObject.FindGameObjectsWithTag("FarmButton");
             _farmButtons = new FarmButtons[tempFarms.Length];
-            Debug.Log(_farmButtons.Length + "tempGos");
             foreach (var farm in tempFarms)
             {
                 farm.GetComponent<BuildingPrefab>().CustomAwake();

@@ -32,7 +32,7 @@ namespace Grid
         [SerializeField] public BuildingPlacement BuildingPlacement;
 
 
-        private  List<List<NodeBehaviour>> _cultivationLocationList = new List<List<NodeBehaviour>>();
+        private  Dictionary<int,List<NodeBehaviour>> _cultivationLocationList = new Dictionary<int, List<NodeBehaviour>>();
 
 
         protected override void Awake()
@@ -43,6 +43,9 @@ namespace Grid
             _gridSizeX = MyGridMaker.Size.x;
             _gridSizeY = MyGridMaker.Size.y;
             _totalEntries = _gridSizeX * _gridSizeY;
+
+
+
         }
 
 
@@ -79,15 +82,19 @@ namespace Grid
         private void LoadNodes()
         {
             _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
+            _selectedNode = _nodeBehavioursGrid[0, 0];
+            
         }
 
-        public List<List<NodeBehaviour>> GetCultivationLocationList()
+        public Dictionary<int,List<NodeBehaviour>> GetCultivationLocationDictionary()
         {
             return _cultivationLocationList;
         }
 
-        public void SetCultivationList(List<List<NodeBehaviour>> nodes)
+        public void SetCultivationDictionary(Dictionary<int,List<NodeBehaviour>> nodes)
         {
+    
+
             _cultivationLocationList = nodes;
         }
 
@@ -104,8 +111,8 @@ namespace Grid
         public void SetSelectionSize(int size)
         {
             _selectionSize = size;
-            if (_selectedNode == null) return;
-            ChangeColorsToOld();
+                if (_selectedNode == null) return;
+                ChangeColorsToOld();
             if(_selectionSize == 4)
             ChangeColorsToBlue();
 
@@ -119,6 +126,10 @@ namespace Grid
                 return false;
             }
             _inSelectionState = value;
+            if (_inSelectionState)
+            {
+                SetFenceLocation();
+            }
             Debug.Log(_inSelectionState ? "Selection state is true" : "Selection state is false");
             if (!_inSelectionState)
             {
@@ -130,6 +141,7 @@ namespace Grid
             {
                 SetTilesToAlpha(true);
                 _selectedNode.HighLight.ChangeColorGreen();
+                
             }
             if (_selectedNode == null)
             {
@@ -137,6 +149,45 @@ namespace Grid
             }
 
             return true;
+        }
+
+        private void SetFenceLocation()
+        {
+            if (CheckGridForBuildSpace(0, 0))
+            {
+         
+                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(0);
+            }
+   
+            if (CheckGridForNull(0, -1))
+            {
+                if (CheckGridForBuildSpace(0, -1))
+                {
+
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].GetNodeFence()
+                        .SetLocation(3);
+                }
+
+            }
+
+            if (CheckGridForNull(1, -1))
+            {
+                if (CheckGridForBuildSpace(1, -1))
+                {
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1]
+                        .GetNodeFence().SetLocation(2);
+                }
+            }
+
+            if (CheckGridForNull(1, 0))
+            {
+                if (CheckGridForBuildSpace(1, 0))
+                {
+
+                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(1);
+                }
+
+            }
         }
 
         public NodeBehaviour GetSelectedNode()
@@ -206,6 +257,7 @@ namespace Grid
                 if (_inSelectionState)
                 {
                     ChangeColorsToGreen();
+
                 }
                 else
                 {
@@ -267,20 +319,18 @@ namespace Grid
             if (CheckGridForBuildSpace(0, 0))
             {
                 _selectedNode.HighLight.ChangeColorBlue();
-                _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(0);
             }
             else
             {
                 _selectedNode.HighLight.ChangeColorRed();
             }
 
-            if (_selectionSize != 4 || _inSelectionState) return;
+            if (_selectionSize == 1 && !_inSelectionState) return;
             if (CheckGridForNull(0, -1))
             {
                 if (CheckGridForBuildSpace(0, -1))
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y - 1].GetNodeFence().SetLocation(3);
                 }
                 else
                 {
@@ -293,7 +343,6 @@ namespace Grid
                 if (CheckGridForBuildSpace(1, -1))
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].HighLight.ChangeColorBlue();
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y - 1].GetNodeFence().SetLocation(2);
                 }
                 else
                 {
@@ -307,7 +356,6 @@ namespace Grid
                 if (CheckGridForBuildSpace(1, 0))
                 {
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight.ChangeColorBlue();
-                    _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(1);
                 }
                 else
                 {
@@ -372,10 +420,10 @@ namespace Grid
             SetTilesToAlpha(false);
             int listCount = _cultivationLocationList.Count;
             _selectedNode.GetComponent<NodeFence>().ConfirmBuild(sizeRank);
-            _cultivationLocationList.Add(new List<NodeBehaviour>());
+            _cultivationLocationList.Add(listCount,new List<NodeBehaviour>());
             _cultivationLocationList[listCount].Add(_selectedNode);
             _cultivationLocationList[listCount][0].SetCultivationListIndex(listCount);
-            SaveManager.Instance.SetHighestCultivationIndex(listCount);
+            SaveManager.Instance.SetCultivationIndexList(listCount);
             _selectedNode.HighLight.ChangeColorToOld();
             var tempNodeState = _selectedNode.GetComponent<NodeState>();
 
@@ -383,7 +431,6 @@ namespace Grid
             {
                 if (!node.HighLight.IsBlue()) continue;
                 node.GetComponent<NodeFence>().ConfirmBuild(sizeRank);
-                //TODO ARE THESE STILL Necessary??
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);
                 node.GetComponent<NodeState>().ChangeValues(NodeState.CurrentStateEnum.EmptyField, tempNodeState.FieldType);

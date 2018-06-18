@@ -138,13 +138,22 @@ namespace Node
             _spriteRenderer.sprite = sprite;
         }
 
-        public void ResetNode()
+        public void ResetNode(bool isPlant)
         {
             _spriteRenderer.sprite = GridManager.Instance.BuildingPlacement.GetOriginalSprite();
-            GetComponent<NodeState>().ResetSate();
+            if (!isPlant)
+            {
+                GetComponent<NodeState>().ResetSate();
+            }
+            else
+            {
+                GetComponent<NodeState>().CurrentState = NodeState.CurrentStateEnum.EmptyField;
+            }
+   
             HighLight.ResetActiveColor();
             HighLight.ChangeColorToOld();
             _listIndex = -1;
+            if(!isPlant)
             RemoveCultivationTile();
         }
     }

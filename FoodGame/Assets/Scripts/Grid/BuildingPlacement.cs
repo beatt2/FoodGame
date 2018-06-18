@@ -66,6 +66,7 @@ namespace Grid
         {
             if (SimpleMoneyManager.Instance.EnoughMoney(FieldUpgrades[index].GetComponent<PlantPrefab>().MyPlant.UpgradeValue))
             {
+                
                 ChangeTile(FieldUpgrades[index], true);
                 CultivationManager.Instance.AddUpgradedCultivation(GridManager.Instance.GetSelectedNode().GetComponent<PlantPrefab>());
                 SoundManager.Instance.PlayUpgradeSound();
@@ -146,41 +147,43 @@ namespace Grid
             if (node.GetListIndex() == -1) return;
             if (node.GetCurrentState() == NodeState.CurrentStateEnum.Field)
             {
+                bool isPlant = false;
                 if (node.gameObject.GetComponent<PlantPrefab>() != null)
                 {
                     SimpleMoneyManager.Instance.RemoveValue(node.gameObject.GetComponent<PlantPrefab>().MyPlant);
+                    isPlant = true;
                 }
                 else if (node.gameObject.GetComponent<BuildingPrefab>() != null)
                 {
                     SimpleMoneyManager.Instance.RemoveValue(node.gameObject.GetComponent<BuildingPrefab>().MyBuilding);
                 }
 
-                GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Remove(node);
-                node.ResetNode();
+
+                node.ResetNode(isPlant);
                 return;
             }
 
-            int nodeCount = GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Count;
+            int nodeCount = GridManager.Instance.GetCultivationLocationDictionary()[node.GetListIndex()].Count;
             int nodeIndex = node.GetListIndex();
             for (int i = 0; i < nodeCount; i++)
             {
-                var nodeBehaviour = GridManager.Instance.GetCultivationLocationList()[nodeIndex][i];
+                var nodeBehaviour = GridManager.Instance.GetCultivationLocationDictionary()[nodeIndex][i];
                 nodeBehaviour.GetNodeFence().TryRemoveFence();
                 if (nodeBehaviour.gameObject.GetComponent<PlantPrefab>() != null)
                 {
-                    SimpleMoneyManager.Instance.RemoveValue(
-                        nodeBehaviour.gameObject.GetComponent<PlantPrefab>().MyPlant);
+                    SimpleMoneyManager.Instance.RemoveValue(nodeBehaviour.gameObject.GetComponent<PlantPrefab>().MyPlant);
+
                 }
                 else if (nodeBehaviour.gameObject.GetComponent<BuildingPrefab>() != null)
                 {
-                    SimpleMoneyManager.Instance.RemoveValue(nodeBehaviour.gameObject.GetComponent<BuildingPrefab>()
-                        .MyBuilding);
+                    SimpleMoneyManager.Instance.RemoveValue(nodeBehaviour.gameObject.GetComponent<BuildingPrefab>().MyBuilding);
                 }
 
-                nodeBehaviour.ResetNode();
+                nodeBehaviour.ResetNode(false);
             }
+            GridManager.Instance.GetCultivationLocationDictionary()[nodeIndex].Clear();
 
-            GridManager.Instance.GetCultivationLocationList()[node.GetListIndex()].Clear();
+  
         }
     }
 }

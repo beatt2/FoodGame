@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using MathExt;
 using Money;
 using Node;
@@ -20,12 +21,14 @@ namespace Events
 
         private readonly List<GameObject> _go = new List<GameObject>();
         private List<Events> _eventsInInbox = new List<Events>();
+        private Dictionary<int, bool> _readDict = new Dictionary<int, bool>();  
 
         public float Gap;
-
         private Button _button;
 
         public GameObject PopupUi;
+
+        public GameObject Exclamation;
 
         public Popup PopupScript;
 
@@ -39,6 +42,7 @@ namespace Events
             _currentpos = StartingPos;
             _startingPos = StartingPos.position;
             _rectTransform = Content.GetComponent<RectTransform>();
+       
         }
 
 
@@ -52,8 +56,7 @@ namespace Events
 
         public void Add(string headline, float percentage)
         {
-            GameObject go =
-                Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform) as GameObject;
+            GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform) as GameObject;
             if (Review)
             {
                 go.GetComponent<Image>().sprite = percentage < 0 ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array() : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
@@ -83,7 +86,14 @@ namespace Events
             Button tempButton = go.GetComponent<Button>();
             int tempCount = _eventsInInbox.Count;
             tempButton.onClick.AddListener(() => this.OnButtonClick(tempCount));
-            //ChangeText(go, headline,content,effect);
+            
+           
+            if (!_readDict.ContainsKey(tempCount))
+            {
+                _readDict.Add(tempCount, false);
+                Exclamation.SetActive(true);
+            }
+    
         }
 
         private void UpdateTextPos()
@@ -91,8 +101,7 @@ namespace Events
             for (int i = 1; i < _go.Count; i++)
             {
                 float tempGap = Gap * i;
-                Debug.Log(_startingPos);
-
+    
                 _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + tempGap,
                     _currentpos.position.z);
                 _go[i].transform.position = _currentpos.position;
@@ -118,12 +127,27 @@ namespace Events
 
         }
 
+        public Dictionary<int, bool> GetReadDict()
+        {
+            return _readDict;
+        }
+
+        public void SetReadDictionary(Dictionary<int, bool> readDict)
+        {
+            _readDict = readDict;
+        }
+        
+
         public void SetInboxInt(List<int> inbox)
         {
             for (var index = 0; index < inbox.Count; index++)
             {
-                _eventsInInbox.Add(EventManager.Instance.EventsArray[inbox[index]]);
-                Add(_eventsInInbox[index].Headline, _eventsInInbox[index].InfluencePercentage);
+                if (!_eventsInInbox.Contains(EventManager.Instance.EventsArray[inbox[index]]))
+                {
+                    _eventsInInbox.Add(EventManager.Instance.EventsArray[inbox[index]]);
+                    Add(_eventsInInbox[index].Headline, _eventsInInbox[index].InfluencePercentage);
+                }
+
                 
             }
 
@@ -142,7 +166,6 @@ namespace Events
                         Add(_eventsInInbox[_eventsInInbox.Count - 1].Headline, _eventsInInbox[_eventsInInbox.Count -1].InfluencePercentage);
                     }
                 }
-   
                 if (oldMonth >= 12)
                 {
                     oldMonth = 1;
@@ -159,7 +182,10 @@ namespace Events
                 }
            
             }
+
         }
+        
+        
 
         public void ChangeTextOnButton(int index)
         {
@@ -169,14 +195,33 @@ namespace Events
             messagePrefab.Effect = PopupScript.EffectText;
             messagePrefab.Content.text = _eventsInInbox[index - 1].Content;
             string effect = Finance.GetName(_eventsInInbox[index - 1].FieldType) + " " +
-                            _eventsInInbox[index - 1].InfluencePercentage + "%";
+            _eventsInInbox[index - 1].InfluencePercentage + "%";
             messagePrefab.Effect.text = effect;
         }
 
         public void OnButtonClick(int index)
         {
             ChangeTextOnButton(index);
+            _readDict[index] = true;
+            if (ReadDictBool())
+            {
+                Exclamation.SetActive(false);
+            }
             PopupUi.SetActive(true);
         }
+
+        private bool ReadDictBool()
+        {
+            for (int i = 0; i < _readDict.Keys.Count; i++)
+            {
+                if (_readDict[_readDict.ElementAt(i).Key] == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
+    
 }

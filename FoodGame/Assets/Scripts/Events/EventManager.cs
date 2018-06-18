@@ -79,7 +79,7 @@ namespace Events
             {
                 if (KansKaartenArray[i].Starts == new Vector2Int(month, year))
                 {
-                    Debug.Log(i);
+             
                     _actieveKanskaarten.Add(KansKaartenArray[i]);
                     if (!_inKanskaartMenu)
                     {
@@ -178,55 +178,6 @@ namespace Events
                         }
                     }
 
-                    if (!EventsArray[i].Review)
-                    {
-                        ExclamationMark.SetActive(true);
-                    }
-                    else
-                    {
-                        ExclamationMarkReview.SetActive(true);
-                    }
-
-                    if (EventsArray[i].InfluencePercentage < -5 || EventsArray[i].InfluencePercentage > 8)
-                    {
-                        if (!EventsArray[i].Review)
-                        {
-                            ExclamationMark.GetComponent<Image>().sprite = Sprites[2];
-                           
-                        }
-                        else
-                        {
-                            ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[2];
-                            if (EventsArray[i].InfluencePercentage < -5)
-                            {
-                                _headlineUiImage.sprite = ReviewBackgroundNegative[4];
-                            }
-                        }
-                        
-                    }
-                    else if (EventsArray[i].InfluencePercentage < 0 || EventsArray[i].InfluencePercentage > 4)
-                    {
-                        if (!EventsArray[i].Review)
-                        {
-                            ExclamationMark.GetComponent<Image>().sprite = Sprites[1];
-                        }
-                        else
-                        {
-                            ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[1];
-                        }
-                    }
-                    else
-                    {
-                        if (!EventsArray[i].Review)
-                        {
-                            ExclamationMark.GetComponent<Image>().sprite = Sprites[0];
-                        }
-                        else
-                        {
-                            ExclamationMarkReview.GetComponent<Image>().sprite = Sprites[0];
-                        }
-                    }
-
                     StartCoroutine("UiTimer");
                     SetText(i);
 
@@ -236,14 +187,7 @@ namespace Events
 
                     if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
                     HeadlineUi.SetActive(false);
-                    if (EventsArray[i].Review)
-                    {
-                        ExclamationMarkReview.SetActive(false);
-                    }
-                    else
-                    {
-                        ExclamationMark.SetActive(false);
-                    }
+
 
                     SetTextEnded(i);
                 }

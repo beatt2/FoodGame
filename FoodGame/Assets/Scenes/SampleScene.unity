@@ -12513,6 +12513,7 @@ MonoBehaviour:
   StartingPos: {fileID: 922537140}
   Gap: -160
   PopupUi: {fileID: 1301475508}
+  Exclamation: {fileID: 748121552}
   PopupScript: {fileID: 1301475509}
   Review: 0
 --- !u!1 &406349185
@@ -49050,6 +49051,7 @@ MonoBehaviour:
   StartingPos: {fileID: 1904065213}
   Gap: -160
   PopupUi: {fileID: 191925190}
+  Exclamation: {fileID: 337943535}
   PopupScript: {fileID: 191925191}
   Review: 1
 --- !u!1 &1513930524
@@ -68749,6 +68751,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d69bec3c49388764fa73f35a6feaa285, type: 2}
   - {fileID: 11400000, guid: 780e87df8bb641d4baca036dd815a8d0, type: 2}
   - {fileID: 11400000, guid: e3f6ed0244a076945bd59f43db49a618, type: 2}
+  - {fileID: 11400000, guid: 02e7de160a5f5e24aa3364f97bb07834, type: 2}
+  - {fileID: 11400000, guid: aeb101363644b0947848adda14828ba3, type: 2}
+  - {fileID: 11400000, guid: 9038f916bc961464cbf85b3d102cc9e0, type: 2}
+  - {fileID: 11400000, guid: 6d15cd2f533bedb4db90fedf8999929f, type: 2}
+  - {fileID: 11400000, guid: 81f7ceaa731fc4e4eba79e16f5da27f6, type: 2}
+  - {fileID: 11400000, guid: 5911bcd6e240e484fb2fb02653f27b84, type: 2}
+  - {fileID: 11400000, guid: d043f3b7821acf547b3a1bf534b7ea4b, type: 2}
+  - {fileID: 11400000, guid: 6c2d507f51fc75b4aab046c7245e29a8, type: 2}
+  - {fileID: 11400000, guid: d689620ff5ccbd341aef28ab9848b3b8, type: 2}
+  - {fileID: 11400000, guid: acf9e20407dfc8a498f4c6220b7e814d, type: 2}
+  - {fileID: 11400000, guid: e0256153a43e717488a6e314ae35335c, type: 2}
+  - {fileID: 11400000, guid: ef3e84433f1bed744a4a158705cc5067, type: 2}
   KansKaartenArray:
   - {fileID: 11400000, guid: b9dcf758c5b8c9f4dae6aeea6dd7b19d, type: 2}
   - {fileID: 11400000, guid: 021ee67b591bb8148a152d75e511f8c4, type: 2}
@@ -68815,7 +68829,7 @@ MonoBehaviour:
   Messages: {fileID: 1509750014}
   Reviews: {fileID: 404316299}
   _sprites:
-  - {fileID: 21300000, guid: 84dd872bcde56d346a829a9b61bccdb1, type: 3}
+  - {fileID: 21300000, guid: c7e1e21deec2cc34d9e4e8d11300c99d, type: 3}
   - {fileID: 21300000, guid: 358e151aa7e8e5a48a940c8e26a81046, type: 3}
   - {fileID: 21300000, guid: 427c14783837a0643b3ca308b8244cb0, type: 3}
   - {fileID: 21300000, guid: 8dfe5c716fa0b57449845cea939894e2, type: 3}

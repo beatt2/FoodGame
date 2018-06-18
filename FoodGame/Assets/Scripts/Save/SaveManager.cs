@@ -84,20 +84,24 @@ namespace Save
                     1,
                     2018,
                     5000,
-                    0,
+                    new List<int>(), 
                     new Dictionary<NodeState.FieldTypeEnum, float>(),
                     0,
-                    false
+                    false,
+                    new Dictionary<int, bool>(),
+                    new Dictionary<int, bool>()
         
                 );
+      
+                
             }
             
             
         }
 
-        public void SetHighestCultivationIndex(int value)
+        public void SetCultivationIndexList(int value)
         {
-            _saveInfo.HighestCultivationListIndex = value;
+            _saveInfo.DictionaryIndexEntrys.Add(value);
         }
 
         public Dictionary<NodeState.FieldTypeEnum, float> GetPercentageValues()
@@ -118,25 +122,39 @@ namespace Save
         {
             return _saveInfo.TutorialHasPlayed;
         }
-
-#if UNITY_EDITOR
-        private void OnApplicationQuit()
-#endif
-#if!UNITY_EDITOR
-        private void OnApplicationPause(bool value)
-#endif
+        private void OnApplicationFocus(bool hasFocus)
         {
-            Debug.Log(SimpleMoneyManager.Instance.GetMoneyValueDict().Count);
-            if (_reset) return;
-            SaveNodes();
-            SaveMessagesAndReviews();
+            OnApplicationChange(false);
+            
+        }
+
+        private void OnApplicationPause(bool value)
+        {
+            OnApplicationChange(value);
+        }
+
+        private void OnApplicationQuit()
+        {
+            OnApplicationChange(true);
+        }
+
+        private void OnApplicationChange(bool value)
+        {
             SaveMiscFiles();
-            if (!_saveInfo.TutorialHasPlayed)
+            if (value)
             {
+                if (_reset) return;
+                SaveNodes();
+                SaveMessagesAndReviews();
+      
                 
             }
-            
-            
+            else
+            {
+          
+                LoadTime();
+                TimeManager.Instance.Start();
+            }
         }
 
         public void SaveMiscFiles()
@@ -156,11 +174,13 @@ namespace Save
                 TimeManager.Instance.GetMonth(),
                 TimeManager.Instance.GetYear(),
                 SimpleMoneyManager.Instance.GetCurrentMoney(),
-                _saveInfo.HighestCultivationListIndex,
+                _saveInfo.DictionaryIndexEntrys,
                 SimpleMoneyManager.Instance.GetPercentageValues(),
                 tempTrack,
-                _saveInfo.TutorialHasPlayed
-             
+                _saveInfo.TutorialHasPlayed,
+                Reviews.GetReadDict(),
+                Messages.GetReadDict()
+                
             ); 
             SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
@@ -193,13 +213,18 @@ namespace Save
             if (File.Exists(GetPath(_filenameMessage, _extensionMessage)))
             {
                 var tempMessages = LoadFile<List<int>>(_filenameMessage, _extensionMessage);
+                Messages.SetReadDictionary(_saveInfo.ReadDictionaryMessages);
+
                 Messages.SetInboxInt(tempMessages);
+                
             }
 
             if (File.Exists(GetPath(_filenameReview, _extensionReview)))
             {
                 var tempReviews = LoadFile<List<int>>(_filenameReview, _extensionReview);
+                Reviews.SetReadDictionary(_saveInfo.ReadDictionaryReview);
                 Reviews.SetInboxInt(tempReviews);
+
             }
         }
 
@@ -207,7 +232,7 @@ namespace Save
         //REFACTOR
         private void SaveNodes()
         {
-            int x = GridManager.Instance.GetNodeGrid().GetLength(0);
+           int x = GridManager.Instance.GetNodeGrid().GetLength(0);
             int y = GridManager.Instance.GetNodeGrid().GetLength(1);
             _saveNodes = new SaveNodes[x, y];
             var tempGrid = GridManager.Instance.GetNodeGrid();
@@ -287,10 +312,10 @@ namespace Save
         {
             if (!File.Exists(GetPath(FilenameNode, ExtensionNode))) return nodes;
             var loadedNodes = LoadFile<SaveNodes[,]>(FilenameNode, ExtensionNode);
-            List<List<NodeBehaviour>> tempCultivationLocationList = new List<List<NodeBehaviour>>();
-            for (int i = 0; i < _saveInfo.HighestCultivationListIndex + 1; i++)
+            Dictionary<int,List<NodeBehaviour>> tempCultivationLocationDict = new Dictionary<int, List<NodeBehaviour>>();
+            for (int i = 0; i < _saveInfo.DictionaryIndexEntrys.Count; i++)
             {
-                tempCultivationLocationList.Add(new List<NodeBehaviour>());
+                tempCultivationLocationDict.Add(_saveInfo.DictionaryIndexEntrys[i],new List<NodeBehaviour>());
             }
 
             for (int i = 0; i < nodes.GetLength(0); i++)
@@ -379,12 +404,12 @@ namespace Save
 
                     if (nodes[i, j].GetListIndex() != -1)
                     {
-                        tempCultivationLocationList[nodes[i, j].GetListIndex()].Add(nodes[i, j]);
+                        tempCultivationLocationDict[nodes[i, j].GetListIndex()].Add(nodes[i, j]);
                     }
                 }
             }
 
-            GridManager.Instance.SetCultivationList(tempCultivationLocationList);
+            GridManager.Instance.SetCultivationDictionary(tempCultivationLocationDict);
             return nodes;
         }
 

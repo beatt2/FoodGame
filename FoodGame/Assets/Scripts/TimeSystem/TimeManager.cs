@@ -32,6 +32,7 @@ namespace TimeSystem
         public void Start()
         {
             
+            StopAllCoroutines();
             CalculateNewTime();
             SaveManager.Instance.LoadMessagesAndReviews();
             StartCoroutine("Timer");
