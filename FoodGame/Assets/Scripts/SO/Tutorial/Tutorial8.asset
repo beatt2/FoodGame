@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7112bfd52ed5a4aab1cf2d8c1117ca, type: 3}
   m_Name: Tutorial8
   m_EditorClassIdentifier: 
-  Text: Dit is het veld waar je kunt bouwen, klik op een vakje op het veld.
+  Text: Klik op de winkel om een gebouw te kopen.
   Index: 8

@@ -5,6 +5,7 @@ using Grid;
 using Money;
 using Node;
 using Save;
+using Tutorial;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +34,7 @@ namespace UI
 
         public Sprite[] SidePanelIcons;
 
-
+        public TutorialScript TutorialScript;
 
 
         private Cultivation _currentCultivation;
@@ -74,7 +75,7 @@ namespace UI
             {
                 _panelLerp.ToggleLerp();
             }
-
+            TutorialScript.OnClickField();
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name;
             MyImage.sprite = SidePanelIcons[cultivation.SidePanelSpriteIndex];
@@ -131,9 +132,11 @@ namespace UI
                     break;
                 case NodeState.CurrentStateEnum.Farm:
                     GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
+                    TutorialScript.OnUpgrade();
                     break;
                 case NodeState.CurrentStateEnum.Field:
                     GridManager.Instance.BuildingPlacement.UpgradeField(_currentCultivation.UpgradePrefabIndex);
+                    TutorialScript.OnUpgrade();
                     break;
                 case NodeState.CurrentStateEnum.Empty:
                     break;

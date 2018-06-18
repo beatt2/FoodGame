@@ -100,7 +100,7 @@ namespace Money
             //float eventAmount = 100 / income * eventChange;
             //eventAmount = Mathf.Round(eventAmount * 100) / 100;
 
-            Debug.Log("WARNING ALWAYS RETURN 0");
+Debug.Log(eventChange);
             return eventChange;
         }
 

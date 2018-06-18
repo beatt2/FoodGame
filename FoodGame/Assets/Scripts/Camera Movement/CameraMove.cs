@@ -1,6 +1,7 @@
 ﻿using Grid;
 using Money;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Camera_Movement
 {
@@ -34,6 +35,11 @@ namespace Camera_Movement
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("MainMenu");
+                //save
+            }
 
 
             if (Input.touchCount == 2)

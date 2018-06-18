@@ -27829,7 +27829,7 @@ GameObject:
   - component: {fileID: 903792740}
   - component: {fileID: 903792739}
   m_Layer: 5
-  m_Name: FinanceBG (1)
+  m_Name: FinanceBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48913,11 +48913,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f36d7b38338c948ae7fe99cc92cc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Content: {fileID: 0}
+  Content: {fileID: 461481018}
   RowPrefab: {fileID: 1514185830168050, guid: 2750c4eb96c6fb8448c5eae927dbad89, type: 2}
-  StartingPos: {fileID: 0}
+  StartingPos: {fileID: 13510518}
   Gap: -40
-  TotalAmountText: {fileID: 0}
+  TotalAmountText: {fileID: 1960014059}
 --- !u!114 &1509750009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60791,7 +60791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FinanceUi: {fileID: 903792737}
-  FinanceScript: {fileID: 0}
+  FinanceScript: {fileID: 1509750008}
 --- !u!114 &1857532499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60831,7 +60831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1857532498}
         m_MethodName: CloseFinanceMenu
         m_Mode: 1
         m_Arguments:

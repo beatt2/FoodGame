@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7112bfd52ed5a4aab1cf2d8c1117ca, type: 3}
   m_Name: Tutorial1
   m_EditorClassIdentifier: 
-  Text: Welkom, dit is een tutorial.
+  Text: Welkom, Klik hier om door te gaan
   Index: 1
