@@ -61348,7 +61348,6 @@ GameObject:
   - component: {fileID: 1857532501}
   - component: {fileID: 1857532500}
   - component: {fileID: 1857532499}
-  - component: {fileID: 1857532498}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -61374,19 +61373,6 @@ RectTransform:
   m_AnchoredPosition: {x: 766, y: 353.8}
   m_SizeDelta: {x: 88, y: 88}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1857532498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1857532496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9fc2dc3f927b9488e061f237567b46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinanceUi: {fileID: 903792737}
-  FinanceScript: {fileID: 1509750008}
 --- !u!114 &1857532499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61426,7 +61412,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1857532498}
+      - m_Target: {fileID: 602343031}
         m_MethodName: CloseFinanceMenu
         m_Mode: 1
         m_Arguments:
