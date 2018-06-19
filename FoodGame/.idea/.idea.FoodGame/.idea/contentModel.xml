@@ -51,6 +51,7 @@
             <e p="Kanskaarten.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
+            <e p="CreditsButton.cs" t="Include" />
             <e p="MainMenuScript.cs" t="Include" />
             <e p="SceneButton.cs" t="Include" />
           </e>
@@ -107,6 +108,7 @@
             <e p="UIButtonAbstract.cs" t="Include" />
             <e p="UpgradeEntry.cs" t="Include" />
             <e p="UpgradeTab.cs" t="Include" />
+            <e p="WaarschuwingScript.cs" t="Include" />
           </e>
         </e>
         <e p="SimpleAndroidNotifications" t="Include">

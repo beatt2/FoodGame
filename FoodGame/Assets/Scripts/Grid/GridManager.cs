@@ -228,12 +228,12 @@ namespace Grid
                         return;
                     }
 
-                    //ChangeColorsToGreen();
+                    ChangeColorsToGreen();
                 }
                 else
                 {
                     _selectedNode = nodeBehaviour;
-                    //ChangeColorsToBlue();
+                    ChangeColorsToBlue();
                 }
             }
             else
@@ -326,7 +326,7 @@ namespace Grid
                 _selectedNode.HighLight.ChangeColorRed();
             }
 
-            if (_selectionSize == 1 && !_inSelectionState) return;
+            if (_selectionSize != 4 || _inSelectionState) return;
             if (CheckGridForNull(0, -1))
             {
                 if (CheckGridForBuildSpace(0, -1))
@@ -363,6 +363,7 @@ namespace Grid
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight.ChangeColorRed();
                 }
             }
+    
         }
 
         private void ChangeColorsToOld()
@@ -410,7 +411,7 @@ namespace Grid
 
         private void ChangeColorsToGreen()
         {
-            //_selectedNode.HighLight.ChangeColorGreen();
+            _selectedNode.HighLight.ChangeColorGreen();
             //_selectionButton.SetActiveConfirmButton();
         }
 
