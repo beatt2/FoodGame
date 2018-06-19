@@ -114,12 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9536cba6cd388804684dd4fef7f40791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Carrot Middle
-  MoneyTick: 70
+  Name: Wortel gemiddeld
+  MoneyTick: 700
   ExpenseTick: 50
-  MonthsToGrow: 4
-  BuildingPrice: 2000
-  UpgradeValue: 3
+  MonthsToGrow: 1
+  BuildingPrice: 3000
+  UpgradeValue: 10000
   SpriteIndex: 21
   SidePanelSpriteIndex: 13
   MyCurrentState: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
     SpriteIndex: 21
     SidePanelSpriteIndex: 0
     EnviromentValue: 0
-    Happyness: 0
+    Happiness: 0
     SizeRank: 0
     MonthCount: 0
     Upgrade: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
     UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
+  FirstRun: 0
 --- !u!114 &114485479905778854
 MonoBehaviour:
   m_ObjectHideFlags: 1

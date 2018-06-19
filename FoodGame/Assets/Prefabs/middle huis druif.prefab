@@ -114,12 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9536cba6cd388804684dd4fef7f40791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: GrapeBig
-  MoneyTick: 80
-  ExpenseTick: 50
-  MonthsToGrow: 3
-  BuildingPrice: 3000
-  UpgradeValue: 3
+  Name: Druiven gemiddeld
+  MoneyTick: 8000
+  ExpenseTick: 200
+  MonthsToGrow: 8
+  BuildingPrice: 48000
+  UpgradeValue: 20000
   SpriteIndex: 23
   SidePanelSpriteIndex: 10
   MyCurrentState: 0
@@ -141,7 +141,7 @@ MonoBehaviour:
     SpriteIndex: 23
     SidePanelSpriteIndex: 0
     EnviromentValue: 0
-    Happyness: 0
+    Happiness: 0
     SizeRank: 0
     MonthCount: 0
     Upgrade: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
     UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 7
+  FirstRun: 0
 --- !u!114 &114905638630452660
 MonoBehaviour:
   m_ObjectHideFlags: 1
