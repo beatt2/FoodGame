@@ -228,12 +228,12 @@ namespace Grid
                         return;
                     }
 
-                    ChangeColorsToGreen();
+                    //ChangeColorsToGreen();
                 }
                 else
                 {
                     _selectedNode = nodeBehaviour;
-                    ChangeColorsToBlue();
+                    //ChangeColorsToBlue();
                 }
             }
             else
@@ -316,6 +316,7 @@ namespace Grid
 
         private void ChangeColorsToBlue()
         {
+           
             if (CheckGridForBuildSpace(0, 0))
             {
                 _selectedNode.HighLight.ChangeColorBlue();
@@ -409,7 +410,7 @@ namespace Grid
 
         private void ChangeColorsToGreen()
         {
-            _selectedNode.HighLight.ChangeColorGreen();
+            //_selectedNode.HighLight.ChangeColorGreen();
             //_selectionButton.SetActiveConfirmButton();
         }
 

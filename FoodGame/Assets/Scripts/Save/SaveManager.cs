@@ -124,7 +124,7 @@ namespace Save
         }
         private void OnApplicationFocus(bool hasFocus)
         {
-            OnApplicationChange(false);
+            OnApplicationChange(!hasFocus);
             
         }
 
@@ -138,12 +138,13 @@ namespace Save
             OnApplicationChange(true);
         }
 
-        private void OnApplicationChange(bool value)
+        public void OnApplicationChange(bool value)
         {
-            SaveMiscFiles();
+
             if (value)
             {
-                if (_reset) return;
+              
+                SaveMiscFiles();
                 SaveNodes();
                 SaveMessagesAndReviews();
       

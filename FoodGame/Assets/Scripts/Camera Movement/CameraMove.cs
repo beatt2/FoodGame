@@ -1,5 +1,6 @@
 ﻿using Grid;
 using Money;
+using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,8 +38,9 @@ namespace Camera_Movement
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                SaveManager.Instance.OnApplicationChange(true);
                 SceneManager.LoadScene("MainMenu");
-                //save
+                
             }
 
 

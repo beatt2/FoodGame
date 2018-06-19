@@ -14,15 +14,16 @@ public class TopBar : MonoBehaviour
 	private int _currentMoneyLength = 0;
 
 	// Use this for initialization
-	void Start () {
-
-	}
+    void Start()
+    {
+        
+    }
 
 	// Update is called once per frame
 	void Update () {
 		CalculateUiMoney();
 		CalculateUITime();
-
+    
 	}
 
 	private void CalculateUITime()

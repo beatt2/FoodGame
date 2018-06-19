@@ -87,7 +87,7 @@ namespace Node
             _emptyCultivationField = value;
             if (value)
             {
-                HighLight.SetToActiveColor();
+                HighLight.ChangeColorToOld();
             }
         }
 

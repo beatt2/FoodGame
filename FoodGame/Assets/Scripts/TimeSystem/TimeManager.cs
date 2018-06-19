@@ -47,7 +47,8 @@ namespace TimeSystem
             int totalAddedMonths =(int)temp.TotalSeconds / WaitForSeconds;
             _totalAddedMonths = totalAddedMonths;
             Month = SaveManager.Instance.GetSaveMonth() == 0 ? 1 : SaveManager.Instance.GetSaveMonth();
-            Year = SaveManager.Instance.GetSaveMonth() == 0 ? 2018 : SaveManager.Instance.GetSaveYear();
+            Year = SaveManager.Instance.GetSaveYear() == 0 ? 2018 : SaveManager.Instance.GetSaveYear();
+            Debug.Log(Year);
             for (int i = 0; i < totalAddedMonths; i++)
             {
                 if (Month >= 12)
@@ -95,6 +96,7 @@ namespace TimeSystem
                     if(SimpleMoneyManager.Instance.GetPercentageValues().ContainsKey(moneyValues.ElementAt(j).Key))
                     {
                         percentage = tempTotal / 100  * SimpleMoneyManager.Instance.GetPercentageValues().ElementAt(j).Value;
+                        
                     }
                     SimpleMoneyManager.Instance.AddMoney(tempTotal + percentage);
                 }

@@ -16,7 +16,6 @@ namespace Grid
         private Sprite _emptyFieldSprite;
 
 
-        //TODO MOVE TO ANOTHER SCRIPT
         private void Awake()
         {
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(true);
