@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using System.Xml.Schema;
 using Cultivations;
 using Events;
 using Money;
 using Save;
 using Tools;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 namespace TimeSystem
 {
@@ -26,6 +25,8 @@ namespace TimeSystem
 
         private int _totalAddedMonths;
 
+        private int _savedWaitForSeconds;
+
          
         
 
@@ -35,8 +36,38 @@ namespace TimeSystem
             StopAllCoroutines();
             CalculateNewTime();
             SaveManager.Instance.LoadMessagesAndReviews();
+            if (SaveManager.Instance.GetWaitForSeconds() > 1)
+            {
+                WaitForSeconds = SaveManager.Instance.GetWaitForSeconds();
+                _savedWaitForSeconds = WaitForSeconds;
+
+            }
+    
             StartCoroutine("Timer");
     
+        }
+
+        public void OnPlayButton()
+        {
+            StopAllCoroutines();
+            SetWaitForSeconds(WaitForSeconds == _savedWaitForSeconds? int.MaxValue : _savedWaitForSeconds);
+            StartCoroutine("Timer");
+        }
+
+        public bool GamePaused()
+        {
+            return WaitForSeconds != _savedWaitForSeconds;
+        }
+        
+
+        public void SetWaitForSeconds(int value)
+        {
+            WaitForSeconds = value;
+        }
+
+        public int GetWaitForSeconds()
+        {
+            return WaitForSeconds;
         }
 
         private void CalculateNewTime()

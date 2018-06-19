@@ -1,4 +1,5 @@
 ﻿using Boo.Lang.Environments;
+using Events;
 using JetBrains.Annotations;
 using Money;
 using Node;
@@ -40,6 +41,8 @@ namespace Cultivations
         public void RemoveUpgrade()
         {
             SimpleMoneyManager.Instance.RemoveValue(MyPlant);
+            EventManager.Instance.AddEnviromentValue(MyFieldType,-MyPlant.EnviromentValue);
+            EventManager.Instance.AddHappinessValue(MyFieldType,-MyPlant.Happiness);
             MyPlant = _savedPlant;
             SyncValuesToMyPlant();
             AddCultivation();

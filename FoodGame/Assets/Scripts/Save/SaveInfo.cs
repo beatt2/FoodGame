@@ -20,12 +20,24 @@ namespace Save
         public List<CultivationPrefabList> ActiveCultivationPrefabLists;
         public Dictionary<int, bool> ReadDictionaryMessages;
         public Dictionary<int, bool> ReadDictionaryReview;
+        public int WaitForSeconds;
         
 
-        public SaveInfo(DateTime stopTime, int saveMonth, int saveYear, float saveMoney, List<int> dictionaryIndexEntrys,
-            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues, int totalAmountOfMoneyValues, bool tutorialHasPlayed,
-            Dictionary<int, bool> readDictionaryReview, Dictionary<int,bool> readDictionaryMessages
-            )
+        public SaveInfo
+        (
+            DateTime stopTime,
+            int saveMonth,
+            int saveYear,
+            float saveMoney,
+            List<int> dictionaryIndexEntrys,
+            Dictionary<NodeState.FieldTypeEnum, float> perrcentageValues,
+            int totalAmountOfMoneyValues,
+            bool tutorialHasPlayed,
+            Dictionary<int, bool> readDictionaryReview,
+            Dictionary<int,bool> readDictionaryMessages,
+            int waitForSeconds
+            
+        )
         {
             StopTime = stopTime;
             SaveMonth = saveMonth;
@@ -37,6 +49,7 @@ namespace Save
             TutorialHasPlayed = tutorialHasPlayed;
             ReadDictionaryReview = readDictionaryReview;
             ReadDictionaryMessages = readDictionaryMessages;
+            WaitForSeconds = waitForSeconds;
         }
 
     }

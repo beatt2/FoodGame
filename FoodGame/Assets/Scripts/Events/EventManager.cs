@@ -16,6 +16,7 @@ namespace Events
     public class EventManager : Singleton<EventManager>
     {
         public Events[] EventsArray;
+        public Reviews[] Reviews;
         public Kanskaarten[] KansKaartenArray;
 
         public Text Headline;
@@ -47,6 +48,11 @@ namespace Events
         private Image _headlineUiImage;
         private bool _inKanskaartMenu = false;
         private readonly List<Kanskaarten> _actieveKanskaarten = new List<Kanskaarten>();
+        private Dictionary<NodeState.FieldTypeEnum, int> _enviromentalValues = new Dictionary<NodeState.FieldTypeEnum, int>();
+        private Dictionary<NodeState.FieldTypeEnum, int> _happinessValues = new Dictionary<NodeState.FieldTypeEnum, int>();
+
+  
+        
 
         public float GetInfluence()
         {
@@ -63,6 +69,32 @@ namespace Events
         {
             SetMessageScreen(month, year);
             SetKansKaart(month, year);
+        }
+
+        public void AddEnviromentValue(NodeState.FieldTypeEnum fieldType, int value)
+        {
+            if (!_enviromentalValues.ContainsKey(fieldType))
+            {
+                _enviromentalValues.Add(fieldType, value);
+            }
+            else
+            {
+                _enviromentalValues[fieldType] += value;
+            }
+         
+        }
+
+        public void AddHappinessValue(NodeState.FieldTypeEnum fieldType, int value)
+        {
+            if (!_happinessValues.ContainsKey(fieldType))
+            {
+                _happinessValues.Add(fieldType,value);
+            }
+            else
+            {
+                _happinessValues[fieldType] += value;
+            }
+            
         }
 
 
@@ -169,12 +201,11 @@ namespace Events
                         HeadlineUi.SetActive(true);
                         if (EventsArray[i].Review)
                         {
-                            //_headlineUiImage.sprite = ReviewBackgroundNegative.GetRandom_Array();
                             _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0 ? ReviewBackgroundNegative.GetRandom_Array() : ReviewBackgroundPositive.GetRandom_Array();
                         }
                         else
                         {
-                            _headlineUiImage.sprite = EventsArray[i].InfluencePercentage <0 ? MessageBackground[1] : MessageBackground[0];
+                            _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0 ? MessageBackground[1] : MessageBackground[0];
                         }
                     }
 

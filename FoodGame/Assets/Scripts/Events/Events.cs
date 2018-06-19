@@ -1,5 +1,4 @@
-﻿using System;
-using Node;
+﻿using Node;
 using UnityEngine;
 
 namespace Events
@@ -8,6 +7,7 @@ namespace Events
     public class Events : ScriptableObject
     {
         public string Headline;
+        [TextArea]
         public string Content;
         // happenAt month/year
         public Vector2Int Starts;
@@ -15,7 +15,6 @@ namespace Events
         public NodeState.FieldTypeEnum FieldType;
         public NodeState.CurrentStateEnum Type;
         public float InfluencePercentage;
-        public bool Review;
     }
 
 

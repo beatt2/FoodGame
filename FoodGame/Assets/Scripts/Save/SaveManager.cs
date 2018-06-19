@@ -89,7 +89,8 @@ namespace Save
                     0,
                     false,
                     new Dictionary<int, bool>(),
-                    new Dictionary<int, bool>()
+                    new Dictionary<int, bool>(),
+                    TimeManager.Instance.GetWaitForSeconds()
         
                 );
       
@@ -97,6 +98,11 @@ namespace Save
             }
             
             
+        }
+
+        public int GetWaitForSeconds()
+        {
+            return _saveInfo.WaitForSeconds;
         }
 
         public void SetCultivationIndexList(int value)
@@ -180,7 +186,8 @@ namespace Save
                 tempTrack,
                 _saveInfo.TutorialHasPlayed,
                 Reviews.GetReadDict(),
-                Messages.GetReadDict()
+                Messages.GetReadDict(),
+                TimeManager.Instance.GetWaitForSeconds()
                 
             ); 
             SaveFiles(_saveInfo, filenameTime, extensionTime);

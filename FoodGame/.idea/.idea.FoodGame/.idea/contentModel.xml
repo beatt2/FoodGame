@@ -37,6 +37,7 @@
             <e p="MessagePrefab.cs" t="Include" />
             <e p="Messages.cs" t="Include" />
             <e p="Popup.cs" t="Include" />
+            <e p="Reviews.cs" t="Include" />
           </e>
           <e p="Grid" t="Include">
             <e p="BuildingPlacement.cs" t="Include" />
@@ -96,10 +97,12 @@
           <e p="UI" t="Include">
             <e p="BuildButton.cs" t="Include" />
             <e p="BuildingTab.cs" t="Include" />
+            <e p="EventMessages.cs" t="Include" />
             <e p="FarmButtons.cs" t="Include" />
             <e p="IButtonInteractable.cs" t="Include" />
             <e p="OkayButton.cs" t="Include" />
             <e p="PanelLerp.cs" t="Include" />
+            <e p="ReviewMessages.cs" t="Include" />
             <e p="SelectionButton.cs" t="Include" />
             <e p="SidePanel.cs" t="Include" />
             <e p="StatBar.cs" t="Include" />

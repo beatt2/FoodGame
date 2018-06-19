@@ -1,4 +1,5 @@
 ﻿using Cultivations;
+using Events;
 using Money;
 using Node;
 using Save;
@@ -118,11 +119,22 @@ namespace Grid
             {
                 go.GetComponent<PlantPrefab>().CustomAwake();
                 node.GetComponent<PlantPrefab>().ChangeValues(go.GetComponent<PlantPrefab>().MyPlant);
+                EventManager.Instance.AddEnviromentValue
+                (
+                    node.GetComponent<NodeState>().FieldType,
+                    node.GetComponent<PlantPrefab>().MyPlant.EnviromentValue
+                    
+                );
+                EventManager.Instance.AddHappinessValue
+                (
+                    node.GetComponent<NodeState>().FieldType,
+                    node.GetComponent<PlantPrefab>().MyPlant.Happiness
+                );
                 GetComponent<Selection>().SetSidePanel(node.GetComponent<PlantPrefab>().MyPlant);
             }
             else
             {
-
+  
                 if (!go.GetComponent<BuildingPrefab>().MyBuilding.Upgrade)
                 {
                     node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
@@ -131,6 +143,7 @@ namespace Grid
                 {
                     node.GetComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);
                 }
+                GetComponent<Selection>().SetSidePanel(node.GetComponent<BuildingPrefab>().MyBuilding);
             }
         }
 

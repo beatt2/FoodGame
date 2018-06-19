@@ -20,20 +20,18 @@ namespace Events
         private RectTransform _rectTransform;
 
         private readonly List<GameObject> _go = new List<GameObject>();
+        
+        
         private List<Events> _eventsInInbox = new List<Events>();
         private Dictionary<int, bool> _readDict = new Dictionary<int, bool>();  
 
         public float Gap;
         private Button _button;
-
         public GameObject PopupUi;
-
         public GameObject Exclamation;
-
         public Popup PopupScript;
 
         public bool Review;
-
         private string _name;
 
         // Use this for initialization
@@ -53,6 +51,7 @@ namespace Events
             string effect = Finance.GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
             Add(events.Headline, events.InfluencePercentage);
         }
+        
 
         public void Add(string headline, float percentage)
         {

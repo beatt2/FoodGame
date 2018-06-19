@@ -191,6 +191,7 @@ namespace Money
 
         public Dictionary<NodeState.FieldTypeEnum, float> GetPercentageValues()
         {
+          
             return _percentageValues;
         }
 
