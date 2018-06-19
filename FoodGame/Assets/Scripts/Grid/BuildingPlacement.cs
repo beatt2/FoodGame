@@ -28,12 +28,14 @@ namespace Grid
         /// Sets and ads the empty field component
         /// </summary>
         /// <param name="node"></param>
-        public void SetEmptyField(GameObject node)
+        /// <param name="sizeRank"></param>
+        public void SetEmptyField(GameObject node, int sizeRank)
         {
             if (GridManager.Instance.GetSelectedNode() == null) return;
             EmptyField.GetComponent<PlantPrefab>().CustomAwake();
             node.AddComponent<PlantPrefab>();
             node.GetComponent<PlantPrefab>().ChangeValues(EmptyField.GetComponent<PlantPrefab>().MyPlant);
+            node.GetComponent<PlantPrefab>().MyPlant.SizeRank = sizeRank;
         }
 
         public bool BuildFarm(int index)
@@ -134,7 +136,6 @@ namespace Grid
             }
             else
             {
-  
                 if (!go.GetComponent<BuildingPrefab>().MyBuilding.Upgrade)
                 {
                     node.gameObject.AddComponent<BuildingPrefab>().ChangeValues(go.GetComponent<BuildingPrefab>().MyBuilding);

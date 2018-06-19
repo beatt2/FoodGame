@@ -436,7 +436,7 @@ namespace Grid
                 node.SetCultivationListIndex(listCount);
                 node.SetEmptyCultivationField(true);
                 node.GetComponent<NodeState>().ChangeValues(NodeState.CurrentStateEnum.EmptyField, tempNodeState.FieldType);
-                BuildingPlacement.SetEmptyField(node.gameObject);
+                BuildingPlacement.SetEmptyField(node.gameObject, sizeRank);
                 _cultivationLocationList[listCount].Add(node);
 
             }
