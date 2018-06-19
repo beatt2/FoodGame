@@ -129,26 +129,26 @@ MonoBehaviour:
   SizeRank: 3
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 11
+  UpgradePrefabIndex: 13
   MonthCount: 0
   MyBuilding:
-    Name: Big Tomato
-    MoneyTick: 80
-    ExpenseTick: 50
-    MonthsToGrow: 3
-    BuildPrice: 3000
-    UpgradeValue: 0
+    Name: Tomaten fabriek
+    MoneyTick: 6000
+    ExpenseTick: 100
+    MonthsToGrow: 4
+    BuildPrice: 58000
+    UpgradeValue: 5500
     SpriteIndex: 9
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
+    SidePanelSpriteIndex: 6
+    EnviromentValue: 2
+    Happiness: 3
+    SizeRank: 3
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 11
     MyCultivationState: 0
-    FieldType: 0
+    FieldType: 5
   FirstRun: 0
 --- !u!114 &114633482916400634
 MonoBehaviour:

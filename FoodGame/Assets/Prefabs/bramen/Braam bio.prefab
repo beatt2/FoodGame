@@ -129,26 +129,26 @@ MonoBehaviour:
   SizeRank: 2
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 1
+  UpgradePrefabIndex: 3
   MonthCount: 0
   MyBuilding:
-    Name: Big middle blackberries
-    MoneyTick: 80
-    ExpenseTick: 50
-    MonthsToGrow: 0
-    BuildPrice: 3000
-    UpgradeValue: 0
+    Name: Bramen bio
+    MoneyTick: 900
+    ExpenseTick: 300
+    MonthsToGrow: 2
+    BuildPrice: 5000
+    UpgradeValue: 700
     SpriteIndex: 12
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
+    SidePanelSpriteIndex: 10
+    EnviromentValue: 10
+    Happiness: 5
+    SizeRank: 2
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 1
     MyCultivationState: 0
-    FieldType: 0
+    FieldType: 4
   FirstRun: 0
 --- !u!114 &114151871076518164
 MonoBehaviour:

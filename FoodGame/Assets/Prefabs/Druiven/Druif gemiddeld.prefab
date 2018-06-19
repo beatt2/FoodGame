@@ -129,24 +129,24 @@ MonoBehaviour:
   SizeRank: 1
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 16
+  UpgradePrefabIndex: 8
   MonthCount: 0
   MyBuilding:
-    Name: GrapeBig
-    MoneyTick: 80
-    ExpenseTick: 50
-    MonthsToGrow: 0
+    Name: Druiven
+    MoneyTick: 7000
+    ExpenseTick: 500
+    MonthsToGrow: 8
     BuildPrice: 0
-    UpgradeValue: 3
+    UpgradeValue: 6500
     SpriteIndex: 23
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
-    MonthCount: 0
+    SidePanelSpriteIndex: 10
+    EnviromentValue: 5
+    Happiness: 10
+    SizeRank: 1
+    MonthCount: 8
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 16
     MyCultivationState: 0
     FieldType: 7
   FirstRun: 0

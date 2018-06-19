@@ -129,26 +129,26 @@ MonoBehaviour:
   SizeRank: 1
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 15
+  UpgradePrefabIndex: 17
   MonthCount: 0
   MyBuilding:
-    Name: Carrot Middle
-    MoneyTick: 70
+    Name: Wortel gemiddeld
+    MoneyTick: 500
     ExpenseTick: 50
-    MonthsToGrow: 0
-    BuildPrice: 2000
-    UpgradeValue: 3
+    MonthsToGrow: 1
+    BuildPrice: 3000
+    UpgradeValue: 600
     SpriteIndex: 21
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
+    SidePanelSpriteIndex: 13
+    EnviromentValue: 5
+    Happiness: 10
+    SizeRank: 1
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 15
     MyCultivationState: 0
-    FieldType: 0
+    FieldType: 1
   FirstRun: 0
 --- !u!114 &114485479905778854
 MonoBehaviour:

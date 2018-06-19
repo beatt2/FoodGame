@@ -142,26 +142,26 @@ MonoBehaviour:
   SizeRank: 2
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 6
+  UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:
-    Name: Big middle tree
-    MoneyTick: 80
-    ExpenseTick: 50
-    MonthsToGrow: 0
-    BuildPrice: 3000
-    UpgradeValue: 0
+    Name: Appel bio
+    MoneyTick: 7000
+    ExpenseTick: 2000
+    MonthsToGrow: 6
+    BuildPrice: 50000
+    UpgradeValue: 5200
     SpriteIndex: 11
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
+    SidePanelSpriteIndex: 8
+    EnviromentValue: 10
+    Happiness: 5
+    SizeRank: 2
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 6
     MyCultivationState: 0
-    FieldType: 0
+    FieldType: 3
   FirstRun: 0
 --- !u!212 &212553845884215530
 SpriteRenderer:

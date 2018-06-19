@@ -142,7 +142,7 @@ MonoBehaviour:
   SizeRank: 3
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 1
+  UpgradePrefabIndex: 4
   MonthCount: 0
   MyPlant:
     Name: 

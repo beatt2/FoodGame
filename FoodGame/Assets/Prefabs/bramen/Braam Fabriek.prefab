@@ -142,26 +142,26 @@ MonoBehaviour:
   SizeRank: 3
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 8
+  UpgradePrefabIndex: 4
   MonthCount: 0
   MyBuilding:
-    Name: Big Blackberries
-    MoneyTick: 80
+    Name: Bramen fabriek
+    MoneyTick: 700
     ExpenseTick: 50
-    MonthsToGrow: 3
-    BuildPrice: 3000
-    UpgradeValue: 0
+    MonthsToGrow: 1
+    BuildPrice: 5200
+    UpgradeValue: 700
     SpriteIndex: 6
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
+    SidePanelSpriteIndex: 4
+    EnviromentValue: 2
+    Happiness: 3
     SizeRank: 3
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 8
     MyCultivationState: 0
-    FieldType: 0
+    FieldType: 4
   FirstRun: 0
 --- !u!212 &212115234456201024
 SpriteRenderer:

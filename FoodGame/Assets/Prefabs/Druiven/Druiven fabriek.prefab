@@ -129,7 +129,7 @@ MonoBehaviour:
   SizeRank: 3
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 4
+  UpgradePrefabIndex: 7
   MonthCount: 0
   MyPlant:
     Name: Bramen

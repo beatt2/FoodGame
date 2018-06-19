@@ -104,27 +104,92 @@ namespace UI
                     switch (_currentCultivation.FieldType)
                     {
                         case NodeState.FieldTypeEnum.Carrot:
-                            GridManager.Instance.BuildingPlacement.BuildField(0);
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                    case 1:
+                                        GridManager.Instance.BuildingPlacement.BuildField(9);
+                                        break;
+                                    case 2:
+                                        GridManager.Instance.BuildingPlacement.BuildField(11);
+                                        break;
+                                    case 3:
+                                        GridManager.Instance.BuildingPlacement.BuildField(10);
+                                        break;
+                            }
+             
                             break;
                         case NodeState.FieldTypeEnum.Corn:
-                            GridManager.Instance.BuildingPlacement.BuildField(1);
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    GridManager.Instance.BuildingPlacement.BuildField(6);
+                                    break;
+                                case 2:
+                                    GridManager.Instance.BuildingPlacement.BuildField(8);
+                                    break;
+                                case 3:
+                                    GridManager.Instance.BuildingPlacement.BuildField(7);
+                                    break;
+                            }
                             break;
                         case NodeState.FieldTypeEnum.Blackberries:
-                            GridManager.Instance.BuildingPlacement.BuildField(2);
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    GridManager.Instance.BuildingPlacement.BuildField(3);
+                                    break;
+                                case 2:
+                                    GridManager.Instance.BuildingPlacement.BuildField(5);
+                                    break;
+                                case 3:
+                                    GridManager.Instance.BuildingPlacement.BuildField(4);
+                                    break;
+                            }
                             break;
                         case NodeState.FieldTypeEnum.Apple:
-                            GridManager.Instance.BuildingPlacement.BuildField(4);
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    GridManager.Instance.BuildingPlacement.BuildField(0);
+                                    break;
+                                case 2:
+                                    GridManager.Instance.BuildingPlacement.BuildField(2);
+                                    break;
+                                case 3:
+                                    GridManager.Instance.BuildingPlacement.BuildField(1);
+                                    break;
+                            }
+                            
                             break;
                         case NodeState.FieldTypeEnum.Tomato:
-                            GridManager.Instance.BuildingPlacement.BuildField(3);
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    GridManager.Instance.BuildingPlacement.BuildField(12);
+                                    break;
+                                case 2:
+                                    GridManager.Instance.BuildingPlacement.BuildField(14);
+                                    break;
+                                case 3:
+                                    GridManager.Instance.BuildingPlacement.BuildField(13);
+                                    break;
+                            }
                             break;
                         case NodeState.FieldTypeEnum.Nothing:
                             break;
-                        case NodeState.FieldTypeEnum.Tree:
-                            GridManager.Instance.BuildingPlacement.BuildField(4);
-                            break;
                         case NodeState.FieldTypeEnum.Grapes:
-                            GridManager.Instance.BuildingPlacement.BuildField(5);
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    GridManager.Instance.BuildingPlacement.BuildField(15);
+                                    break;
+                                case 2:
+                                    GridManager.Instance.BuildingPlacement.BuildField(17);
+                                    break;
+                                case 3:
+                                    GridManager.Instance.BuildingPlacement.BuildField(16);
+                                    break;
+                            }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();

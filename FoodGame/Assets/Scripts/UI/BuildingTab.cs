@@ -44,11 +44,11 @@ namespace UI
                 
             }
 
-            
+            //TODO FIX BUG
             for (int i = 0; i < GridManager.Instance.BuildingPlacement.Fields.Length; i++)
             {
-                MonthTexts[i].text = GridManager.Instance.BuildingPlacement.Fields[i].GetComponent<PlantPrefab>()
-                    .MyPlant.MonthsToGrow + " maanden";
+               // MonthTexts[i].text = GridManager.Instance.BuildingPlacement.Fields[i].GetComponent<PlantPrefab>()
+                   // .MyPlant.MonthsToGrow + " maanden";
             }
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(false);
         }

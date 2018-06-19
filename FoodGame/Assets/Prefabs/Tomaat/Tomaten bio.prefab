@@ -68,7 +68,7 @@ MonoBehaviour:
   SizeRank: 2
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 5
+  UpgradePrefabIndex: 12
   MonthCount: 0
   MyPlant:
     Name: Tomato Field

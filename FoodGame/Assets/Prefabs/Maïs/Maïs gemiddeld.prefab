@@ -142,24 +142,24 @@ MonoBehaviour:
   SizeRank: 1
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 14
+  UpgradePrefabIndex: 11
   MonthCount: 0
   MyBuilding:
-    Name: Corn Middle
-    MoneyTick: 70
-    ExpenseTick: 50
-    MonthsToGrow: 0
-    BuildPrice: 2000
-    UpgradeValue: 0
+    Name: "Ma\xEFs gemiddeld"
+    MoneyTick: 1200
+    ExpenseTick: 200
+    MonthsToGrow: 3
+    BuildPrice: 7000
+    UpgradeValue: 1000
     SpriteIndex: 19
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
+    SidePanelSpriteIndex: 11
+    EnviromentValue: 5
+    Happiness: 10
+    SizeRank: 1
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 14
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

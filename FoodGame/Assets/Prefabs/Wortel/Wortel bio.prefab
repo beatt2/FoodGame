@@ -129,26 +129,26 @@ MonoBehaviour:
   SizeRank: 2
   Upgrade: 0
   UpgradeDuration: 12
-  UpgradePrefabIndex: 2
+  UpgradePrefabIndex: 15
   MonthCount: 0
   MyBuilding:
-    Name: Big middle carrot
-    MoneyTick: 80
-    ExpenseTick: 50
-    MonthsToGrow: 0
-    BuildPrice: 3000
-    UpgradeValue: 0
+    Name: Wortel bio
+    MoneyTick: 600
+    ExpenseTick: 200
+    MonthsToGrow: 2
+    BuildPrice: 3200
+    UpgradeValue: 600
     SpriteIndex: 16
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
-    SizeRank: 0
+    SidePanelSpriteIndex: 13
+    EnviromentValue: 10
+    Happiness: 5
+    SizeRank: 2
     MonthCount: 0
     Upgrade: 0
-    UpgradeDuration: 0
-    UpgradePrefabIndex: 0
+    UpgradeDuration: 12
+    UpgradePrefabIndex: 2
     MyCultivationState: 0
-    FieldType: 0
+    FieldType: 1
   FirstRun: 0
 --- !u!114 &114975491198306082
 MonoBehaviour:
