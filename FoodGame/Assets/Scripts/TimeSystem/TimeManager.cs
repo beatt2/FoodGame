@@ -76,6 +76,7 @@ namespace TimeSystem
             for (int i = 0; i < _totalAddedMonths; i++)
             {
                 CultivationManager.Instance.MonthlyTick();
+       
                 for (int j = 0; j < moneyValues.Keys.Count; j++)
                 {
                     foreach (var t in moneyValues.ElementAt(j).Value)
@@ -92,6 +93,8 @@ namespace TimeSystem
                         }
 
                     }
+
+                   
                     float percentage = 0;
                     if(SimpleMoneyManager.Instance.GetPercentageValues().ContainsKey(moneyValues.ElementAt(j).Key))
                     {

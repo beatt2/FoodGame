@@ -166,6 +166,18 @@ namespace Events
                         Add(_eventsInInbox[_eventsInInbox.Count - 1].Headline, _eventsInInbox[_eventsInInbox.Count -1].InfluencePercentage);
                     }
                 }
+
+                if (Review)
+                {
+                    for (int j = 0; j < EventManager.Instance.KansKaartenArray.Length; j++)
+                    {
+                        if (EventManager.Instance.KansKaartenArray[j].Starts == new Vector2Int(oldMonth, oldYear))
+                        {
+                            EventManager.Instance.SetKansKaart(oldMonth, oldYear);
+                        }
+                    }
+                }
+          
                 if (oldMonth >= 12)
                 {
                     oldMonth = 1;

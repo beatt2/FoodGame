@@ -73,7 +73,7 @@ namespace Events
         }
 
 
-        private void SetKansKaart(int month, int year)
+        public void SetKansKaart(int month, int year)
         {
             for (int i = 0; i < KansKaartenArray.Length; i++)
             {
