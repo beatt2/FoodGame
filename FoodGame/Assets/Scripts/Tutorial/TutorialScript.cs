@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Save;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,15 +22,15 @@ namespace Tutorial
         public GameObject[] Arrows;
         public int Index;
 
-        public GameObject ShopButton;
+
 
         public Button ConfirmButton;
 
-        public GameObject BuildButton;
+
         // Use this for initialization
         private void Start()
         {
-            ShopButton.SetActive(false);
+
             if (!SaveManager.Instance.GetTutorialBool())
             {
                 TutorialBg.SetActive(true);
@@ -83,9 +84,9 @@ namespace Tutorial
                     TutorialText.text = Tutorials[Index].Text;
                     Arrows[3].SetActive(true);
                     Arrows[Index - 2].SetActive(false);
-                    BuildButton.SetActive(false);
+
                     ConfirmButton.enabled = false;
-                    ShopButton.SetActive(true);
+
                     break;
                 default:
                     break;
@@ -99,8 +100,6 @@ namespace Tutorial
                 TutorialText.text = Tutorials[Index].Text;
 
                 Arrows[3].SetActive(false);
-                ShopButton.SetActive(false);
-                BuildButton.SetActive(true);
             }
             
         }
@@ -141,7 +140,7 @@ namespace Tutorial
             if (Index == 11)
             {
                 Index++;
-                
+                TutorialText.text = Tutorials[Index].Text;
                 Arrows[6].SetActive(true);
             }
         }
@@ -173,8 +172,6 @@ namespace Tutorial
                 t.SetActive(false);
             }
             TutorialBg.SetActive(false);
-            ShopButton.SetActive(false);
-            BuildButton.SetActive(true);
             _tutorialFinished = true;
             SaveManager.Instance.SetTutorialBool(true);
         }
