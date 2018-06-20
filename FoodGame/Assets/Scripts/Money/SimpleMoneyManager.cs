@@ -47,7 +47,6 @@ namespace Money
         private void Start ()
         {
             _currentMoney = SaveManager.Instance.GetMoney();
-            _currentMoney = 500000;
             MoneyUi.text = "€ " + _currentMoney;
 
 

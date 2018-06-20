@@ -20,7 +20,7 @@ namespace Node
 		//TODO  turn this into some selection state
 		public bool IsSelected()
 		{
-			return _spriteRenderer.color == Color.blue || _spriteRenderer.color == Color.green || _spriteRenderer.color == Color.red;
+			return _spriteRenderer.color == Color.blue || _spriteRenderer.color == Color.green || _spriteRenderer.color == Color.red || _spriteRenderer.color == new Color(110,227,190,255);
 
 		}
 
@@ -35,7 +35,7 @@ namespace Node
 			{
 				_spriteRenderer.color = new Color(_spriteRenderer.color.r,_spriteRenderer.color.g,_spriteRenderer.color.b, 1);
 			}
-			
+
 		}
 
 		public void ChangeColorBlue()
@@ -45,7 +45,7 @@ namespace Node
 
 		public void ChangeColorGreen()
 		{
-			_spriteRenderer.color = Color.green;
+			_spriteRenderer.color = Color.grey;
 		}
 
 		public void ChangeColorRed()
@@ -74,13 +74,13 @@ namespace Node
 			return _spriteRenderer.color == Color.red;
 		}
 
-	
+
 
 		public void ChangeColorToOld()
 		{
-			
+
 			_spriteRenderer.color = _startingColor;
-			
+
 		}
 
 

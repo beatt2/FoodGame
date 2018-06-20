@@ -7,5 +7,7 @@ public class Popup : MonoBehaviour
 {
     public Text ContentText;
 
+    public Text EffectText;
+
 
 }

@@ -17,6 +17,7 @@ MonoBehaviour:
   AfterInsert: "zat helemaal vol wormen!! Voortaan koop ik wel ergens anders mijn
     groenten en fruit!!!!\u201D"
   Enviromental: 0
-  EffectValue: 40
+  EffectValue: 60
   InfluencePercentage: -5
   FieldType: 2
+  OnlyOnFactory: 0

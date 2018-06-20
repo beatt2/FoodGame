@@ -17,6 +17,7 @@ MonoBehaviour:
   AfterInsert: "wordt gemaakt helemaal niet zo duurzaam is\u2026. Ik denk dat ik dan
     toch liever ergens anders mijn producten koop.\u201D"
   Enviromental: 1
-  EffectValue: 25
+  EffectValue: 35
   InfluencePercentage: -5
-  FieldType: 2
+  FieldType: 4
+  OnlyOnFactory: 0

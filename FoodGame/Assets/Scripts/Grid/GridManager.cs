@@ -37,7 +37,7 @@ namespace Grid
 
         protected override void Awake()
         {
-         
+
             base.Awake();
             _selection = GetComponent<Selection>();
             _gridSizeX = MyGridMaker.Size.x;
@@ -83,7 +83,7 @@ namespace Grid
         {
             _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
             _selectedNode = _nodeBehavioursGrid[0, 0];
-            
+
         }
 
         public Dictionary<int,List<NodeBehaviour>> GetCultivationLocationDictionary()
@@ -93,7 +93,7 @@ namespace Grid
 
         public void SetCultivationDictionary(Dictionary<int,List<NodeBehaviour>> nodes)
         {
-    
+
 
             _cultivationLocationList = nodes;
         }
@@ -141,7 +141,7 @@ namespace Grid
             {
                 SetTilesToAlpha(true);
                 _selectedNode.HighLight.ChangeColorGreen();
-                
+
             }
             if (_selectedNode == null)
             {
@@ -155,10 +155,10 @@ namespace Grid
         {
             if (CheckGridForBuildSpace(0, 0))
             {
-         
+
                 _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(0);
             }
-   
+
             if (CheckGridForNull(0, -1))
             {
                 if (CheckGridForBuildSpace(0, -1))
@@ -316,14 +316,22 @@ namespace Grid
 
         private void ChangeColorsToBlue()
         {
-           
+
             if (CheckGridForBuildSpace(0, 0))
             {
                 _selectedNode.HighLight.ChangeColorBlue();
             }
             else
             {
-                _selectedNode.HighLight.ChangeColorRed();
+                if (_inSelectionState)
+                {
+                    _selectedNode.HighLight.ChangeColorRed();
+
+                }
+                else
+                {
+                    _selectedNode.HighLight.ChangeColorGreen();
+                }
             }
 
             if (_selectionSize != 4 || _inSelectionState) return;
@@ -363,7 +371,7 @@ namespace Grid
                     _nodeBehavioursGrid[_selectedNode.GridLocation.x + 1, _selectedNode.GridLocation.y].HighLight.ChangeColorRed();
                 }
             }
-    
+
         }
 
         private void ChangeColorsToOld()

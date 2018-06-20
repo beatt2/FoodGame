@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Events;
 using MathExt;
 using Money;
@@ -30,7 +31,7 @@ namespace Events
         private Button _button;
         public GameObject PopupUi;
         public GameObject Exclamation;
-        //public Popup PopupScript;
+        public Popup PopupScript;
 
 
         private string _name;
@@ -42,6 +43,19 @@ namespace Events
             _rectTransform = Content.GetComponent<RectTransform>();
         }
 
+        public bool NotInInbox(Reviews reviews)
+        {
+            for (int i = 0; i < _reviewsInInbox.Count; i++)
+            {
+                if (_reviewsInInbox[i] == reviews)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public void AddReview(Reviews reviews)
         {
             _reviewsInInbox.Add(reviews);
@@ -51,9 +65,9 @@ namespace Events
         public void Add(string headline, float percentage)
         {
             GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform);
-            go.GetComponent<Image>().sprite = percentage < 0
-                ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array()
-                : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
+            go.GetComponent<Image>().sprite = percentage > 0
+                ? EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array()
+                : EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array();
 
 
 
@@ -120,10 +134,11 @@ namespace Events
 
         public void ChangeTextOnButton(int index)
         {
-            Debug.Log(index);
             Reviewprefab reviewPrefab = _go[index - 1].GetComponent<Reviewprefab>();
-            Reviews review = _reviewsInInbox[index];
-            if (_reviewsInInbox[index].Insert)
+            Reviews review = _reviewsInInbox[index -1];
+            reviewPrefab.Effect = PopupScript.EffectText;
+            reviewPrefab.Content = PopupScript.ContentText;
+            if (_reviewsInInbox[index - 1].Insert)
             {
                 reviewPrefab.ChangeText
                 (
@@ -143,6 +158,10 @@ namespace Events
                     review.InfluencePercentage.ToString()
                 );
             }
+
+
+            PopupScript.EffectText.text = reviewPrefab.Effect.text;
+            PopupScript.ContentText.text = reviewPrefab.Content.text;
         }
 
         private bool ReadDictBool()

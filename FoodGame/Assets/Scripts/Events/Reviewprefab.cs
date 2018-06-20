@@ -23,7 +23,7 @@ namespace Events
 
 		public void ChangeText(string headline,string preInsert,NodeState.FieldTypeEnum fieldTypeEnum, string afterInsert,string effect)
 		{
-			Headline.text = headline;
+			//Headline.text = headline;
 			Content.text = preInsert + " " +  GetInsert(fieldTypeEnum) + " " + afterInsert;
 			Effect.text = effect;
 		}
@@ -33,17 +33,17 @@ namespace Events
 			switch (fieldType)
 			{
 				case NodeState.FieldTypeEnum.Apple:
-					return "appels";
+					return "appel";
 				case NodeState.FieldTypeEnum.Blackberries:
-					return "bramen";
+					return "braam";
 				case NodeState.FieldTypeEnum.Carrot:
-					return "wortels";
+					return "wortel";
 				case NodeState.FieldTypeEnum.Corn:
 					return "mais";
 				case NodeState.FieldTypeEnum.Grapes:
-					return "druiven";
+					return "druif";
 				case NodeState.FieldTypeEnum.Tomato:
-					return "tomaten";
+					return "tomaat";
 			}
 
 			return "";

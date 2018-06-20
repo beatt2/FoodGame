@@ -16,7 +16,7 @@ MonoBehaviour:
   Insert: 1
   AfterInsert: smaakte erg goed"
   Enviromental: 0
-  EffectValue: 25
+  EffectValue: 50
   InfluencePercentage: 15
-  FieldType: 2
+  FieldType: 4
   OnlyOnFactory: 0

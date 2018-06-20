@@ -17,6 +17,7 @@ MonoBehaviour:
   Insert: 1
   AfterInsert: "blijven eten.\u201D"
   Enviromental: 0
-  EffectValue: 50
+  EffectValue: 90
   InfluencePercentage: 10
   FieldType: 2
+  OnlyOnFactory: 0

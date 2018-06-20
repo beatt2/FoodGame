@@ -31,7 +31,7 @@ namespace Events
         public GameObject Exclamation;
         public Popup PopupScript;
 
-        public bool Review;
+
         private string _name;
 
         // Use this for initialization
@@ -41,6 +41,18 @@ namespace Events
             _startingPos = StartingPos.position;
             _rectTransform = Content.GetComponent<RectTransform>();
 
+        }
+        public bool NotInInbox(Events myEvent)
+        {
+            for (int i = 0; i < _eventsInInbox.Count; i++)
+            {
+                if (_eventsInInbox[i] == myEvent)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
 
@@ -56,11 +68,8 @@ namespace Events
         public void Add(string headline, float percentage)
         {
             GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform) as GameObject;
-            if (Review)
-            {
-                go.GetComponent<Image>().sprite = percentage < 0 ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array() : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
-            }
-            else if (percentage < 0)
+
+            if (percentage < 0)
             {
                 if (percentage < 0)
                 {
@@ -189,6 +198,7 @@ namespace Events
             Debug.Log(index);
             MessagePrefab messagePrefab = _go[index - 1].GetComponent<MessagePrefab>();
             messagePrefab.Content = PopupScript.ContentText;
+            messagePrefab.Effect = PopupScript.EffectText;
             messagePrefab.Content.text = _eventsInInbox[index - 1].Content;
             string effect = Finance.GetName(_eventsInInbox[index - 1].FieldType) + " " +
             _eventsInInbox[index - 1].InfluencePercentage + "%";

@@ -14,9 +14,10 @@ MonoBehaviour:
   Headline: Bijna vergiftigd!!
   PreInsert: "\u201CDe"
   Insert: 1
-  AfterInsert: "die ik altijd bij jullie koop smaakt echt vies! Ik dacht dat ik vergiftigt
-    werd!!\u201D"
+  AfterInsert: "die ik altijd bij jullie had gekocht smaakte echt vies! Ik dacht dat
+    ik vergiftigt werd!!\u201D"
   Enviromental: 1
   EffectValue: 20
   InfluencePercentage: -10
   FieldType: 2
+  OnlyOnFactory: 0

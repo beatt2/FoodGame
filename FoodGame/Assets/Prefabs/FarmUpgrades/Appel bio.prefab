@@ -141,7 +141,7 @@ MonoBehaviour:
   Happiness: 6
   SizeRank: 2
   Upgrade: 1
-  UpgradeDuration: 2
+  UpgradeDuration: 12
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:

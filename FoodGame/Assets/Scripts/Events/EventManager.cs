@@ -267,16 +267,19 @@ namespace Events
 
         private void SetMessageScreen(int month, int year)
         {
+
             for (int i = 0; i < EventsArray.Length; i++)
             {
                 if (EventsArray[i].Starts == new Vector2Int(month, year))
                 {
+                    if (!MessageScript.NotInInbox(EventsArray[i])) continue;
                     StopCoroutine("UiTimer");
+                    MessageScript.AddEvent(EventsArray[i]);
                     SoundManager.Instance.PlayMessageSound();
                     if (!InMenu)
                     {
                         HeadlineUi.SetActive(true);
-                        _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0
+                        _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 06
                             ? MessageBackground[1]
                             : MessageBackground[0];
                     }
@@ -288,10 +291,8 @@ namespace Events
                         EventsArray[i].InfluencePercentage);
 
 
-                    if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
-                    HeadlineUi.SetActive(false);
-                    //TODO WHY ?
-                    SetTextEnded(i);
+
+
                 }
             }
         }
@@ -303,24 +304,28 @@ namespace Events
 
         private IEnumerator SetReviewsIE(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
         {
-            yield return new WaitForSeconds(Random.Range(4,25));
-            StopCoroutine("UiTimer");
-            SetText(review);
-            SoundManager.Instance.PlayMessageSound();
-            if (review.FieldType != NodeState.FieldTypeEnum.Nothing)
+            if (ReviewScript.NotInInbox(review))
             {
-                review.FieldType = fieldType;
+                yield return new WaitForSeconds(Random.Range(4,25));
+                StopCoroutine("UiTimer");
+                SetText(review);
+                SoundManager.Instance.PlayMessageSound();
+                if (fieldType!= NodeState.FieldTypeEnum.Nothing)
+                {
+                    review.FieldType = fieldType;
+                }
+                ReviewScript.AddReview(review);
+                if (!InMenu)
+                {
+                    HeadlineUi.SetActive(true);
+                    _headlineUiImage.sprite = review.InfluencePercentage > 0
+                        ? ReviewBackgroundPositive.GetRandom_Array()
+                        : ReviewBackgroundNegative.GetRandom_Array();
+                }
+                SimpleMoneyManager.Instance.SetPercentage(review.FieldType, review.InfluencePercentage);
+                StartCoroutine("UiTimer");
             }
-            ReviewScript.AddReview(review);
-            if (!InMenu)
-            {
-                HeadlineUi.SetActive(true);
-                _headlineUiImage.sprite = review.InfluencePercentage < 0
-                    ? ReviewBackgroundPositive.GetRandom_Array()
-                    : ReviewBackgroundNegative.GetRandom_Array();
-            }
-            SimpleMoneyManager.Instance.SetPercentage(review.FieldType, review.InfluencePercentage);
-            StartCoroutine("UiTimer");
+
 
 
         }

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Name: Review19
   m_EditorClassIdentifier: 
   Headline: Ergens anders goedkoper!
-  PreInsert: "\u201CWaarom zijn"
+  PreInsert: "\u201CWaarom is"
   Insert: 1
   AfterInsert: "bij jullie zo duur? Ik kan ze ergens anders voor veel minder kopen.\u201D"
   Enviromental: 0
   EffectValue: 40
   InfluencePercentage: -10
   FieldType: 2
+  OnlyOnFactory: 0

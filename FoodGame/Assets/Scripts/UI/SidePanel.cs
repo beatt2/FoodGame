@@ -47,15 +47,7 @@ namespace UI
 
         private void Update()
         {
-            if (!SidePanelActive() || _currentCultivation == null) return;
-            if (SimpleMoneyManager.Instance.GetCurrentMoney() > _currentCultivation.BuildPrice)
-            {
-                UpgradeButton.interactable = true;
-            }
-            else
-            {
-                UpgradeButton.interactable = false;
-            }
+
         }
 
         public void TogglePannel()
@@ -75,26 +67,125 @@ namespace UI
             {
                 _panelLerp.ToggleLerp();
             }
+
+
+
+
             TutorialScript.OnClickField();
             _currentCultivation = cultivation;
             HeaderText.text = cultivation.Name;
             MyImage.sprite = SidePanelIcons[cultivation.SidePanelSpriteIndex];
             if (!cultivation.Upgrade)
             {
-                UpgradeText.text = "Upgrade value = " + cultivation.UpgradeValue;
+                UpgradeText.text = "Upgrade prijs = " + cultivation.UpgradeValue;
             }
             else
             {
                 UpgradeText.text = "";
             }
 
-            MoneyTickText.text = "Income: " + cultivation.MoneyTick;
-            ExpenseTickText.text = "Expense: " + cultivation.ExpenseTick;
-            HappinessText.text = "Happiness: " + cultivation.Happiness;
-            EnviromentalText.text = "Enviromental: " + cultivation.EnviromentValue;
-            UpgradeButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.Field;
+            if (cultivation.MyCultivationState == NodeState.CurrentStateEnum.EmptyField)
+            {
+                UpgradeText.text = "Upgrade prijs = " + UglyHiddenBoi();
+            }
+
+            MoneyTickText.text = "Inkomsten: " + cultivation.MoneyTick;
+            ExpenseTickText.text = "Kosten: " + cultivation.ExpenseTick;
+            HappinessText.text = "Opinie: " + cultivation.Happiness;
+            EnviromentalText.text = "Biologisch: " + cultivation.EnviromentValue;
+            //UpgradeButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.Field;
             KillButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField;
         }
+
+        private int UglyHiddenBoi()
+        {
+            switch (_currentCultivation.MyCultivationState)
+            {
+                case NodeState.CurrentStateEnum.EmptyField:
+                    switch (_currentCultivation.FieldType)
+                    {
+                        case NodeState.FieldTypeEnum.Carrot:
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(9);
+                                case 2:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(11);
+                                case 3:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(10);
+                            }
+
+                            break;
+                        case NodeState.FieldTypeEnum.Corn:
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(6);
+                                case 2:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(8);
+                                case 3:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(7);
+                            }
+
+                            break;
+                        case NodeState.FieldTypeEnum.Blackberries:
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(3);
+                                case 2:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(5);
+                                case 3:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(4);
+                            }
+
+                            break;
+                        case NodeState.FieldTypeEnum.Apple:
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(0);
+                                case 2:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(2);
+                                case 3:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(1);
+                            }
+
+                            break;
+                        case NodeState.FieldTypeEnum.Tomato:
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(12);
+                                case 2:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(14);
+                                case 3:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(13);
+                            }
+
+                            break;
+                        case NodeState.FieldTypeEnum.Nothing:
+                            break;
+                        case NodeState.FieldTypeEnum.Grapes:
+                            switch (_currentCultivation.SizeRank)
+                            {
+                                case 1:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(15);
+                                case 2:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(17);
+                                case 3:
+                                    return GridManager.Instance.BuildingPlacement.GetFieldBuildPrice(16);
+                            }
+
+                            break;
+                    }
+
+                    break;
+            }
+
+            return 0;
+        }
+
 
         public void OnUpgradeButtonPressed()
         {
@@ -106,17 +197,17 @@ namespace UI
                         case NodeState.FieldTypeEnum.Carrot:
                             switch (_currentCultivation.SizeRank)
                             {
-                                    case 1:
-                                        GridManager.Instance.BuildingPlacement.BuildField(9);
-                                        break;
-                                    case 2:
-                                        GridManager.Instance.BuildingPlacement.BuildField(11);
-                                        break;
-                                    case 3:
-                                        GridManager.Instance.BuildingPlacement.BuildField(10);
-                                        break;
+                                case 1:
+                                    GridManager.Instance.BuildingPlacement.BuildField(9);
+                                    break;
+                                case 2:
+                                    GridManager.Instance.BuildingPlacement.BuildField(11);
+                                    break;
+                                case 3:
+                                    GridManager.Instance.BuildingPlacement.BuildField(10);
+                                    break;
                             }
-             
+
                             break;
                         case NodeState.FieldTypeEnum.Corn:
                             switch (_currentCultivation.SizeRank)
@@ -131,6 +222,7 @@ namespace UI
                                     GridManager.Instance.BuildingPlacement.BuildField(7);
                                     break;
                             }
+
                             break;
                         case NodeState.FieldTypeEnum.Blackberries:
                             switch (_currentCultivation.SizeRank)
@@ -145,6 +237,7 @@ namespace UI
                                     GridManager.Instance.BuildingPlacement.BuildField(4);
                                     break;
                             }
+
                             break;
                         case NodeState.FieldTypeEnum.Apple:
                             switch (_currentCultivation.SizeRank)
@@ -159,7 +252,7 @@ namespace UI
                                     GridManager.Instance.BuildingPlacement.BuildField(1);
                                     break;
                             }
-                            
+
                             break;
                         case NodeState.FieldTypeEnum.Tomato:
                             switch (_currentCultivation.SizeRank)
@@ -174,6 +267,7 @@ namespace UI
                                     GridManager.Instance.BuildingPlacement.BuildField(13);
                                     break;
                             }
+
                             break;
                         case NodeState.FieldTypeEnum.Nothing:
                             break;
@@ -190,10 +284,12 @@ namespace UI
                                     GridManager.Instance.BuildingPlacement.BuildField(16);
                                     break;
                             }
+
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+
                     break;
                 case NodeState.CurrentStateEnum.Farm:
                     if (!_currentCultivation.Upgrade)
@@ -201,23 +297,24 @@ namespace UI
                         GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
                         TutorialScript.OnUpgrade();
                     }
-                    
+
                     else
                     {
                         Debug.Log("Already upgraded");
                     }
+
                     break;
                 case NodeState.CurrentStateEnum.Field:
                     if (!_currentCultivation.Upgrade)
                     {
                         GridManager.Instance.BuildingPlacement.UpgradeField(_currentCultivation.UpgradePrefabIndex);
                         TutorialScript.OnUpgrade();
-
                     }
                     else
                     {
                         Debug.Log("Already upgraded");
                     }
+
                     break;
                 case NodeState.CurrentStateEnum.Empty:
                     break;

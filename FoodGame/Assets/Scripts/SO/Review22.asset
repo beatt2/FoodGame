@@ -16,6 +16,7 @@ MonoBehaviour:
   Insert: 1
   AfterInsert: "bij de supermarkt. Ze waren meteen op!\u201D"
   Enviromental: 0
-  EffectValue: 45
+  EffectValue: 70
   InfluencePercentage: 10
   FieldType: 2
+  OnlyOnFactory: 0

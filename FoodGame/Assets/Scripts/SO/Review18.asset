@@ -14,8 +14,9 @@ MonoBehaviour:
   Headline: Duur!
   PreInsert: '"'
   Insert: 1
-  AfterInsert: "kosten zo veel. Ik wist niet dat gezond zijn zo duur was\u2026\u201D"
+  AfterInsert: "kost zo veel. Ik wist niet dat gezond zijn zo duur was\u2026\u201D"
   Enviromental: 0
-  EffectValue: 10
+  EffectValue: 20
   InfluencePercentage: -5
   FieldType: 2
+  OnlyOnFactory: 0

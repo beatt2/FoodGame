@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Name: Review20
   m_EditorClassIdentifier: 
   Headline: Niet waard!
-  PreInsert: "\u201CVeel te duur. Is het niet waard\u201D"
-  Insert: 0
-  AfterInsert: 
+  PreInsert: "\u201CVeel te duur"
+  Insert: 1
+  AfterInsert: "ss het niet waard\u201D"
   Enviromental: 0
   EffectValue: 30
   InfluencePercentage: -10
   FieldType: 2
+  OnlyOnFactory: 0

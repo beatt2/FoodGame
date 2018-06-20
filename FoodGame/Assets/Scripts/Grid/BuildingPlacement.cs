@@ -64,6 +64,10 @@ namespace Grid
             return false;
         }
 
+        public int GetFieldBuildPrice(int index)
+        {
+            return Fields[index].GetComponent<PlantPrefab>().BuildingPrice;
+        }
         public bool UpgradeField(int index)
         {
             if (SimpleMoneyManager.Instance.EnoughMoney(FieldUpgrades[index].GetComponent<PlantPrefab>().MyPlant.UpgradeValue))
