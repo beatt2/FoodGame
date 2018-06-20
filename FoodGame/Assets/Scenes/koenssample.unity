@@ -5467,7 +5467,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5534,7 +5534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ContentText: {fileID: 1725707009}
-  EffectText: {fileID: 1875234279}
 --- !u!224 &191925192
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17047,7 +17046,7 @@ RectTransform:
   - {fileID: 337943536}
   - {fileID: 748121553}
   m_Father: {fileID: 1509750012}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -27784,7 +27783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &903792738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27800,7 +27799,7 @@ RectTransform:
   - {fileID: 1486850390}
   - {fileID: 1857532497}
   m_Father: {fileID: 1509750012}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -29901,8 +29900,9 @@ RectTransform:
   m_Children:
   - {fileID: 78544451}
   - {fileID: 1301475510}
+  - {fileID: 1937496649}
   m_Father: {fileID: 1509750012}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -30852,7 +30852,7 @@ RectTransform:
   - {fileID: 246454797}
   - {fileID: 1153400242}
   m_Father: {fileID: 1509750012}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -36953,7 +36953,7 @@ RectTransform:
   - {fileID: 1193630856}
   - {fileID: 191925192}
   m_Father: {fileID: 1509750012}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -41141,9 +41141,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1246717527
 MonoBehaviour:
@@ -42272,7 +42272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ContentText: {fileID: 976868834}
-  EffectText: {fileID: 1861640826}
 --- !u!224 &1301475510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49338,6 +49337,7 @@ GameObject:
   - component: {fileID: 1509750009}
   - component: {fileID: 1509750008}
   - component: {fileID: 1509750014}
+  - component: {fileID: 1509750016}
   - component: {fileID: 1509750013}
   - component: {fileID: 1509750015}
   m_Layer: 5
@@ -49430,7 +49430,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1937496649}
   - {fileID: 946859616}
   - {fileID: 1124856268}
   - {fileID: 554662594}
@@ -49495,13 +49494,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeadlineUiPrefab: {fileID: 1712024453475124, guid: 741a411652c98f94cb064a5b31dea01a,
     type: 2}
-  Content: {fileID: 392804042}
-  StartingPos: {fileID: 1904065213}
+  Content: {fileID: 172552783}
+  StartingPos: {fileID: 922537140}
   Gap: -160
-  PopupUi: {fileID: 191925190}
-  Exclamation: {fileID: 337943535}
-  PopupScript: {fileID: 191925191}
-  Review: 1
+  PopupUi: {fileID: 1301475508}
+  Exclamation: {fileID: 748121552}
+  PopupScript: {fileID: 1301475509}
+  Review: 0
 --- !u!114 &1509750015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49515,6 +49514,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WarningText: {fileID: 2107918129}
   Ui: {fileID: 779801391}
+--- !u!114 &1509750016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1509750007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02531197ef865fb4dac48b5814836350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeadlineUiPrefab: {fileID: 1712024453475124, guid: 741a411652c98f94cb064a5b31dea01a,
+    type: 2}
+  Content: {fileID: 392804042}
+  StartingPos: {fileID: 1904065213}
+  Gap: -160
+  PopupUi: {fileID: 191925190}
+  Exclamation: {fileID: 337943535}
 --- !u!1 &1513930524
 GameObject:
   m_ObjectHideFlags: 0
@@ -64323,20 +64340,20 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1937496648}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1471145858}
   - {fileID: 1036364736}
   - {fileID: 1572890205}
-  m_Father: {fileID: 1509750012}
-  m_RootOrder: 0
+  m_Father: {fileID: 946859616}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -785, y: 435}
-  m_SizeDelta: {x: -1610, y: -910}
+  m_SizeDelta: {x: 210, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1937496650
 MonoBehaviour:
@@ -69415,19 +69432,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d69bec3c49388764fa73f35a6feaa285, type: 2}
   - {fileID: 11400000, guid: 780e87df8bb641d4baca036dd815a8d0, type: 2}
   - {fileID: 11400000, guid: e3f6ed0244a076945bd59f43db49a618, type: 2}
-  - {fileID: 11400000, guid: 02e7de160a5f5e24aa3364f97bb07834, type: 2}
-  - {fileID: 11400000, guid: aeb101363644b0947848adda14828ba3, type: 2}
-  - {fileID: 11400000, guid: 9038f916bc961464cbf85b3d102cc9e0, type: 2}
-  - {fileID: 11400000, guid: 6d15cd2f533bedb4db90fedf8999929f, type: 2}
-  - {fileID: 11400000, guid: 81f7ceaa731fc4e4eba79e16f5da27f6, type: 2}
-  - {fileID: 11400000, guid: 5911bcd6e240e484fb2fb02653f27b84, type: 2}
-  - {fileID: 11400000, guid: d043f3b7821acf547b3a1bf534b7ea4b, type: 2}
-  - {fileID: 11400000, guid: 6c2d507f51fc75b4aab046c7245e29a8, type: 2}
-  - {fileID: 11400000, guid: d689620ff5ccbd341aef28ab9848b3b8, type: 2}
-  - {fileID: 11400000, guid: acf9e20407dfc8a498f4c6220b7e814d, type: 2}
-  - {fileID: 11400000, guid: e0256153a43e717488a6e314ae35335c, type: 2}
-  - {fileID: 11400000, guid: ef3e84433f1bed744a4a158705cc5067, type: 2}
-  Reviews: []
+  - {fileID: 11400000, guid: e4bca5d870c09c74f963213c33c1fe79, type: 2}
+  - {fileID: 11400000, guid: ccdd9b5fc750233448245b45cd18035f, type: 2}
+  - {fileID: 11400000, guid: 5f6a60fc5853f22409520741d6868de4, type: 2}
+  - {fileID: 11400000, guid: 49feba29c6e84e04aaab7af9772aa6af, type: 2}
+  - {fileID: 11400000, guid: b570870452f235d4583aa4602d4c0681, type: 2}
+  Reviews:
+  - {fileID: 11400000, guid: 6a0651ee10fcf49489d64df0e6e04e17, type: 2}
+  - {fileID: 11400000, guid: 3bdf514c3ba7a08488d92cbbe9061c8a, type: 2}
+  - {fileID: 11400000, guid: 3d0c1e57d36fa6f4cadb7b5419ca3daa, type: 2}
+  - {fileID: 11400000, guid: 70d95f9a6a80bf54d8a310b3833ba56d, type: 2}
+  - {fileID: 11400000, guid: 09cd354c0f44183438dcbef30ff5400c, type: 2}
+  - {fileID: 11400000, guid: 4247b0860efabcb4db1a0bd0622a7145, type: 2}
+  - {fileID: 11400000, guid: 5ad4c74bb84b03b499e262b1addc49ce, type: 2}
+  - {fileID: 11400000, guid: 9915614162279d747814803bbcb1f84f, type: 2}
+  - {fileID: 11400000, guid: ddba5bd8293ed544ab25174c3d557f9d, type: 2}
+  - {fileID: 11400000, guid: 6a31699c92b162d4ab71777a94631fff, type: 2}
+  - {fileID: 11400000, guid: a62c23adf6059a24c93b4536ed2ec509, type: 2}
   KansKaartenArray:
   - {fileID: 11400000, guid: b9dcf758c5b8c9f4dae6aeea6dd7b19d, type: 2}
   - {fileID: 11400000, guid: 021ee67b591bb8148a152d75e511f8c4, type: 2}
@@ -69447,7 +69468,7 @@ MonoBehaviour:
   Ui: {fileID: 1814033462}
   InEventMenu: 0
   MessageScript: {fileID: 404316299}
-  ReviewScript: {fileID: 1509750014}
+  ReviewScript: {fileID: 1509750016}
   InMenu: 0
   ReviewBackgroundNegative:
   - {fileID: 21300000, guid: 6c47ef1a78a8ace488db2678e0551751, type: 3}
@@ -69492,7 +69513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Messages: {fileID: 1509750014}
-  Reviews: {fileID: 404316299}
+  Reviews: {fileID: 1509750016}
   _sprites:
   - {fileID: 21300000, guid: c7e1e21deec2cc34d9e4e8d11300c99d, type: 3}
   - {fileID: 21300000, guid: 358e151aa7e8e5a48a940c8e26a81046, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cultivations;
+using Events;
 using Node;
 using Save;
 using TimeSystem;
@@ -36,6 +37,10 @@ namespace Money
         private readonly Dictionary<NodeState.FieldTypeEnum,List<MoneyValue>> _moneyValues = new Dictionary<NodeState.FieldTypeEnum, List<MoneyValue>>();
         private Dictionary<NodeState.FieldTypeEnum, float> _percentageValues = new Dictionary<NodeState.FieldTypeEnum, float>();
 
+
+        private int _enviromentalValue;
+        private int _happinessValue;
+
         public WaarschuwingScript WaarschuwingScript;
 
         // Use this for initialization
@@ -52,12 +57,22 @@ namespace Money
             Income.text = "€ " + _monthlyIncome;
             Expense.text = "€ " + _monthlyExpenses;
             _percentageValues = SaveManager.Instance.GetPercentageValues();
-  
+
         }
 
         public void ChangeMonth()
         {
             ChangeMoneyMonthly();
+            CalculateEnviromentalAndHappiness();
+        }
+
+        private void CalculateEnviromentalAndHappiness()
+        {
+            int yearOffset = TimeManager.Instance.Year - 2018;
+            _enviromentalValue = -(EventManager.Instance.GetEnviromentValue() * yearOffset);
+            _happinessValue =  EventManager.Instance.GetHappinessValue() * yearOffset;
+            AddMoney(_enviromentalValue);
+            AddMoney(_happinessValue);
         }
 
 
@@ -72,12 +87,12 @@ namespace Money
                     {
                         tempTotal += t.Income;
                         t.MonthCount = 0;
-                      
+
                     }
                     else
                     {
                         t.MonthCount++;
-                   
+
                     }
                     t.MyCultivation.MonthCount = t.MonthCount;
                 }
@@ -136,8 +151,8 @@ namespace Money
         {
             return _moneyValues;
         }
-  
-        
+
+
 
         public void AddFinance(Cultivation cultivation, int oldMonthCount)
         {
@@ -165,19 +180,16 @@ namespace Money
 
 
 
-
+        //TODO make it so that it will add and remove
         public void SetPercentage(NodeState.FieldTypeEnum fieldTypeEnum, float percentage)
         {
-
-        
-
             if (!_percentageValues.ContainsKey(fieldTypeEnum))
             {
                 _percentageValues.Add(fieldTypeEnum, percentage);
             }
             else
             {
-                _percentageValues[fieldTypeEnum] = percentage;
+                _percentageValues[fieldTypeEnum]  = percentage;
             }
         }
 
@@ -192,7 +204,7 @@ namespace Money
 
         public Dictionary<NodeState.FieldTypeEnum, float> GetPercentageValues()
         {
-          
+
             return _percentageValues;
         }
 
@@ -250,7 +262,7 @@ namespace Money
                     }
                 }
             }
-      
+
 
 
         }

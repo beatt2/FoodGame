@@ -20,10 +20,10 @@ namespace Events
         private RectTransform _rectTransform;
 
         private readonly List<GameObject> _go = new List<GameObject>();
-        
-        
+
+
         private List<Events> _eventsInInbox = new List<Events>();
-        private Dictionary<int, bool> _readDict = new Dictionary<int, bool>();  
+        private Dictionary<int, bool> _readDict = new Dictionary<int, bool>();
 
         public float Gap;
         private Button _button;
@@ -40,7 +40,7 @@ namespace Events
             _currentpos = StartingPos;
             _startingPos = StartingPos.position;
             _rectTransform = Content.GetComponent<RectTransform>();
-       
+
         }
 
 
@@ -51,7 +51,7 @@ namespace Events
             string effect = Finance.GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
             Add(events.Headline, events.InfluencePercentage);
         }
-        
+
 
         public void Add(string headline, float percentage)
         {
@@ -85,14 +85,14 @@ namespace Events
             Button tempButton = go.GetComponent<Button>();
             int tempCount = _eventsInInbox.Count;
             tempButton.onClick.AddListener(() => this.OnButtonClick(tempCount));
-            
-           
+
+
             if (!_readDict.ContainsKey(tempCount))
             {
                 _readDict.Add(tempCount, false);
                 Exclamation.SetActive(true);
             }
-    
+
         }
 
         private void UpdateTextPos()
@@ -100,7 +100,7 @@ namespace Events
             for (int i = 1; i < _go.Count; i++)
             {
                 float tempGap = Gap * i;
-    
+
                 _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + tempGap,
                     _currentpos.position.z);
                 _go[i].transform.position = _currentpos.position;
@@ -135,7 +135,7 @@ namespace Events
         {
             _readDict = readDict;
         }
-        
+
 
         public void SetInboxInt(List<int> inbox)
         {
@@ -146,8 +146,6 @@ namespace Events
                     _eventsInInbox.Add(EventManager.Instance.EventsArray[inbox[index]]);
                     Add(_eventsInInbox[index].Headline, _eventsInInbox[index].InfluencePercentage);
                 }
-
-                
             }
 
             int oldMonth = SaveManager.Instance.GetSaveMonth();
@@ -158,25 +156,13 @@ namespace Events
             {
                 for (int j = 0; j < EventManager.Instance.EventsArray.Length; j++)
                 {
-                    if(EventManager.Instance.EventsArray[j].Starts == new Vector2Int(oldMonth,oldYear) && EventManager.Instance.EventsArray[j].Review == Review)
+                    if(EventManager.Instance.EventsArray[j].Starts == new Vector2Int(oldMonth,oldYear))
                     {
-                        
                         _eventsInInbox.Add(EventManager.Instance.EventsArray[j]);
                         Add(_eventsInInbox[_eventsInInbox.Count - 1].Headline, _eventsInInbox[_eventsInInbox.Count -1].InfluencePercentage);
                     }
                 }
 
-                if (Review)
-                {
-                    for (int j = 0; j < EventManager.Instance.KansKaartenArray.Length; j++)
-                    {
-                        if (EventManager.Instance.KansKaartenArray[j].Starts == new Vector2Int(oldMonth, oldYear))
-                        {
-                            EventManager.Instance.SetKansKaart(oldMonth, oldYear);
-                        }
-                    }
-                }
-          
                 if (oldMonth >= 12)
                 {
                     oldMonth = 1;
@@ -191,19 +177,18 @@ namespace Events
                 {
                     break;
                 }
-           
+
             }
 
         }
-        
-        
+
+
 
         public void ChangeTextOnButton(int index)
         {
             Debug.Log(index);
             MessagePrefab messagePrefab = _go[index - 1].GetComponent<MessagePrefab>();
             messagePrefab.Content = PopupScript.ContentText;
-            messagePrefab.Effect = PopupScript.EffectText;
             messagePrefab.Content.text = _eventsInInbox[index - 1].Content;
             string effect = Finance.GetName(_eventsInInbox[index - 1].FieldType) + " " +
             _eventsInInbox[index - 1].InfluencePercentage + "%";
@@ -234,5 +219,5 @@ namespace Events
             return true;
         }
     }
-    
+
 }

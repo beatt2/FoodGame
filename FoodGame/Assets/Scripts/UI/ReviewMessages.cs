@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Events;
 using MathExt;
 using Money;
+using Node;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,9 +30,9 @@ namespace Events
         private Button _button;
         public GameObject PopupUi;
         public GameObject Exclamation;
-        public Popup PopupScript;
+        //public Popup PopupScript;
 
-        public bool Review;
+
         private string _name;
 
         private void Awake()
@@ -43,22 +45,17 @@ namespace Events
         public void AddReview(Reviews reviews)
         {
             _reviewsInInbox.Add(reviews);
-            string effect = Finance.GetName(reviews.FieldType) + " " + reviews.InfluencePercentage + "%";
             Add(reviews.Headline, reviews.InfluencePercentage);
         }
 
         public void Add(string headline, float percentage)
         {
             GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform);
-            go.GetComponent<Image>().sprite = percentage < 0 ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array() : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
+            go.GetComponent<Image>().sprite = percentage < 0
+                ? EventManager.Instance.ReviewBackgroundNegative.GetRandom_Array()
+                : EventManager.Instance.ReviewBackgroundPositive.GetRandom_Array();
 
-            if (percentage < 0)
-            {
-                if (percentage < 0)
-                {
-                    go.GetComponent<Image>().sprite = EventManager.Instance.MessageBackground[1];
-                }
-            }
+
 
             _go.Insert(0, go);
 
@@ -85,19 +82,30 @@ namespace Events
                 Exclamation.SetActive(true);
             }
         }
+
         private void UpdateTextPos()
         {
             for (int i = 1; i < _go.Count; i++)
             {
                 float tempGap = Gap * i;
-    
+
                 _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + tempGap,
                     _currentpos.position.z);
                 _go[i].transform.position = _currentpos.position;
                 _currentpos.position = _startingPos;
             }
         }
-        
+
+        public Dictionary<int, bool> GetReadDict()
+        {
+            return _readDict;
+        }
+
+        public void SetReadDictionary(Dictionary<int, bool> readDict)
+        {
+            _readDict = readDict;
+        }
+
         public void OnButtonClick(int index)
         {
             ChangeTextOnButton(index);
@@ -106,20 +114,37 @@ namespace Events
             {
                 Exclamation.SetActive(false);
             }
+
             PopupUi.SetActive(true);
         }
+
         public void ChangeTextOnButton(int index)
         {
             Debug.Log(index);
-            MessagePrefab messagePrefab = _go[index - 1].GetComponent<MessagePrefab>();
-            messagePrefab.Content = PopupScript.ContentText;
-            messagePrefab.Effect = PopupScript.EffectText;
-            messagePrefab.Content.text = _reviewsInInbox[index - 1].Content;
-            string effect = Finance.GetName(_eventsInInbox[index - 1].FieldType) + " " +
-                            _eventsInInbox[index - 1].InfluencePercentage + "%";
-            messagePrefab.Effect.text = effect;
+            Reviewprefab reviewPrefab = _go[index - 1].GetComponent<Reviewprefab>();
+            Reviews review = _reviewsInInbox[index];
+            if (_reviewsInInbox[index].Insert)
+            {
+                reviewPrefab.ChangeText
+                (
+                    review.Headline,
+                    review.PreInsert,
+                    review.FieldType,
+                    review.AfterInsert,
+                    review.InfluencePercentage.ToString()
+                );
+            }
+            else
+            {
+                reviewPrefab.ChangeText
+                (
+                    review.Headline,
+                    review.PreInsert,
+                    review.InfluencePercentage.ToString()
+                );
+            }
         }
-        
+
         private bool ReadDictBool()
         {
             for (int i = 0; i < _readDict.Keys.Count; i++)
@@ -129,9 +154,38 @@ namespace Events
                     return false;
                 }
             }
-
             return true;
         }
 
+
+        public void SetInboxInt(List<int> inbox)
+        {
+            for (int i = 0; i < inbox.Count; i++)
+            {
+                if (!_reviewsInInbox.Contains(EventManager.Instance.Reviews[inbox[i]]))
+                {
+                    _reviewsInInbox.Add(EventManager.Instance.Reviews[inbox[i]]);
+                    Add(_reviewsInInbox[i].Headline, _reviewsInInbox[i].InfluencePercentage);
+                }
+
+            }
+        }
+
+        public List<int> GetInboxInt()
+        {
+            List<int> inboxInt = new List<int>();
+            for (int i = 0; i < _reviewsInInbox.Count; i++)
+            {
+                for (int j = 0; j < EventManager.Instance.Reviews.Length; j++)
+                {
+                    if (EventManager.Instance.Reviews[j] == _reviewsInInbox[i])
+                    {
+                        inboxInt.Add(j);
+                    }
+                }
+            }
+            return inboxInt;
+
+        }
     }
 }

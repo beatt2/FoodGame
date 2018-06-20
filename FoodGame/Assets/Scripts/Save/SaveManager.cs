@@ -35,7 +35,7 @@ namespace Save
         private string extensionTime = "saveTime";
 
         public Messages Messages;
-        public Messages Reviews;
+        public ReviewMessages Reviews;
 
         private bool _reset = false;
 
@@ -46,7 +46,7 @@ namespace Save
         {
             base.Awake();
             LoadTime();
-     
+
         }
 
 
@@ -84,20 +84,20 @@ namespace Save
                     1,
                     2018,
                     5000,
-                    new List<int>(), 
+                    new List<int>(),
                     new Dictionary<NodeState.FieldTypeEnum, float>(),
                     0,
                     false,
                     new Dictionary<int, bool>(),
                     new Dictionary<int, bool>(),
                     TimeManager.Instance.GetWaitForSeconds()
-        
+
                 );
-      
-                
+
+
             }
-            
-            
+
+
         }
 
         public int GetWaitForSeconds()
@@ -131,7 +131,7 @@ namespace Save
         private void OnApplicationFocus(bool hasFocus)
         {
             OnApplicationChange(!hasFocus);
-            
+
         }
 
         private void OnApplicationPause(bool value)
@@ -149,16 +149,16 @@ namespace Save
 
             if (value)
             {
-              
+
                 SaveMiscFiles();
                 SaveNodes();
                 SaveMessagesAndReviews();
-      
-                
+
+
             }
             else
             {
-          
+
                 LoadTime();
                 TimeManager.Instance.Start();
             }
@@ -188,8 +188,8 @@ namespace Save
                 Reviews.GetReadDict(),
                 Messages.GetReadDict(),
                 TimeManager.Instance.GetWaitForSeconds()
-                
-            ); 
+
+            );
             SaveFiles(_saveInfo, filenameTime, extensionTime);
         }
 
@@ -224,7 +224,7 @@ namespace Save
                 Messages.SetReadDictionary(_saveInfo.ReadDictionaryMessages);
 
                 Messages.SetInboxInt(tempMessages);
-                
+
             }
 
             if (File.Exists(GetPath(_filenameReview, _extensionReview)))
@@ -390,12 +390,12 @@ namespace Save
                             nodes[i, j].GetComponent<PlantPrefab>()
                                 .SetSavedPlant((Plant) loadedNodes[i, j].MySavedCultivation);
                         }
-      
+
 
                     }
                     else if (nodes[i, j].GetComponent<NodeState>().CurrentState == NodeState.CurrentStateEnum.Farm)
                     {
-      
+
 
                         nodes[i, j].gameObject.AddComponent<BuildingPrefab>();
                         nodes[i, j].GetComponent<BuildingPrefab>().FirstRun = true;

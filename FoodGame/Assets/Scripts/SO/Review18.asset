@@ -8,15 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
-  m_Name: Review8
+  m_Script: {fileID: 11500000, guid: 60bda65368c49f34da7c6e11927a2df9, type: 3}
+  m_Name: Review18
   m_EditorClassIdentifier: 
   Headline: Duur!
-  Content: "\u201C-insert groente/fruit- kosten zo veel. Ik wist niet dat gezond zijn
-    zo duur was\u2026\u201D"
-  Starts: {x: 8, y: 2028}
-  Finishes: {x: 7, y: 2025}
-  FieldType: 5
-  Type: 1
+  PreInsert: '"'
+  Insert: 1
+  AfterInsert: "kosten zo veel. Ik wist niet dat gezond zijn zo duur was\u2026\u201D"
+  Enviromental: 0
+  EffectValue: 10
   InfluencePercentage: -5
-  Review: 1
+  FieldType: 2

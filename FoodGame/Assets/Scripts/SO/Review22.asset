@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60bda65368c49f34da7c6e11927a2df9, type: 3}
+  m_Name: Review22
+  m_EditorClassIdentifier: 
+  Headline: UITVERKOCHT!!!
+  PreInsert: "\u201CEr waren niet eens genoeg"
+  Insert: 1
+  AfterInsert: "bij de supermarkt. Ze waren meteen op!\u201D"
+  Enviromental: 0
+  EffectValue: 45
+  InfluencePercentage: 10
+  FieldType: 2

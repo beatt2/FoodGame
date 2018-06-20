@@ -8,14 +8,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
-  m_Name: Review10
+  m_Script: {fileID: 11500000, guid: 60bda65368c49f34da7c6e11927a2df9, type: 3}
+  m_Name: Review20
   m_EditorClassIdentifier: 
   Headline: Niet waard!
-  Content: "\u201CVeel te duur. Is het niet waard\u201D"
-  Starts: {x: 8, y: 2023}
-  Finishes: {x: 7, y: 2025}
-  FieldType: 5
-  Type: 1
-  InfluencePercentage: -5
-  Review: 1
+  PreInsert: "\u201CVeel te duur. Is het niet waard\u201D"
+  Insert: 0
+  AfterInsert: 
+  Enviromental: 0
+  EffectValue: 30
+  InfluencePercentage: -10
+  FieldType: 2

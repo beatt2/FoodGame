@@ -1,13 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using KansKaarten;
 using MathExt;
-using KansKaarten;
 using Money;
 using Node;
 using Tools;
-using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,8 +37,9 @@ namespace Events
         private float _percentageEvent = 0;
         private string _name;
         public Messages MessageScript;
-        public Messages ReviewScript;
+        public ReviewMessages ReviewScript;
         public bool InMenu = false;
+
 
         public Sprite[] ReviewBackgroundNegative;
         public Sprite[] ReviewBackgroundPositive;
@@ -48,11 +47,13 @@ namespace Events
         private Image _headlineUiImage;
         private bool _inKanskaartMenu = false;
         private readonly List<Kanskaarten> _actieveKanskaarten = new List<Kanskaarten>();
-        private Dictionary<NodeState.FieldTypeEnum, int> _enviromentalValues = new Dictionary<NodeState.FieldTypeEnum, int>();
-        private Dictionary<NodeState.FieldTypeEnum, int> _happinessValues = new Dictionary<NodeState.FieldTypeEnum, int>();
 
-  
-        
+        private Dictionary<NodeState.FieldTypeEnum, int> _enviromentalValues =
+            new Dictionary<NodeState.FieldTypeEnum, int>();
+
+        private Dictionary<NodeState.FieldTypeEnum, int> _happinessValues =
+            new Dictionary<NodeState.FieldTypeEnum, int>();
+
 
         public float GetInfluence()
         {
@@ -64,6 +65,7 @@ namespace Events
             base.Awake();
             _headlineUiImage = HeadlineUi.GetComponent<Image>();
         }
+
 
         public void CheckDate(int month, int year)
         {
@@ -81,20 +83,99 @@ namespace Events
             {
                 _enviromentalValues[fieldType] += value;
             }
-         
+
+            CheckEnviromentValue();
+        }
+
+
+        public int GetEnviromentValue()
+        {
+            int value = 0;
+            foreach (var enviromental in _enviromentalValues)
+            {
+                value += enviromental.Value;
+            }
+
+            return value;
+        }
+
+        public int GetHappinessValue()
+        {
+            int value = 0;
+            foreach (var happiness in _happinessValues)
+            {
+                value += happiness.Value;
+
+            }
+
+            return value;
+        }
+
+        private void CheckEnviromentValue()
+        {
+            for (int i = 0; i < Reviews.Length; i++)
+            {
+                if (Reviews[i].Enviromental)
+                {
+                    for (int j = 0; j < _enviromentalValues.Count; j++)
+                    {
+                        if (Reviews[i].EffectValue != _enviromentalValues.ElementAt(j).Value) continue;
+                        if (Reviews[i].OnlyOnFactory) continue;
+                        if (Reviews[i].Insert)
+                        {
+                            SetReviews(Reviews[i], _enviromentalValues.ElementAt(j).Key);
+                        }
+                        else
+                        {
+                            SetReviews(Reviews[i]);
+                        }
+
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < _enviromentalValues.Count; j++)
+                    {
+                        if (Reviews[i].EffectValue != _enviromentalValues.ElementAt(j).Value) continue;
+                        if (Reviews[i].OnlyOnFactory) continue;
+                        if (Reviews[i].Insert)
+                        {
+                            SetReviews(Reviews[i], _enviromentalValues.ElementAt(j).Key);
+                        }
+                        else
+                        {
+                            SetReviews(Reviews[i]);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        public void AddFactoryReview()
+        {
+            for (int i = 0; i < Reviews.Length; i++)
+            {
+                if (Reviews[i].OnlyOnFactory)
+                {
+                    SetReviews(Reviews[i]);
+                    Reviews[i].OnlyOnFactory = false;
+                    return;
+
+                }
+            }
         }
 
         public void AddHappinessValue(NodeState.FieldTypeEnum fieldType, int value)
         {
             if (!_happinessValues.ContainsKey(fieldType))
             {
-                _happinessValues.Add(fieldType,value);
+                _happinessValues.Add(fieldType, value);
             }
             else
             {
                 _happinessValues[fieldType] += value;
             }
-            
         }
 
 
@@ -111,7 +192,6 @@ namespace Events
             {
                 if (KansKaartenArray[i].Starts == new Vector2Int(month, year))
                 {
-             
                     _actieveKanskaarten.Add(KansKaartenArray[i]);
                     if (!_inKanskaartMenu)
                     {
@@ -140,7 +220,7 @@ namespace Events
             }
         }
 
-
+        //REFACTOR
         private void SetEffect()
         {
             KanskaartText.text = _actieveKanskaarten[0].Headline;
@@ -149,24 +229,30 @@ namespace Events
 
             if (_actieveKanskaarten[0].InfluencePercentage < 0)
             {
-                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,_actieveKanskaarten[0].InfluencePercentage);
-                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " - " + _actieveKanskaarten[0].InfluencePercentage + "%";
+                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,
+                    _actieveKanskaarten[0].InfluencePercentage);
+                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " - " +
+                                   _actieveKanskaarten[0].InfluencePercentage + "%";
             }
             else if (_actieveKanskaarten[0].InfluencePercentage > 0)
             {
-                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,_actieveKanskaarten[0].InfluencePercentage);
-                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " + _actieveKanskaarten[0].InfluencePercentage + "%";
+                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,
+                    _actieveKanskaarten[0].InfluencePercentage);
+                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +
+                                   _actieveKanskaarten[0].InfluencePercentage + "%";
             }
 
             if (_actieveKanskaarten[0].Reward > 0)
             {
                 SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
-                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +_actieveKanskaarten[0].Reward + " gold";
+                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +
+                               _actieveKanskaarten[0].Reward + " gold";
             }
             else if (_actieveKanskaarten[0].Reward < 0)
             {
                 SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
-                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + _actieveKanskaarten[0].Reward +" gold";
+                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + _actieveKanskaarten[0].Reward +
+                               " gold";
             }
 
             PercentageKansKaart.text = effectPercentage;
@@ -187,26 +273,12 @@ namespace Events
                 {
                     StopCoroutine("UiTimer");
                     SoundManager.Instance.PlayMessageSound();
-                    if (!EventsArray[i].Review)
-                    {
-                        MessageScript.AddEvent(EventsArray[i]);
-                    }
-                    else
-                    {
-                        ReviewScript.AddEvent(EventsArray[i]);
-                    }
-
                     if (!InMenu)
                     {
                         HeadlineUi.SetActive(true);
-                        if (EventsArray[i].Review)
-                        {
-                            _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0 ? ReviewBackgroundNegative.GetRandom_Array() : ReviewBackgroundPositive.GetRandom_Array();
-                        }
-                        else
-                        {
-                            _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0 ? MessageBackground[1] : MessageBackground[0];
-                        }
+                        _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 0
+                            ? MessageBackground[1]
+                            : MessageBackground[0];
                     }
 
                     StartCoroutine("UiTimer");
@@ -218,12 +290,43 @@ namespace Events
 
                     if (EventsArray[i].Finishes != new Vector2Int(month, year)) continue;
                     HeadlineUi.SetActive(false);
-
-
+                    //TODO WHY ?
                     SetTextEnded(i);
                 }
             }
         }
+
+        public void SetReviews(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
+        {
+            StartCoroutine(SetReviewsIE(review,fieldType));
+        }
+
+        private IEnumerator SetReviewsIE(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
+        {
+            yield return new WaitForSeconds(Random.Range(4,25));
+            StopCoroutine("UiTimer");
+            SetText(review);
+            SoundManager.Instance.PlayMessageSound();
+            if (review.FieldType != NodeState.FieldTypeEnum.Nothing)
+            {
+                review.FieldType = fieldType;
+            }
+            ReviewScript.AddReview(review);
+            if (!InMenu)
+            {
+                HeadlineUi.SetActive(true);
+                _headlineUiImage.sprite = review.InfluencePercentage < 0
+                    ? ReviewBackgroundPositive.GetRandom_Array()
+                    : ReviewBackgroundNegative.GetRandom_Array();
+            }
+            SimpleMoneyManager.Instance.SetPercentage(review.FieldType, review.InfluencePercentage);
+            StartCoroutine("UiTimer");
+
+
+        }
+
+
+
 
         private IEnumerator UiTimer()
         {
@@ -234,6 +337,10 @@ namespace Events
         public void SetText(int whichevent)
         {
             Headline.text = EventsArray[whichevent].Headline;
+        }
+        public void SetText(Reviews review)
+        {
+            Headline.text = review.Headline;
         }
 
 

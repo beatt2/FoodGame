@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60bda65368c49f34da7c6e11927a2df9, type: 3}
+  m_Name: Review14
+  m_EditorClassIdentifier: 
+  Headline: Niet zo duurzaam!
+  PreInsert: "\u201CIk ben een vegetari\xEBr geworden omdat ik het belangrijk vind
+    dat het milieu intact blijft maar nu kom ik erachter dat alles bij jullie helemaal
+    platgespoten en uitgeput wordt! Echt zonde voor de dieren en het milieu!!\u201D"
+  Insert: 0
+  AfterInsert: 
+  Enviromental: 1
+  EffectValue: 100
+  InfluencePercentage: -40
+  FieldType: 2
+  OnlyOnFactory: 1
