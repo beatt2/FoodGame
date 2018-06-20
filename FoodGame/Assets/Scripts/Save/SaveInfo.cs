@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cultivations;
-using Money;
 using Node;
 
 namespace Save
@@ -10,9 +9,9 @@ namespace Save
     public class SaveInfo
     {
         public DateTime StopTime;
-        public int SaveMonth;
-        public int SaveYear;
-        public float SaveMoney;
+        public readonly int SaveMonth;
+        public readonly int SaveYear;
+        public readonly float SaveMoney;
         public List<int> DictionaryIndexEntrys;
         public int TotalAmountOfMoneyValues;
         public bool TutorialHasPlayed;
@@ -21,7 +20,7 @@ namespace Save
         public Dictionary<int, bool> ReadDictionaryMessages;
         public Dictionary<int, bool> ReadDictionaryReview;
         public int WaitForSeconds;
-        
+
 
         public SaveInfo
         (
@@ -36,7 +35,7 @@ namespace Save
             Dictionary<int, bool> readDictionaryReview,
             Dictionary<int,bool> readDictionaryMessages,
             int waitForSeconds
-            
+
         )
         {
             StopTime = stopTime;

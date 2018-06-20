@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "Ma\xEFs fabriek"
-  MoneyTick: 1000
+  MoneyTick: 100
   ExpenseTick: 50
   MonthsToGrow: 2
   BuildingPrice: 7800
@@ -132,21 +132,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 10
   MonthCount: 0
   MyBuilding:
-    Name: Big Corn
-    MoneyTick: 80
-    ExpenseTick: 50
-    MonthsToGrow: 2
     BuildPrice: 3000
-    UpgradeValue: 0
-    SpriteIndex: 8
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 0
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 0
-    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

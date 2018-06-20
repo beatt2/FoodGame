@@ -17,9 +17,8 @@ MonoBehaviour:
     invloed op de vruchtbaarheid van grond waarop het verbouwd wordt, maar daar is
     nu dus verandering in gekomen. Het zal nu makkelijker zijn om meer ma\xEFs te
     telen."
-  Starts: {x: 9, y: 2019}
-  Finishes: {x: 12, y: 2061}
+  Starts: {x: 9, y: 2023}
+  Finishes: {x: 12, y: 2028}
   FieldType: 0
   Type: 1
   InfluencePercentage: 3
-  Review: 0

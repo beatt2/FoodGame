@@ -134,7 +134,7 @@ MonoBehaviour:
   BuildingPrice: 4800
   UpgradeValue: 700
   SpriteIndex: 18
-  SidePanelSpriteIndex: 9
+  SidePanelSpriteIndex: 16
   MyCurrentState: 0
   MyFieldType: 4
   EnviromentValue: 5
@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 5
   MonthCount: 0
   MyBuilding:
-    Name: Bramen gemiddeld
-    MoneyTick: 800
-    ExpenseTick: 150
-    MonthsToGrow: 2
     BuildPrice: 4800
-    UpgradeValue: 700
-    SpriteIndex: 18
-    SidePanelSpriteIndex: 9
-    EnviromentValue: 5
-    Happiness: 10
     SizeRank: 1
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 13
     MyCultivationState: 0
     FieldType: 4
   FirstRun: 0

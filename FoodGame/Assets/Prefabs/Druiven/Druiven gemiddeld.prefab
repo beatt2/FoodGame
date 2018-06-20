@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Druiven
-  MoneyTick: 7000
-  ExpenseTick: 500
+  MoneyTick: 700
+  ExpenseTick: 50
   MonthsToGrow: 8
-  BuildingPrice: 32000
-  UpgradeValue: 500
+  BuildingPrice: 3200
+  UpgradeValue: 650
   SpriteIndex: 24
   SidePanelSpriteIndex: 2
   MyCurrentState: 1
@@ -132,21 +132,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 8
   MonthCount: 0
   MyPlant:
-    Name: Bramen
-    MoneyTick: 50
-    ExpenseTick: 10
-    MonthsToGrow: 2
     BuildPrice: 0
-    UpgradeValue: 0
-    SpriteIndex: 1
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 0
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 0
-    UpgradePrefabIndex: 0
     MyCultivationState: 1
     FieldType: 4
   FirstRun: 0

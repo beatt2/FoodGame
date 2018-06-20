@@ -1,40 +1,41 @@
-﻿
-using System;
-using System.Collections;
+﻿using System;
 using Node;
 using UnityEngine;
 
-public class SingleGridList : IComparable<SingleGridList>
+namespace Grid
 {
-    public NodeBehaviour Node{ get; private set; }
-    public Vector2Int GridLocations { get; private set; }
-
-
-    public int CompareTo(SingleGridList other)
+    public class SingleGridList : IComparable<SingleGridList>
     {
-        if (other == null)
+        public NodeBehaviour Node{ get; private set; }
+        private Vector2Int GridLocations { get; set; }
+
+
+        public int CompareTo(SingleGridList other)
         {
-            return 1;
+            if (other == null)
+            {
+                return 1;
+            }
+
+            if (GridLocations.y > other.GridLocations.y)
+            {
+                return 1;
+            }
+            if (GridLocations.y < other.GridLocations.y)
+            {
+                return -1;
+            }
+            return 0;
+
         }
 
-        if (GridLocations.y > other.GridLocations.y)
+        public SingleGridList(NodeBehaviour node, Vector2Int gridLocations)
         {
-            return 1;
+            GridLocations = gridLocations;
+            Node = node;
         }
-        if (GridLocations.y < other.GridLocations.y)
-        {
-            return -1;
-        }
-        return 0;
+
+
 
     }
-
-    public SingleGridList(NodeBehaviour node, Vector2Int gridLocations)
-    {
-        GridLocations = gridLocations;
-        Node = node;
-    }
-    
-
-  
 }

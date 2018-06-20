@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Appels
-  MoneyTick: 6900
-  ExpenseTick: 1000
+  MoneyTick: 690
+  ExpenseTick: 100
   MonthsToGrow: 5
-  BuildingPrice: 26000
+  BuildingPrice: 520
   UpgradeValue: 5200
   SpriteIndex: 27
   SidePanelSpriteIndex: 0
@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyPlant:
-    Name: Apple Tree
-    MoneyTick: 50
-    ExpenseTick: 10
-    MonthsToGrow: 3
     BuildPrice: 500
-    UpgradeValue: 0
-    SpriteIndex: 0
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 0
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 0
-    UpgradePrefabIndex: 0
     MyCultivationState: 1
     FieldType: 3
   FirstRun: 0

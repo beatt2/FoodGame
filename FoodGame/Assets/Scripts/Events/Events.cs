@@ -9,7 +9,6 @@ namespace Events
         public string Headline;
         [TextArea]
         public string Content;
-        // happenAt month/year
         public Vector2Int Starts;
         public Vector2Int Finishes;
         public NodeState.FieldTypeEnum FieldType;

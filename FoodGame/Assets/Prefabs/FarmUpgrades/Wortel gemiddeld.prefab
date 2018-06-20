@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Wortels
-  MoneyTick: 2150
+  MoneyTick: 215
   ExpenseTick: 50
   MonthsToGrow: 2
-  BuildingPrice: 3000
+  BuildingPrice: 600
   UpgradeValue: 600
   SpriteIndex: 46
   SidePanelSpriteIndex: 20
@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:
-    Name: Carrot Middle
-    MoneyTick: 70
-    ExpenseTick: 50
-    MonthsToGrow: 4
     BuildPrice: 2000
-    UpgradeValue: 3
-    SpriteIndex: 21
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 0
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 0
-    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

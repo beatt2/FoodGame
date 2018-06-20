@@ -10,7 +10,6 @@ namespace Events
         public Text Effect;
 
 
-
         public void ChangeText(string headline,string content,string effect)
         {
             Headline.text = headline;

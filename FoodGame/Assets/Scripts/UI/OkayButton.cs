@@ -9,14 +9,10 @@ namespace UI
 
         public GameObject Ui;
 
-        //public override void TaskOnClick()
-        //{
-        //    EventManager.Instance.InEventMenu = false;
-        //    Ui.SetActive(false);
-        //}
+
         public void CloseFinance()
         {
-            EventManager.Instance.InEventMenu = false;
+           // EventManager.Instance.InEventMenu = false;
             Ui.SetActive(false);
         }
 

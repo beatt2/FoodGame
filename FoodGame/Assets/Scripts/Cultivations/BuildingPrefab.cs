@@ -1,11 +1,6 @@
-using System;
-using System.Runtime.InteropServices;
-using Boo.Lang.Environments;
 using Events;
 using JetBrains.Annotations;
 using Money;
-using Node;
-using UnityEngine;
 
 namespace Cultivations
 {
@@ -13,23 +8,10 @@ namespace Cultivations
     {
         public Building MyBuilding;
         private Building _savedBuilding;
-
-
-        public void Start()
-        {
-//            MyBuilding.FieldType = GetComponent<NodeState>().FieldType;
-//            MyBuilding.MyCultivationState = GetComponent<NodeState>().CurrentState;
-//            MyCurrentState = MyBuilding.MyCultivationState;
-//            MyFieldType = MyBuilding.FieldType;
-//            //TODO this is kinda wonky
-//            AddCultivation();
-        }
-
         public bool FirstRun;
 
         public void CustomAwake()
         {
-            var tempSprite = GetComponent<SpriteRenderer>().sprite;
             MyBuilding = new Building
             (
                 Name,
@@ -59,6 +41,7 @@ namespace Cultivations
             SimpleMoneyManager.Instance.RemoveValue(MyBuilding);
             EventManager.Instance.AddEnviromentValue(MyFieldType,-MyBuilding.EnviromentValue);
             EventManager.Instance.AddHappinessValue(MyFieldType,-MyBuilding.Happiness);
+
             MyBuilding = _savedBuilding;
             SyncValuesToMyBuidling();
             AddCultivation();
@@ -90,8 +73,6 @@ namespace Cultivations
         }
 
 
-        // Nodestate is set by gridmanager
-        //TODO probably rework that..
         private void SyncValuesToMyBuidling()
         {
             Name = MyBuilding.Name;
@@ -120,7 +101,6 @@ namespace Cultivations
             {
                 SimpleMoneyManager.Instance.RemoveValue(_savedBuilding);
             }
-
             if (FirstRun)
             {
                 CultivationManager.Instance.AddValue(MyBuilding, MyBuilding, this);

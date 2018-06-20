@@ -1,15 +1,13 @@
 ﻿using System;
 using Node;
-using UnityEngine;
 
 namespace Cultivations
 {
-
     [Serializable]
     public class Building : Cultivation
     {
-
-        public Building(
+        public Building
+        (
             string name,
             int sustainability,
             int moneyTick,
@@ -26,10 +24,10 @@ namespace Cultivations
             int sizeRank,
             bool upgrade,
             int upgradeDuration,
-            int monthCount)
-
-
-            : base(
+            int monthCount
+        )
+            : base
+            (
                 name,
                 sustainability,
                 moneyTick,
@@ -46,9 +44,9 @@ namespace Cultivations
                 sizeRank,
                 upgrade,
                 upgradeDuration,
-                monthCount)
+                monthCount
+            )
         {
         }
-
     }
 }

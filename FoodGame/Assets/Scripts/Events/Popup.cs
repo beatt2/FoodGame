@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Popup : MonoBehaviour
+namespace Events
 {
-    public Text ContentText;
+    public class Popup : MonoBehaviour
+    {
+        public Text ContentText;
 
-    public Text EffectText;
+        public Text EffectText;
 
 
+    }
 }

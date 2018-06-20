@@ -1,8 +1,6 @@
 ﻿using System;
 using Cultivations;
-using MathExt;
 using Node;
-using UnityEngine;
 
 namespace Save
 {
@@ -15,33 +13,48 @@ namespace Save
         public readonly NodeState.CurrentStateEnum CurrentState;
         public readonly NodeState.FieldTypeEnum FieldType;
 
-        public Cultivation MySavedCultivation;
+        public readonly Cultivation MySavedCultivation;
 
-        public bool FenceLeft;
-        public bool FenceLeftOwner;
-        public int SizeRankLeft;
+        public readonly bool FenceLeft;
+        public readonly bool FenceLeftOwner;
+        public readonly int SizeRankLeft;
 
-        public bool FenceRight;
-        public bool FenceRightOwner;
-        public int SizeRankRight;
+        public readonly bool FenceRight;
+        public readonly bool FenceRightOwner;
+        public readonly int SizeRankRight;
 
-        public bool FenceUp;
-        public bool FenceUpOwner;
-        public int SizeRankUp;
+        public readonly bool FenceUp;
+        public readonly bool FenceUpOwner;
+        public readonly int SizeRankUp;
 
-        public bool FenceDown;
-        public bool FenceDownOwner;
-        public int SizeRankDown;
-
-
+        public readonly bool FenceDown;
+        public readonly bool FenceDownOwner;
+        public readonly int SizeRankDown;
 
 
 
-        public SaveNodes(int listIndex, NodeState.CurrentStateEnum currentState,
+
+
+        public SaveNodes
+        (
+            int listIndex,
+            NodeState.CurrentStateEnum currentState,
             NodeState.FieldTypeEnum fieldType,
-            bool emptyCultivationField, Cultivation myCultivation, bool fenceLeft, bool fenceLeftOwner,
-            bool fenceRight, bool fenceRightOwner, bool fenceUp, bool fenceUpOwner, bool fenceDown, bool fenceDownOwner,
-            int sizeRankLeft, int sizeRankRight, int sizeRankUp, int sizeRankDown, Cultivation mySavedCultivation
+            bool emptyCultivationField,
+            Cultivation myCultivation,
+            bool fenceLeft,
+            bool fenceLeftOwner,
+            bool fenceRight,
+            bool fenceRightOwner,
+            bool fenceUp,
+            bool fenceUpOwner,
+            bool fenceDown,
+            bool fenceDownOwner,
+            int sizeRankLeft,
+            int sizeRankRight,
+            int sizeRankUp,
+            int sizeRankDown,
+            Cultivation mySavedCultivation
         )
         {
 

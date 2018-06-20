@@ -117,36 +117,25 @@ MonoBehaviour:
   Name: Wortel gemiddeld
   MoneyTick: 500
   ExpenseTick: 50
-  MonthsToGrow: 1
+  MonthsToGrow: 2
   BuildingPrice: 3000
   UpgradeValue: 600
   SpriteIndex: 21
-  SidePanelSpriteIndex: 13
+  SidePanelSpriteIndex: 20
   MyCurrentState: 0
   MyFieldType: 1
   EnviromentValue: 5
   Happiness: 10
   SizeRank: 1
   Upgrade: 0
-  UpgradeDuration: 12
+  UpgradeDuration: 4
   UpgradePrefabIndex: 17
   MonthCount: 0
   MyBuilding:
-    Name: Wortel gemiddeld
-    MoneyTick: 500
-    ExpenseTick: 50
-    MonthsToGrow: 1
     BuildPrice: 3000
-    UpgradeValue: 600
-    SpriteIndex: 21
-    SidePanelSpriteIndex: 13
-    EnviromentValue: 5
-    Happiness: 10
     SizeRank: 1
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 15
     MyCultivationState: 0
     FieldType: 1
   FirstRun: 0

@@ -1,8 +1,5 @@
 ﻿using System;
 using Cultivations;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityScript.Macros;
 
 namespace Money
 {
@@ -10,12 +7,11 @@ namespace Money
     public class MoneyValue
     {
 
-        public float Income;
-        public float Expense;
-        public int MonthsToGrow;
-        public int MonthCount = 0;
-        public float Percentage;
-        public Cultivation MyCultivation;
+        public readonly float Income;
+        public readonly float Expense;
+        public readonly int MonthsToGrow;
+        public int MonthCount;
+        public readonly Cultivation MyCultivation;
 
 
 
@@ -23,7 +19,6 @@ namespace Money
         {
             Income = cultivation.MoneyTick;
             Expense = cultivation.ExpenseTick;
-            Percentage = 0;
             MonthCount = monthCount;
             MonthsToGrow = cultivation.MonthsToGrow;
             MyCultivation = cultivation;

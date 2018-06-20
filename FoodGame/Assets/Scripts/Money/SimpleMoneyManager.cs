@@ -6,6 +6,7 @@ using Node;
 using Save;
 using TimeSystem;
 using Tools;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,8 +51,8 @@ namespace Money
             MoneyUi.text = "€ " + _currentMoney;
 
 
-            _monthlyIncome = 5;
-            _monthlyExpenses = 10;
+            _monthlyIncome = 0;
+            _monthlyExpenses = 0;
 
             Income.text = "€ " + _monthlyIncome;
             Expense.text = "€ " + _monthlyExpenses;
@@ -86,11 +87,15 @@ namespace Money
                     {
                         tempTotal += t.Income;
                         t.MonthCount = 0;
+                        t.MyCultivation.MonthCount = t.MonthCount;
+
 
                     }
                     else
                     {
                         t.MonthCount++;
+                        t.MyCultivation.MonthCount = t.MonthCount;
+
 
                     }
                     t.MyCultivation.MonthCount = t.MonthCount;
@@ -112,7 +117,7 @@ namespace Money
             {
                 return true;
             }
-            Waarschuwing("Sorry not enough money");
+            Waarschuwing("Sorry, niet genoeg geld");
             //Debug.Log("Sorry not enough money");
             return false;
 
@@ -188,7 +193,7 @@ namespace Money
             }
             else
             {
-                _percentageValues[fieldTypeEnum]  = percentage;
+                _percentageValues[fieldTypeEnum]  += percentage;
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters;
-using Cultivations;
+﻿using Cultivations;
 using Grid;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,8 +9,6 @@ namespace Node
     {
         [HideInInspector] public HighLight HighLight;
 
-        private const float YBuildingOffset = 0.83f;
-
         private bool _isSelected;
 
         public Vector2Int GridLocation;
@@ -19,23 +16,25 @@ namespace Node
         private SpriteRenderer _spriteRenderer;
 
 
-        public int _listIndex = -1;
+        public int ListIndex = -1;
         private bool _emptyCultivationField;
 
         private NodeState _nodeState;
         private NodeFence _nodeFence;
 
 
-        public Vector3 BuildLocation
-        {
-            get { return new Vector3(transform.position.x, transform.position.y + YBuildingOffset, 0); }
-        }
-
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _nodeState = GetComponent<NodeState>();
             _nodeFence = GetComponent<NodeFence>();
+        }
+
+
+        private void Start()
+        {
+            HighLight = GetComponent<HighLight>();
+            GridManager.Instance.AddNode(this);
         }
 
         public NodeFence GetNodeFence()
@@ -54,10 +53,7 @@ namespace Node
             return _emptyCultivationField;
         }
 
-        public void SetCultivationField(bool value)
-        {
-            _emptyCultivationField = value;
-        }
+
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -74,13 +70,9 @@ namespace Node
 
         public void SetCultivationListIndex(int index)
         {
-            _listIndex = index;
+            ListIndex = index;
         }
 
-        public bool IsFarmField()
-        {
-            return _emptyCultivationField;
-        }
 
         public void SetEmptyCultivationField(bool value)
         {
@@ -91,17 +83,7 @@ namespace Node
             }
         }
 
-        public bool IsFarm()
-        {
-            return gameObject.GetComponent<BuildingPrefab>() != null;
-        }
 
-
-        private void Start()
-        {
-            HighLight = GetComponent<HighLight>();
-            GridManager.Instance.AddNode(this);
-        }
 
         public bool IsSelected()
         {
@@ -121,10 +103,10 @@ namespace Node
 
         public int GetListIndex()
         {
-            return _listIndex;
+            return ListIndex;
         }
 
-        public void RemoveCultivationTile()
+        private void RemoveCultivationTile()
         {
             if (GetComponent<CultivationPrefab>() != null)
             {
@@ -149,10 +131,10 @@ namespace Node
             {
                 GetComponent<NodeState>().CurrentState = NodeState.CurrentStateEnum.EmptyField;
             }
-   
+
             HighLight.ResetActiveColor();
             HighLight.ChangeColorToOld();
-            _listIndex = -1;
+            ListIndex = -1;
             if(!isPlant)
             RemoveCultivationTile();
         }

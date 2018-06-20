@@ -1,5 +1,4 @@
-﻿using Boo.Lang.Environments;
-using Events;
+﻿using Events;
 using JetBrains.Annotations;
 using Money;
 using Node;
@@ -7,29 +6,12 @@ using UnityEngine;
 
 namespace Cultivations
 {
-
     public class PlantPrefab : CultivationPrefab
     {
         [HideInInspector] public Plant MyPlant;
 
         private Plant _savedPlant;
 
-
-        protected void Awake()
-        {
-            //MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-               // MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank,Upgrade,UpgradeDuration, MonthCount);
-
-            //SyncValuesToMyPlant();
-        }
-
-        public void CustomAwake()
-        {
-            MyPlant = new Plant(Name, UpgradePrefabIndex, MoneyTick, ExpenseTick, MonthsToGrow, BuildingPrice,
-                MyCurrentState, MyFieldType, UpgradeValue, SpriteIndex,SidePanelSpriteIndex, EnviromentValue, Happiness, SizeRank, Upgrade, UpgradeDuration, MonthCount);
-            
-            SyncValuesToMyPlant();
-        }
 
         public bool FirstRun;
 
@@ -38,22 +20,47 @@ namespace Cultivations
             AddCultivation();
         }
 
+        public void CustomAwake()
+        {
+            MyPlant = new Plant
+            (
+                Name,
+                UpgradePrefabIndex,
+                MoneyTick,
+                ExpenseTick,
+                MonthsToGrow,
+                BuildingPrice,
+                MyCurrentState,
+                MyFieldType,
+                UpgradeValue,
+                SpriteIndex,
+                SidePanelSpriteIndex,
+                EnviromentValue,
+                Happiness,
+                SizeRank,
+                Upgrade,
+                UpgradeDuration,
+                MonthCount
+            );
+
+            SyncValuesToMyPlant();
+        }
+
+
         public void RemoveUpgrade()
         {
             SimpleMoneyManager.Instance.RemoveValue(MyPlant);
-            EventManager.Instance.AddEnviromentValue(MyFieldType,-MyPlant.EnviromentValue);
-            EventManager.Instance.AddHappinessValue(MyFieldType,-MyPlant.Happiness);
+            EventManager.Instance.AddEnviromentValue(MyFieldType, -MyPlant.EnviromentValue);
+            EventManager.Instance.AddHappinessValue(MyFieldType, -MyPlant.Happiness);
             MyPlant = _savedPlant;
             SyncValuesToMyPlant();
             AddCultivation();
-
         }
 
         [CanBeNull]
         public Plant GetSavedPlant()
         {
             return _savedPlant;
-
         }
 
         public void SetSavedPlant(Plant plant)
@@ -62,15 +69,13 @@ namespace Cultivations
         }
 
 
-        //TODO WHY IS THIS DIFFERENT THAN BUILDINGPREFAB????
         public void ChangeValues(Plant plant)
         {
             if (MyPlant != null)
             {
                 _savedPlant = MyPlant;
-                //SimpleMoneyManager.Instance.RemoveValue(_savedPlant);
-
             }
+
             MyPlant = plant;
             SyncValuesToMyPlant();
             AddCultivation();
@@ -98,13 +103,7 @@ namespace Cultivations
             ExpenseTick = MyPlant.ExpenseTick;
             Happiness = MyPlant.Happiness;
             SizeRank = MyPlant.SizeRank;
-
         }
-
-
-
-
-
 
 
         private void AddCultivation()
@@ -123,7 +122,6 @@ namespace Cultivations
                 CultivationManager.Instance.AddValue(MyPlant, MyPlant, this);
                 FirstRun = false;
             }
-       
         }
     }
 }

@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Druiven
-  MoneyTick: 7200
+  MoneyTick: 720
   ExpenseTick: 100
   MonthsToGrow: 6
-  BuildingPrice: 3000
+  BuildingPrice: 650
   UpgradeValue: 6500
   SpriteIndex: 30
   SidePanelSpriteIndex: 3
@@ -141,25 +141,14 @@ MonoBehaviour:
   Happiness: 3
   SizeRank: 3
   Upgrade: 1
-  UpgradeDuration: 12
+  UpgradeDuration: 5
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:
-    Name: GrapeBig
-    MoneyTick: 150
-    ExpenseTick: 50
-    MonthsToGrow: 3
     BuildPrice: 3000
-    UpgradeValue: 1000
-    SpriteIndex: 30
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 3
     MonthCount: 2
-    Upgrade: 1
     UpgradeDuration: 2
-    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

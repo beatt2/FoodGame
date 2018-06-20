@@ -1,6 +1,4 @@
-﻿using Grid;
-using Money;
-using Save;
+﻿using Save;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +15,6 @@ namespace Camera_Movement
         public float MinSizeX = 12.78f;
         public float MinSizeY = 6.77f;
 
-        private BoxCollider2D _boxCollider2D;
 
         private float _totalSize;
 
@@ -26,13 +23,8 @@ namespace Camera_Movement
 
         private void Start()
         {
-            _boxCollider2D = GetComponent<BoxCollider2D>();
             _totalSize = MaxOrthoSize - MinOrthoSize;
         }
-
-
-
-
 
         private void Update()
         {
@@ -40,9 +32,8 @@ namespace Camera_Movement
             {
                 SaveManager.Instance.OnApplicationChange(true);
                 SceneManager.LoadScene("MainMenu");
-                
-            }
 
+            }
 
             if (Input.touchCount == 2)
             {
@@ -67,9 +58,10 @@ namespace Camera_Movement
             }
 
         }
+
         private Vector3 GetBounds()
         {
-            float localSize = Camera.main.orthographicSize  ;
+            float localSize = Camera.main.orthographicSize;
             Vector3 localPosition = transform.position;
             float calcSize = MaxOrthoSize - localSize;
             float percentage = calcSize / (_totalSize / 100);
@@ -80,12 +72,5 @@ namespace Camera_Movement
             return localPosition;
         }
 
-        private void LateUpdate()
-        {
-//            Vector3 v3 = transform.position;
-//            v3.x = Mathf.Clamp(v3.x, _left, _right);
-//            v3.y = Mathf.Clamp(v3.y, _bottom, _top);
-//            transform.position = v3;
-        }
     }
 }

@@ -2,37 +2,40 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeEntry : MonoBehaviour
+namespace UI
 {
-    private Sprite _mySprite;
-    //public Text Stats;
-
-    private Image _image;
-    private Button _button;
-
-    private UpgradeTab _upgradeTab;
-
-    public Cultivation Cultivation;
-
-    private void Awake()
+    public class UpgradeEntry : MonoBehaviour
     {
-        _image= GetComponentInChildren<Image>();
-        _button = GetComponentInChildren<Button>();
-        _button.onClick.AddListener(OnButtonClick);
-        _upgradeTab = GameObject.FindGameObjectWithTag("UpgradeTab").GetComponent<UpgradeTab>();
-
-    }
-
-    public void SetSpriteImage(Sprite sprite)
-    {
-        _mySprite = sprite;
-        _image.sprite = _mySprite;
-    }
+        private Sprite _mySprite;
 
 
+        private Image _image;
+        private Button _button;
 
-    private void OnButtonClick()
-    {
-        _upgradeTab.UpdateButtonClicked(Cultivation);
+        private UpgradeTab _upgradeTab;
+
+        public Cultivation Cultivation;
+
+        private void Awake()
+        {
+            _image= GetComponentInChildren<Image>();
+            _button = GetComponentInChildren<Button>();
+            _button.onClick.AddListener(OnButtonClick);
+            _upgradeTab = GameObject.FindGameObjectWithTag("UpgradeTab").GetComponent<UpgradeTab>();
+
+        }
+
+        public void SetSpriteImage(Sprite sprite)
+        {
+            _mySprite = sprite;
+            _image.sprite = _mySprite;
+        }
+
+
+
+        private void OnButtonClick()
+        {
+            UpgradeTab.UpdateButtonClicked(Cultivation);
+        }
     }
 }

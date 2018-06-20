@@ -11,8 +11,6 @@ namespace Events
 		public Text Content;
 
 
-
-
 		public void ChangeText(string headline,string preInsert,string effect)
 		{
 			Headline.text = headline;

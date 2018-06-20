@@ -7,6 +7,8 @@ namespace Events
         public GameObject MessageUi;
         public GameObject PopupUi;
         private int _index;
+
+
         public void OpenMessages()
         {
             MessageUi.SetActive(true);

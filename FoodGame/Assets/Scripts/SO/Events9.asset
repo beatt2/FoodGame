@@ -16,9 +16,8 @@ MonoBehaviour:
     de productie van tomaten zwart maakt. Ondanks zijn gebrek aan feiten heeft de
     ophef toch ervoor gezorgd dat mensen sceptisch zijn gaan denken over hoe de tomaat
     van het land in de supermarkt belandt. Hierdoor lijdt de tomaatindustrie.
-  Starts: {x: 5, y: 2025}
-  Finishes: {x: 9, y: 2350}
+  Starts: {x: 5, y: 2039}
+  Finishes: {x: 9, y: 2044}
   FieldType: 5
   Type: 1
   InfluencePercentage: -10
-  Review: 0

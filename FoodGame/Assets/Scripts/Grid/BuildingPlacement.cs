@@ -4,6 +4,7 @@ using Money;
 using Node;
 using Save;
 using UnityEngine;
+// ReSharper disable PossibleNullReferenceException
 
 namespace Grid
 {
@@ -47,7 +48,6 @@ namespace Grid
                 return true;
             }
 
-            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
@@ -60,7 +60,6 @@ namespace Grid
                 return true;
             }
 
-            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
@@ -78,12 +77,12 @@ namespace Grid
                 return true;
             }
 
-            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
         public bool UpgradeFarm(int index)
         {
+            Debug.Log(FarmUpgrades[index].GetComponent<BuildingPrefab>().MyBuilding.UpgradeValue);
             if (SimpleMoneyManager.Instance.EnoughMoney(FarmUpgrades[index].GetComponent<BuildingPrefab>().MyBuilding.UpgradeValue))
             {
                 FarmUpgrades[index].GetComponent<BuildingPrefab>().CustomAwake();
@@ -93,11 +92,10 @@ namespace Grid
                 return true;
             }
 
-            SimpleMoneyManager.Instance.Waarschuwing("Sorry not enough money");
             return false;
         }
 
-        public void UpgradeFarmFinished(BuildingPrefab buildingPrefab)
+        public static void UpgradeFarmFinished(BuildingPrefab buildingPrefab)
         {
             var node = buildingPrefab.GetComponent<NodeBehaviour>();
             node.SetSprite(SaveManager.Instance.GetSprite(buildingPrefab.GetSavedBuilding().SpriteIndex));
@@ -105,7 +103,7 @@ namespace Grid
             buildingPrefab.RemoveUpgrade();
         }
 
-        public void UpgradeFieldFinished(PlantPrefab plantPrefab)
+        public static void UpgradeFieldFinished(PlantPrefab plantPrefab)
         {
             var node = plantPrefab.GetComponent<NodeBehaviour>();
             node.SetSprite(SaveManager.Instance.GetSprite(plantPrefab.GetSavedPlant().SpriteIndex));
@@ -172,7 +170,7 @@ namespace Grid
         }
 
 
-        public void RemoveTiles(NodeBehaviour node)
+        public static void RemoveTiles(NodeBehaviour node)
         {
             if (node.GetListIndex() == -1) return;
             if (node.GetCurrentState() == NodeState.CurrentStateEnum.Field)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Remoting.Channels;
 using Node;
 using UnityEngine;
 
@@ -24,7 +23,7 @@ namespace Grid
         public GameObject DownGameObject;
 
 
-        public enum SideEnum
+        private enum SideEnum
         {
             Left,
             Right,
@@ -91,7 +90,7 @@ namespace Grid
                     HardRemoveFence(SideEnum.Down, neighBourNode.GetNodeFence());
                 }
                 neighBourNode.GetNodeFence().Down = true;
-                
+
             }
             Up = true;
             UpGameObject = BuildFence(UpSizeRank < 3 ? GridManager.Instance.FenceTwo : GridManager.Instance.FenceTwoBig, UpLocation, -1);
@@ -130,7 +129,7 @@ namespace Grid
 
             Left = true;
             LeftGameObject = BuildFence(LeftSizeRank < 3 ? GridManager.Instance.FenceOne : GridManager.Instance.FenceOneBig, LeftLocation, 1);
-            //build fence left
+
         }
 
         private void CheckDownSpace()
@@ -158,7 +157,7 @@ namespace Grid
             return go;
         }
 
-        private void HardRemoveFence(SideEnum sideEnum, NodeFence node)
+        private static void HardRemoveFence(SideEnum sideEnum, NodeFence node)
         {
             switch (sideEnum)
             {
@@ -204,7 +203,7 @@ namespace Grid
                     Right = false;
                     RightSizeRank = 0;
                 }
-             
+
             }
             else
             {
@@ -219,7 +218,7 @@ namespace Grid
                     Up = false;
                     UpSizeRank = 0;
                 }
-             
+
             }
             else
             {
@@ -230,12 +229,12 @@ namespace Grid
             {
                 if (!CheckNeighbour(0, -1, SideEnum.Down))
                 {
-                    
+
                     Destroy(DownGameObject);
                     Down = false;
                     DownSizeRank= 0;
                 }
-           
+
             }
             else
             {
@@ -243,12 +242,12 @@ namespace Grid
             }
         }
 
-  
+
         private bool CheckNeighbour(int x, int y, SideEnum side)
         {
             var neighBourNode = GridManager.Instance.GetNode(_nodeBehaviour.GridLocation.x + x, _nodeBehaviour.GridLocation.y + y);
             if (neighBourNode == null) return false;
-         
+
             switch (side)
             {
                 case SideEnum.Left:
@@ -290,7 +289,7 @@ namespace Grid
 
                     break;
                 case SideEnum.Down:
-                    
+
                     if (neighBourNode.GetNodeFence().Up)
                     {
                         if (neighBourNode.GetCurrentState() != NodeState.CurrentStateEnum.Empty)
@@ -322,8 +321,8 @@ namespace Grid
                                 LeftLocation,
                                 1
                             );
-                     
-                            
+
+
                         }
                         else
                         {
@@ -343,7 +342,7 @@ namespace Grid
                                 RightLocation,
                                 -1
                             );
-              
+
                         }
                         else
                         {
@@ -351,7 +350,7 @@ namespace Grid
                         }
                         Destroy(LeftGameObject);
                         nodeFence.RightGameObject.transform.parent = nodeFence.transform;
-                        
+
                         LeftGameObject = null;
                         Left = false;
                         LeftSizeRank = 0;
@@ -364,7 +363,7 @@ namespace Grid
                                 UpLocation,
                                 -1
                             );
-         
+
                         }
                         else
                         {
@@ -384,7 +383,7 @@ namespace Grid
                                 DownLocation,
                                 0
                             );
-              
+
                         }
                         else
                         {
@@ -400,7 +399,7 @@ namespace Grid
                         throw new ArgumentOutOfRangeException("side", side, null);
                 }
 
-                
+
             }
         }
     }

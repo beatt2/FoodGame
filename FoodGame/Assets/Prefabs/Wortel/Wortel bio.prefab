@@ -128,25 +128,14 @@ MonoBehaviour:
   Happiness: 5
   SizeRank: 2
   Upgrade: 0
-  UpgradeDuration: 12
+  UpgradeDuration: 4
   UpgradePrefabIndex: 15
   MonthCount: 0
   MyBuilding:
-    Name: Wortel bio
-    MoneyTick: 600
-    ExpenseTick: 200
-    MonthsToGrow: 2
     BuildPrice: 3200
-    UpgradeValue: 600
-    SpriteIndex: 16
-    SidePanelSpriteIndex: 13
-    EnviromentValue: 10
-    Happiness: 5
     SizeRank: 2
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 2
     MyCultivationState: 0
     FieldType: 1
   FirstRun: 0

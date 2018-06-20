@@ -2,16 +2,16 @@
 {
     public class FinanceEntry
     {
-        public string Name;
-        public float Income;
-        public float Expense;
-        
+        private string _name;
+        private float _income;
+        private float _expense;
+
 
         public FinanceEntry(string name, float income, float expense)
         {
-            Name = name;
-            Income = income;
-            Expense = expense;
+            _name = name;
+            _income = income;
+            _expense = expense;
         }
     }
 }

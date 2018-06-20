@@ -20,3 +20,4 @@ MonoBehaviour:
   InfluencePercentage: 10
   FieldType: 2
   OnlyOnFactory: 0
+  Duration: 5

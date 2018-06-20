@@ -17,7 +17,7 @@ namespace Save
 {
     public class SaveManager : Singleton<SaveManager>
     {
-        public DateTime StopTime;
+
 
         private SaveInfo _saveInfo;
         private SaveNodes[,] _saveNodes;
@@ -25,19 +25,18 @@ namespace Save
         private const string FilenameNode = "node";
         private const string ExtensionNode = "saveNode";
 
-        private string _filenameReview = "review";
-        private string _extensionReview = "saveReview";
+        private const string FilenameReview = "review";
+        private const string ExtensionReview = "saveReview";
 
-        private string _filenameMessage = "messages";
-        private string _extensionMessage = "saveMessage";
+        private const string FilenameMessage = "messages";
+        private const string ExtensionMessage = "saveMessage";
 
-        private string filenameTime = "time";
-        private string extensionTime = "saveTime";
+        private const string FilenameTime = "time";
+        private const string ExtensionTime = "saveTime";
 
         public Messages Messages;
         public ReviewMessages Reviews;
 
-        private bool _reset = false;
 
         [SerializeField] private Sprite[] _sprites;
 
@@ -53,15 +52,9 @@ namespace Save
         public void Reset()
         {
             File.Delete(GetPath(FilenameNode, ExtensionNode));
-            File.Delete(GetPath(filenameTime, extensionTime));
-            File.Delete(GetPath(_filenameMessage, _extensionMessage));
-            File.Delete(GetPath(_filenameReview, _extensionReview));
-            _reset = true;
-        }
-
-        public Sprite[] GetSprites()
-        {
-            return _sprites;
+            File.Delete(GetPath(FilenameTime, ExtensionTime));
+            File.Delete(GetPath(FilenameMessage, ExtensionMessage));
+            File.Delete(GetPath(FilenameReview, ExtensionReview));
         }
 
         public Sprite GetSprite(int index)
@@ -72,9 +65,9 @@ namespace Save
 
         private void LoadTime()
         {
-            if (File.Exists(GetPath(filenameTime, extensionTime)))
+            if (File.Exists(GetPath(FilenameTime, ExtensionTime)))
             {
-                _saveInfo = LoadFile<SaveInfo>(filenameTime, extensionTime);
+                _saveInfo = LoadFile<SaveInfo>(FilenameTime, ExtensionTime);
             }
             else
             {
@@ -119,7 +112,7 @@ namespace Save
         {
             if (value)
             {
-                MyNotificationManager.Instance.SetTutorialNotifications();
+                MyNotificationManager.SetTutorialNotifications();
             }
             _saveInfo.TutorialHasPlayed = value;
         }
@@ -164,7 +157,7 @@ namespace Save
             }
         }
 
-        public void SaveMiscFiles()
+        private void SaveMiscFiles()
         {
             int tempTrack = 0;
             for (int i = 0; i < SimpleMoneyManager.Instance.GetMoneyValueDict().Count; i++)
@@ -190,7 +183,7 @@ namespace Save
                 TimeManager.Instance.GetWaitForSeconds()
 
             );
-            SaveFiles(_saveInfo, filenameTime, extensionTime);
+            SaveFiles(_saveInfo, FilenameTime, ExtensionTime);
         }
 
         public float GetMoney()
@@ -203,33 +196,33 @@ namespace Save
             return _saveInfo.TotalAmountOfMoneyValues;
         }
 
-        public List<CultivationPrefabList> GetActiveCultivationPrefabLists()
-        {
-            return _saveInfo.ActiveCultivationPrefabLists;
-        }
+//        public List<CultivationPrefabList> GetActiveCultivationPrefabLists()
+//        {
+//            return _saveInfo.ActiveCultivationPrefabLists;
+//        }
 
         private void SaveMessagesAndReviews()
         {
             var tempMessagesSave = Messages.GetInboxInt();
             var tempReviewsSave = Reviews.GetInboxInt();
-            SaveFiles(tempMessagesSave, _filenameMessage, _extensionMessage);
-            SaveFiles(tempReviewsSave, _filenameReview, _extensionReview);
+            SaveFiles(tempMessagesSave, FilenameMessage, ExtensionMessage);
+            SaveFiles(tempReviewsSave, FilenameReview, ExtensionReview);
         }
 
         public void LoadMessagesAndReviews()
         {
-            if (File.Exists(GetPath(_filenameMessage, _extensionMessage)))
+            if (File.Exists(GetPath(FilenameMessage, ExtensionMessage)))
             {
-                var tempMessages = LoadFile<List<int>>(_filenameMessage, _extensionMessage);
+                var tempMessages = LoadFile<List<int>>(FilenameMessage, ExtensionMessage);
                 Messages.SetReadDictionary(_saveInfo.ReadDictionaryMessages);
 
                 Messages.SetInboxInt(tempMessages);
 
             }
 
-            if (File.Exists(GetPath(_filenameReview, _extensionReview)))
+            if (File.Exists(GetPath(FilenameReview, ExtensionReview)))
             {
-                var tempReviews = LoadFile<List<int>>(_filenameReview, _extensionReview);
+                var tempReviews = LoadFile<List<int>>(FilenameReview, ExtensionReview);
                 Reviews.SetReadDictionary(_saveInfo.ReadDictionaryReview);
                 Reviews.SetInboxInt(tempReviews);
 
@@ -237,7 +230,6 @@ namespace Save
         }
 
 
-        //REFACTOR
         private void SaveNodes()
         {
            int x = GridManager.Instance.GetNodeGrid().GetLength(0);
@@ -264,7 +256,8 @@ namespace Save
                              NodeState.CurrentStateEnum.Field)
                     {
                         tempGrid[i, j].GetComponent<PlantPrefab>().MyPlant.BuildPrice = 0;
-                        _saveNodes[i, j] = new SaveNodes(
+                        _saveNodes[i, j] = new SaveNodes
+                        (
                             tempGrid[i, j].GetListIndex(),
                             tempGrid[i, j].GetComponent<NodeState>().CurrentState,
                             tempGrid[i, j].GetComponent<NodeState>().FieldType,
@@ -315,7 +308,7 @@ namespace Save
             SaveFiles(_saveNodes, FilenameNode, ExtensionNode);
         }
 
-        //REFACTOR
+
         public NodeBehaviour[,] LoadNodes(NodeBehaviour[,] nodes)
         {
             if (!File.Exists(GetPath(FilenameNode, ExtensionNode))) return nodes;
@@ -436,12 +429,12 @@ namespace Save
             return _saveInfo.SaveMonth;
         }
 
-        public void SaveFiles<T>(T profile, string fileName, string extension)
+        private static void SaveFiles<T>(T profile, string fileName, string extension)
         {
             File.WriteAllBytes(GetPath(fileName, extension), SerializeDate(profile));
         }
 
-        public T LoadFile<T>(string filename, string extension)
+        private static T LoadFile<T>(string filename, string extension)
         {
             byte[] data = File.ReadAllBytes(GetPath(filename, extension));
             MemoryStream ms = new MemoryStream(data);

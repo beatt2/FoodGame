@@ -23,6 +23,8 @@ namespace Events
         public NodeState.FieldTypeEnum FieldType;
         public bool OnlyOnFactory;
 
+        public int Duration;
+
 
 
 

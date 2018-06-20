@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Appel fabriek
-  MoneyTick: 5600
+  MoneyTick: 560
   ExpenseTick: 100
   MonthsToGrow: 5
-  BuildingPrice: 50200
-  UpgradeValue: 5200
+  BuildingPrice: 5200
+  UpgradeValue: 520
   SpriteIndex: 17
   SidePanelSpriteIndex: 3
   MyCurrentState: 0
@@ -132,21 +132,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 1
   MonthCount: 0
   MyBuilding:
-    Name: Appel fabriek
-    MoneyTick: 5600
-    ExpenseTick: 100
-    MonthsToGrow: 5
     BuildPrice: 50200
-    UpgradeValue: 5200
-    SpriteIndex: 17
-    SidePanelSpriteIndex: 3
-    EnviromentValue: 2
-    Happiness: 3
     SizeRank: 3
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 7
     MyCultivationState: 0
     FieldType: 3
   FirstRun: 0

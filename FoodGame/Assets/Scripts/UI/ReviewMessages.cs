@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using Events;
 using MathExt;
 using Money;
-using Node;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-//TODO WOULD BE NICE TO REFACTOR
+// ReSharper disable once CheckNamespace
 namespace Events
 {
     public class ReviewMessages : MonoBehaviour
@@ -24,7 +21,7 @@ namespace Events
         private readonly List<GameObject> _go = new List<GameObject>();
 
 
-        private List<Reviews> _reviewsInInbox = new List<Reviews>();
+        private readonly List<Reviews> _reviewsInInbox = new List<Reviews>();
         private Dictionary<int, bool> _readDict = new Dictionary<int, bool>();
 
         public float Gap;
@@ -62,7 +59,22 @@ namespace Events
             Add(reviews.Headline, reviews.InfluencePercentage);
         }
 
-        public void Add(string headline, float percentage)
+        public void CheckReviewDuration()
+        {
+            foreach (var review in _reviewsInInbox)
+            {
+                if (review.Duration > 0)
+                {
+                    review.Duration--;
+                }
+                else
+                {
+                    SimpleMoneyManager.Instance.SetPercentage(review.FieldType, - review.InfluencePercentage);
+                }
+            }
+        }
+
+        private void Add(string headline, float percentage)
         {
             GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform);
             go.GetComponent<Image>().sprite = percentage > 0
@@ -90,11 +102,9 @@ namespace Events
             tempButton.onClick.AddListener(() => OnButtonClick(tempCount));
 
 
-            if (!_readDict.ContainsKey(tempCount))
-            {
-                _readDict.Add(tempCount, false);
-                Exclamation.SetActive(true);
-            }
+            if (_readDict.ContainsKey(tempCount)) return;
+            _readDict.Add(tempCount, false);
+            Exclamation.SetActive(true);
         }
 
         private void UpdateTextPos()
@@ -120,7 +130,7 @@ namespace Events
             _readDict = readDict;
         }
 
-        public void OnButtonClick(int index)
+        private void OnButtonClick(int index)
         {
             ChangeTextOnButton(index);
             _readDict[index] = true;
@@ -132,7 +142,7 @@ namespace Events
             PopupUi.SetActive(true);
         }
 
-        public void ChangeTextOnButton(int index)
+        private void ChangeTextOnButton(int index)
         {
             Reviewprefab reviewPrefab = _go[index - 1].GetComponent<Reviewprefab>();
             Reviews review = _reviewsInInbox[index -1];
@@ -181,11 +191,9 @@ namespace Events
         {
             for (int i = 0; i < inbox.Count; i++)
             {
-                if (!_reviewsInInbox.Contains(EventManager.Instance.Reviews[inbox[i]]))
-                {
-                    _reviewsInInbox.Add(EventManager.Instance.Reviews[inbox[i]]);
-                    Add(_reviewsInInbox[i].Headline, _reviewsInInbox[i].InfluencePercentage);
-                }
+                if (_reviewsInInbox.Contains(EventManager.Instance.Reviews[inbox[i]])) continue;
+                _reviewsInInbox.Add(EventManager.Instance.Reviews[inbox[i]]);
+                Add(_reviewsInInbox[i].Headline, _reviewsInInbox[i].InfluencePercentage);
 
             }
         }

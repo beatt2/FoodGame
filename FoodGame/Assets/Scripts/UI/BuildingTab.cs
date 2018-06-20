@@ -1,5 +1,4 @@
-﻿using System.Security.Policy;
-using Cultivations;
+﻿using Cultivations;
 using Grid;
 using Money;
 using UnityEngine;
@@ -7,21 +6,21 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class BuildingTab : MonoBehaviour 
+    public class BuildingTab : MonoBehaviour
     {
         public static Sprite StatBarFill;
         private BuildingPrefab [] _buildingPrefabs;
         private FarmButtons[] _farmButtons;
         public Text[] MonthTexts;
-        
+
         public bool BuildingTabActive = false;
 
         private float _highestPrice;
-        
+
 
         private void Start()
         {
-            
+
             GridManager.Instance.gameObject.GetComponent<Selection>().ToggleBuildPanel(true);
             var tempFarms = GridManager.Instance.BuildingPlacement.Farms;
             _buildingPrefabs = new BuildingPrefab[tempFarms.Length];
@@ -41,7 +40,7 @@ namespace UI
                 _buildingPrefabs[i].CustomAwake();
                 _farmButtons[i] = tempGameObjects[i].GetComponent<FarmButtons>();
                 SetButton(_farmButtons[i].GetComponent<Button>(), _buildingPrefabs[i]) ;
-                
+
             }
 
             //TODO FIX BUG
@@ -70,13 +69,13 @@ namespace UI
             float onePercent = _highestPrice / 100;
             int moneyValue =  prefab.MyBuilding.BuildPrice / (int)onePercent;
             int finalValue = moneyValue / 10;
-            for (int i = 0; i < finalValue; i++)    
+            for (int i = 0; i < finalValue; i++)
             {
                 statBar.Money[i].gameObject.SetActive(true);
             }
 
         }
-        
+
         private void Update()
         {
             if (!BuildingTabActive) return;
@@ -93,8 +92,8 @@ namespace UI
                 }
             }
         }
-        
-        
+
+
 
     }
 }

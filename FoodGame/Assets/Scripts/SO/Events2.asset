@@ -15,9 +15,8 @@ MonoBehaviour:
   Content: Steeds meer mensen worden bijziend. Dat blijkt uit een recent onderzoek.
     Ook blijkt dat wortels beter voor je ogen zijn dan voorheen gedacht en dat is
     zeker voordelig in de nabije toekomst.
-  Starts: {x: 5, y: 2019}
+  Starts: {x: 5, y: 2020}
   Finishes: {x: 9, y: 2026}
   FieldType: 1
   Type: 1
   InfluencePercentage: 5
-  Review: 0

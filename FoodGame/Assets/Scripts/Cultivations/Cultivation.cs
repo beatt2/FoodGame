@@ -1,8 +1,5 @@
-﻿
-using System;
+﻿using System;
 using Node;
-using UnityEditor;
-using UnityEngine;
 
 namespace Cultivations
 {
@@ -10,29 +7,23 @@ namespace Cultivations
     [Serializable]
     public abstract class Cultivation
     {
-        public string Name;
-        public int MoneyTick;// = value
-        public float ExpenseTick;
-        public int MonthsToGrow;
+        public readonly string Name;
+        public readonly int MoneyTick;// = value
+        public readonly float ExpenseTick;
+        public readonly int MonthsToGrow;
         public int BuildPrice;
-        //Going to be multiple values
-        public int UpgradeValue;
-        public int SpriteIndex;
-        public int SidePanelSpriteIndex;
-        public int EnviromentValue;
-        public int Happiness;
+        public readonly int UpgradeValue;
+        public readonly int SpriteIndex;
+        public readonly int SidePanelSpriteIndex;
+        public readonly int EnviromentValue;
+        public readonly int Happiness;
         public int SizeRank;
         public int MonthCount;
-        public bool Upgrade;
+        public readonly bool Upgrade;
         public int UpgradeDuration;
-        public int UpgradePrefabIndex;
-
-
-
-
+        public readonly int UpgradePrefabIndex;
         public NodeState.CurrentStateEnum MyCultivationState;
         public NodeState.FieldTypeEnum FieldType;
-
 
         protected Cultivation
         (

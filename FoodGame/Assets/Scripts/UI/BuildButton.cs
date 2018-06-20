@@ -1,13 +1,11 @@
 ﻿using Grid;
-using UnityEngine;
 
 namespace UI
 {
-    public class BuildButton : UIButtonAbstract
+    public class BuildButton : UiButtonAbstract
     {
-        public GameObject BuildLayer;
         public Selection MySelection;
-        
+
         protected override void Awake()
         {
             base.Awake();
@@ -18,10 +16,10 @@ namespace UI
         {
             MySelection.ToggleBuildPanel(true);
         }
-        
 
-     
-        
+
+
+
 
     }
 }

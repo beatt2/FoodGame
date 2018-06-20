@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security.Policy;
-using Tools;
+﻿using Tools;
 using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager>

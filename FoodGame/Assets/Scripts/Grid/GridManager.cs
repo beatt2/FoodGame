@@ -17,10 +17,9 @@ namespace Grid
         private int _gridSizeY;
         public GridMaker MyGridMaker;
         private NodeBehaviour _selectedNode;
-        private bool sort = false;
         private int _selectionSize = 1;
         private int _totalEntries;
-        private bool _inSelectionState = false;
+        private bool _inSelectionState;
 
         private Selection _selection;
 
@@ -44,11 +43,7 @@ namespace Grid
             _gridSizeY = MyGridMaker.Size.y;
             _totalEntries = _gridSizeX * _gridSizeY;
 
-
-
         }
-
-
 
         public NodeBehaviour[,] GetNodeGrid()
         {
@@ -93,8 +88,6 @@ namespace Grid
 
         public void SetCultivationDictionary(Dictionary<int,List<NodeBehaviour>> nodes)
         {
-
-
             _cultivationLocationList = nodes;
         }
 
@@ -158,7 +151,6 @@ namespace Grid
 
                 _nodeBehavioursGrid[_selectedNode.GridLocation.x, _selectedNode.GridLocation.y].GetNodeFence().SetLocation(0);
             }
-
             if (CheckGridForNull(0, -1))
             {
                 if (CheckGridForBuildSpace(0, -1))
@@ -169,7 +161,6 @@ namespace Grid
                 }
 
             }
-
             if (CheckGridForNull(1, -1))
             {
                 if (CheckGridForBuildSpace(1, -1))
@@ -205,12 +196,12 @@ namespace Grid
 
         }
 
-        public int GridSizeY()
+        private int GridSizeY()
         {
             return _nodeBehavioursGrid.GetLength(1);
         }
 
-        public int GridSizeX()
+        private int GridSizeX()
         {
             return _nodeBehavioursGrid.GetLength(0);
         }
@@ -299,10 +290,9 @@ namespace Grid
             if (_selectedNode == null || _selectionSize == 4) return;
             ChangeColorsToOld();
             _selectedNode = null;
-
         }
 
-        public void SetTilesToAlpha(bool value)
+        private void SetTilesToAlpha(bool value)
         {
             foreach (var node in _nodeBehavioursGrid)
             {
@@ -382,11 +372,9 @@ namespace Grid
             //if (_selectionSize != 4) return;
             foreach (var node in _nodeBehavioursGrid)
             {
-                if (node.IsSelected())
-                {
-                    node.HighLight.ChangeColorToOld();
-                    node.GetNodeFence().SetLocation(-1);
-                }
+                if (!node.IsSelected()) continue;
+                node.HighLight.ChangeColorToOld();
+                node.GetNodeFence().SetLocation(-1);
             }
         }
 
@@ -459,28 +447,6 @@ namespace Grid
             SetTilesToAlpha(false);
             _inSelectionState = false;
             ChangeColorsToBlue();
-        }
-
-
-
-
-        private void Update()
-        {
-#if UNITY_EDITOR
-//            if (!Input.GetMouseButtonDown(0)) return;
-//            if (!EventSystem.current.IsPointerOverGameObject())
-//            {
-//                SetNodeToNull();
-//            }
-#endif
-//#if UNITY_ANDROID && !UNITY_EDITOR
-//
-//            if(Input.GetTouch(0).fingerId)
-//            if (!EventSystem.current.IsPointerOverGameObject())
-//            {
-//                SetNodeToNull();
-//            }
-//#endif
         }
     }
 }

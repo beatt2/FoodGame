@@ -10,10 +10,11 @@ namespace Money
     {
         public GameObject FinanceUi;
         public Finance FinanceScript;
-        private bool _opened = false;
+        private bool _opened;
+
+
         public void CloseFinanceMenu()
         {
-            //EventManager.Instance.InEventMenu = false;
             FinanceUi.SetActive(false);
             TimeManager.Instance.InFinanceMenu = false;
             FinanceScript.RemoveText();
@@ -22,18 +23,12 @@ namespace Money
 
         public void OpenFinanceMenu()
         {
-            
             FinanceUi.SetActive(true);
-           // EventManager.Instance.InEventMenu = true;
             TimeManager.Instance.InFinanceMenu = true;
-            
-            if (!_opened)
-            {
-                FinanceScript.CheckForText();
-                _opened = true;
-            }
-            
-            
+
+            if (_opened) return;
+            FinanceScript.CheckForText();
+            _opened = true;
 
         }
     }

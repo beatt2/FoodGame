@@ -21,44 +21,40 @@ namespace Events
         public GameObject HeadlineUi;
         public GameObject KanskaartUi;
         public GameObject KanskaartPopup;
-        public GameObject ExclamationMark;
-        public GameObject ExclamationMarkReview;
 
 
-        public Sprite[] Sprites;
         public Text KanskaartText;
         public Text RewardKansKaart;
         public Text PercentageKansKaart;
         public GameObject Ui;
-        public bool InEventMenu = false;
 
         private bool _eventOnGoing;
 
         private float _percentageEvent = 0;
         private string _name;
+
         public Messages MessageScript;
         public ReviewMessages ReviewScript;
-        public bool InMenu = false;
+
+        public bool InMenu;
 
 
         public Sprite[] ReviewBackgroundNegative;
         public Sprite[] ReviewBackgroundPositive;
         public Sprite[] MessageBackground;
+
         private Image _headlineUiImage;
-        private bool _inKanskaartMenu = false;
+        private bool _inKanskaartMenu;
         private readonly List<Kanskaarten> _actieveKanskaarten = new List<Kanskaarten>();
 
-        private Dictionary<NodeState.FieldTypeEnum, int> _enviromentalValues =
-            new Dictionary<NodeState.FieldTypeEnum, int>();
+        private readonly Dictionary<NodeState.FieldTypeEnum, int> _enviromentalValues = new Dictionary<NodeState.FieldTypeEnum, int>();
 
-        private Dictionary<NodeState.FieldTypeEnum, int> _happinessValues =
-            new Dictionary<NodeState.FieldTypeEnum, int>();
+        private readonly Dictionary<NodeState.FieldTypeEnum, int> _happinessValues = new Dictionary<NodeState.FieldTypeEnum, int>();
 
+        private bool _reviewCurrentlyActive;
 
-        public float GetInfluence()
-        {
-            return _percentageEvent;
-        }
+        public MessageButton MyMessageButton;
+        public MessageButton MyReviewButton;
 
         protected override void Awake()
         {
@@ -66,11 +62,11 @@ namespace Events
             _headlineUiImage = HeadlineUi.GetComponent<Image>();
         }
 
-
         public void CheckDate(int month, int year)
         {
             SetMessageScreen(month, year);
             SetKansKaart(month, year);
+            MessageScript.CheckDuration(month, year);
         }
 
         public void AddEnviromentValue(NodeState.FieldTypeEnum fieldType, int value)
@@ -113,21 +109,21 @@ namespace Events
 
         private void CheckEnviromentValue()
         {
-            for (int i = 0; i < Reviews.Length; i++)
+            foreach (var review in Reviews)
             {
-                if (Reviews[i].Enviromental)
+                if (review.Enviromental)
                 {
                     for (int j = 0; j < _enviromentalValues.Count; j++)
                     {
-                        if (Reviews[i].EffectValue != _enviromentalValues.ElementAt(j).Value) continue;
-                        if (Reviews[i].OnlyOnFactory) continue;
-                        if (Reviews[i].Insert)
+                        if (review.EffectValue != _enviromentalValues.ElementAt(j).Value) continue;
+                        if (review.OnlyOnFactory) continue;
+                        if (review.Insert)
                         {
-                            SetReviews(Reviews[i], _enviromentalValues.ElementAt(j).Key);
+                            SetReviews(review, _enviromentalValues.ElementAt(j).Key);
                         }
                         else
                         {
-                            SetReviews(Reviews[i]);
+                            SetReviews(review);
                         }
 
                     }
@@ -136,33 +132,29 @@ namespace Events
                 {
                     for (int j = 0; j < _enviromentalValues.Count; j++)
                     {
-                        if (Reviews[i].EffectValue != _enviromentalValues.ElementAt(j).Value) continue;
-                        if (Reviews[i].OnlyOnFactory) continue;
-                        if (Reviews[i].Insert)
+                        if (review.EffectValue != _enviromentalValues.ElementAt(j).Value) continue;
+                        if (review.OnlyOnFactory) continue;
+                        if (review.Insert)
                         {
-                            SetReviews(Reviews[i], _enviromentalValues.ElementAt(j).Key);
+                            SetReviews(review, _enviromentalValues.ElementAt(j).Key);
                         }
                         else
                         {
-                            SetReviews(Reviews[i]);
+                            SetReviews(review);
                         }
                     }
                 }
-
             }
         }
 
         public void AddFactoryReview()
         {
-            for (int i = 0; i < Reviews.Length; i++)
+            foreach (var review in Reviews)
             {
-                if (Reviews[i].OnlyOnFactory)
-                {
-                    SetReviews(Reviews[i]);
-                    Reviews[i].OnlyOnFactory = false;
-                    return;
-
-                }
+                if (!review.OnlyOnFactory) continue;
+                SetReviews(review);
+                review.OnlyOnFactory = false;
+                return;
             }
         }
 
@@ -186,17 +178,15 @@ namespace Events
         }
 
 
-        public void SetKansKaart(int month, int year)
+        private void SetKansKaart(int month, int year)
         {
-            for (int i = 0; i < KansKaartenArray.Length; i++)
+            foreach (var kansKaart in KansKaartenArray)
             {
-                if (KansKaartenArray[i].Starts == new Vector2Int(month, year))
+                if (kansKaart.Starts != new Vector2Int(month, year)) continue;
+                _actieveKanskaarten.Add(kansKaart);
+                if (!_inKanskaartMenu)
                 {
-                    _actieveKanskaarten.Add(KansKaartenArray[i]);
-                    if (!_inKanskaartMenu)
-                    {
-                        ActivateCard();
-                    }
+                    ActivateCard();
                 }
             }
         }
@@ -220,7 +210,7 @@ namespace Events
             }
         }
 
-        //REFACTOR
+
         private void SetEffect()
         {
             KanskaartText.text = _actieveKanskaarten[0].Headline;
@@ -229,30 +219,24 @@ namespace Events
 
             if (_actieveKanskaarten[0].InfluencePercentage < 0)
             {
-                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,
-                    _actieveKanskaarten[0].InfluencePercentage);
-                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " - " +
-                                   _actieveKanskaarten[0].InfluencePercentage + "%";
+                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType, _actieveKanskaarten[0].InfluencePercentage);
+                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " - " +_actieveKanskaarten[0].InfluencePercentage + "%";
             }
             else if (_actieveKanskaarten[0].InfluencePercentage > 0)
             {
-                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,
-                    _actieveKanskaarten[0].InfluencePercentage);
-                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +
-                                   _actieveKanskaarten[0].InfluencePercentage + "%";
+                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,_actieveKanskaarten[0].InfluencePercentage);
+                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +_actieveKanskaarten[0].InfluencePercentage + "%";
             }
 
             if (_actieveKanskaarten[0].Reward > 0)
             {
                 SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
-                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +
-                               _actieveKanskaarten[0].Reward + " gold";
+                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +_actieveKanskaarten[0].Reward + " gold";
             }
             else if (_actieveKanskaarten[0].Reward < 0)
             {
                 SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
-                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + _actieveKanskaarten[0].Reward +
-                               " gold";
+                 effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + _actieveKanskaarten[0].Reward +" gold";
             }
 
             PercentageKansKaart.text = effectPercentage;
@@ -270,66 +254,71 @@ namespace Events
 
             for (int i = 0; i < EventsArray.Length; i++)
             {
-                if (EventsArray[i].Starts == new Vector2Int(month, year))
+                if (EventsArray[i].Starts != new Vector2Int(month, year)) continue;
+                if (!MessageScript.NotInInbox(EventsArray[i])) continue;
+                StopCoroutine("UiTimer");
+
+                MessageScript.AddEvent(EventsArray[i]);
+                SoundManager.Instance.PlayMessageSound();
+                if (!InMenu)
                 {
-                    if (!MessageScript.NotInInbox(EventsArray[i])) continue;
-                    StopCoroutine("UiTimer");
-                    MessageScript.AddEvent(EventsArray[i]);
-                    SoundManager.Instance.PlayMessageSound();
-                    if (!InMenu)
-                    {
-                        HeadlineUi.SetActive(true);
-                        _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 06
-                            ? MessageBackground[1]
-                            : MessageBackground[0];
-                    }
-
-                    StartCoroutine("UiTimer");
-                    SetText(i);
-
-                    SimpleMoneyManager.Instance.SetPercentage(EventsArray[i].FieldType,
-                        EventsArray[i].InfluencePercentage);
-
-
-
-
+                    HeadlineUi.SetActive(true);
+                    _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 06
+                        ? MessageBackground[1]
+                        : MessageBackground[0];
                 }
+                _reviewCurrentlyActive = false;
+                StartCoroutine("UiTimer");
+                SetText(i);
+
+                SimpleMoneyManager.Instance.SetPercentage(EventsArray[i].FieldType,
+                    EventsArray[i].InfluencePercentage);
             }
         }
 
-        public void SetReviews(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
+        private void SetReviews(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
         {
             StartCoroutine(SetReviewsIE(review,fieldType));
         }
 
         private IEnumerator SetReviewsIE(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
         {
-            if (ReviewScript.NotInInbox(review))
+            if (!ReviewScript.NotInInbox(review)) yield break;
+            yield return new WaitForSeconds(Random.Range(4,25));
+            StopCoroutine("UiTimer");
+            _reviewCurrentlyActive = true;
+            SetText(review);
+            SoundManager.Instance.PlayMessageSound();
+            if (fieldType!= NodeState.FieldTypeEnum.Nothing)
             {
-                yield return new WaitForSeconds(Random.Range(4,25));
-                StopCoroutine("UiTimer");
-                SetText(review);
-                SoundManager.Instance.PlayMessageSound();
-                if (fieldType!= NodeState.FieldTypeEnum.Nothing)
-                {
-                    review.FieldType = fieldType;
-                }
-                ReviewScript.AddReview(review);
-                if (!InMenu)
-                {
-                    HeadlineUi.SetActive(true);
-                    _headlineUiImage.sprite = review.InfluencePercentage > 0
-                        ? ReviewBackgroundPositive.GetRandom_Array()
-                        : ReviewBackgroundNegative.GetRandom_Array();
-                }
-                SimpleMoneyManager.Instance.SetPercentage(review.FieldType, review.InfluencePercentage);
-                StartCoroutine("UiTimer");
+                review.FieldType = fieldType;
             }
-
-
+            ReviewScript.AddReview(review);
+            if (!InMenu)
+            {
+                HeadlineUi.SetActive(true);
+                _headlineUiImage.sprite = review.InfluencePercentage > 0
+                    ? ReviewBackgroundPositive.GetRandom_Array()
+                    : ReviewBackgroundNegative.GetRandom_Array();
+            }
+            SimpleMoneyManager.Instance.SetPercentage(review.FieldType, review.InfluencePercentage);
+            StartCoroutine("UiTimer");
 
         }
 
+        public void OnMessageClick()
+        {
+            if (_reviewCurrentlyActive)
+            {
+                MyReviewButton.OpenMessages();
+            }
+            else
+            {
+                MyMessageButton.OpenMessages();
+            }
+            HeadlineUi.SetActive(false);
+
+        }
 
 
 
@@ -339,19 +328,14 @@ namespace Events
             HeadlineUi.SetActive(false);
         }
 
-        public void SetText(int whichevent)
+        private void SetText(int whichevent)
         {
             Headline.text = EventsArray[whichevent].Headline;
         }
-        public void SetText(Reviews review)
+
+        private void SetText(Reviews review)
         {
             Headline.text = review.Headline;
-        }
-
-
-        public void SetTextEnded(int whichevent)
-        {
-            Headline.text = "is gestopt";
         }
     }
 }

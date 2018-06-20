@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Tomaten fabriek
-  MoneyTick: 6000
+  MoneyTick: 600
   ExpenseTick: 100
   MonthsToGrow: 4
-  BuildingPrice: 58000
-  UpgradeValue: 5500
+  BuildingPrice: 5800
+  UpgradeValue: 550
   SpriteIndex: 9
   SidePanelSpriteIndex: 6
   MyCurrentState: 0
@@ -132,21 +132,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 13
   MonthCount: 0
   MyBuilding:
-    Name: Tomaten fabriek
-    MoneyTick: 6000
-    ExpenseTick: 100
-    MonthsToGrow: 4
     BuildPrice: 58000
-    UpgradeValue: 5500
-    SpriteIndex: 9
-    SidePanelSpriteIndex: 6
-    EnviromentValue: 2
-    Happiness: 3
     SizeRank: 3
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 11
     MyCultivationState: 0
     FieldType: 5
   FirstRun: 0

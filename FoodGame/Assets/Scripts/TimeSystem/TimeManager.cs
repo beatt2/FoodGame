@@ -21,18 +21,18 @@ namespace TimeSystem
         public Finance FinanceScript;
 
         public int WaitForSeconds;
-        public bool InFinanceMenu = false;
+        public bool InFinanceMenu;
 
         private int _totalAddedMonths;
 
         private int _savedWaitForSeconds;
 
-         
-        
+
+
 
         public void Start()
         {
-            
+
             StopAllCoroutines();
             CalculateNewTime();
             SaveManager.Instance.LoadMessagesAndReviews();
@@ -42,9 +42,9 @@ namespace TimeSystem
                 _savedWaitForSeconds = WaitForSeconds;
 
             }
-    
+
             StartCoroutine("Timer");
-    
+
         }
 
         public void OnPlayButton()
@@ -58,9 +58,9 @@ namespace TimeSystem
         {
             return WaitForSeconds != _savedWaitForSeconds;
         }
-        
 
-        public void SetWaitForSeconds(int value)
+
+        private void SetWaitForSeconds(int value)
         {
             WaitForSeconds = value;
         }
@@ -103,11 +103,11 @@ namespace TimeSystem
         {
             var moneyValues = SimpleMoneyManager.Instance.GetMoneyValueDict();
             float tempTotal =0;
-            
+
             for (int i = 0; i < _totalAddedMonths; i++)
             {
                 CultivationManager.Instance.MonthlyTick();
-       
+
                 for (int j = 0; j < moneyValues.Keys.Count; j++)
                 {
                     foreach (var t in moneyValues.ElementAt(j).Value)
@@ -116,26 +116,26 @@ namespace TimeSystem
                         {
                             tempTotal += t.Income;
                             t.MonthCount = 0;
-                            t.MyCultivation.MonthCount = t.MonthCount;                           
+                            t.MyCultivation.MonthCount = t.MonthCount;
                         }
                         else
                         {
-                            t.MonthCount++;                 
+                            t.MonthCount++;
                         }
 
                     }
 
-                   
+
                     float percentage = 0;
                     if(SimpleMoneyManager.Instance.GetPercentageValues().ContainsKey(moneyValues.ElementAt(j).Key))
                     {
                         percentage = tempTotal / 100  * SimpleMoneyManager.Instance.GetPercentageValues().ElementAt(j).Value;
-                        
+
                     }
                     SimpleMoneyManager.Instance.AddMoney(tempTotal + percentage);
                 }
             }
-       
+
         }
 
         public int GetMonth()

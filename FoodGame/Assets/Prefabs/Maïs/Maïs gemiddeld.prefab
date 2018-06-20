@@ -128,13 +128,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "Ma\xEFs gemiddeld"
-  MoneyTick: 1200
-  ExpenseTick: 200
+  MoneyTick: 120
+  ExpenseTick: 20
   MonthsToGrow: 3
   BuildingPrice: 7000
   UpgradeValue: 1000
   SpriteIndex: 19
-  SidePanelSpriteIndex: 11
+  SidePanelSpriteIndex: 18
   MyCurrentState: 0
   MyFieldType: 0
   EnviromentValue: 5
@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 11
   MonthCount: 0
   MyBuilding:
-    Name: "Ma\xEFs gemiddeld"
-    MoneyTick: 1200
-    ExpenseTick: 200
-    MonthsToGrow: 3
     BuildPrice: 7000
-    UpgradeValue: 1000
-    SpriteIndex: 19
-    SidePanelSpriteIndex: 11
-    EnviromentValue: 5
-    Happiness: 10
     SizeRank: 1
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 14
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

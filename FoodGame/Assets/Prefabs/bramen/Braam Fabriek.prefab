@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 4
   MonthCount: 0
   MyBuilding:
-    Name: Bramen fabriek
-    MoneyTick: 700
-    ExpenseTick: 50
-    MonthsToGrow: 1
     BuildPrice: 5200
-    UpgradeValue: 700
-    SpriteIndex: 6
-    SidePanelSpriteIndex: 4
-    EnviromentValue: 2
-    Happiness: 3
     SizeRank: 3
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 8
     MyCultivationState: 0
     FieldType: 4
   FirstRun: 0

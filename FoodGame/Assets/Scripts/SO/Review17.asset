@@ -19,5 +19,6 @@ MonoBehaviour:
   Enviromental: 1
   EffectValue: 20
   InfluencePercentage: -10
-  FieldType: 2
+  FieldType: 1
   OnlyOnFactory: 0
+  Duration: 5

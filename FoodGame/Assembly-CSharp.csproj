@@ -68,7 +68,6 @@
     <Compile Include="Assets\Scripts\Events\EventManager.cs" />
     <Compile Include="Assets\Scripts\Events\Events.cs" />
     <Compile Include="Assets\Scripts\Events\MessageButton.cs" />
-    <Compile Include="Assets\Scripts\Events\MessageEntry.cs" />
     <Compile Include="Assets\Scripts\Events\MessagePrefab.cs" />
     <Compile Include="Assets\Scripts\Events\Messages.cs" />
     <Compile Include="Assets\Scripts\Events\Popup.cs" />
@@ -92,7 +91,6 @@
     <Compile Include="Assets\Scripts\Money\Row.cs" />
     <Compile Include="Assets\Scripts\Money\SimpleMoneyManager.cs" />
     <Compile Include="Assets\Scripts\Mouse.cs" />
-    <Compile Include="Assets\Scripts\Node\Fences.cs" />
     <Compile Include="Assets\Scripts\Node\HighLight.cs" />
     <Compile Include="Assets\Scripts\Node\NodeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Node\NodeManager.cs" />
@@ -101,7 +99,6 @@
     <Compile Include="Assets\Scripts\Save\SaveInfo.cs" />
     <Compile Include="Assets\Scripts\Save\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Save\SaveNodes.cs" />
-    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\TimeSystem\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Tools\MathExt.cs" />
@@ -111,7 +108,6 @@
     <Compile Include="Assets\Scripts\Tutorial\TutorialScript.cs" />
     <Compile Include="Assets\Scripts\UI\BuildButton.cs" />
     <Compile Include="Assets\Scripts\UI\BuildingTab.cs" />
-    <Compile Include="Assets\Scripts\UI\EventMessages.cs" />
     <Compile Include="Assets\Scripts\UI\FarmButtons.cs" />
     <Compile Include="Assets\Scripts\UI\IButtonInteractable.cs" />
     <Compile Include="Assets\Scripts\UI\OkayButton.cs" />
@@ -120,8 +116,8 @@
     <Compile Include="Assets\Scripts\UI\SelectionButton.cs" />
     <Compile Include="Assets\Scripts\UI\SidePanel.cs" />
     <Compile Include="Assets\Scripts\UI\StatBar.cs" />
+    <Compile Include="Assets\Scripts\UI\TabCloser.cs" />
     <Compile Include="Assets\Scripts\UI\TopBar.cs" />
-    <Compile Include="Assets\Scripts\UI\UIButton.cs" />
     <Compile Include="Assets\Scripts\UI\UIButtonAbstract.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeEntry.cs" />
     <Compile Include="Assets\Scripts\UI\UpgradeTab.cs" />

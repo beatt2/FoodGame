@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Save;
-using UI;
+﻿using Save;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,7 +40,7 @@ namespace Tutorial
 
         }
 
-        
+
         //REFACTOR
         public void OnButtonClick()
         {
@@ -53,7 +50,7 @@ namespace Tutorial
                 case 1:
                     TutorialText.text = Tutorials[Index].Text;
                     Arrows[Index - 1].SetActive(true);
-                    
+
                     break;
                 case 2:
                     TutorialText.text = Tutorials[Index].Text;
@@ -101,7 +98,7 @@ namespace Tutorial
 
                 Arrows[3].SetActive(false);
             }
-            
+
         }
 
         public void OnClickBuilding()
@@ -111,9 +108,9 @@ namespace Tutorial
                 Index++;
                 TutorialText.text = Tutorials[Index].Text;
             }
-            
 
-            
+
+
         }
 
         public void OnClickConfirmPlacement()
@@ -123,7 +120,7 @@ namespace Tutorial
             {
                 Index++;
                 TutorialText.text = Tutorials[Index].Text;
-            }       
+            }
         }
 
         public void OnClickBuildingPlacement()
@@ -145,7 +142,7 @@ namespace Tutorial
             }
         }
 
-        
+
 
         public void OnClickBuyField()
         {
@@ -153,17 +150,21 @@ namespace Tutorial
             {
                 Index++;
                 TutorialText.text = Tutorials[Index].Text;
-                
+
 
 
             }
         }
         public void OnUpgrade()
         {
-            Arrows[6].SetActive(false);
-            TutorialBg.SetActive(false);
-            _tutorialFinished = true;
-            SaveManager.Instance.SetTutorialBool(true);
+            if (!SaveManager.Instance.GetTutorialBool())
+            {
+                Arrows[6].SetActive(false);
+                TutorialBg.SetActive(false);
+                _tutorialFinished = true;
+                SaveManager.Instance.SetTutorialBool(true);
+            }
+
         }
         public void SkipTutorial()
         {

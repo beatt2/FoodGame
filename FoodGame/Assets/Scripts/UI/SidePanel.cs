@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using Cultivations;
 using Grid;
@@ -20,6 +21,7 @@ namespace UI
         public Text ExpenseTickText;
         public Text HappinessText;
         public Text EnviromentalText;
+        public Text MonthsToGrow;
 
 
         private PanelLerp _panelLerp;
@@ -47,7 +49,11 @@ namespace UI
 
         private void Update()
         {
+            if (_currentCultivation != null)
+            {
+                MonthsToGrow.text = "Groeitijd: " + _currentCultivation.MonthCount + "/" + _currentCultivation.MonthsToGrow ;
 
+            }
         }
 
         public void TogglePannel()
@@ -77,7 +83,7 @@ namespace UI
             MyImage.sprite = SidePanelIcons[cultivation.SidePanelSpriteIndex];
             if (!cultivation.Upgrade)
             {
-                UpgradeText.text = "Upgrade prijs = " + cultivation.UpgradeValue;
+                UpgradeText.text = "Upgrade = " + cultivation.UpgradeValue;
             }
             else
             {
@@ -86,13 +92,15 @@ namespace UI
 
             if (cultivation.MyCultivationState == NodeState.CurrentStateEnum.EmptyField)
             {
-                UpgradeText.text = "Upgrade prijs = " + UglyHiddenBoi();
+                UpgradeText.text = "Upgrade = " + UglyHiddenBoi();
             }
 
             MoneyTickText.text = "Inkomsten: " + cultivation.MoneyTick;
             ExpenseTickText.text = "Kosten: " + cultivation.ExpenseTick;
-            HappinessText.text = "Opinie: " + cultivation.Happiness;
+            HappinessText.text = "Populariteit: " + cultivation.Happiness;
             EnviromentalText.text = "Biologisch: " + cultivation.EnviromentValue;
+            MonthsToGrow.text = "Groeitijd: " + _currentCultivation.MonthCount + "/" + _currentCultivation.MonthsToGrow ;
+
             //UpgradeButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.Field;
             KillButton.interactable = cultivation.MyCultivationState != NodeState.CurrentStateEnum.EmptyField;
         }
@@ -294,10 +302,9 @@ namespace UI
                 case NodeState.CurrentStateEnum.Farm:
                     if (!_currentCultivation.Upgrade)
                     {
-                        GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
                         TutorialScript.OnUpgrade();
+                        GridManager.Instance.BuildingPlacement.UpgradeFarm(_currentCultivation.UpgradePrefabIndex);
                     }
-
                     else
                     {
                         Debug.Log("Already upgraded");
@@ -335,7 +342,7 @@ namespace UI
 
         public void OnKillConfirm()
         {
-            GridManager.Instance.BuildingPlacement.RemoveTiles(GridManager.Instance.GetSelectedNode());
+            BuildingPlacement.RemoveTiles(GridManager.Instance.GetSelectedNode());
             DestroyPanel.SetActive(false);
         }
     }

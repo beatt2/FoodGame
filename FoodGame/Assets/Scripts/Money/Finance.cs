@@ -77,37 +77,32 @@ namespace Money
             for (int i = 0; i < SimpleMoneyManager.Instance.GetMoneyValueDict().Keys.Count; i++)
             {
                 var tempMoneyDict = SimpleMoneyManager.Instance.GetMoneyValueDict().ElementAt(i);
-                var  tempMoneyValues = SimpleMoneyManager.Instance.GetIncomeExpenseAndPercentage(tempMoneyDict.Key);
-                AddText(GetName(tempMoneyDict.Key),  tempMoneyValues[0],  tempMoneyValues[1],  tempMoneyValues[2]);
-             }
+                var tempMoneyValues = SimpleMoneyManager.Instance.GetIncomeExpenseAndPercentage(tempMoneyDict.Key);
+                AddText(GetName(tempMoneyDict.Key), tempMoneyValues[0], tempMoneyValues[1], tempMoneyValues[2]);
+            }
         }
 
-        public void AddText(string name, float income, float expense, float eventPercentage)
+        private void AddText(string myName, float income, float expense, float eventPercentage)
         {
-            _financeTexts.Add(new FinanceEntry(name, income, expense));
-            GameObject go = Instantiate(RowPrefab, _currentpos.position, Quaternion.identity, Content.transform) as GameObject;
+            _financeTexts.Add(new FinanceEntry(myName, income, expense));
+            GameObject go = Instantiate(RowPrefab, _currentpos.position, Quaternion.identity, Content.transform);
             _go.Add(go);
-            _currentpos.position =  new Vector3(_currentpos.position.x, _currentpos.position.y + Gap, _currentpos.position.z);
-            ChangeText(go, name, income, expense, eventPercentage);
+            _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y + Gap, _currentpos.position.z);
+            ChangeText(go, myName, income, expense, eventPercentage);
         }
 
-        private float CalculatePercentage(float percentageAmount, float income)
+        private static float CalculatePercentage(float percentageAmount, float income)
         {
             float eventPercentage = percentageAmount / 100;
             float eventChange = income * eventPercentage;
-
-
-            //float eventAmount = 100 / income * eventChange;
-            //eventAmount = Mathf.Round(eventAmount * 100) / 100;
-
-Debug.Log(eventChange);
+            Debug.Log(eventChange);
             return eventChange;
         }
 
-        private void ChangeText(GameObject go, string name, float income, float expense, float percentage)
+        private void ChangeText(GameObject go, string myName, float income, float expense, float percentage)
         {
             Row row = go.GetComponent<Row>();
-            row.Name.text = name;
+            row.Name.text = myName;
             row.Income.text = income.ToString();
             row.Expense.text = expense.ToString();
 
@@ -128,19 +123,8 @@ Debug.Log(eventChange);
         private float UpdateTotalAmount(float amount)
         {
             _totalAmount += amount;
-
-
-            if (_totalAmount > 0)
-            {
-                TotalAmountText.color = new Color(0, 0.5f, 0);
-            }
-            else
-            {
-                TotalAmountText.color = new Color(1, 0, 0);
-            }
-
-
-            return _totalAmount;
+            TotalAmountText.color = _totalAmount > 0 ? new Color(0, 0.5f, 0) : new Color(1, 0, 0);
+              return _totalAmount;
         }
 
         public void RemoveText()
@@ -149,7 +133,6 @@ Debug.Log(eventChange);
             {
                 _currentpos.position = new Vector3(_currentpos.position.x, _currentpos.position.y - Gap,
                     _currentpos.position.z);
-                //_currentpos = StartingPos;
             }
 
             _financeTexts.Clear();
@@ -162,17 +145,15 @@ Debug.Log(eventChange);
             _go.Clear();
         }
 
-
         public void UpdateText()
         {
             _totalAmount = 0;
             for (int i = 0; i < _financeTexts.Count; i++)
             {
                 var tempMoneyDict = SimpleMoneyManager.Instance.GetMoneyValueDict().ElementAt(i);
-                var  tempMoneyValues = SimpleMoneyManager.Instance.GetIncomeExpenseAndPercentage(tempMoneyDict.Key);
-                ChangeText(_go[i], GetName(tempMoneyDict.Key),tempMoneyValues[0], tempMoneyValues[1],  tempMoneyValues[2]);
+                var tempMoneyValues = SimpleMoneyManager.Instance.GetIncomeExpenseAndPercentage(tempMoneyDict.Key);
+                ChangeText(_go[i], GetName(tempMoneyDict.Key), tempMoneyValues[0], tempMoneyValues[1], tempMoneyValues[2]);
             }
-
         }
     }
 }

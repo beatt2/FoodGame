@@ -22,7 +22,7 @@ namespace Events
         private readonly List<GameObject> _go = new List<GameObject>();
 
 
-        private List<Events> _eventsInInbox = new List<Events>();
+        private readonly List<Events> _eventsInInbox = new List<Events>();
         private Dictionary<int, bool> _readDict = new Dictionary<int, bool>();
 
         public float Gap;
@@ -62,6 +62,17 @@ namespace Events
             _eventsInInbox.Add(events);
             string effect = Finance.GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
             Add(events.Headline, events.InfluencePercentage);
+        }
+
+        public void CheckDuration(int month, int year)
+        {
+            foreach (var events in _eventsInInbox)
+            {
+                if (events.Finishes == new Vector2Int(month, year))
+                {
+                    SimpleMoneyManager.Instance.SetPercentage(events.FieldType, -events.InfluencePercentage);
+                }
+            }
         }
 
 

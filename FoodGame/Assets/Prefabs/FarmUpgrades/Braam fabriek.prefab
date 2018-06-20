@@ -115,10 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Bramen
-  MoneyTick: 2400
+  MoneyTick: 240
   ExpenseTick: 50
   MonthsToGrow: 1
-  BuildingPrice: 0
+  BuildingPrice: 700
   UpgradeValue: 700
   SpriteIndex: 29
   SidePanelSpriteIndex: 4
@@ -128,25 +128,14 @@ MonoBehaviour:
   Happiness: 3
   SizeRank: 3
   Upgrade: 1
-  UpgradeDuration: 10
+  UpgradeDuration: 4
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:
-    Name: Big Blackberries
-    MoneyTick: 140
-    ExpenseTick: 50
-    MonthsToGrow: 2
     BuildPrice: 3000
-    UpgradeValue: 1500
-    SpriteIndex: 29
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 3
     MonthCount: 2
-    Upgrade: 1
     UpgradeDuration: 2
-    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

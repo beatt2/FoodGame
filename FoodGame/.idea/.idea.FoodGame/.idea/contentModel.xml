@@ -33,7 +33,6 @@
             <e p="EventManager.cs" t="Include" />
             <e p="Events.cs" t="Include" />
             <e p="MessageButton.cs" t="Include" />
-            <e p="MessageEntry.cs" t="Include" />
             <e p="MessagePrefab.cs" t="Include" />
             <e p="Messages.cs" t="Include" />
             <e p="Popup.cs" t="Include" />
@@ -60,14 +59,12 @@
           <e p="Money" t="Include">
             <e p="Finance.cs" t="Include" />
             <e p="FinanceButton.cs" t="Include" />
-            <e p="FinanceEntry.cs" t="Include" />
             <e p="MoneyValue.cs" t="Include" />
             <e p="Row.cs" t="Include" />
             <e p="SimpleMoneyManager.cs" t="Include" />
           </e>
           <e p="Mouse.cs" t="Include" />
           <e p="Node" t="Include">
-            <e p="Fences.cs" t="Include" />
             <e p="HighLight.cs" t="Include" />
             <e p="NodeBehaviour.cs" t="Include" />
             <e p="NodeManager.cs" t="Include" />
@@ -81,7 +78,6 @@
             <e p="SaveManager.cs" t="Include" />
             <e p="SaveNodes.cs" t="Include" />
           </e>
-          <e p="Sound.cs" t="Include" />
           <e p="SoundManager.cs" t="Include" />
           <e p="TimeSystem" t="Include">
             <e p="TimeManager.cs" t="Include" />
@@ -98,7 +94,6 @@
           <e p="UI" t="Include">
             <e p="BuildButton.cs" t="Include" />
             <e p="BuildingTab.cs" t="Include" />
-            <e p="EventMessages.cs" t="Include" />
             <e p="FarmButtons.cs" t="Include" />
             <e p="IButtonInteractable.cs" t="Include" />
             <e p="OkayButton.cs" t="Include" />
@@ -108,7 +103,6 @@
             <e p="SidePanel.cs" t="Include" />
             <e p="StatBar.cs" t="Include" />
             <e p="TopBar.cs" t="Include" />
-            <e p="UIButton.cs" t="Include" />
             <e p="UIButtonAbstract.cs" t="Include" />
             <e p="UpgradeEntry.cs" t="Include" />
             <e p="UpgradeTab.cs" t="Include" />

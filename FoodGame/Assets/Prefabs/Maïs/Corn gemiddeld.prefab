@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: "Ma\xEFs"
-  MoneyTick: 1200
-  ExpenseTick: 200
+  MoneyTick: 120
+  ExpenseTick: 20
   MonthsToGrow: 3
   BuildingPrice: 4800
   UpgradeValue: 1000
@@ -132,21 +132,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 11
   MonthCount: 0
   MyPlant:
-    Name: 
-    MoneyTick: 0
-    ExpenseTick: 0
-    MonthsToGrow: 0
     BuildPrice: 0
-    UpgradeValue: 0
-    SpriteIndex: 0
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 0
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 0
-    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

@@ -4,11 +4,9 @@ namespace Events
 {
     public class EventButton : MonoBehaviour
     {
-        
-
         public void CloseEvent()
         {
-            
+
             EventManager.Instance.Ui.SetActive(false);
         }
 

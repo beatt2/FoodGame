@@ -16,9 +16,8 @@ MonoBehaviour:
     tegen insecten. Druiven zijn \xE9\xE9n van de meest bespoten groenten, maar daar
     komt nu een eind aan. De bevolking wordt steeds milieubewuster en koopt bijna
     alleen nog biologisch. Daar willen de boeren gebruik van maken."
-  Starts: {x: 11, y: 2020}
-  Finishes: {x: 3, y: 2100}
+  Starts: {x: 11, y: 2024}
+  Finishes: {x: 3, y: 2028}
   FieldType: 7
   Type: 1
   InfluencePercentage: 8
-  Review: 0

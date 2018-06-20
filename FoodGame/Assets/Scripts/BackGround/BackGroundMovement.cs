@@ -1,5 +1,4 @@
-﻿using Save;
-using TimeSystem;
+﻿using TimeSystem;
 using UnityEngine;
 
 namespace BackGround
@@ -13,28 +12,21 @@ namespace BackGround
 
         private void Start()
         {
-            for (int i = 0; i < Clouds.Length; i++)
+            foreach (var cloud in Clouds)
             {
-                Clouds[i].SetSpeed(Random.Range(MinSpeed,MaxSpeed));
+                cloud.SetSpeed(Random.Range(MinSpeed,MaxSpeed));
             }
         }
 
         private void FixedUpdate()
         {
-            if (!TimeManager.Instance.GamePaused())
+            if (TimeManager.Instance.GamePaused()) return;
+            foreach (var cloud in Clouds)
             {
-                for (int i = 0; i < Clouds.Length; i++)
-                {
-                    Clouds[i].transform.position = Clouds[i].GetVector3Speed();
-                    if (Clouds[i].transform.localPosition.x > 8)
-                    {
-
-                        Clouds[i].transform.localPosition = new Vector3(-8, Clouds[i].transform.localPosition.y, Clouds[i].transform.localPosition.z);
-                        Clouds[i].SetSpeed(Random.Range(MinSpeed, MaxSpeed));
-
-
-                    }
-                }
+                cloud.transform.position = cloud.GetVector3Speed();
+                if (!(cloud.transform.localPosition.x > 8)) continue;
+                cloud.transform.localPosition = new Vector3(-8, cloud.transform.localPosition.y, cloud.transform.localPosition.z);
+                cloud.SetSpeed(Random.Range(MinSpeed, MaxSpeed));
             }
         }
     }

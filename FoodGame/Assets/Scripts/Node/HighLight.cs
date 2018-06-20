@@ -6,8 +6,7 @@ namespace Node
 	{
 		private Color _startingColor;
 		private Color _originalColor;
-		private Color _blue = Color.blue;
-		private Color _activeColor = new Color(45,161,0,255);
+		private readonly Color _activeColor = new Color(45,161,0,255);
 		private SpriteRenderer _spriteRenderer;
 
 		private void Awake()
@@ -17,11 +16,9 @@ namespace Node
 			_originalColor = _startingColor;
 		}
 
-		//TODO  turn this into some selection state
 		public bool IsSelected()
 		{
 			return _spriteRenderer.color == Color.blue || _spriteRenderer.color == Color.green || _spriteRenderer.color == Color.red || _spriteRenderer.color == new Color(110,227,190,255);
-
 		}
 
 		public void SetAlpha(bool alpha)

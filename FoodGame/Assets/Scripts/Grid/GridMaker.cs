@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Node;
 using UnityEngine;
+// ReSharper disable PossibleNullReferenceException
 
 namespace Grid
 {
@@ -13,10 +14,6 @@ namespace Grid
 
         public GameObject RedSideBlock;
         public GameObject WhiteSideBlock;
-
-            public GameObject BlueBlock;
-
-
 
         private const float XOffset = 2.94f;
         private const float YOffset = 1.46f;
@@ -52,8 +49,8 @@ namespace Grid
             for (int x = 0; x < Size.x; x++)
             {
 
-                
-                
+
+
                 var currentLayerCount = oldLayerCount - x - x;
                 var currentPosition = Vector3.zero;
                 currentPosition.x = XRowOffset * x;
@@ -62,7 +59,6 @@ namespace Grid
                 {
 
                     GameObject go;
-                    GameObject node;
 
 
                     if (x == 0 || y == 0)
@@ -74,7 +70,6 @@ namespace Grid
                     {
                         go = Instantiate(white ? WhiteBlock : RedBlock, currentPosition, Quaternion.identity, parent.transform);
                     }
-                    Vector3 goPlace = new Vector3(go.transform.position.x, go.transform.position.y + 0.83f, 0);
 
                     go.GetComponent<NodeBehaviour>().GridLocation = new Vector2Int(x,y);
                     go.GetComponent<SpriteRenderer>().sortingOrder = currentLayerCount;
@@ -87,8 +82,8 @@ namespace Grid
                     currentLayerCount -= 2;
                 }
                 white = x % 2 == 0;
-                
-                
+
+
 
             }
 

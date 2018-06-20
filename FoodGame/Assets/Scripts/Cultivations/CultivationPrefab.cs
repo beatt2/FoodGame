@@ -1,10 +1,9 @@
-﻿using System;
-using Node;
+﻿using Node;
 using UnityEngine;
 
 namespace Cultivations
 {
- 
+
     public abstract class CultivationPrefab : MonoBehaviour
     {
         public string Name;
@@ -24,11 +23,5 @@ namespace Cultivations
         public int UpgradeDuration;
         public int UpgradePrefabIndex;
         public int MonthCount;
-
-
-
-
-
-
     }
 }

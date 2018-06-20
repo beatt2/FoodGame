@@ -128,11 +128,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Appel bio
-  MoneyTick: 7000
-  ExpenseTick: 2000
+  MoneyTick: 700
+  ExpenseTick: 200
   MonthsToGrow: 6
-  BuildingPrice: 50000
-  UpgradeValue: 5200
+  BuildingPrice: 5200
+  UpgradeValue: 520
   SpriteIndex: 11
   SidePanelSpriteIndex: 8
   MyCurrentState: 0
@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:
-    Name: Appel bio
-    MoneyTick: 7000
-    ExpenseTick: 2000
-    MonthsToGrow: 6
     BuildPrice: 50000
-    UpgradeValue: 5200
-    SpriteIndex: 11
-    SidePanelSpriteIndex: 8
-    EnviromentValue: 10
-    Happiness: 5
     SizeRank: 2
     MonthCount: 0
-    Upgrade: 0
     UpgradeDuration: 12
-    UpgradePrefabIndex: 6
     MyCultivationState: 0
     FieldType: 3
   FirstRun: 0

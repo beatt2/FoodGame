@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Appels
-  MoneyTick: 6800
+  MoneyTick: 680
   ExpenseTick: 100
   MonthsToGrow: 5
   BuildingPrice: 3000
@@ -145,21 +145,10 @@ MonoBehaviour:
   UpgradePrefabIndex: 0
   MonthCount: 0
   MyBuilding:
-    Name: Big Apple
-    MoneyTick: 150
-    ExpenseTick: 50
-    MonthsToGrow: 1
     BuildPrice: 0
-    UpgradeValue: 1500
-    SpriteIndex: 28
-    SidePanelSpriteIndex: 0
-    EnviromentValue: 0
-    Happiness: 0
     SizeRank: 3
     MonthCount: 1
-    Upgrade: 1
     UpgradeDuration: 12
-    UpgradePrefabIndex: 0
     MyCultivationState: 0
     FieldType: 0
   FirstRun: 0

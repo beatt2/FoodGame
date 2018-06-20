@@ -1,118 +1,120 @@
 ﻿using Cultivations;
-using Grid;
 using UI;
 using UnityEngine;
 
-public class Selection : MonoBehaviour
+namespace Grid
 {
-   public SidePanel MySidePanel;
-   public GameObject BuildPanel;
-   public GameObject YesNoButtons;
-   public GameObject YesNoBuildButton;
-   public BuildingTab MyBuildingTab;
-
-   private int _index;
-
-
-
-   public void ToggleBuildPanel(bool value)
+   public class Selection : MonoBehaviour
    {
-      BuildPanel.SetActive(value);
-      MyBuildingTab.BuildingTabActive = true;
+      public SidePanel MySidePanel;
+      public GameObject BuildPanel;
+      public GameObject YesNoButtons;
+      public GameObject YesNoBuildButton;
+      public BuildingTab MyBuildingTab;
 
-   }
-
-   //Called from button
-   public void BuildFarm(int index)
-   {
-      _index = index;
-      SetManager();
-   }
+      private int _index;
 
 
-   public void ConfirmLocationPressed(bool value)
-   {
-      if (!GridManager.Instance.ConfirmLocation(value)) return;
-      ToggleYesNo(false);
-      ToggleYesNoBuildButton(value);
-      SetYesNoBuildLocation(Camera.main.WorldToScreenPoint(GridManager.Instance.GetSelectedNode().transform.position));
 
-
-   }
-
-   public void ConfirmBuildLocationPressed(bool value)
-   {
-      if (value)
+      public void ToggleBuildPanel(bool value)
       {
-         GridManager.Instance.ConfirmBuildFarmButtonPressed(_index);
+         BuildPanel.SetActive(value);
+         MyBuildingTab.BuildingTabActive = true;
 
       }
-      else
+
+      //Called from button
+      public void BuildFarm(int index)
       {
-        GridManager.Instance.CancelBuildState();
+         _index = index;
+         SetManager();
       }
-      ToggleYesNoBuildButton(false);
 
-   }
 
-   private void SetManager()
-   {
-  
-      if (GridManager.Instance.GetSelectedNode() != null)
+      public void ConfirmLocationPressed(bool value)
       {
-         GridManager.Instance.SetSelectionSize(4);
-         ToggleYesNo(true);
+         if (!GridManager.Instance.ConfirmLocation(value)) return;
+         ToggleYesNo(false);
+         ToggleYesNoBuildButton(value);
+         SetYesNoBuildLocation(Camera.main.WorldToScreenPoint(GridManager.Instance.GetSelectedNode().transform.position));
+
+
       }
-      ToggleBuildPanel(false);
+
+      public void ConfirmBuildLocationPressed(bool value)
+      {
+         if (value)
+         {
+            GridManager.Instance.ConfirmBuildFarmButtonPressed(_index);
+
+         }
+         else
+         {
+            GridManager.Instance.CancelBuildState();
+         }
+         ToggleYesNoBuildButton(false);
+
+      }
+
+      private void SetManager()
+      {
+
+         if (GridManager.Instance.GetSelectedNode() != null)
+         {
+            GridManager.Instance.SetSelectionSize(4);
+            ToggleYesNo(true);
+         }
+         ToggleBuildPanel(false);
+      }
+
+      public void ToggleYesNo(bool value)
+      {
+         YesNoButtons.SetActive(value);
+      }
+
+
+      public bool YesNoActive()
+      {
+         return YesNoButtons.activeSelf;
+      }
+
+      public void SetYesNoLocation(Vector3 position)
+      {
+         YesNoButtons.transform.position = position;
+      }
+
+      public void SetYesNoBuildLocation(Vector3 position)
+      {
+         YesNoBuildButton.transform.position = position;
+      }
+
+
+      private void ToggleYesNoBuildButton(bool value)
+      {
+         YesNoBuildButton.SetActive(value);
+      }
+
+      public bool YesNoBuildActive()
+      {
+         return YesNoBuildButton.activeSelf;
+      }
+
+      public void SetSidePanel(Cultivation cultivation)
+      {
+         MySidePanel.SetPanel(cultivation);
+      }
+
+      public void ToggleSidePanel()
+      {
+         MySidePanel.TogglePannel();
+      }
+
+      public bool SidePannelActive()
+      {
+         return MySidePanel.SidePanelActive();
+      }
+
+
+
    }
-
-   public void ToggleYesNo(bool value)
-   {
-      YesNoButtons.SetActive(value);
-   }
-
-
-   public bool YesNoActive()
-   {
-      return YesNoButtons.activeSelf;
-   }
-
-   public void SetYesNoLocation(Vector3 position)
-   {
-      YesNoButtons.transform.position = position;
-   }
-
-   public void SetYesNoBuildLocation(Vector3 position)
-   {
-      YesNoBuildButton.transform.position = position;
-   }
-
-
-   public void ToggleYesNoBuildButton(bool value)
-   {
-      YesNoBuildButton.SetActive(value);
-   }
-
-   public bool YesNoBuildActive()
-   {
-      return YesNoBuildButton.activeSelf;
-   }
-
-   public void SetSidePanel(Cultivation cultivation)
-   {
-      MySidePanel.SetPanel(cultivation);
-   }
-
-   public void ToggleSidePanel()
-   {
-      MySidePanel.TogglePannel();
-   }
-
-   public bool SidePannelActive()
-   {
-      return MySidePanel.SidePanelActive();
-   }
-
-
-
 }
