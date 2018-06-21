@@ -79,7 +79,6 @@ namespace TimeSystem
             _totalAddedMonths = totalAddedMonths;
             Month = SaveManager.Instance.GetSaveMonth() == 0 ? 1 : SaveManager.Instance.GetSaveMonth();
             Year = SaveManager.Instance.GetSaveYear() == 0 ? 2018 : SaveManager.Instance.GetSaveYear();
-            Debug.Log(Year);
             for (int i = 0; i < totalAddedMonths; i++)
             {
                 if (Month >= 12)

@@ -44,21 +44,32 @@ namespace Money
 
         public WaarschuwingScript WaarschuwingScript;
 
+        private bool _doubleCheck;
+
         // Use this for initialization
-        private void Start ()
+        public void Start ()
         {
-            _currentMoney = SaveManager.Instance.GetMoney();
-            MoneyUi.text = "€ " + _currentMoney;
-            _currentMoney = 500000;
+            if (!_doubleCheck)
+            {
+                _currentMoney = SaveManager.Instance.GetMoney();
+                _currentMoney = 50000;
+                MoneyUi.text = "€ " + _currentMoney;
 
-            _monthlyIncome = 0;
-            _monthlyExpenses = 0;
 
-            Income.text = "€ " + _monthlyIncome;
-            Expense.text = "€ " + _monthlyExpenses;
-            _percentageValues = SaveManager.Instance.GetPercentageValues();
+                _monthlyIncome = 0;
+                _monthlyExpenses = 0;
+
+                Income.text = "€ " + _monthlyIncome;
+                Expense.text = "€ " + _monthlyExpenses;
+                _percentageValues = SaveManager.Instance.GetPercentageValues();
+            }
+
+            _doubleCheck = true;
+
 
         }
+        
+        
 
         public void ChangeMonth()
         {

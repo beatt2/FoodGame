@@ -1,6 +1,10 @@
 WindowsStandalone
 PlayerPath?
+<<<<<<< HEAD
 C:/Users/KoenPC/Documents/GitHub/FoodGame/FoodGame/Build/Build.exe
+=======
+D:/Documents/GitHub/FoodGame/FoodGame/Builds/FOODGAMEV0.9.apk
+>>>>>>> master
 SceneListBegin?
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/koenssample.unity
@@ -197,8 +201,39 @@ c2e792a0e7c03afb9259e669f2499bb4 Assembly-CSharp.dll:UI.WaarschuwingScript
 02d442bbce2e86c61b45356323bf2082 Assembly-CSharp.dll:Money.FinanceButton
 9d1ce05dfabc08f5ad395cad4370fbb9 Assembly-CSharp.dll:Tools.UpdateableData
 992a14bcfd1f4f00dbd3c65c408fcabb Assembly-CSharp.dll:Money.Row
+<<<<<<< HEAD
+=======
+4688f2a9f5e5484cff929db94173a0dc Assembly-CSharp.dll:BackGround.BackGroundMovement
+896571b1a31c0772a261fedeafeac835 Assembly-CSharp.dll:KansKaarten.Kanskaarten
+88007ad3ceba553c03f8060c144e3392 Assembly-CSharp.dll:Cultivations.CultivationManager
+2b0fa7147d881774a092e181ea405a63 Assembly-CSharp.dll:Events.Reviews
+2b486227c457691cd4da8c7c7d0e5aaf Assembly-CSharp.dll:Events.EventManager
+580c5e039058592f820e89d76fd03d8f Assembly-CSharp.dll:Events.MessagePrefab
+13d80cbb81c011d1d4ba16b74dcdede7 Assembly-CSharp.dll:Events.Messages
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Node.HighLight
+>>>>>>> master
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Mouse
 ad24bec5f29c49068c5a782e66dceead Assembly-CSharp.dll:UI.PanelLerp
 a5e50ff3ba86f6e1851748905b5bb16f Assembly-CSharp.dll:Events.Reviewprefab
 e40464c0f073a0c9fde99ec4af75f2f3 Assembly-CSharp.dll:TimeSystem.TimeManager
 64fb06c03e231cf337c7c12bfb7c8898 Assembly-CSharp.dll:Tutorial.Tutorials
+<<<<<<< HEAD
+=======
+8d7c257e2b414d5e712b2b6008d739e6 Assembly-CSharp.dll:UI.TabCloser
+f468c3b60f9747c6f6a6548dfb361a89 Assembly-CSharp.dll:Node.NodeBehaviour
+8601e54b4cae2ed471406c85f7550125 Assembly-CSharp.dll:Grid.GridManager
+bef02e884fbcd3929c27f6ed8fd03fdf Assembly-CSharp.dll:UI.StatBar
+02d442bbce2e86c61b45356323bf2082 Assembly-CSharp.dll:Money.FinanceButton
+1df3be656fd92892c1d2147e48b38d35 Assembly-CSharp.dll:UI.FarmButtons
+ec0cdb970b687a53de6c3d9a90eebcb2 Assembly-CSharp.dll:UI.SidePanel
+1b7f230d5658eb07e2906240449f60fb Assembly-CSharp.dll:Grid.BuildingPlacement
+d4efa5779ae3ef64d3ab05a0b7371f70 Assembly-CSharp.dll:Grid.GridMaker
+e226e7cab9a8eb0bccbb4fb7490e595a Assembly-CSharp.dll:Events.MessageButton
+9d1ce05dfabc08f5ad395cad4370fbb9 Assembly-CSharp.dll:Tools.UpdateableData
+99c8cd929cd1f2e54fe0dc67a8c2b2a2 Assembly-CSharp.dll:Grid.NodeFence
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UI.UpgradeTab
+739fafc30a0d11ea989c75a313845d34 Assembly-CSharp.dll:Camera_Movement.CameraMove
+a595333015bd3f9a9c7a3e408af8b929 Assembly-CSharp.dll:Save.SaveManager
+77d2e41ca1a345844ba69799a2763a9d Assembly-CSharp.dll:UI.TopBar
+9d77a9218d9b7ff51058899d55833732 Assembly-CSharp.dll:Money.SimpleMoneyManager
+>>>>>>> master
