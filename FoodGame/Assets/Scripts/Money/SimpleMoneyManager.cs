@@ -49,7 +49,7 @@ namespace Money
         {
             _currentMoney = SaveManager.Instance.GetMoney();
             MoneyUi.text = "€ " + _currentMoney;
-
+            _currentMoney = 500000;
 
             _monthlyIncome = 0;
             _monthlyExpenses = 0;

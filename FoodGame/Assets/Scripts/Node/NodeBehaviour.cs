@@ -5,13 +5,14 @@ using UnityEngine.EventSystems;
 
 namespace Node
 {
-    public class NodeBehaviour : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
+    public class NodeBehaviour : MonoBehaviour, IPointerDownHandler//, IPointerEnterHandler
     {
         [HideInInspector] public HighLight HighLight;
 
         private bool _isSelected;
 
         public Vector2Int GridLocation;
+
 
         private SpriteRenderer _spriteRenderer;
 
@@ -55,12 +56,12 @@ namespace Node
 
 
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-        #if !UNITY_EDITOR
-			GridManager.Instance.SetSelectedNode(this);
-		#endif
-        }
+//        public void OnPointerEnter(PointerEventData eventData)
+//        {
+//        #if !UNITY_EDITOR
+//			GridManager.Instance.SetSelectedNode(this);
+//		#endif
+//        }
 
 
         public void OnPointerDown(PointerEventData eventData)
