@@ -11,13 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events3
   m_EditorClassIdentifier: 
-  Headline: "Meer ma\xEFs, minder vlees"
-  Content: "Vanwege de toename vegetari\xEBrs en veganisten neemt het aantal veeteeltbedrijven
-    af. Dat is voordelig voor de groei van ma\xEFs, want de twee gaan niet zo goed
-    samen. Veel boeren hebben hun stuk land bedoeld voor vee ingeruild voor een extra
-    stuk ma\xEFsveld. En met zoveel extra ma\xEFs is de prijs sterk aan het dalen."
+  Headline: Wortels goed voor je ogen
+  Content: n het nieuws komt dat uit onderzoek opnieuw is gebleken dat wortels goed
+    zijn voor je ogen. Dit leidt direct tot meer vraag naar wortels.
+  Effect: +15% voor 12 maanden voor wortels
   Starts: {x: 8, y: 2021}
-  Finishes: {x: 5, y: 2027}
-  FieldType: 0
-  Type: 1
-  InfluencePercentage: -5
+  Finishes: {x: 9, y: 2022}
+  MyFieldTypes:
+  - FieldType: 1
+    InfluencePercentage: 15
+  Enviromental: 0
+  Happiness: 0

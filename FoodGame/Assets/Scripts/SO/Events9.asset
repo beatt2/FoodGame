@@ -11,13 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events9
   m_EditorClassIdentifier: 
-  Headline: Tomaat zwartgemaakt
-  Content: Recent is er op social media een post viral gegaan waarin een ex-groenteboer
-    de productie van tomaten zwart maakt. Ondanks zijn gebrek aan feiten heeft de
-    ophef toch ervoor gezorgd dat mensen sceptisch zijn gaan denken over hoe de tomaat
-    van het land in de supermarkt belandt. Hierdoor lijdt de tomaatindustrie.
+  Headline: "Meer duurzame ma\xEFs door nieuwe techniek"
+  Content: "Vanwege een nieuwe landbouwtechniek is het verbouwen van ma\xEFs een stuk
+    gemakkelijker \xE9n duurzamer geworden."
+  Effect: +20% voor 60 maanden voor mais
   Starts: {x: 5, y: 2039}
-  Finishes: {x: 9, y: 2044}
-  FieldType: 5
-  Type: 1
-  InfluencePercentage: -10
+  Finishes: {x: 6, y: 2044}
+  MyFieldTypes:
+  - FieldType: 0
+    InfluencePercentage: 20
+  Enviromental: 0
+  Happiness: 0

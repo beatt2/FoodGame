@@ -11,13 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events6
   m_EditorClassIdentifier: 
-  Headline: Insectvrije druiven
-  Content: "Steeds minder boeren gebruiken chemische middelen om hun druiven te beschermen
-    tegen insecten. Druiven zijn \xE9\xE9n van de meest bespoten groenten, maar daar
-    komt nu een eind aan. De bevolking wordt steeds milieubewuster en koopt bijna
-    alleen nog biologisch. Daar willen de boeren gebruik van maken."
+  Headline: Giftige appel
+  Content: 'Er is een nieuw stofje gevonden in de chemische middelen die gebruikt
+    worden om ongedierte te bestrijden bij appels. Dit stofje kan zeer schadelijk
+    zijn voor mens en dier. Omdat niet duidelijk is op welke bedrijven deze chemische
+    middelen zijn gebruikt daalt de prijs van alle appels sterk. '
+  Effect: -60% voor 5 maanden en -1  voor tevredenheid per appel veld/boerderij
   Starts: {x: 11, y: 2024}
-  Finishes: {x: 3, y: 2028}
-  FieldType: 7
-  Type: 1
-  InfluencePercentage: 8
+  Finishes: {x: 5, y: 2025}
+  MyFieldTypes:
+  - FieldType: 3
+    InfluencePercentage: -60
+  Enviromental: 0
+  Happiness: -1

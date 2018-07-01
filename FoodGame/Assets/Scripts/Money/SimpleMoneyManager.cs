@@ -129,7 +129,6 @@ namespace Money
                 return true;
             }
             Waarschuwing("Sorry, niet genoeg geld");
-            //Debug.Log("Sorry not enough money");
             return false;
 
 

@@ -109,7 +109,7 @@ namespace Cultivations
         }
 
         // ReSharper disable once SuggestBaseTypeForParameter
-        private void RemoveUpgradedCultivation(CultivationPrefab cultivationPrefab)
+        public void RemoveUpgradedCultivation(CultivationPrefab cultivationPrefab)
         {
             _activeUpgradedCultivations.RemoveAll
             (
@@ -119,5 +119,7 @@ namespace Cultivations
                     )
             );
         }
+
+  
     }
 }

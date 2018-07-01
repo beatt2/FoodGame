@@ -11,14 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart7
   m_EditorClassIdentifier: 
-  Headline: Het ministerie van Onkruid brengt een bezoekje en ontdekt dat je faciliteiten
-    0,1% meer afval dan gemiddeld produceren. Dat is 0,1% teveel en daarom moet je
-    een boete betalen.
-  Starts: {x: 10, y: 2030}
-  FieldType: 0
-  Type: 0
+  PreInsert: Vanwege de hevige regenval is in een overstroming een derde van je velden
+    onder water komen staan. Schade van 50 euro per akker. Dat is balen!
+  Insert: 0
+  AfterInsert: 
+  Starts: {x: 10, y: 2045}
+  FarmUpgrade: 1
+  Type: 1
   Size: 0
+  Effect: speler betaalt een bedrag van 50 euro voor een derde van totaal aantal velden
   InfluencePercentage: 0
-  Reward: -200
+  Reward: -16
   EnviromentInfluence: 0
-  HappynessInfluence: 0
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 0

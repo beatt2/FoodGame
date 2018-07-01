@@ -11,14 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events5
   m_EditorClassIdentifier: 
-  Headline: "Meer ma\xEFs door nieuwe techniek"
-  Content: "Vanwege een nieuwe landbouwtechniek is het verbouwen van ma\xEFs een stuk
-    gemakkelijker \xE9n voordeliger geworden. Voorheen had het telen van ma\xEFs slechte
-    invloed op de vruchtbaarheid van grond waarop het verbouwd wordt, maar daar is
-    nu dus verandering in gekomen. Het zal nu makkelijker zijn om meer ma\xEFs te
-    telen."
+  Headline: Schoolfruit wordt gestimuleerd
+  Content: 'Om obesitas bij kinderen tegen te gaan wil de overheid het eten van fruit
+    stimuleren. Daarom geeft zij scholen die hieraan meedoen een subsidie. De prijzen
+    van appels stijgen het sterkst, gevolgd door druiven en bramen. '
+  Effect: +70% voor 6 maanden voor appels (druiven +20% bramen +10%
   Starts: {x: 9, y: 2023}
-  Finishes: {x: 12, y: 2028}
-  FieldType: 0
-  Type: 1
-  InfluencePercentage: 3
+  Finishes: {x: 4, y: 2024}
+  MyFieldTypes:
+  - FieldType: 3
+    InfluencePercentage: 70
+  - FieldType: 7
+    InfluencePercentage: 20
+  - FieldType: 4
+    InfluencePercentage: 10
+  Enviromental: 0
+  Happiness: 0

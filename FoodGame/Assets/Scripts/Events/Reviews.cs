@@ -24,6 +24,8 @@ namespace Events
         public bool OnlyOnFactory;
 
         public int Duration;
+        
+        
 
 
 

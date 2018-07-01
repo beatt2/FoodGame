@@ -11,12 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart5
   m_EditorClassIdentifier: 
-  Headline: Het lijkt erop dat de oogst niet zo goed ging dit seizoen. Jammer!
-  Starts: {x: 10, y: 2022}
-  FieldType: 0
-  Type: 0
+  PreInsert: 
+  Insert: 1
+  AfterInsert: 'lijkt steeds populairder te worden. De bevolking doet massaal inkopen. '
+  Starts: {x: 10, y: 2038}
+  FarmUpgrade: 0
+  Type: 1
   Size: 0
-  InfluencePercentage: 0
-  Reward: -50
+  Effect: +10% voor deze groente/fruit
+  InfluencePercentage: 10
+  Reward: 0
   EnviromentInfluence: 0
-  HappynessInfluence: 0
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 0

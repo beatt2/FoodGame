@@ -11,13 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events8
   m_EditorClassIdentifier: 
-  Headline: Vruchten in plaats van druiven
+  Headline: Peren in plaats van druiven
   Content: "Er is een nieuwe foodtrend waarvan wordt geschat dat die de wijnwereld
     sterk gaat be\xEFnvloeden voor de komende tijd. Er is een stijgende vraag naar
     een nieuwe soort wijn, namelijk een vruchtenwijn gemaakt van peren. Hierdoor lijkt
     het erop dat de normale druivenwijn sterk in populariteit is gedaald."
+  Effect: -40% voor 12 maanden voor druiven
   Starts: {x: 5, y: 2037}
-  Finishes: {x: 9, y: 2040}
-  FieldType: 7
-  Type: 1
-  InfluencePercentage: -3
+  Finishes: {x: 6, y: 2038}
+  MyFieldTypes:
+  - FieldType: 7
+    InfluencePercentage: -40
+  Enviromental: 0
+  Happiness: 0

@@ -11,12 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events7
   m_EditorClassIdentifier: 
-  Headline: Giftige appel
-  Content: Er is een nieuw stofje gevonden in de chemische middelen die gebruikt worden
-    om ongedierte te bestrijden bij appels. Dit stofje kan zeer schadelijk zijn voor
-    mens en dier en het wordt aangeraden om alle recent gekochte appels weg te gooien.
+  Headline: Grote kans voor bramen
+  Content: De vraag naar zachtfruit (zoals bramen) is aan het groeien, zoals blijkt
+    uit de laatste cijfers. Echter het aanbod blijft achter. Het is nu dus een goed
+    moment om te investeren in meer braamstruiken.
+  Effect: +30% voor bramen voor 24 maanden
   Starts: {x: 8, y: 2025}
-  Finishes: {x: 9, y: 2029}
-  FieldType: 3
-  Type: 1
-  InfluencePercentage: -30
+  Finishes: {x: 9, y: 2027}
+  MyFieldTypes:
+  - FieldType: 4
+    InfluencePercentage: 30
+  Enviromental: 0
+  Happiness: 0

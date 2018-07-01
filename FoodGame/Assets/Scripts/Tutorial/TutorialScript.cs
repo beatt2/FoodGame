@@ -1,4 +1,5 @@
 ﻿using Save;
+using TimeSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -163,6 +164,7 @@ namespace Tutorial
                 TutorialBg.SetActive(false);
                 _tutorialFinished = true;
                 SaveManager.Instance.SetTutorialBool(true);
+                TimeManager.Instance.StartCoroutine("Timer");
             }
 
         }
@@ -174,6 +176,7 @@ namespace Tutorial
             }
             TutorialBg.SetActive(false);
             _tutorialFinished = true;
+            TimeManager.Instance.StartCoroutine("Timer");
             SaveManager.Instance.SetTutorialBool(true);
         }
 

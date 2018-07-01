@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cultivations;
+using Grid;
 using KansKaarten;
 using MathExt;
 using Money;
@@ -101,7 +103,6 @@ namespace Events
             foreach (var happiness in _happinessValues)
             {
                 value += happiness.Value;
-
             }
 
             return value;
@@ -125,7 +126,6 @@ namespace Events
                         {
                             SetReviews(review);
                         }
-
                     }
                 }
                 else
@@ -213,45 +213,87 @@ namespace Events
 
         private void SetEffect()
         {
-            KanskaartText.text = _actieveKanskaarten[0].Headline;
+            if (_actieveKanskaarten[0].Insert)
+            {
+                KanskaartText.text =
+                    _actieveKanskaarten[0].PreInsert + " " +
+                    Reviewprefab.GetInsert(_actieveKanskaarten[0].FieldType) + " " +
+                    _actieveKanskaarten[0].AfterInsert;
+            }
+            else
+            {
+                KanskaartText.text = _actieveKanskaarten[0].PreInsert;
+            }
+          
             string effectPercentage = "";
             string effectReward = "";
-
-            if (_actieveKanskaarten[0].InfluencePercentage < 0)
+            if (_actieveKanskaarten[0].PrefabUpgrade)
             {
-                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType, _actieveKanskaarten[0].InfluencePercentage);
-                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " - " +_actieveKanskaarten[0].InfluencePercentage + "%";
+                List<Cultivation> tempList = new List<Cultivation>();
+                if (_actieveKanskaarten[0].Type == NodeState.CurrentStateEnum.Farm)
+                {
+                    tempList = GridManager.Instance.GetCertainSizeCultivation((int) _actieveKanskaarten[0].Size, true);
+                }
+                else if(_actieveKanskaarten[0].Type == NodeState.CurrentStateEnum.Field)
+                {
+                    tempList = GridManager.Instance.GetCertainSizeCultivation((int) _actieveKanskaarten[0].Size, false);
+                }
+           
+                for (int i = 0; i < tempList.Count; i++)
+                {
+                    if (_actieveKanskaarten[0].FieldType == NodeState.FieldTypeEnum.Nothing || _actieveKanskaarten[0].FieldType == tempList[i].FieldType)
+                    {
+                        tempList[i].EnviromentValue += _actieveKanskaarten[0].EnviromentInfluence;
+                        tempList[i].Happiness += _actieveKanskaarten[0].HappinessInfluence;
+                        int monneyIncrease = tempList[i].MoneyTick / _actieveKanskaarten[0].IncomePercentageIncrease;
+                        tempList[i].MoneyTick += monneyIncrease;
+                        SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
+                    }
+
+
+                }
+                
             }
+            else
+            {
+                SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
+                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType, _actieveKanskaarten[0].InfluencePercentage);
+
+
+            }
+            
+            
+            
+        
             else if (_actieveKanskaarten[0].InfluencePercentage > 0)
             {
-                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType,_actieveKanskaarten[0].InfluencePercentage);
-                effectPercentage = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +_actieveKanskaarten[0].InfluencePercentage + "%";
+                SimpleMoneyManager.Instance.SetPercentage(_actieveKanskaarten[0].FieldType, _actieveKanskaarten[0].InfluencePercentage);
             }
 
             if (_actieveKanskaarten[0].Reward > 0)
             {
                 SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
-                effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + " + " +_actieveKanskaarten[0].Reward + " gold";
             }
             else if (_actieveKanskaarten[0].Reward < 0)
             {
                 SimpleMoneyManager.Instance.AddMoney(_actieveKanskaarten[0].Reward);
-                 effectReward = Finance.GetName(_actieveKanskaarten[0].FieldType) + _actieveKanskaarten[0].Reward +" gold";
             }
 
+            effectReward = _actieveKanskaarten[0].Effect;
+    
             PercentageKansKaart.text = effectPercentage;
             RewardKansKaart.text = effectReward;
         }
 
         private void SetTextKanskaart()
         {
-            KanskaartText.text = _actieveKanskaarten[0].Headline;
+            Debug.Log("YOU ARE USING IT");
+            // KanskaartText.text = _actieveKanskaarten[0].Headline;
         }
 
 
         private void SetMessageScreen(int month, int year)
         {
-
             for (int i = 0; i < EventsArray.Length; i++)
             {
                 if (EventsArray[i].Starts != new Vector2Int(month, year)) continue;
@@ -263,36 +305,47 @@ namespace Events
                 if (!InMenu)
                 {
                     HeadlineUi.SetActive(true);
-                    _headlineUiImage.sprite = EventsArray[i].InfluencePercentage < 06
+                    _headlineUiImage.sprite = EventsArray[i].MyFieldTypes[0].InfluencePercentage < 0
                         ? MessageBackground[1]
                         : MessageBackground[0];
                 }
+
                 _reviewCurrentlyActive = false;
                 StartCoroutine("UiTimer");
                 SetText(i);
+                for (int j = 0; j < EventsArray[i].MyFieldTypes.Length; j++)
+                {
+                    SimpleMoneyManager.Instance.SetPercentage
+                    (
+                        EventsArray[i].MyFieldTypes[j].FieldType,
+                        EventsArray[i].MyFieldTypes[j].InfluencePercentage
+                    );
 
-                SimpleMoneyManager.Instance.SetPercentage(EventsArray[i].FieldType,
-                    EventsArray[i].InfluencePercentage);
+                    int amountofCults = GridManager.Instance.GetCultivationByFieldType(EventsArray[i].MyFieldTypes[j].FieldType);
+                    AddEnviromentValue(EventsArray[i].MyFieldTypes[j].FieldType,amountofCults);
+                    AddHappinessValue(EventsArray[i].MyFieldTypes[j].FieldType, amountofCults);
+                }
             }
         }
 
         private void SetReviews(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
         {
-            StartCoroutine(SetReviewsIE(review,fieldType));
+            StartCoroutine(SetReviewsIE(review, fieldType));
         }
 
         private IEnumerator SetReviewsIE(Reviews review, NodeState.FieldTypeEnum fieldType = NodeState.FieldTypeEnum.Nothing)
         {
             if (!ReviewScript.NotInInbox(review)) yield break;
-            yield return new WaitForSeconds(Random.Range(4,25));
+            yield return new WaitForSeconds(Random.Range(4, 25));
             StopCoroutine("UiTimer");
             _reviewCurrentlyActive = true;
             SetText(review);
             SoundManager.Instance.PlayMessageSound();
-            if (fieldType!= NodeState.FieldTypeEnum.Nothing)
+            if (fieldType != NodeState.FieldTypeEnum.Nothing)
             {
                 review.FieldType = fieldType;
             }
+
             ReviewScript.AddReview(review);
             if (!InMenu)
             {
@@ -301,9 +354,9 @@ namespace Events
                     ? ReviewBackgroundPositive.GetRandom_Array()
                     : ReviewBackgroundNegative.GetRandom_Array();
             }
+
             SimpleMoneyManager.Instance.SetPercentage(review.FieldType, review.InfluencePercentage);
             StartCoroutine("UiTimer");
-
         }
 
         public void OnMessageClick()
@@ -316,10 +369,9 @@ namespace Events
             {
                 MyMessageButton.OpenMessages();
             }
+
             HeadlineUi.SetActive(false);
-
         }
-
 
 
         private IEnumerator UiTimer()

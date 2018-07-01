@@ -11,13 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart4
   m_EditorClassIdentifier: 
-  Headline: Jouw -insert groente/fruit- zijn als beste getest bij supermarkt Arend
-    Haan. Dat verdient een prijsje!
-  Starts: {x: 10, y: 2020}
-  FieldType: 0
+  PreInsert: Oh nee! Er is een virus ontdekt en een groot deel van je
+  Insert: 1
+  AfterInsert: 'zijn besmet. '
+  Starts: {x: 10, y: 2032}
+  FarmUpgrade: 1
   Type: 0
   Size: 0
+  Effect: speler verliest 100 euro per aantal boerderijen met aangegeven groente/fruit
   InfluencePercentage: 0
-  Reward: 30
+  Reward: -100
   EnviromentInfluence: 0
-  HappynessInfluence: 0
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 0

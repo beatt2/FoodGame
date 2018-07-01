@@ -11,13 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart6
   m_EditorClassIdentifier: 
-  Headline: Oh nee! Er is een virus ontdekt en een groot deel van je -insert een fruit/groente-
-    zijn besmet.
-  Starts: {x: 5, y: 2021}
-  FieldType: 0
+  PreInsert: Een controleur brengt je een bezoekje en ontdekt dat je gewassen te veel
+    bestrijdingsmiddelen bevatten; je moet een boete van 1000 euro betalen.
+  Insert: 0
+  AfterInsert: 
+  Starts: {x: 5, y: 2042}
+  FarmUpgrade: 0
   Type: 0
   Size: 0
+  Effect: je betaalt een boete van 1000 euro
   InfluencePercentage: 0
-  Reward: -30
+  Reward: -1000
   EnviromentInfluence: 0
-  HappynessInfluence: 0
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 0

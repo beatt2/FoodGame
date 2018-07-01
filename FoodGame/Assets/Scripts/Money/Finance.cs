@@ -52,9 +52,6 @@ namespace Money
                 case NodeState.FieldTypeEnum.Tomato:
                     name = "Tomaten";
                     break;
-                case NodeState.FieldTypeEnum.Tree:
-                    name = "Bomen";
-                    break;
                 case NodeState.FieldTypeEnum.Grapes:
                     name = "Druiven";
                     break;

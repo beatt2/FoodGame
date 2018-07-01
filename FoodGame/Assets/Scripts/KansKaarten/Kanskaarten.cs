@@ -1,5 +1,7 @@
-﻿using Node;
+﻿using System;
+using Node;
 using UnityEngine;
+using Random = System.Random;
 
 namespace KansKaarten
 {
@@ -9,22 +11,49 @@ namespace KansKaarten
     public class Kanskaarten : ScriptableObject
     {
 
-        public string Headline;
+        [TextArea] public string PreInsert;
+        public bool Insert;
+        public string AfterInsert;
+        
+        
         public Vector2Int Starts;
 
-        public NodeState.FieldTypeEnum FieldType;
+        public bool PrefabUpgrade;
+
+        public NodeState.FieldTypeEnum FieldType
+        {
+            get
+            {
+                if (!Insert) return FieldType;
+                var values = Enum.GetValues(typeof(NodeState.FieldTypeEnum));
+                Random random = new Random();
+                NodeState.FieldTypeEnum randomFieldType = (NodeState.FieldTypeEnum) values.GetValue(random.Next(values.Length));
+                if (randomFieldType == NodeState.FieldTypeEnum.Nothing)
+                {
+                    randomFieldType = (NodeState.FieldTypeEnum) values.GetValue(random.Next(values.Length));
+                }
+                return randomFieldType;
+            }
+        }
         public NodeState.CurrentStateEnum Type;
         public enum BuildingSize
         {
-            Small,Medium,Big
+            All = 0,
+            Small = 2,
+            Medium = 1,
+            Big = 3
         }
 
         public BuildingSize Size;
 
+        public string Effect;
+
         public float InfluencePercentage;
         public float Reward;
-        public float EnviromentInfluence;
-        public float HappynessInfluence;
+        public int EnviromentInfluence;
+        public int HappinessInfluence;
+        public int IncomePercentageIncrease;
+
 
     }
 }

@@ -11,13 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart1
   m_EditorClassIdentifier: 
-  Headline: Door de vooruitgang van technologie zijn de grootste afvalproducenten
-    een stuk duurzamer geworden! Hoera!
+  PreInsert: Door technologische innovatie zijn de grootste boerderijen weer een stuk
+    duurzamer geworden! Hoera!
+  Insert: 0
+  AfterInsert: 
   Starts: {x: 8, y: 2018}
-  FieldType: 0
+  FarmUpgrade: 1
   Type: 0
-  Size: 2
+  Size: 3
+  Effect: grootste boerderijen krijgen +1 hokje milieu stat
   InfluencePercentage: 0
   Reward: 0
-  EnviromentInfluence: 5
-  HappynessInfluence: 0
+  EnviromentInfluence: 1
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 0

@@ -11,13 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events12
   m_EditorClassIdentifier: 
-  Headline: Een appel per dag...
-  Content: 'De overheid gaat meer geld investeren aan fruit voor scholen. Met de groei
-    van obesitas in kinderen wilt de overheid dat er meer gezond wordt gegeten en
-    zij denkt dat dit de eerste stap in de juiste richting is. Van alle fruit lijken
-    vooral appels populair bij de kinderen te zijn. '
+  Headline: Konijnen houden van wortels
+  Content: Er is een nieuw ras wilde konijnen in Nederland ontsnapt dat zich razendsnel
+    verspreidt. Dit ras heeft een enorme eetlust en is ontzettend dol op wortels.
+    Onlangs zijn veel wortelvelden aangetast door deze hongerige knaagdieren en daardoor
+    is de productie van wortel sterk verminderd.
+  Effect: -30% voor 2 maanden +1 hokje milieu per wortel veld/boerderij
   Starts: {x: 5, y: 2049}
-  Finishes: {x: 9, y: 2053}
-  FieldType: 3
-  Type: 1
-  InfluencePercentage: 15
+  Finishes: {x: 8, y: 2049}
+  MyFieldTypes:
+  - FieldType: 1
+    InfluencePercentage: -30
+  Enviromental: 1
+  Happiness: 0

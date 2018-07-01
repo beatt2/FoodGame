@@ -121,7 +121,7 @@ namespace Node
             _spriteRenderer.sprite = sprite;
         }
 
-        public void ResetNode(bool isPlant)
+        public void ResetNode(bool isPlant, bool resetListIndex)
         {
             _spriteRenderer.sprite = GridManager.Instance.BuildingPlacement.GetOriginalSprite();
             if (!isPlant)
@@ -131,11 +131,16 @@ namespace Node
             else
             {
                 GetComponent<NodeState>().CurrentState = NodeState.CurrentStateEnum.EmptyField;
+                
             }
 
             HighLight.ResetActiveColor();
             HighLight.ChangeColorToOld();
-            ListIndex = -1;
+            if (resetListIndex)
+            {
+                ListIndex = -1;
+
+            }
             if(!isPlant)
             RemoveCultivationTile();
         }

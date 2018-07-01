@@ -74,6 +74,25 @@ namespace Grid
             LoadNodes();
         }
 
+        public int GetCultivationByFieldType(NodeState.FieldTypeEnum fieldType)
+        {
+         
+            int listCount = 0;
+            for (int i = 0; i < _nodeBehavioursGrid.GetLength(0); i++)
+            {
+                for (int j = 0; j < _nodeBehavioursGrid.GetLength(1); j++)
+                {
+                    if (_nodeBehavioursGrid[i, j].GetComponent<NodeState>().FieldType == fieldType)
+                    {
+                        listCount++;
+                        
+                    }
+                }
+            }
+
+            return listCount;
+        }
+
         private void LoadNodes()
         {
             _nodeBehavioursGrid = SaveManager.Instance.LoadNodes(_nodeBehavioursGrid);
@@ -179,6 +198,49 @@ namespace Grid
                 }
 
             }
+        }
+
+        public List<Cultivation> GetCertainSizeCultivation(int sizeRank, bool building)
+        {
+            List<Cultivation> cultivations = new List<Cultivation>();
+            if (building)
+            {
+                for (int i = 0; i < _nodeBehavioursGrid.GetLength(0); i++)
+                {
+                    for (int j = 0; j < _nodeBehavioursGrid.GetLength(1); j++)
+                    {
+                        if (_nodeBehavioursGrid[i, j].GetComponent<BuildingPrefab>() == null) continue;
+                        if (_nodeBehavioursGrid[i, j].GetComponent<BuildingPrefab>().SizeRank == sizeRank)
+                        {
+                            cultivations.Add(_nodeBehavioursGrid[i, j].GetComponent<BuildingPrefab>().MyBuilding);
+                        }
+                        else if (sizeRank == 0)
+                        {
+                            cultivations.Add(_nodeBehavioursGrid[i, j].GetComponent<BuildingPrefab>().MyBuilding);
+                        }
+                    } 
+                }
+            }
+            else
+            {
+                for (int i = 0; i < _nodeBehavioursGrid.GetLength(0); i++)
+                {
+                    for (int j = 0; j < _nodeBehavioursGrid.GetLength(1); j++)
+                    {
+                        if (_nodeBehavioursGrid[i, j].GetComponent<PlantPrefab>() == null) continue;
+                        if (_nodeBehavioursGrid[i, j].GetComponent<PlantPrefab>().SizeRank == sizeRank)
+                        {
+                            cultivations.Add(_nodeBehavioursGrid[i, j].GetComponent<PlantPrefab>().MyPlant);
+                        }
+                        else if (sizeRank == 0)
+                        {
+                            cultivations.Add(_nodeBehavioursGrid[i, j].GetComponent<PlantPrefab>().MyPlant);
+                        }
+                    } 
+                }
+            }
+
+            return cultivations;
         }
 
         public NodeBehaviour GetSelectedNode()

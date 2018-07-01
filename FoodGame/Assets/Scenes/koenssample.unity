@@ -28349,7 +28349,7 @@ Prefab:
       objectReference: {fileID: 1861640826}
     - target: {fileID: 1712024453475124, guid: 741a411652c98f94cb064a5b31dea01a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224445409814001462, guid: 741a411652c98f94cb064a5b31dea01a,
         type: 2}
@@ -31422,8 +31422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 53}
-  m_SizeDelta: {x: 1000, y: 300}
+  m_AnchoredPosition: {x: 0, y: 118}
+  m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &976868833
 CanvasRenderer:
@@ -31463,7 +31463,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Steeds meer mensen worden bijziend. Dat blijkt uit een recent onderzoek.
+    Ook blijkt dat wortels beter voor je ogen zijn dan voorheen gedacht en dat is
+    zeker voordelig in de nabije toekomst.
 --- !u!1 &980103274
 GameObject:
   m_ObjectHideFlags: 0

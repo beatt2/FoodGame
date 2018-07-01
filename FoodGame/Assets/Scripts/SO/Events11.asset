@@ -11,12 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events11
   m_EditorClassIdentifier: 
-  Headline: Grote kans voor bramen
-  Content: De zachtfruitteelt is aan het groeien, zoals blijkt uit de laatste cijfers.
-    Echter zijn er nog niet veel boerderijen die bramen verbouwen. Nu zou dus een
-    goed moment zijn om te investeren in meer braamstruiken.
+  Headline: 'Vraag naar biologische druiven stijgt '
+  Content: Steeds meer mensen vragen om biologische druiven. Dit leidt tot hogere
+    prijzen voor de boeren.
+  Effect: +10% voor 60 maanden +1 hokje milieu per boerderij/veld
   Starts: {x: 5, y: 2044}
-  Finishes: {x: 9, y: 2050}
-  FieldType: 4
-  Type: 1
-  InfluencePercentage: 5
+  Finishes: {x: 6, y: 2049}
+  MyFieldTypes:
+  - FieldType: 7
+    InfluencePercentage: 10
+  Enviromental: 1
+  Happiness: 0

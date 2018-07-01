@@ -97,17 +97,24 @@ namespace Grid
 
         public static void UpgradeFarmFinished(BuildingPrefab buildingPrefab)
         {
-            var node = buildingPrefab.GetComponent<NodeBehaviour>();
-            node.SetSprite(SaveManager.Instance.GetSprite(buildingPrefab.GetSavedBuilding().SpriteIndex));
+       
+                var node = buildingPrefab.GetComponent<NodeBehaviour>();
+                node.SetSprite(SaveManager.Instance.GetSprite(buildingPrefab.GetSavedBuilding().SpriteIndex));
 
-            buildingPrefab.RemoveUpgrade();
+                buildingPrefab.RemoveUpgrade();
+            
+   
+
         }
 
         public static void UpgradeFieldFinished(PlantPrefab plantPrefab)
         {
-            var node = plantPrefab.GetComponent<NodeBehaviour>();
-            node.SetSprite(SaveManager.Instance.GetSprite(plantPrefab.GetSavedPlant().SpriteIndex));
-            plantPrefab.RemoveUpgrade();
+
+                var node = plantPrefab.GetComponent<NodeBehaviour>();
+                node.SetSprite(SaveManager.Instance.GetSprite(plantPrefab.GetSavedPlant().SpriteIndex));
+                plantPrefab.RemoveUpgrade();
+         
+     
         }
 
 
@@ -179,6 +186,7 @@ namespace Grid
                 if (node.gameObject.GetComponent<PlantPrefab>() != null)
                 {
                     SimpleMoneyManager.Instance.RemoveValue(node.gameObject.GetComponent<PlantPrefab>().MyPlant);
+                    
                     EventManager.Instance.AddEnviromentValue
                     (
                         node.GetComponent<NodeState>().FieldType,
@@ -189,11 +197,18 @@ namespace Grid
                         node.GetComponent<NodeState>().FieldType,
                         -node.GetComponent<PlantPrefab>().MyPlant.Happiness
                     );
+                    if (node.GetComponent<PlantPrefab>().MyPlant.Upgrade)
+                    {
+                        CultivationManager.Instance.RemoveUpgradedCultivation(node.GetComponent<PlantPrefab>());
+                        node.ResetNode(true, false);
+                        node.HighLight.ChangeColorToOld();
+                        node.GetComponent<PlantPrefab>().ResetValues();
+                    }                    
                     isPlant = true;
                 }
 
 
-                node.ResetNode(isPlant);
+                node.ResetNode(isPlant, false);
                 return;
             }
 
@@ -216,6 +231,12 @@ namespace Grid
                         nodeBehaviour.GetComponent<NodeState>().FieldType,
                         -nodeBehaviour.GetComponent<PlantPrefab>().MyPlant.Happiness
                     );
+                    if (nodeBehaviour.GetComponent<PlantPrefab>().MyPlant.Upgrade)
+                    {
+                        CultivationManager.Instance.RemoveUpgradedCultivation(nodeBehaviour.GetComponent<PlantPrefab>());
+                    }
+
+                    nodeBehaviour.GetComponent<PlantPrefab>().ResetValues();
                 }
                 else if (nodeBehaviour.gameObject.GetComponent<BuildingPrefab>() != null)
                 {
@@ -230,9 +251,13 @@ namespace Grid
                         nodeBehaviour.GetComponent<NodeState>().FieldType,
                         -nodeBehaviour.GetComponent<BuildingPrefab>().MyBuilding.Happiness
                     );
+                    if (node.GetComponent<BuildingPrefab>().MyBuilding.Upgrade)
+                    {
+                        CultivationManager.Instance.RemoveUpgradedCultivation(node.GetComponent<BuildingPrefab>());
+                    }  
                 }
 
-                nodeBehaviour.ResetNode(false);
+                nodeBehaviour.ResetNode(false, true);
             }
 
             GridManager.Instance.GetCultivationLocationDictionary()[nodeIndex].Clear();

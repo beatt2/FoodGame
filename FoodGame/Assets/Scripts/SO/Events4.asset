@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Name: Events4
   m_EditorClassIdentifier: 
   Headline: Braam concurrentie
-  Content: "Er is een nieuwe concurrent gekomen voor de braam industrie. De nieuwe
-    producent \u2018Braamderij\u2019 is zo succesvol dat veel supermarkten hebben
-    besloten om over te stappen. Hier lijdt de verkoop van andere boeren onder."
+  Content: "Er is een nieuwe grote concurrent  bijgekomen die bramen kweekt. Deze
+    nieuwe producent \u2018Braamderij\u2019 is zo succesvol dat veel supermarkten
+    hebben besloten om hun bramen te gaan verkopen. De andere boeren krijgen hierdoor
+    fors minder geld voor hun producten."
+  Effect: '-60% voor 6 maanden voor bramen '
   Starts: {x: 5, y: 2022}
-  Finishes: {x: 10, y: 2026}
-  FieldType: 4
-  Type: 1
-  InfluencePercentage: -10
+  Finishes: {x: 12, y: 2022}
+  MyFieldTypes:
+  - FieldType: 4
+    InfluencePercentage: -60
+  Enviromental: 0
+  Happiness: 0

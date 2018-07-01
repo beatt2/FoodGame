@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Grid;
 using MathExt;
 using Money;
 using Node;
@@ -60,8 +61,8 @@ namespace Events
         public void AddEvent(Events events)
         {
             _eventsInInbox.Add(events);
-            string effect = Finance.GetName(events.FieldType) + " " + events.InfluencePercentage + "%";
-            Add(events.Headline, events.InfluencePercentage);
+            string effect = events.Effect;
+            Add(events.Headline, events.MyFieldTypes);
         }
 
         public void CheckDuration(int month, int year)
@@ -70,22 +71,25 @@ namespace Events
             {
                 if (events.Finishes == new Vector2Int(month, year))
                 {
-                    SimpleMoneyManager.Instance.SetPercentage(events.FieldType, -events.InfluencePercentage);
+                    for (int i = 0; i < events.MyFieldTypes.Length; i++)
+                    {
+                        SimpleMoneyManager.Instance.SetPercentage(events.MyFieldTypes[i].FieldType, -events.MyFieldTypes[i].InfluencePercentage);
+
+                    }
                 }
             }
         }
 
 
-        public void Add(string headline, float percentage)
+        public void Add(string headline, FieldTypes [] fieldTypes)
         {
             GameObject go = Instantiate(HeadlineUiPrefab, _startingPos, Quaternion.identity, Content.transform) as GameObject;
 
-            if (percentage < 0)
+            if (fieldTypes[0].InfluencePercentage < 0)
             {
-                if (percentage < 0)
-                {
+               
                     go.GetComponent<Image>().sprite = EventManager.Instance.MessageBackground[1];
-                }
+                
             }
 
             _go.Insert(0, go);
@@ -164,7 +168,7 @@ namespace Events
                 if (!_eventsInInbox.Contains(EventManager.Instance.EventsArray[inbox[index]]))
                 {
                     _eventsInInbox.Add(EventManager.Instance.EventsArray[inbox[index]]);
-                    Add(_eventsInInbox[index].Headline, _eventsInInbox[index].InfluencePercentage);
+                    Add(_eventsInInbox[index].Headline, _eventsInInbox[index].MyFieldTypes);
                 }
             }
 
@@ -179,7 +183,15 @@ namespace Events
                     if(EventManager.Instance.EventsArray[j].Starts == new Vector2Int(oldMonth,oldYear))
                     {
                         _eventsInInbox.Add(EventManager.Instance.EventsArray[j]);
-                        Add(_eventsInInbox[_eventsInInbox.Count - 1].Headline, _eventsInInbox[_eventsInInbox.Count -1].InfluencePercentage);
+                        Add(_eventsInInbox[_eventsInInbox.Count - 1].Headline, _eventsInInbox[_eventsInInbox.Count -1].MyFieldTypes);
+                        for (int k = 0; k < _eventsInInbox[_eventsInInbox.Count -1].MyFieldTypes.Length; k++)
+                        {
+                            int temp =GridManager.Instance.GetCultivationByFieldType(_eventsInInbox[_eventsInInbox.Count - 1].MyFieldTypes[k].FieldType);
+                            EventManager.Instance.AddEnviromentValue(_eventsInInbox[_eventsInInbox.Count - 1].MyFieldTypes[k].FieldType,temp);
+                            EventManager.Instance.AddHappinessValue(_eventsInInbox[_eventsInInbox.Count - 1].MyFieldTypes[k].FieldType,temp);
+                        }
+        
+                        
                     }
                 }
 
@@ -211,8 +223,7 @@ namespace Events
             messagePrefab.Content = PopupScript.ContentText;
             messagePrefab.Effect = PopupScript.EffectText;
             messagePrefab.Content.text = _eventsInInbox[index - 1].Content;
-            string effect = Finance.GetName(_eventsInInbox[index - 1].FieldType) + " " +
-            _eventsInInbox[index - 1].InfluencePercentage + "%";
+            string effect = _eventsInInbox[index - 1].Effect;
             messagePrefab.Effect.text = effect;
         }
 

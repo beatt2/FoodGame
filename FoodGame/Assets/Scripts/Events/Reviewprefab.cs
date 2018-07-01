@@ -26,7 +26,7 @@ namespace Events
 			Effect.text = effect;
 		}
 
-		private string GetInsert(NodeState.FieldTypeEnum fieldType)
+		public static string GetInsert(NodeState.FieldTypeEnum fieldType)
 		{
 			switch (fieldType)
 			{

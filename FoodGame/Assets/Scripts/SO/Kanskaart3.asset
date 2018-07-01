@@ -11,13 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart3
   m_EditorClassIdentifier: 
-  Headline: ' -insert groente/fruit- lijken steeds populairder te worden. De bevolking
-    doet massaal inkopen.'
-  Starts: {x: 12, y: 2018}
-  FieldType: 0
+  PreInsert: 'Mensen zijn bereid om steeds meer te kopen bij kleinschalige boerderijen. '
+  Insert: 0
+  AfterInsert: 
+  Starts: {x: 12, y: 2030}
+  FarmUpgrade: 1
   Type: 0
-  Size: 0
-  InfluencePercentage: 5
-  Reward: 15
+  Size: 2
+  Effect: kleine boerderijen krijgen +10% meer inkomen
+  InfluencePercentage: 0
+  Reward: 0
   EnviromentInfluence: 0
-  HappynessInfluence: 0
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 10

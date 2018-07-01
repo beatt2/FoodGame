@@ -11,14 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ed4efa097373ca4c87ea97808edb69f, type: 3}
   m_Name: Kanskaart8
   m_EditorClassIdentifier: 
-  Headline: Vanwege de hevige regenval is in een overstroming een derde van je velden
-    onder water komen staan. Nu moet je betalen voor de schade en het water weg te
-    laten pompen. Dat is balen!
-  Starts: {x: 10, y: 2025}
-  FieldType: 0
+  PreInsert: Jouw
+  Insert: 1
+  AfterInsert: 'is als beste getest bij supermarkt Arend Haan. De mensen staan in
+    de rij om jouw producten te kopen! '
+  Starts: {x: 10, y: 2048}
+  FarmUpgrade: 0
   Type: 0
   Size: 0
+  Effect: je krijgt 2000 euro
   InfluencePercentage: 0
-  Reward: -50
+  Reward: 2000
   EnviromentInfluence: 0
-  HappynessInfluence: 0
+  HappinessInfluence: 0
+  IncomePercentageIncrease: 0

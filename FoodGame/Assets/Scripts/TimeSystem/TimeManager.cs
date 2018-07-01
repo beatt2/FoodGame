@@ -42,8 +42,11 @@ namespace TimeSystem
                 _savedWaitForSeconds = WaitForSeconds;
 
             }
+            if (SaveManager.Instance.GetTutorialBool())
+            {
+                StartCoroutine("Timer");
+            }
 
-            StartCoroutine("Timer");
 
         }
 
@@ -60,7 +63,7 @@ namespace TimeSystem
         }
 
 
-        private void SetWaitForSeconds(int value)
+        public void SetWaitForSeconds(int value)
         {
             WaitForSeconds = value;
         }

@@ -1,4 +1,5 @@
 ﻿using Events;
+using Grid;
 using JetBrains.Annotations;
 using Money;
 using Node;
@@ -46,6 +47,10 @@ namespace Cultivations
             SyncValuesToMyPlant();
         }
 
+        public void ResetValues()
+        {
+            ChangeValues(GridManager.Instance.BuildingPlacement.EmptyField.GetComponent<PlantPrefab>().MyPlant);
+        }
 
         public void RemoveUpgrade()
         {

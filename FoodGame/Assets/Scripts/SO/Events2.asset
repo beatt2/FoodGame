@@ -11,12 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b34f306d63f447a8123d8916b242a, type: 3}
   m_Name: Events2
   m_EditorClassIdentifier: 
-  Headline: Wortels beter voor ogen
-  Content: Steeds meer mensen worden bijziend. Dat blijkt uit een recent onderzoek.
-    Ook blijkt dat wortels beter voor je ogen zijn dan voorheen gedacht en dat is
-    zeker voordelig in de nabije toekomst.
+  Headline: " Te veel ma\xEFsproductie"
+  Content: "Er is plotseling een overschot van ma\xEFs op de wereldmarkt. Hierdoor
+    daalt ook de prijs van ma\xEFs sterk in Nederland."
+  Effect: -20% voor 24 maanden voor mais
   Starts: {x: 5, y: 2020}
-  Finishes: {x: 9, y: 2026}
-  FieldType: 1
-  Type: 1
-  InfluencePercentage: 5
+  Finishes: {x: 6, y: 2022}
+  MyFieldTypes:
+  - FieldType: 0
+    InfluencePercentage: -20
+  Enviromental: 0
+  Happiness: 0

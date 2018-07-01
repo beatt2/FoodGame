@@ -8,15 +8,15 @@ namespace Cultivations
     public abstract class Cultivation
     {
         public readonly string Name;
-        public readonly int MoneyTick;// = value
+        public int MoneyTick;// = value
         public readonly float ExpenseTick;
         public readonly int MonthsToGrow;
         public int BuildPrice;
         public readonly int UpgradeValue;
         public readonly int SpriteIndex;
         public readonly int SidePanelSpriteIndex;
-        public readonly int EnviromentValue;
-        public readonly int Happiness;
+        public  int EnviromentValue;
+        public  int Happiness;
         public int SizeRank;
         public int MonthCount;
         public readonly bool Upgrade;
